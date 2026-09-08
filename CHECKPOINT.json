@@ -4,29 +4,37 @@
   "source_mod_name": "Seven Deadly Sins 1.6",
   "cp_total_keys": 24827,
   "dll_total_keys": 2419,
-  "verified_persisted": {
+  "session_verified": {
     "cp": {
       "start_index": 5701,
-      "end_index": 8400,
-      "key_count": 2700,
-      "next_index": 8401,
-      "status": "present_on_disk_at_handoff",
-      "qa": "previously checked in batches; revalidate after reconstructing merged repo file"
-    },
-    "dll": {
-      "key_count": 0,
-      "status": "not_persisted_at_handoff",
-      "note": "Conversation history reported 2419/2419 complete, but no DLL vi.json was present on disk when GitHub handoff was created. Treat as unverified until recovered or rebuilt."
+      "end_index": 12700,
+      "key_count": 7000,
+      "next_index": 12701,
+      "status": "translated_in_current_conversation_and_QA_checked_in_batches"
     }
+  },
+  "github_materialized": {
+    "cp": {
+      "start_index": 5701,
+      "end_index": 6900,
+      "key_count": 1200,
+      "status": "actual translation shard files currently present in repository"
+    }
+  },
+  "recovery_in_progress": {
+    "cp_ranges_to_upload": ["6901-12700"],
+    "source": "recovering exact translation batches from current conversation history before session ends"
   },
   "missing_or_unverified": {
     "cp_ranges": ["1-5700"],
-    "dll_ranges": ["1-2419"]
+    "dll_ranges": ["1-2419"],
+    "note": "These were reported translated earlier, but no persisted copy has yet been verified in the repository."
   },
   "resume_target": {
-    "cp_next_index": 8401,
+    "cp_next_translation_index": 12701,
+    "priority_before_more_translation": "materialize recovered CP 6901-12700 into translations/cp and update this file as uploads complete",
     "release_blocker": "Recover/retranslate CP 1-5700 and DLL 1-2419 before final release if no persisted copies are found."
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-08T20:40:00+07:00"
+  "updated_at": "2026-09-09T02:24:00+07:00"
 }
