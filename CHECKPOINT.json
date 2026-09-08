@@ -1,0 +1,32 @@
+{
+  "project": "Seven Deadly Sins Vietnamese Localization",
+  "source_version": "3.13.4",
+  "source_mod_name": "Seven Deadly Sins 1.6",
+  "cp_total_keys": 24827,
+  "dll_total_keys": 2419,
+  "verified_persisted": {
+    "cp": {
+      "start_index": 5701,
+      "end_index": 8400,
+      "key_count": 2700,
+      "next_index": 8401,
+      "status": "present_on_disk_at_handoff",
+      "qa": "previously checked in batches; revalidate after reconstructing merged repo file"
+    },
+    "dll": {
+      "key_count": 0,
+      "status": "not_persisted_at_handoff",
+      "note": "Conversation history reported 2419/2419 complete, but no DLL vi.json was present on disk when GitHub handoff was created. Treat as unverified until recovered or rebuilt."
+    }
+  },
+  "missing_or_unverified": {
+    "cp_ranges": ["1-5700"],
+    "dll_ranges": ["1-2419"]
+  },
+  "resume_target": {
+    "cp_next_index": 8401,
+    "release_blocker": "Recover/retranslate CP 1-5700 and DLL 1-2419 before final release if no persisted copies are found."
+  },
+  "translation_rules_file": "HANDOFF.md",
+  "updated_at": "2026-09-08T20:40:00+07:00"
+}
