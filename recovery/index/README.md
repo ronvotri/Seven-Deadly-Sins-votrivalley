@@ -2,10 +2,20 @@
 
 Các file trong thư mục này lưu bản dịch theo **chỉ số 1-based trong thứ tự key của `[CP] Seven Deadly Sins/i18n/default.json` phiên bản 3.13.4**.
 
-Cách phục hồi:
+## Cách phục hồi
 1. Đọc `default.json` 3.13.4 và giữ nguyên thứ tự key.
 2. Với mỗi cặp `index -> translation`, lấy key ở vị trí `index - 1`.
 3. Gán bản dịch vào key đó trong `vi.json`.
 4. Sau khi ghép phải chạy QA token/Hán tự như `HANDOFF.md` quy định.
 
-Các file recovery là dữ liệu cứu hộ từ phiên ChatGPT đã QA trước đó. Sau khi materialize thành shard key-based trong `translations/cp`, cập nhật `CHECKPOINT.json`.
+## Thứ tự áp dụng
+- Áp các shard `CP_<start>_<end>.json` trước.
+- Sau đó **áp các file `*_QA_PATCH.json` cuối cùng** để ghi đè những key đã được sửa trong lượt QA cuối.
+- Hiện `CP_11601_11800_QA_PATCH.json` là bắt buộc và sửa index `11602`, `11686-11720`.
+
+## Trạng thái hiện tại
+- Recovery index đã backup thật: **#11,601 → #12,700**.
+- Key-based shards trong `translations/cp`: **#5,701 → #6,900**.
+- Khoảng đang cần tiếp tục phục hồi: **#6,901 → #11,600**.
+
+Các file recovery là dữ liệu cứu hộ từ phiên ChatGPT. Sau khi materialize thành shard key-based trong `translations/cp`, cập nhật `CHECKPOINT.json`.
