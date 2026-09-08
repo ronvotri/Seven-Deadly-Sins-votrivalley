@@ -14,16 +14,28 @@
     }
   },
   "github_materialized": {
-    "cp": {
+    "cp_key_based_shards": {
       "start_index": 5701,
       "end_index": 6900,
       "key_count": 1200,
-      "status": "actual translation shard files currently present in repository"
+      "path": "translations/cp"
+    },
+    "cp_recovery_index_shards": {
+      "start_index": 11601,
+      "end_index": 12700,
+      "key_count": 1100,
+      "path": "recovery/index",
+      "status": "actual Vietnamese translations preserved by 1-based source index"
+    },
+    "qa_override": {
+      "path": "recovery/index/CP_11601_11800_QA_PATCH.json",
+      "apply_after_base_recovery_shards": true,
+      "note": "Final QA corrections for index 11602 and 11686-11720."
     }
   },
   "recovery_in_progress": {
-    "cp_ranges_to_upload": ["6901-12700"],
-    "source": "recovering exact translation batches from current conversation history before session ends"
+    "cp_ranges_to_upload": ["6901-11600"],
+    "source": "recovering exact translation batches from current conversation history"
   },
   "missing_or_unverified": {
     "cp_ranges": ["1-5700"],
@@ -32,7 +44,7 @@
   },
   "resume_target": {
     "cp_next_translation_index": 12701,
-    "priority_before_more_translation": "materialize recovered CP 6901-12700 into translations/cp and update this file as uploads complete",
+    "priority_before_more_translation": "Continue materializing recoverable CP 6901-11600 when possible; new translation may resume at 12701 once persistence is judged safe.",
     "release_blocker": "Recover/retranslate CP 1-5700 and DLL 1-2419 before final release if no persisted copies are found."
   },
   "translation_rules_file": "HANDOFF.md",
