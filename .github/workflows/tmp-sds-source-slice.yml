@@ -1,0 +1,72 @@
+name: Temporary SDS source slice
+
+on:
+  push:
+    paths:
+      - '.github/workflows/tmp-sds-source-slice.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Install remotezip
+        run: python -m pip install --disable-pip-version-check remotezip
+
+      - name: Extract CP 14797-14996 from exact 3.13.4 mod dump
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          from remotezip import RemoteZip
+
+          url = 'https://smapistorage.blob.core.windows.net/exports/stardew-mod-dataset.zip'
+          start, end = 14797, 14996
+          with RemoteZip(url) as rz:
+              names = rz.namelist()
+              candidates = [
+                  n for n in names
+                  if 'Nexus/15/15100/178657/' in n
+                  and n.replace('\\', '/').lower().endswith('/i18n/default.json')
+                  and '[cp]' in n.lower()
+              ]
+              print(f'candidate_count={len(candidates)}')
+              for n in candidates:
+                  print(f'candidate={n}')
+              if not candidates:
+                  raise SystemExit('Exact CP i18n/default.json not found in mod dump.')
+              raw = rz.read(candidates[0])
+
+          text = raw.decode('utf-8-sig')
+          data = json.loads(text)
+          items = list(data.items())
+          print(f'cp_key_count={len(items)}')
+          if len(items) < end:
+              raise SystemExit(f'CP source has only {len(items)} keys, expected >= {end}.')
+
+          entries = [
+              {'index': i, 'key': items[i-1][0], 'value': items[i-1][1]}
+              for i in range(start, end + 1)
+          ]
+          out = {
+              'source': 'Seven Deadly Sins 1.6 3.13.4 / Nexus file 178657',
+              'cp_key_count': len(items),
+              'start_index': start,
+              'end_index': end,
+              'entries': entries,
+          }
+          Path('sds-source-slice.json').write_text(
+              json.dumps(out, ensure_ascii=False, indent=2), encoding='utf-8'
+          )
+
+      - name: Upload source slice
+        uses: actions/upload-artifact@v4
+        with:
+          name: sds-source-slice-14797-14996
+          path: sds-source-slice.json
+          retention-days: 1
+          if-no-files-found: error
