@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
+      - name: Install JSON5 parser
+        run: python -m pip install --disable-pip-version-check json5
+
       - name: Extract CP 14797-14996 from exact 3.13.4 mod dump
         shell: python
         run: |
@@ -22,6 +25,7 @@ jobs:
           import zipfile
           from pathlib import Path
           import requests
+          import json5
 
           class ExplicitRangeReader(io.RawIOBase):
               def __init__(self, url):
@@ -33,14 +37,9 @@ jobs:
                   self.pos = 0
                   print(f'archive_bytes={self.length}')
 
-              def readable(self):
-                  return True
-
-              def seekable(self):
-                  return True
-
-              def tell(self):
-                  return self.pos
+              def readable(self): return True
+              def seekable(self): return True
+              def tell(self): return self.pos
 
               def seek(self, offset, whence=io.SEEK_SET):
                   if whence == io.SEEK_SET:
@@ -65,13 +64,10 @@ jobs:
                       if size == 0:
                           return b''
                       end = min(self.length - 1, self.pos + size - 1)
-                  headers = {'Range': f'bytes={self.pos}-{end}'}
-                  r = self.session.get(self.url, headers=headers, allow_redirects=True, timeout=180)
+                  requested = f'bytes={self.pos}-{end}'
+                  r = self.session.get(self.url, headers={'Range': requested}, allow_redirects=True, timeout=180)
                   if r.status_code != 206:
-                      raise RuntimeError(
-                          f'Range GET failed: status={r.status_code}, requested={headers["Range"]}, '
-                          f'content-range={r.headers.get("Content-Range")}, content-length={r.headers.get("Content-Length")}'
-                      )
+                      raise RuntimeError(f'Range GET failed: {r.status_code} for {requested}')
                   body = r.content
                   self.pos += len(body)
                   return body
@@ -92,15 +88,11 @@ jobs:
               for n in candidates:
                   print(f'candidate={n}')
               if not candidates:
-                  nearby = [n for n in names if 'Nexus/15/15100/178657/' in n.replace('\\', '/')]
-                  print(f'nearby_count={len(nearby)}')
-                  for n in nearby[:100]:
-                      print(f'nearby={n}')
                   raise SystemExit('Exact CP i18n/default.json not found in mod dump.')
               raw = rz.read(candidates[0])
 
           text = raw.decode('utf-8-sig')
-          data = json.loads(text)
+          data = json5.loads(text, allow_duplicate_keys=True)
           items = list(data.items())
           print(f'cp_key_count={len(items)}')
           if len(items) < end:
