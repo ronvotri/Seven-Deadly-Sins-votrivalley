@@ -1,4 +1,4 @@
-name: SDS CP finalize and audit v2
+name: SDS CP mismatch diagnostics
 
 on:
   push:
@@ -10,228 +10,91 @@ permissions:
   contents: write
 
 jobs:
-  audit:
+  diagnose:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-
       - name: Install JSON5 parser
         run: python -m pip install --disable-pip-version-check json5
-
-      - name: Reconcile recovery and run structural audit v2
+      - name: Export exact token mismatch diagnostics
         shell: python
         run: |
           import io, json, re, zipfile
           from pathlib import Path
-          from datetime import datetime, timezone
+          from collections import Counter
           import requests, json5
 
           class R(io.RawIOBase):
-              def __init__(self, url):
-                  self.url = url
-                  self.s = requests.Session()
-                  h = self.s.head(url, allow_redirects=True, timeout=60)
-                  h.raise_for_status()
-                  self.n = int(h.headers['Content-Length'])
-                  self.p = 0
+              def __init__(self,url):
+                  self.url=url; self.s=requests.Session(); h=self.s.head(url,allow_redirects=True,timeout=60); h.raise_for_status(); self.n=int(h.headers['Content-Length']); self.p=0
               def readable(self): return True
               def seekable(self): return True
               def tell(self): return self.p
-              def seek(self, o, w=io.SEEK_SET):
-                  if w == io.SEEK_SET: self.p = o
-                  elif w == io.SEEK_CUR: self.p += o
-                  elif w == io.SEEK_END: self.p = self.n + o
-                  else: raise ValueError(w)
+              def seek(self,o,w=io.SEEK_SET):
+                  if w==io.SEEK_SET:self.p=o
+                  elif w==io.SEEK_CUR:self.p+=o
+                  elif w==io.SEEK_END:self.p=self.n+o
                   return self.p
-              def read(self, size=-1):
-                  if self.p >= self.n: return b''
-                  if size == 0: return b''
-                  e = self.n - 1 if size is None or size < 0 else min(self.n - 1, self.p + size - 1)
-                  r = self.s.get(self.url, headers={'Range': f'bytes={self.p}-{e}'}, allow_redirects=True, timeout=180)
-                  if r.status_code != 206: raise RuntimeError(f'Range GET {r.status_code}')
-                  b = r.content
-                  self.p += len(b)
-                  return b
+              def read(self,size=-1):
+                  if self.p>=self.n:return b''
+                  if size==0:return b''
+                  e=self.n-1 if size is None or size<0 else min(self.n-1,self.p+size-1)
+                  r=self.s.get(self.url,headers={'Range':f'bytes={self.p}-{e}'},allow_redirects=True,timeout=180)
+                  if r.status_code!=206:raise RuntimeError(r.status_code)
+                  b=r.content; self.p+=len(b); return b
 
-          reader = R('https://smapistorage.blob.core.windows.net/exports/stardew-mod-dataset.zip')
+          reader=R('https://smapistorage.blob.core.windows.net/exports/stardew-mod-dataset.zip')
           with zipfile.ZipFile(reader) as z:
-              candidates = [
-                  n for n in z.namelist()
-                  if 'Nexus/15/15100/178657/' in n.replace('\\', '/')
-                  and n.replace('\\', '/').lower().endswith('/i18n/default.json')
-                  and '[cp]' in n.lower()
-              ]
-              if len(candidates) != 1:
-                  raise SystemExit(f'expected one exact CP source, got {len(candidates)}')
-              raw = z.read(candidates[0])
+              c=[n for n in z.namelist() if 'Nexus/15/15100/178657/' in n.replace('\\','/') and n.replace('\\','/').lower().endswith('/i18n/default.json') and '[cp]' in n.lower()]
+              if len(c)!=1:raise SystemExit(f'expected one source, got {len(c)}')
+              raw=z.read(c[0])
+          items=list(json5.loads(raw.decode('utf-8-sig'),allow_duplicate_keys=True).items())
+          if len(items)!=24827:raise SystemExit(len(items))
+          key_to_index={k:i+1 for i,(k,v) in enumerate(items)}
+          source_by_key=dict(items)
 
-          source = json5.loads(raw.decode('utf-8-sig'), allow_duplicate_keys=True)
-          items = list(source.items())
-          if len(items) != 24827:
-              raise SystemExit(f'bad CP source key count: {len(items)}')
-          key_to_index = {k: i + 1 for i, (k, _) in enumerate(items)}
-          index_to_key = {i + 1: k for i, (k, _) in enumerate(items)}
-          index_to_source = {i + 1: v for i, (_, v) in enumerate(items)}
-
-          shard_re = re.compile(r'^CP_(\d+)_(\d+)\.json$')
-          recovery_coverage = set()
-          recovery_errors = []
-          reconciled_files = []
-
-          # Recovery is the latest QA-preserved source of truth where a complete index shard exists.
-          for rp in sorted(Path('recovery/index').glob('CP_*_*.json')):
-              m = shard_re.match(rp.name)
-              if not m:
-                  continue
-              start, end = map(int, m.groups())
-              if start < 1 or end > len(items) or end < start:
-                  recovery_errors.append({'file': str(rp), 'error': 'range_out_of_bounds'})
-                  continue
-              try:
-                  rdata = json.loads(rp.read_text(encoding='utf-8'))
-              except Exception as ex:
-                  recovery_errors.append({'file': str(rp), 'error': f'json:{ex}'})
-                  continue
-              missing_index_keys = [i for i in range(start, end + 1) if str(i) not in rdata]
-              if missing_index_keys:
-                  recovery_errors.append({'file': str(rp), 'error': 'missing_indices', 'indices': missing_index_keys[:20]})
-                  continue
-              recovery_coverage.update(range(start, end + 1))
-              keyed = {index_to_key[i]: rdata[str(i)] for i in range(start, end + 1)}
-              out_path = Path(f'translations/cp/CP_{start}_{end}.json')
-              rendered = json.dumps(keyed, ensure_ascii=False, indent=2) + '\n'
-              old = out_path.read_text(encoding='utf-8') if out_path.exists() else None
-              if old != rendered:
-                  out_path.parent.mkdir(parents=True, exist_ok=True)
-                  out_path.write_text(rendered, encoding='utf-8')
-                  reconciled_files.append(str(out_path))
-
-          # Structural token extractor. Bare % is a narrative/control marker; only known runtime
-          # percent placeholders are compared by full name, so %Pelette/%Shirai prose labels don't
-          # create false positives after Latin-name normalization.
-          token_re = re.compile(
-              r'\{\{.*?\}\}'
-              r'|\[[^\]]+\]'
-              r'|#?\$q\s+[^#]+#'
-              r'|#?\$r\s+[^#]+#'
-              r'|#\$b#'
-              r'|\$[qrb]'
-              r'|\$\d+'
-              r'|%(?:kid\d+|kids\d+|pet\d*)\b'
-              r'|%'
-              r'|@|\^|\|',
-              re.IGNORECASE
-          )
-          han_re = re.compile(r'[\u3400-\u4DBF\u4E00-\u9FFF]')
-
-          coverage = set()
-          duplicate_indices = []
-          unknown_keys = []
-          token_mismatches = []
-          han_hits = []
-          parsed_shards = 0
-          key_based_values = {}
-
+          token_re=re.compile(r'\{\{.*?\}\}|\[[^\]]+\]|#?\$q\s+[^#]+#|#?\$r\s+[^#]+#|#\$b#|\$[qrb]|\$\d+|%(?:kid\d+|kids\d+|pet\d*)\b|%|@|\^|\|',re.IGNORECASE)
+          shard_re=re.compile(r'^CP_(\d+)_(\d+)\.json$')
+          mismatches=[]
           for tp in sorted(Path('translations/cp').glob('CP_*_*.json')):
-              m = shard_re.match(tp.name)
-              if not m:
-                  continue
-              try:
-                  tdata = json.loads(tp.read_text(encoding='utf-8'))
-              except Exception as ex:
-                  unknown_keys.append({'file': str(tp), 'error': f'json:{ex}'})
-                  continue
-              parsed_shards += 1
-              for key, target in tdata.items():
-                  idx = key_to_index.get(key)
-                  if idx is None:
-                      unknown_keys.append({'file': str(tp), 'key': key})
-                      continue
-                  if idx in coverage:
-                      duplicate_indices.append({'index': idx, 'key': key, 'file': str(tp)})
-                  coverage.add(idx)
-                  key_based_values[idx] = target
-                  src = index_to_source[idx]
-                  st = token_re.findall(src)
-                  tt = token_re.findall(target)
-                  if st != tt:
-                      token_mismatches.append({'index': idx, 'key': key, 'source_tokens': st, 'target_tokens': tt})
-                  hs = han_re.findall(target)
-                  if hs:
-                      han_hits.append({'index': idx, 'key': key, 'chars': ''.join(hs[:20])})
+              if not shard_re.match(tp.name):continue
+              data=json.loads(tp.read_text(encoding='utf-8'))
+              for key,target in data.items():
+                  if key not in source_by_key:continue
+                  source=source_by_key[key]
+                  st=token_re.findall(source); tt=token_re.findall(target)
+                  if st!=tt:
+                      mismatches.append({'index':key_to_index[key],'key':key,'source':source,'target':target,'source_tokens':st,'target_tokens':tt,'translation_file':str(tp)})
 
-          recovery_mismatches = []
-          for rp in sorted(Path('recovery/index').glob('CP_*_*.json')):
-              m = shard_re.match(rp.name)
-              if not m: continue
-              start, end = map(int, m.groups())
-              try: rdata = json.loads(rp.read_text(encoding='utf-8'))
-              except Exception: continue
-              for i in range(start, end + 1):
-                  if str(i) in rdata and i in key_based_values and rdata[str(i)] != key_based_values[i]:
-                      recovery_mismatches.append({'index': i, 'file': str(rp)})
-
+          mismatches.sort(key=lambda x:x['index'])
           def ranges(nums):
-              nums = sorted(nums)
-              if not nums: return []
-              out=[]; a=b=nums[0]
+              if not nums:return []
+              nums=sorted(nums); out=[]; a=b=nums[0]
               for n in nums[1:]:
-                  if n == b+1: b=n
-                  else:
-                      out.append(f'{a}-{b}' if a != b else str(a)); a=b=n
-              out.append(f'{a}-{b}' if a != b else str(a))
-              return out
+                  if n==b+1:b=n
+                  else:out.append(f'{a}-{b}' if a!=b else str(a));a=b=n
+              out.append(f'{a}-{b}' if a!=b else str(a));return out
 
-          missing = set(range(1, len(items)+1)) - coverage
-          missing_recovery = set(range(1, len(items)+1)) - recovery_coverage
-          audit = {
-              'project': 'Seven Deadly Sins Vietnamese Localization',
-              'source_version': '3.13.4',
-              'source_nexus_file_id': 178657,
-              'cp_source_key_count': len(items),
-              'generated_at_utc': datetime.now(timezone.utc).isoformat(),
-              'reconciled_from_recovery_this_run': reconciled_files,
-              'policy': 'Complete recovery shards override matching key-based shards because recovery stores the latest QA-preserved Vietnamese by exact 1-based source index.',
-              'key_based': {
-                  'parsed_shards': parsed_shards,
-                  'covered_key_count': len(coverage),
-                  'missing_key_count': len(missing),
-                  'missing_ranges': ranges(missing),
-                  'duplicate_index_count': len(duplicate_indices),
-                  'unknown_key_count': len(unknown_keys),
-                  'technical_token_mismatch_count': len(token_mismatches),
-                  'han_hit_count': len(han_hits),
-              },
-              'recovery': {
-                  'covered_index_count': len(recovery_coverage),
-                  'missing_index_count': len(missing_recovery),
-                  'missing_ranges': ranges(missing_recovery),
-                  'file_error_count': len(recovery_errors),
-                  'key_based_value_mismatch_count_after_reconcile': len(recovery_mismatches),
-              },
-              'details': {
-                  'recovery_errors': recovery_errors[:100],
-                  'duplicate_indices': duplicate_indices[:100],
-                  'unknown_keys': unknown_keys[:100],
-                  'technical_token_mismatches': token_mismatches,
-                  'han_hits': han_hits,
-                  'recovery_key_based_mismatches': recovery_mismatches[:200],
-              },
-          }
-          Path('audit').mkdir(exist_ok=True)
-          Path('audit/CP_AUDIT.json').write_text(json.dumps(audit, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-          print(json.dumps(audit['key_based'], ensure_ascii=False, indent=2))
-          print(json.dumps(audit['recovery'], ensure_ascii=False, indent=2))
+          blocks={}
+          for x in mismatches:
+              b=((x['index']-1)//100)*100+1
+              blocks.setdefault(b,[]).append(x)
+          outdir=Path('audit/mismatches'); outdir.mkdir(parents=True,exist_ok=True)
+          for old in outdir.glob('*.json'):old.unlink()
+          block_summary=[]
+          for b,arr in sorted(blocks.items()):
+              e=b+99
+              p=outdir/f'CP_{b}_{e}.json'
+              p.write_text(json.dumps(arr,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+              block_summary.append({'block':f'{b}-{e}','count':len(arr),'first':arr[0]['index'],'last':arr[-1]['index'],'file':str(p)})
+          summary={'mismatch_count':len(mismatches),'ranges':ranges([x['index'] for x in mismatches]),'blocks':block_summary}
+          Path('audit/CP_MISMATCH_SUMMARY.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(summary,ensure_ascii=False,indent=2))
 
-      - name: Commit reconciled shards and audit
+      - name: Commit diagnostics
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add translations/cp audit/CP_AUDIT.json
-          if git diff --cached --quiet; then
-            echo "No changes"
-          else
-            git commit -m "Reconcile CP recovery and refine structural audit"
-            git push
-          fi
+          git add audit/CP_MISMATCH_SUMMARY.json audit/mismatches
+          if git diff --cached --quiet; then echo "No changes"; else git commit -m "Add exact CP token mismatch diagnostics" && git push; fi
