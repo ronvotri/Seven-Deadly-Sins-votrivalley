@@ -1,0 +1,3948 @@
+{
+  "project": "Seven Deadly Sins Vietnamese Localization",
+  "source_version": "3.13.4",
+  "source_nexus_file_id": 178657,
+  "cp_source_key_count": 24827,
+  "generated_at_utc": "2026-09-09T22:22:39.055465+00:00",
+  "materialized_this_run": [
+    "translations/cp/CP_11201_11300.json",
+    "translations/cp/CP_11601_11700.json",
+    "translations/cp/CP_11701_11800.json",
+    "translations/cp/CP_11801_11900.json",
+    "translations/cp/CP_11901_12000.json",
+    "translations/cp/CP_12001_12100.json",
+    "translations/cp/CP_12101_12200.json",
+    "translations/cp/CP_12201_12300.json",
+    "translations/cp/CP_12301_12400.json",
+    "translations/cp/CP_12401_12500.json",
+    "translations/cp/CP_12501_12600.json",
+    "translations/cp/CP_12601_12700.json",
+    "translations/cp/CP_14501_14600.json",
+    "translations/cp/CP_14601_14700.json",
+    "translations/cp/CP_14701_14796.json",
+    "translations/cp/CP_15997_16096.json",
+    "translations/cp/CP_16097_16196.json",
+    "translations/cp/CP_19997_20096.json",
+    "translations/cp/CP_20097_20196.json",
+    "translations/cp/CP_20197_20296.json",
+    "translations/cp/CP_20297_20396.json",
+    "translations/cp/CP_23997_24096.json",
+    "translations/cp/CP_24097_24196.json",
+    "translations/cp/CP_24197_24296.json",
+    "translations/cp/CP_24297_24396.json",
+    "translations/cp/CP_24397_24496.json",
+    "translations/cp/CP_24497_24596.json",
+    "translations/cp/CP_24597_24696.json",
+    "translations/cp/CP_24697_24796.json",
+    "translations/cp/CP_24797_24827.json"
+  ],
+  "key_based": {
+    "parsed_shards": 136,
+    "covered_key_count": 13527,
+    "missing_key_count": 11300,
+    "missing_ranges": [
+      "1-5700",
+      "6901-11200",
+      "11301-11600",
+      "12701-13700"
+    ],
+    "duplicate_index_count": 0,
+    "unknown_key_count": 0,
+    "technical_token_mismatch_count": 1577,
+    "han_hit_count": 0
+  },
+  "recovery": {
+    "covered_index_count": 12227,
+    "missing_index_count": 12600,
+    "missing_ranges": [
+      "1-11200",
+      "11301-11600",
+      "12701-13700",
+      "15497-15596"
+    ],
+    "file_error_count": 0,
+    "key_based_value_mismatch_count": 702
+  },
+  "details": {
+    "recovery_errors": [],
+    "duplicate_indices": [],
+    "unknown_keys": [],
+    "technical_token_mismatches": [
+      {
+        "index": 11204,
+        "key": "SDS.Dialogue.Pelette.spring_Tue8_18000162.2",
+        "source_tokens": [
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": [
+          "%Pelette",
+          "#$b#",
+          "$1"
+        ]
+      },
+      {
+        "index": 11211,
+        "key": "SDS.Dialogue.Pelette.spring_Wed.2",
+        "source_tokens": [
+          "#$q 18000178/18000179 spring_Wed_P2old#",
+          "#$r 18000178 0 spring_Wed_18000178#",
+          "#$r 18000179 0 spring_Wed_18000179#"
+        ],
+        "target_tokens": [
+          "%Pelette",
+          "#$q 18000178/18000179 spring_Wed_P2old#",
+          "#$r 18000178 0 spring_Wed_18000178#",
+          "#$r 18000179 0 spring_Wed_18000179#"
+        ]
+      },
+      {
+        "index": 11213,
+        "key": "SDS.Dialogue.Pelette.spring_Wed_18000179.2",
+        "source_tokens": [],
+        "target_tokens": [
+          "%Kh"
+        ]
+      },
+      {
+        "index": 11214,
+        "key": "SDS.Dialogue.Pelette.spring_Wed_P2old.2",
+        "source_tokens": [],
+        "target_tokens": [
+          "%Kh"
+        ]
+      },
+      {
+        "index": 11216,
+        "key": "SDS.Dialogue.Pelette.spring_Wed2_18000180.2",
+        "source_tokens": [
+          "#$b#",
+          "$3",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "$3",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11220,
+        "key": "SDS.Dialogue.Pelette.spring_Wed4.2",
+        "source_tokens": [
+          "$2",
+          "#$b#",
+          "$2",
+          "#$b#",
+          "#$q 18000183/18000184/18000185 spring_Wed4_P2old#",
+          "#$r 18000183 0 spring_Wed4_18000183#",
+          "#$r 18000184 0 spring_Wed4_18000184#",
+          "#$r 18000185 0 spring_Wed4_18000185#"
+        ],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "$2",
+          "#$b#",
+          "%Pelette",
+          "#$q 18000183/18000184/18000185 spring_Wed4_P2old#",
+          "#$r 18000183 0 spring_Wed4_18000183#",
+          "#$r 18000184 0 spring_Wed4_18000184#",
+          "#$r 18000185 0 spring_Wed4_18000185#"
+        ]
+      },
+      {
+        "index": 11221,
+        "key": "SDS.Dialogue.Pelette.spring_Wed4_18000183.2",
+        "source_tokens": [
+          "#$b#",
+          "#$b#",
+          "@",
+          "$4",
+          "#$b#",
+          "$5"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "@",
+          "$4",
+          "#$b#",
+          "$5"
+        ]
+      },
+      {
+        "index": 11222,
+        "key": "SDS.Dialogue.Pelette.spring_Wed4_18000184.2",
+        "source_tokens": [
+          "@",
+          "$1",
+          "#$b#",
+          "#$b#",
+          "@",
+          "$1"
+        ],
+        "target_tokens": [
+          "@",
+          "$1",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "@",
+          "$1"
+        ]
+      },
+      {
+        "index": 11224,
+        "key": "SDS.Dialogue.Pelette.spring_Wed4_P2old.2",
+        "source_tokens": [
+          "@",
+          "$1",
+          "#$b#",
+          "#$b#",
+          "@",
+          "$1"
+        ],
+        "target_tokens": [
+          "@",
+          "$1",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "@",
+          "$1"
+        ]
+      },
+      {
+        "index": 11234,
+        "key": "SDS.Dialogue.Pelette.spring_Wed10_18000190.2",
+        "source_tokens": [
+          "#$b#",
+          "@",
+          "$1",
+          "#$b#",
+          "$1",
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "@",
+          "$1",
+          "#$b#",
+          "$1",
+          "#$b#",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11235,
+        "key": "SDS.Dialogue.Pelette.spring_Wed10_18000191.2",
+        "source_tokens": [
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11236,
+        "key": "SDS.Dialogue.Pelette.spring_Wed10_P2old.2",
+        "source_tokens": [
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11237,
+        "key": "SDS.Dialogue.Pelette.spring_Thu.2",
+        "source_tokens": [],
+        "target_tokens": [
+          "%Ph"
+        ]
+      },
+      {
+        "index": 11251,
+        "key": "SDS.Dialogue.Pelette.spring_Thu8_18000210.2",
+        "source_tokens": [
+          "@",
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "@",
+          "$1",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11258,
+        "key": "SDS.Dialogue.Pelette.spring_Fri.2",
+        "source_tokens": [
+          "$3",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$3",
+          "#$b#",
+          "%T"
+        ]
+      },
+      {
+        "index": 11277,
+        "key": "SDS.Dialogue.Pelette.spring_Fri10_18000235.2",
+        "source_tokens": [
+          "@",
+          "$5",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "@",
+          "$5",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11278,
+        "key": "SDS.Dialogue.Pelette.spring_Fri10_P2old.2",
+        "source_tokens": [
+          "@",
+          "$5",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "@",
+          "$5",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11294,
+        "key": "SDS.Dialogue.Pelette.spring_Sat6_18000256.2",
+        "source_tokens": [
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "$2"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "$2"
+        ]
+      },
+      {
+        "index": 11295,
+        "key": "SDS.Dialogue.Pelette.spring_Sat6_P2old.2",
+        "source_tokens": [
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "$2"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "$2"
+        ]
+      },
+      {
+        "index": 11601,
+        "key": "SDS.Dialogue.Pelette.fall_Sat2_P2old.2",
+        "source_tokens": [],
+        "target_tokens": [
+          "%B"
+        ]
+      },
+      {
+        "index": 11602,
+        "key": "SDS.Dialogue.Pelette.fall_Sat4.2",
+        "source_tokens": [
+          "$6",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "#$q 18000553/18000554 fall_Sat4_P2old#",
+          "#$r 18000553 0 fall_Sat4_18000553#",
+          "#$r 18000554 0 fall_Sat4_18000554#"
+        ],
+        "target_tokens": [
+          "$6",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "$b",
+          "%Pelette",
+          "#$q 18000553/18000554 fall_Sat4_P2old#",
+          "#$r 18000553 0 fall_Sat4_18000553#",
+          "#$r 18000554 0 fall_Sat4_18000554#"
+        ]
+      },
+      {
+        "index": 11603,
+        "key": "SDS.Dialogue.Pelette.fall_Sat4_18000553.2",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%B"
+        ]
+      },
+      {
+        "index": 11605,
+        "key": "SDS.Dialogue.Pelette.fall_Sat4_P2old.2",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%B"
+        ]
+      },
+      {
+        "index": 11606,
+        "key": "SDS.Dialogue.Pelette.fall_Sat6.2",
+        "source_tokens": [
+          "$6",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "$1",
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$6",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "$1",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "%Anh"
+        ]
+      },
+      {
+        "index": 11640,
+        "key": "SDS.Dialogue.Pelette.winter_Mon.2",
+        "source_tokens": [
+          "#$q 18000594/18000595 winter_Mon_P2old#",
+          "#$r 18000594 0 winter_Mon_18000594#",
+          "#$r 18000595 0 winter_Mon_18000595#"
+        ],
+        "target_tokens": [
+          "%Pelette",
+          "#$q 18000594/18000595 winter_Mon_P2old#",
+          "#$r 18000594 0 winter_Mon_18000594#",
+          "#$r 18000595 0 winter_Mon_18000595#"
+        ]
+      },
+      {
+        "index": 11645,
+        "key": "SDS.Dialogue.Pelette.winter_Mon2_18000596.2",
+        "source_tokens": [
+          "$6",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$6",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11646,
+        "key": "SDS.Dialogue.Pelette.winter_Mon2_18000597.2",
+        "source_tokens": [
+          "$3",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$3",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11647,
+        "key": "SDS.Dialogue.Pelette.winter_Mon2_P2old.2",
+        "source_tokens": [
+          "$6",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$6",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11667,
+        "key": "SDS.Dialogue.Pelette.winter_Tue2_18000617.2",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11669,
+        "key": "SDS.Dialogue.Pelette.winter_Tue2_P2old.2",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11683,
+        "key": "SDS.Dialogue.Pelette.winter_Tue10_18000625.2",
+        "source_tokens": [
+          "#$b#",
+          "#$b#",
+          "$6"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%S",
+          "#$b#",
+          "$6"
+        ]
+      },
+      {
+        "index": 11686,
+        "key": "SDS.Dialogue.Pelette.winter_Wed.2",
+        "source_tokens": [
+          "#$q 18000637/18000638 winter_Wed_P2old#",
+          "#$r 18000637 0 winter_Wed_18000637#",
+          "#$r 18000638 0 winter_Wed_18000638#"
+        ],
+        "target_tokens": [
+          "%Pelette",
+          "#$q 18000637/18000638 winter_Wed_P2old#",
+          "#$r 18000637 0 winter_Wed_18000637#",
+          "#$r 18000638 0 winter_Wed_18000638#"
+        ]
+      },
+      {
+        "index": 11687,
+        "key": "SDS.Dialogue.Pelette.winter_Wed_18000637.2",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": [
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11688,
+        "key": "SDS.Dialogue.Pelette.winter_Wed_18000638.2",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 11689,
+        "key": "SDS.Dialogue.Pelette.winter_Wed_P2old.2",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 11690,
+        "key": "SDS.Dialogue.Pelette.winter_Wed2.2",
+        "source_tokens": [
+          "$3",
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$3",
+          "#$q 18000639/18000640 winter_Wed2_P2old#",
+          "#$r 18000639 0 winter_Wed2_18000639#",
+          "#$r 18000640 0 winter_Wed2_18000640#"
+        ]
+      },
+      {
+        "index": 11691,
+        "key": "SDS.Dialogue.Pelette.winter_Wed4.2",
+        "source_tokens": [
+          "$6",
+          "#$q 18000639/18000640 winter_Wed4_P2old#",
+          "#$r 18000639 0 winter_Wed4_18000639#",
+          "#$r 18000640 0 winter_Wed4_18000640#"
+        ],
+        "target_tokens": [
+          "$3"
+        ]
+      },
+      {
+        "index": 11692,
+        "key": "SDS.Dialogue.Pelette.winter_Wed4_18000639.2",
+        "source_tokens": [
+          "$0"
+        ],
+        "target_tokens": [
+          "$3"
+        ]
+      },
+      {
+        "index": 11693,
+        "key": "SDS.Dialogue.Pelette.winter_Wed4_18000640.2",
+        "source_tokens": [
+          "$7",
+          "#$b#",
+          "$6"
+        ],
+        "target_tokens": [
+          "$3"
+        ]
+      },
+      {
+        "index": 11694,
+        "key": "SDS.Dialogue.Pelette.winter_Wed4_P2old.2",
+        "source_tokens": [
+          "$0"
+        ],
+        "target_tokens": [
+          "$0",
+          "#$q 18000641/18000642 winter_Wed4_P2old#",
+          "#$r 18000641 0 winter_Wed4_18000641#",
+          "#$r 18000642 0 winter_Wed4_18000642#"
+        ]
+      },
+      {
+        "index": 11695,
+        "key": "SDS.Dialogue.Pelette.winter_Wed6.2",
+        "source_tokens": [
+          "$2",
+          "#$q 18000641/18000642 winter_Wed6_P2old#",
+          "#$r 18000641 0 winter_Wed6_18000641#",
+          "#$r 18000642 0 winter_Wed6_18000642#"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 11696,
+        "key": "SDS.Dialogue.Pelette.winter_Wed6_18000641.2",
+        "source_tokens": [
+          "$6",
+          "#$b#",
+          "#$b#",
+          "$7"
+        ],
+        "target_tokens": [
+          "$6"
+        ]
+      },
+      {
+        "index": 11697,
+        "key": "SDS.Dialogue.Pelette.winter_Wed6_18000642.2",
+        "source_tokens": [
+          "$2"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 11698,
+        "key": "SDS.Dialogue.Pelette.winter_Wed6_P2old.2",
+        "source_tokens": [
+          "$2"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$q 18000643/18000644 winter_Wed6_P2old#",
+          "#$r 18000643 0 winter_Wed6_18000643#",
+          "#$r 18000644 0 winter_Wed6_18000644#"
+        ]
+      },
+      {
+        "index": 11699,
+        "key": "SDS.Dialogue.Pelette.winter_Wed8.2",
+        "source_tokens": [
+          "#$b#",
+          "$0",
+          "#$b#",
+          "#$b#",
+          "$3",
+          "#$q 18000643/18000644 winter_Wed8_P2old#",
+          "#$r 18000643 0 winter_Wed8_18000643#",
+          "#$r 18000644 0 winter_Wed8_18000644#"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 11700,
+        "key": "SDS.Dialogue.Pelette.winter_Wed8_18000643.2",
+        "source_tokens": [
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "@",
+          "$4"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 11701,
+        "key": "SDS.Dialogue.Pelette.winter_Wed8_18000644.2",
+        "source_tokens": [
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 11702,
+        "key": "SDS.Dialogue.Pelette.winter_Wed8_P2old.2",
+        "source_tokens": [
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$q 18000645/18000646 winter_Wed8_P2old#",
+          "#$r 18000645 0 winter_Wed8_18000645#",
+          "#$r 18000646 0 winter_Wed8_18000646#"
+        ]
+      },
+      {
+        "index": 11703,
+        "key": "SDS.Dialogue.Pelette.winter_Wed10.2",
+        "source_tokens": [
+          "$6",
+          "#$q 18000645/18000646 winter_Wed10_P2old#",
+          "#$r 18000645 0 winter_Wed10_18000645#",
+          "#$r 18000646 0 winter_Wed10_18000646#"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 11704,
+        "key": "SDS.Dialogue.Pelette.winter_Wed10_18000645.2",
+        "source_tokens": [
+          "$0",
+          "#$b#",
+          "$6"
+        ],
+        "target_tokens": [
+          "$5"
+        ]
+      },
+      {
+        "index": 11705,
+        "key": "SDS.Dialogue.Pelette.winter_Wed10_18000646.2",
+        "source_tokens": [
+          "@",
+          "$1",
+          "#$b#",
+          "#$b#",
+          "$6",
+          "#$b#",
+          "$6",
+          "#$b#",
+          "@",
+          "$1"
+        ],
+        "target_tokens": [
+          "$5"
+        ]
+      },
+      {
+        "index": 11706,
+        "key": "SDS.Dialogue.Pelette.winter_Wed10_P2old.2",
+        "source_tokens": [
+          "@",
+          "$1",
+          "#$b#",
+          "#$b#",
+          "$6",
+          "#$b#",
+          "$6",
+          "#$b#",
+          "@",
+          "$1"
+        ],
+        "target_tokens": [
+          "$6",
+          "#$q 18000647/18000648 winter_Wed10_P2old#",
+          "#$r 18000647 0 winter_Wed10_18000647#",
+          "#$r 18000648 0 winter_Wed10_18000648#"
+        ]
+      },
+      {
+        "index": 11707,
+        "key": "SDS.Dialogue.Pelette.winter_Thu.2",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 11708,
+        "key": "SDS.Dialogue.Pelette.winter_Thu2.2",
+        "source_tokens": [
+          "$3",
+          "#$q 18000659/18000660 winter_Thu2_P2old#",
+          "#$r 18000659 0 winter_Thu2_18000659#",
+          "#$r 18000660 0 winter_Thu2_18000660#"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 11709,
+        "key": "SDS.Dialogue.Pelette.winter_Thu2_18000659.2",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 11710,
+        "key": "SDS.Dialogue.Pelette.winter_Thu2_18000660.2",
+        "source_tokens": [
+          "#$b#",
+          "$3",
+          "#$b#",
+          "$3"
+        ],
+        "target_tokens": [
+          "%Pelette",
+          "#$q 18000661/18000662 winter_Thu_P2old#",
+          "#$r 18000661 0 winter_Thu_18000661#",
+          "#$r 18000662 0 winter_Thu_18000662#"
+        ]
+      },
+      {
+        "index": 11711,
+        "key": "SDS.Dialogue.Pelette.winter_Thu2_P2old.2",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 11712,
+        "key": "SDS.Dialogue.Pelette.winter_Thu4.2",
+        "source_tokens": [
+          "#$q 18000661/18000662 winter_Thu4_P2old#",
+          "#$r 18000661 0 winter_Thu4_18000661#",
+          "#$r 18000662 0 winter_Thu4_18000662#"
+        ],
+        "target_tokens": [
+          "$5"
+        ]
+      },
+      {
+        "index": 11713,
+        "key": "SDS.Dialogue.Pelette.winter_Thu4_18000661.2",
+        "source_tokens": [
+          "$6",
+          "#$b#",
+          "$6",
+          "#$b#",
+          "$6"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 11714,
+        "key": "SDS.Dialogue.Pelette.winter_Thu4_18000662.2",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "$6",
+          "#$b#",
+          "$6"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$q 18000663/18000664 winter_Thu2_P2old#",
+          "#$r 18000663 0 winter_Thu2_18000663#",
+          "#$r 18000664 0 winter_Thu2_18000664#"
+        ]
+      },
+      {
+        "index": 11715,
+        "key": "SDS.Dialogue.Pelette.winter_Thu4_P2old.2",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "$6",
+          "#$b#",
+          "$6"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 11716,
+        "key": "SDS.Dialogue.Pelette.winter_Thu6.2",
+        "source_tokens": [
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$5"
+        ]
+      },
+      {
+        "index": 11717,
+        "key": "SDS.Dialogue.Pelette.winter_Thu8.2",
+        "source_tokens": [
+          "@",
+          "#$b#",
+          "$1",
+          "#$q 18000726/18000727 winter_Thu8_P2old#",
+          "#$r 18000726 0 winter_Thu8_18000726#",
+          "#$r 18000727 0 winter_Thu8_18000727#"
+        ],
+        "target_tokens": [
+          "$5"
+        ]
+      },
+      {
+        "index": 11718,
+        "key": "SDS.Dialogue.Pelette.winter_Thu8_18000726.2",
+        "source_tokens": [
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$q 18000726/18000727 winter_Thu8_P2old#",
+          "#$r 18000726 0 winter_Thu8_18000726#",
+          "#$r 18000727 0 winter_Thu8_18000727#"
+        ]
+      },
+      {
+        "index": 11720,
+        "key": "SDS.Dialogue.Pelette.winter_Thu8_P2old.2",
+        "source_tokens": [
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11725,
+        "key": "SDS.Dialogue.Pelette.winter_Fri.2",
+        "source_tokens": [
+          "#$b#",
+          "#$q 18000673/18000674 winter_Fri_P2old#",
+          "#$r 18000673 0 winter_Fri_18000673#",
+          "#$r 18000674 0 winter_Fri_18000674#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Pelette",
+          "#$q 18000673/18000674 winter_Fri_P2old#",
+          "#$r 18000673 0 winter_Fri_18000673#",
+          "#$r 18000674 0 winter_Fri_18000674#"
+        ]
+      },
+      {
+        "index": 11729,
+        "key": "SDS.Dialogue.Pelette.winter_Fri2.2",
+        "source_tokens": [
+          "$3",
+          "#$b#",
+          "#$q 18000675/18000676 winter_Fri2_P2old#",
+          "#$r 18000675 0 winter_Fri2_18000675#",
+          "#$r 18000676 0 winter_Fri2_18000676#"
+        ],
+        "target_tokens": [
+          "$3",
+          "#$b#",
+          "%Pelette",
+          "#$q 18000675/18000676 winter_Fri2_P2old#",
+          "#$r 18000675 0 winter_Fri2_18000675#",
+          "#$r 18000676 0 winter_Fri2_18000676#"
+        ]
+      },
+      {
+        "index": 11742,
+        "key": "SDS.Dialogue.Pelette.winter_Fri8_18000730.2",
+        "source_tokens": [
+          "$6",
+          "#$b#",
+          "#$b#",
+          "$6"
+        ],
+        "target_tokens": [
+          "$6",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "$6"
+        ]
+      },
+      {
+        "index": 11743,
+        "key": "SDS.Dialogue.Pelette.winter_Fri8_18000731.2",
+        "source_tokens": [
+          "#$b#",
+          "$6",
+          "#$b#",
+          "$7",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "$6",
+          "#$b#",
+          "$7",
+          "#$b#",
+          "%Nghe"
+        ]
+      },
+      {
+        "index": 11744,
+        "key": "SDS.Dialogue.Pelette.winter_Fri8_P2old.2",
+        "source_tokens": [
+          "$6",
+          "#$b#",
+          "#$b#",
+          "$6"
+        ],
+        "target_tokens": [
+          "$6",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "$6"
+        ]
+      },
+      {
+        "index": 11753,
+        "key": "SDS.Dialogue.Pelette.winter_Sat2.2",
+        "source_tokens": [
+          "#$q 18000695/18000696 winter_Sat2_P2old#",
+          "#$r 18000695 0 winter_Sat2_18000695#",
+          "#$r 18000696 0 winter_Sat2_18000696#"
+        ],
+        "target_tokens": [
+          "%Pelette",
+          "#$q 18000695/18000696 winter_Sat2_P2old#",
+          "#$r 18000695 0 winter_Sat2_18000695#",
+          "#$r 18000696 0 winter_Sat2_18000696#"
+        ]
+      },
+      {
+        "index": 11754,
+        "key": "SDS.Dialogue.Pelette.winter_Sat2_18000695.2",
+        "source_tokens": [
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "%Anh"
+        ]
+      },
+      {
+        "index": 11755,
+        "key": "SDS.Dialogue.Pelette.winter_Sat2_18000696.2",
+        "source_tokens": [
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "#$b#",
+          "$3"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "%Trong",
+          "#$b#",
+          "$3"
+        ]
+      },
+      {
+        "index": 11756,
+        "key": "SDS.Dialogue.Pelette.winter_Sat2_P2old.2",
+        "source_tokens": [
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "%Anh"
+        ]
+      },
+      {
+        "index": 11770,
+        "key": "SDS.Dialogue.Pelette.winter_Sat10_18000703.2",
+        "source_tokens": [
+          "[186]",
+          "$1",
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "[186]",
+          "$1",
+          "#$b#",
+          "%B",
+          "#$b#",
+          "%H"
+        ]
+      },
+      {
+        "index": 11773,
+        "key": "SDS.Dialogue.Pelette.winter_Sun.2",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": [
+          "%Pelette",
+          "#$b#",
+          "%B"
+        ]
+      },
+      {
+        "index": 11774,
+        "key": "SDS.Dialogue.Pelette.winter_Sun2.2",
+        "source_tokens": [
+          "$3",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$3",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11781,
+        "key": "SDS.Dialogue.Pelette.winter_Sun6_18000735.2",
+        "source_tokens": [
+          "@",
+          "$5",
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "@",
+          "$5",
+          "#$b#",
+          "%N",
+          "#$b#",
+          "%C"
+        ]
+      },
+      {
+        "index": 11782,
+        "key": "SDS.Dialogue.Pelette.winter_Sun6_P2old.2",
+        "source_tokens": [
+          "@",
+          "$5",
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "@",
+          "$5",
+          "#$b#",
+          "%N",
+          "#$b#",
+          "%C"
+        ]
+      },
+      {
+        "index": 11793,
+        "key": "SDS.MarriageDialogue.Pelette.patio_Pelette_18000801",
+        "source_tokens": [
+          "#$b#",
+          "#$b#",
+          "$5"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "$5"
+        ]
+      },
+      {
+        "index": 11794,
+        "key": "SDS.MarriageDialogue.Pelette.patio_Pelette_P1old",
+        "source_tokens": [
+          "#$b#",
+          "#$b#",
+          "$5"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "$5"
+        ]
+      },
+      {
+        "index": 11796,
+        "key": "SDS.MarriageDialogue.Pelette.funLeave_Pelette_18000802",
+        "source_tokens": [
+          "@",
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "@",
+          "$1",
+          "#$b#",
+          "%L"
+        ]
+      },
+      {
+        "index": 11822,
+        "key": "SDS.MarriageDialogue.Pelette.winter_Pelette_18001008",
+        "source_tokens": [
+          "$0",
+          "#$b#",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": [
+          "$0",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "$1"
+        ]
+      },
+      {
+        "index": 11839,
+        "key": "SDS.MarriageDialogue.Pelette.Indoor_Night_Pelette_18001017",
+        "source_tokens": [
+          "$4",
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$4",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "%M"
+        ]
+      },
+      {
+        "index": 11840,
+        "key": "SDS.MarriageDialogue.Pelette.Indoor_Night_Pelette_P1old",
+        "source_tokens": [
+          "$4",
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$4",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "%M"
+        ]
+      },
+      {
+        "index": 11846,
+        "key": "SDS.MarriageDialogue.Pelette.Rainy_Day_0_18000808",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "#$b#",
+          "@",
+          "$4"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "@",
+          "$4"
+        ]
+      },
+      {
+        "index": 11847,
+        "key": "SDS.MarriageDialogue.Pelette.Rainy_Day_0_18000809",
+        "source_tokens": [
+          "[SDS_Pelettespecialcuisine]",
+          "$1",
+          "#$b#",
+          "$6",
+          "#$b#",
+          "$7",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "[SDS_Pelettespecialcuisine]",
+          "$1",
+          "#$b#",
+          "$6",
+          "#$b#",
+          "$7",
+          "#$b#",
+          "%Gi"
+        ]
+      },
+      {
+        "index": 11848,
+        "key": "SDS.MarriageDialogue.Pelette.Rainy_Day_0_P1old",
+        "source_tokens": [
+          "[SDS_Pelettespecialcuisine]",
+          "$1",
+          "#$b#",
+          "$6",
+          "#$b#",
+          "$7",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "[SDS_Pelettespecialcuisine]",
+          "$1",
+          "#$b#",
+          "$6",
+          "#$b#",
+          "$7",
+          "#$b#",
+          "%Gi"
+        ]
+      },
+      {
+        "index": 11851,
+        "key": "SDS.MarriageDialogue.Pelette.Rainy_Day_1_18000811",
+        "source_tokens": [
+          "$2",
+          "#$b#",
+          "#$b#",
+          "$0"
+        ],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "%B",
+          "#$b#",
+          "$0"
+        ]
+      },
+      {
+        "index": 11852,
+        "key": "SDS.MarriageDialogue.Pelette.Rainy_Day_1_P1old",
+        "source_tokens": [
+          "$2",
+          "#$b#",
+          "#$b#",
+          "$0"
+        ],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "%B",
+          "#$b#",
+          "$0"
+        ]
+      },
+      {
+        "index": 11855,
+        "key": "SDS.MarriageDialogue.Pelette.Rainy_Day_2_18000813",
+        "source_tokens": [
+          "#$b#",
+          "$6",
+          "#$b#",
+          "$5",
+          "#$b#",
+          "$4"
+        ],
+        "target_tokens": [
+          "%Pelette",
+          "#$b#",
+          "$6",
+          "#$b#",
+          "$5",
+          "#$b#",
+          "$4"
+        ]
+      },
+      {
+        "index": 11856,
+        "key": "SDS.MarriageDialogue.Pelette.Rainy_Day_2_18000814",
+        "source_tokens": [
+          "$0",
+          "#$b#",
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$0",
+          "#$b#",
+          "$1",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11857,
+        "key": "SDS.MarriageDialogue.Pelette.Rainy_Day_2_P1old",
+        "source_tokens": [
+          "$0",
+          "#$b#",
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$0",
+          "#$b#",
+          "$1",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11859,
+        "key": "SDS.MarriageDialogue.Pelette.Rainy_Day_3_18000815",
+        "source_tokens": [
+          "$6",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": [
+          "$6",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "$1"
+        ]
+      },
+      {
+        "index": 11860,
+        "key": "SDS.MarriageDialogue.Pelette.Rainy_Day_3_18000816",
+        "source_tokens": [
+          "[SDS_Pelettespecialcuisine]",
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "[SDS_Pelettespecialcuisine]",
+          "$1",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11861,
+        "key": "SDS.MarriageDialogue.Pelette.Rainy_Day_3_P1old",
+        "source_tokens": [
+          "$6",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": [
+          "$6",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "$1"
+        ]
+      },
+      {
+        "index": 11863,
+        "key": "SDS.MarriageDialogue.Pelette.Rainy_Day_4_18000817",
+        "source_tokens": [
+          "$4",
+          "#$b#",
+          "#$b#",
+          "[SDS_Pelettespecialcuisine]",
+          "$1"
+        ],
+        "target_tokens": [
+          "$4",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "[SDS_Pelettespecialcuisine]",
+          "$1"
+        ]
+      },
+      {
+        "index": 11872,
+        "key": "SDS.MarriageDialogue.Pelette.Rainy_Night_1_18000822",
+        "source_tokens": [
+          "@",
+          "$8",
+          "#$b#",
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "@",
+          "$8",
+          "#$b#",
+          "$1",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11885,
+        "key": "SDS.MarriageDialogue.Pelette.Rainy_Night_4_18000829",
+        "source_tokens": [
+          "$7",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$7",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11886,
+        "key": "SDS.MarriageDialogue.Pelette.Rainy_Night_4_P1old",
+        "source_tokens": [],
+        "target_tokens": [
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11890,
+        "key": "SDS.MarriageDialogue.Pelette.Indoor_Day_0_18000832",
+        "source_tokens": [
+          "$5",
+          "#$b#",
+          "$4",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$5",
+          "#$b#",
+          "$4",
+          "#$b#",
+          "%M"
+        ]
+      },
+      {
+        "index": 11899,
+        "key": "SDS.MarriageDialogue.Pelette.Indoor_Day_2_18000837",
+        "source_tokens": [
+          "$0",
+          "#$b#",
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$0",
+          "#$b#",
+          "$1",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11918,
+        "key": "SDS.MarriageDialogue.Pelette.Indoor_Night_2_18000846",
+        "source_tokens": [
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11919,
+        "key": "SDS.MarriageDialogue.Pelette.Indoor_Night_2_18000847",
+        "source_tokens": [
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11920,
+        "key": "SDS.MarriageDialogue.Pelette.Indoor_Night_2_P1old",
+        "source_tokens": [
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11931,
+        "key": "SDS.MarriageDialogue.Pelette.Indoor_Night_5_18000853",
+        "source_tokens": [
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11933,
+        "key": "SDS.MarriageDialogue.Pelette.Indoor_Night_5_P1old",
+        "source_tokens": [
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11944,
+        "key": "SDS.MarriageDialogue.Pelette.Outdoor_3_18000859",
+        "source_tokens": [
+          "$4",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$4",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11945,
+        "key": "SDS.MarriageDialogue.Pelette.Outdoor_3_18000860",
+        "source_tokens": [
+          "$4",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$4",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11946,
+        "key": "SDS.MarriageDialogue.Pelette.Outdoor_3_P1old",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": [
+          "%Pelette",
+          "#$b#",
+          "%Khi"
+        ]
+      },
+      {
+        "index": 11948,
+        "key": "SDS.MarriageDialogue.Pelette.Outdoor_4_18000861",
+        "source_tokens": [
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11951,
+        "key": "SDS.MarriageDialogue.Pelette.Outdoor_4_P1old",
+        "source_tokens": [
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11962,
+        "key": "SDS.MarriageDialogue.Pelette.OneKid_2_18000869",
+        "source_tokens": [
+          "$5",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$5",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11965,
+        "key": "SDS.MarriageDialogue.Pelette.OneKid_3_18000870",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11966,
+        "key": "SDS.MarriageDialogue.Pelette.OneKid_3_18000871",
+        "source_tokens": [
+          "$2",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11967,
+        "key": "SDS.MarriageDialogue.Pelette.OneKid_3_P1old",
+        "source_tokens": [
+          "$2",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 11970,
+        "key": "SDS.MarriageDialogue.Pelette.OneKid_4_18000873",
+        "source_tokens": [
+          "%kid1",
+          "%kid1",
+          "#$b#",
+          "%kid1",
+          "$1"
+        ],
+        "target_tokens": [
+          "%kid1",
+          "#$b#",
+          "%kid1",
+          "$1"
+        ]
+      },
+      {
+        "index": 11971,
+        "key": "SDS.MarriageDialogue.Pelette.OneKid_4_P1old",
+        "source_tokens": [
+          "%kid1",
+          "%kid1",
+          "#$b#",
+          "%kid1",
+          "$1"
+        ],
+        "target_tokens": [
+          "%kid1",
+          "#$b#",
+          "%kid1",
+          "$1"
+        ]
+      },
+      {
+        "index": 11977,
+        "key": "SDS.MarriageDialogue.Pelette.TwoKids_1_18000876",
+        "source_tokens": [
+          "%kid1",
+          "$1",
+          "#$b#",
+          "$8",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "%kid1",
+          "$1",
+          "#$b#",
+          "$8",
+          "#$b#",
+          "%Gi"
+        ]
+      },
+      {
+        "index": 11979,
+        "key": "SDS.MarriageDialogue.Pelette.TwoKids_1_P1old",
+        "source_tokens": [
+          "%kid1",
+          "$1",
+          "#$b#",
+          "$8",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "%kid1",
+          "$1",
+          "#$b#",
+          "$8",
+          "#$b#",
+          "%Gi"
+        ]
+      },
+      {
+        "index": 11994,
+        "key": "SDS.MarriageDialogue.Pelette.Good_0_18000885",
+        "source_tokens": [
+          "@",
+          "$1",
+          "#$b#",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": [
+          "@",
+          "$1",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "$1"
+        ]
+      },
+      {
+        "index": 11995,
+        "key": "SDS.MarriageDialogue.Pelette.Good_0_P1old",
+        "source_tokens": [
+          "@",
+          "$1",
+          "#$b#",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": [
+          "@",
+          "$1",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "$1"
+        ]
+      },
+      {
+        "index": 12005,
+        "key": "SDS.MarriageDialogue.Pelette.Good_3_18000890",
+        "source_tokens": [
+          "$4",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$4",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 12006,
+        "key": "SDS.MarriageDialogue.Pelette.Good_3_18000891",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "#$b#",
+          "$4"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "$4"
+        ]
+      },
+      {
+        "index": 12007,
+        "key": "SDS.MarriageDialogue.Pelette.Good_3_P1old",
+        "source_tokens": [
+          "$4",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$4",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 12030,
+        "key": "SDS.MarriageDialogue.Pelette.Good_9_18000903",
+        "source_tokens": [
+          "$7",
+          "#$b#",
+          "$2",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$7",
+          "#$b#",
+          "$2",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 12032,
+        "key": "SDS.MarriageDialogue.Pelette.Good_9_P1old",
+        "source_tokens": [
+          "$7",
+          "#$b#",
+          "$2",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$7",
+          "#$b#",
+          "$2",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 12080,
+        "key": "SDS.MarriageDialogue.Pelette.Bad_1_18000929",
+        "source_tokens": [
+          "$2",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "%Gi"
+        ]
+      },
+      {
+        "index": 12082,
+        "key": "SDS.MarriageDialogue.Pelette.Bad_1_P1old",
+        "source_tokens": [
+          "$2",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "%Gi"
+        ]
+      },
+      {
+        "index": 12083,
+        "key": "SDS.MarriageDialogue.Pelette.Bad_2",
+        "source_tokens": [
+          "$2",
+          "#$b#",
+          "#$q 18000931/18000932 Bad_2_P1old#",
+          "#$r 18000931 0 Bad_2_18000931#",
+          "#$r 18000932 0 Bad_2_18000932#"
+        ],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "%Pelette",
+          "#$q 18000931/18000932 Bad_2_P1old#",
+          "#$r 18000931 0 Bad_2_18000931#",
+          "#$r 18000932 0 Bad_2_18000932#"
+        ]
+      },
+      {
+        "index": 12088,
+        "key": "SDS.MarriageDialogue.Pelette.Bad_3_18000933",
+        "source_tokens": [
+          "$2",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 12091,
+        "key": "SDS.MarriageDialogue.Pelette.Bad_3_P1old",
+        "source_tokens": [
+          "$2",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 12105,
+        "key": "SDS.MarriageDialogue.Pelette.Bad_7_18000942",
+        "source_tokens": [
+          "$2",
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "%V",
+          "#$b#"
+        ]
+      },
+      {
+        "index": 12122,
+        "key": "SDS.MarriageDialogue.Pelette.spring_12_18000951",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "$8",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "$8",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 12123,
+        "key": "SDS.MarriageDialogue.Pelette.spring_12_P1old",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "$8",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "$8",
+          "#$b#",
+          "%Pelette"
+        ]
+      },
+      {
+        "index": 12146,
+        "key": "SDS.MarriageDialogue.Pelette.fall_15_18000963",
+        "source_tokens": [
+          "$4",
+          "#$b#",
+          "#$b#",
+          "$4"
+        ],
+        "target_tokens": [
+          "$4",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "$4"
+        ]
+      },
+      {
+        "index": 12151,
+        "key": "SDS.MarriageDialogue.Pelette.winter_1_18000965",
+        "source_tokens": [
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "%M"
+        ]
+      },
+      {
+        "index": 12159,
+        "key": "SDS.MarriageDialogue.Pelette.winter_23_18000969",
+        "source_tokens": [
+          "$8",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$8",
+          "#$b#",
+          "%Ng"
+        ]
+      },
+      {
+        "index": 12160,
+        "key": "SDS.MarriageDialogue.Pelette.winter_23_P1old",
+        "source_tokens": [
+          "$8",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$8",
+          "#$b#",
+          "%Ng"
+        ]
+      },
+      {
+        "index": 12163,
+        "key": "SDS.MarriageDialogue.Pelette.winter_28_18000971",
+        "source_tokens": [
+          "$8",
+          "#$b#",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": [
+          "$8",
+          "#$b#",
+          "%Pelette",
+          "#$b#",
+          "$1"
+        ]
+      },
+      {
+        "index": 12178,
+        "key": "SDS.Dialogue.Moore.joja_Begin",
+        "source_tokens": [
+          "$2",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "%Gi"
+        ]
+      },
+      {
+        "index": 12242,
+        "key": "SDS.Dialogue.Moore.fall_15_16100116",
+        "source_tokens": [],
+        "target_tokens": [
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12259,
+        "key": "SDS.Dialogue.Moore.spring_Mon_16100125.1",
+        "source_tokens": [],
+        "target_tokens": [
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12261,
+        "key": "SDS.Dialogue.Moore.spring_Mon_M1old.1",
+        "source_tokens": [],
+        "target_tokens": [
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12271,
+        "key": "SDS.Dialogue.Moore.spring_Mon6_16100131.1",
+        "source_tokens": [
+          "$0",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$0",
+          "#$b#",
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12272,
+        "key": "SDS.Dialogue.Moore.spring_Mon6_16100132.1",
+        "source_tokens": [
+          "@",
+          "$4",
+          "#$b#",
+          "#$b#",
+          "$2",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "@",
+          "$4",
+          "#$b#",
+          "%Moore",
+          "#$b#",
+          "$2",
+          "#$b#"
+        ]
+      },
+      {
+        "index": 12273,
+        "key": "SDS.Dialogue.Moore.spring_Mon6_M1old.1",
+        "source_tokens": [
+          "@",
+          "$4",
+          "#$b#",
+          "#$b#",
+          "$2",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "@",
+          "$4",
+          "#$b#",
+          "%Moore",
+          "#$b#",
+          "$2",
+          "#$b#"
+        ]
+      },
+      {
+        "index": 12277,
+        "key": "SDS.Dialogue.Moore.spring_Mon8_16100135.1",
+        "source_tokens": [
+          "$3",
+          "#$b#",
+          "#$b#",
+          "$0"
+        ],
+        "target_tokens": [
+          "$3",
+          "#$b#",
+          "%Moore",
+          "#$b#",
+          "$0"
+        ]
+      },
+      {
+        "index": 12300,
+        "key": "SDS.Dialogue.Moore.spring_Tue8_16100162.1",
+        "source_tokens": [
+          "$2",
+          "#$b#",
+          "#$b#",
+          "$5"
+        ],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "%Moore",
+          "#$b#",
+          "$5"
+        ]
+      },
+      {
+        "index": 12301,
+        "key": "SDS.Dialogue.Moore.spring_Tue8_16100163.1",
+        "source_tokens": [
+          "$5",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$5",
+          "#$b#",
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12302,
+        "key": "SDS.Dialogue.Moore.spring_Tue8_M1old.1",
+        "source_tokens": [
+          "$2",
+          "#$b#",
+          "#$b#",
+          "$5"
+        ],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "%Moore",
+          "#$b#",
+          "$5"
+        ]
+      },
+      {
+        "index": 12321,
+        "key": "SDS.Dialogue.Moore.spring_Wed6_16100187.1",
+        "source_tokens": [
+          "$2",
+          "#$b#",
+          "#$b#",
+          "$5",
+          "#$b#",
+          "$5"
+        ],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "%Moore",
+          "#$b#",
+          "$5",
+          "#$b#",
+          "$5"
+        ]
+      },
+      {
+        "index": 12337,
+        "key": "SDS.Dialogue.Moore.spring_Thu2_16100207.1",
+        "source_tokens": [
+          "$4",
+          "#$b#",
+          "#$b#",
+          "$5"
+        ],
+        "target_tokens": [
+          "$4",
+          "#$b#",
+          "%Moore",
+          "#$b#",
+          "$5"
+        ]
+      },
+      {
+        "index": 12377,
+        "key": "SDS.Dialogue.Moore.spring_Fri10_16100239.1",
+        "source_tokens": [
+          "$4",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$4",
+          "#$b#",
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12378,
+        "key": "SDS.Dialogue.Moore.spring_Fri10_M1old.1",
+        "source_tokens": [
+          "$4",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$4",
+          "#$b#",
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12384,
+        "key": "SDS.Dialogue.Moore.spring_Sat2_16100254.1",
+        "source_tokens": [
+          "$3",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$3",
+          "#$b#",
+          "%S"
+        ]
+      },
+      {
+        "index": 12386,
+        "key": "SDS.Dialogue.Moore.spring_Sat2_M1old.1",
+        "source_tokens": [
+          "$3",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$3",
+          "#$b#",
+          "%S"
+        ]
+      },
+      {
+        "index": 12419,
+        "key": "SDS.Dialogue.Moore.spring_Sun8.1",
+        "source_tokens": [
+          "#$b#",
+          "$2",
+          "^",
+          "$2",
+          "#$q 16100284/16100285 spring_Sun8_M1old#",
+          "#$r 16100284 0 spring_Sun8_16100284#",
+          "#$r 16100285 0 spring_Sun8_16100285#"
+        ],
+        "target_tokens": [
+          "%Moore",
+          "#$b#",
+          "$2",
+          "^",
+          "$2",
+          "#$q 16100284/16100285 spring_Sun8_M1old#",
+          "#$r 16100284 0 spring_Sun8_16100284#",
+          "#$r 16100285 0 spring_Sun8_16100285#"
+        ]
+      },
+      {
+        "index": 12421,
+        "key": "SDS.Dialogue.Moore.spring_Sun8_16100285.1",
+        "source_tokens": [
+          "#$b#",
+          "#$b#",
+          "$5"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Moore",
+          "#$b#",
+          "$5"
+        ]
+      },
+      {
+        "index": 12436,
+        "key": "SDS.Dialogue.Moore.summer_Mon4_16100304.1",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12437,
+        "key": "SDS.Dialogue.Moore.summer_Mon4_16100305.1",
+        "source_tokens": [
+          "#$b#",
+          "$2",
+          "#$b#",
+          "$5",
+          "#$b#",
+          "$4"
+        ],
+        "target_tokens": [
+          "%Nghe",
+          "#$b#",
+          "$2",
+          "#$b#",
+          "$5",
+          "#$b#",
+          "$4"
+        ]
+      },
+      {
+        "index": 12438,
+        "key": "SDS.Dialogue.Moore.summer_Mon4_M1old.1",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12444,
+        "key": "SDS.Dialogue.Moore.summer_Mon8_16100308.1",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12445,
+        "key": "SDS.Dialogue.Moore.summer_Mon8_16100309.1",
+        "source_tokens": [
+          "#$b#",
+          "$2",
+          "#$b#",
+          "$4",
+          "#$b#",
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "$2",
+          "#$b#",
+          "$4",
+          "#$b#",
+          "%Gi",
+          "#$b#",
+          "%Th",
+          "#$b#",
+          "%Ng"
+        ]
+      },
+      {
+        "index": 12446,
+        "key": "SDS.Dialogue.Moore.summer_Mon8_M1old.1",
+        "source_tokens": [
+          "#$b#",
+          "$2",
+          "#$b#",
+          "$4",
+          "#$b#",
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "$2",
+          "#$b#",
+          "$4",
+          "#$b#",
+          "%Gi",
+          "#$b#",
+          "%Th",
+          "#$b#",
+          "%Ng"
+        ]
+      },
+      {
+        "index": 12447,
+        "key": "SDS.Dialogue.Moore.summer_Mon10.1",
+        "source_tokens": [
+          "@",
+          "$5",
+          "#$b#",
+          "#$b#",
+          "$4",
+          "#$q 16100310/16100311/16100312 summer_Mon10_M1old#",
+          "#$r 16100310 0 summer_Mon10_16100310#",
+          "#$r 16100311 0 summer_Mon10_16100311#",
+          "#$r 16100312 0 summer_Mon10_16100312#"
+        ],
+        "target_tokens": [
+          "@",
+          "$5",
+          "#$b#",
+          "%Gi",
+          "#$b#",
+          "$4",
+          "#$q 16100310/16100311/16100312 summer_Mon10_M1old#",
+          "#$r 16100310 0 summer_Mon10_16100310#",
+          "#$r 16100311 0 summer_Mon10_16100311#",
+          "#$r 16100312 0 summer_Mon10_16100312#"
+        ]
+      },
+      {
+        "index": 12448,
+        "key": "SDS.Dialogue.Moore.summer_Mon10_16100310.1",
+        "source_tokens": [
+          "@",
+          "$1",
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "@",
+          "$1",
+          "#$b#",
+          "%Moore",
+          "#$b#"
+        ]
+      },
+      {
+        "index": 12449,
+        "key": "SDS.Dialogue.Moore.summer_Mon10_16100311.1",
+        "source_tokens": [
+          "$2",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12450,
+        "key": "SDS.Dialogue.Moore.summer_Mon10_16100312.1",
+        "source_tokens": [
+          "$5",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$5",
+          "#$b#",
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12451,
+        "key": "SDS.Dialogue.Moore.summer_Mon10_M1old.1",
+        "source_tokens": [
+          "@",
+          "$1",
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "@",
+          "$1",
+          "#$b#",
+          "%Moore",
+          "#$b#"
+        ]
+      },
+      {
+        "index": 12452,
+        "key": "SDS.Dialogue.Moore.summer_Tue.1",
+        "source_tokens": [],
+        "target_tokens": [
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12469,
+        "key": "SDS.Dialogue.Moore.summer_Tue10.1",
+        "source_tokens": [
+          "#$q 16100333/16100334 summer_Tue10_M1old#",
+          "#$r 16100333 0 summer_Tue10_16100333#",
+          "#$r 16100334 0 summer_Tue10_16100334#"
+        ],
+        "target_tokens": [
+          "%Moore",
+          "#$q 16100333/16100334 summer_Tue10_M1old#",
+          "#$r 16100333 0 summer_Tue10_16100333#",
+          "#$r 16100334 0 summer_Tue10_16100334#"
+        ]
+      },
+      {
+        "index": 12470,
+        "key": "SDS.Dialogue.Moore.summer_Tue10_16100333.1",
+        "source_tokens": [
+          "$2",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "$3"
+        ],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "%H",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "$3"
+        ]
+      },
+      {
+        "index": 12471,
+        "key": "SDS.Dialogue.Moore.summer_Tue10_16100334.1",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Ng"
+        ]
+      },
+      {
+        "index": 12472,
+        "key": "SDS.Dialogue.Moore.summer_Tue10_M1old.1",
+        "source_tokens": [
+          "$2",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "$3"
+        ],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "%H",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "$3"
+        ]
+      },
+      {
+        "index": 12474,
+        "key": "SDS.Dialogue.Moore.summer_Wed_16100347.1",
+        "source_tokens": [
+          "$3",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$3",
+          "#$b#",
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12476,
+        "key": "SDS.Dialogue.Moore.summer_Wed_M1old.1",
+        "source_tokens": [
+          "$3",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$3",
+          "#$b#",
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12507,
+        "key": "SDS.Dialogue.Moore.summer_Thu4_16100376.1",
+        "source_tokens": [
+          "$5",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$5",
+          "#$b#",
+          "%N"
+        ]
+      },
+      {
+        "index": 12508,
+        "key": "SDS.Dialogue.Moore.summer_Thu4_M1old.1",
+        "source_tokens": [
+          "$5",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$5",
+          "#$b#",
+          "%N"
+        ]
+      },
+      {
+        "index": 12548,
+        "key": "SDS.Dialogue.Moore.summer_Sat2_16100419.1",
+        "source_tokens": [
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "%Moore",
+          "#$b#",
+          "#$b#"
+        ]
+      },
+      {
+        "index": 12559,
+        "key": "SDS.Dialogue.Moore.summer_Sat8_16100424.1",
+        "source_tokens": [
+          "#$b#",
+          "#$b#",
+          "$2"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Moore",
+          "#$b#",
+          "$2"
+        ]
+      },
+      {
+        "index": 12564,
+        "key": "SDS.Dialogue.Moore.summer_Sat10_16100427.1",
+        "source_tokens": [
+          "#$b#",
+          "$3",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "$3",
+          "#$b#",
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12565,
+        "key": "SDS.Dialogue.Moore.summer_Sat10_16100428.1",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12566,
+        "key": "SDS.Dialogue.Moore.summer_Sat10_M1old.1",
+        "source_tokens": [
+          "#$b#",
+          "$3",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "$3",
+          "#$b#",
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12593,
+        "key": "SDS.Dialogue.Moore.fall_Mon_16100466.1",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Ng"
+        ]
+      },
+      {
+        "index": 12594,
+        "key": "SDS.Dialogue.Moore.fall_Mon_M1old.1",
+        "source_tokens": [
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Ng"
+        ]
+      },
+      {
+        "index": 12605,
+        "key": "SDS.Dialogue.Moore.fall_Mon6_16100472.1",
+        "source_tokens": [
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "%Gi"
+        ]
+      },
+      {
+        "index": 12624,
+        "key": "SDS.Dialogue.Moore.fall_Tue4_16100494.1",
+        "source_tokens": [
+          "#$b#",
+          "$5",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "$5",
+          "#$b#",
+          "%Gi"
+        ]
+      },
+      {
+        "index": 12636,
+        "key": "SDS.Dialogue.Moore.fall_Tue10_16100500.1",
+        "source_tokens": [
+          "#$b#",
+          "$0",
+          "#$b#",
+          "#$b#",
+          "$2"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "$0",
+          "#$b#",
+          "%Moore",
+          "#$b#",
+          "$2"
+        ]
+      },
+      {
+        "index": 12667,
+        "key": "SDS.Dialogue.Moore.fall_Thu_16100542.1",
+        "source_tokens": [
+          "#$b#",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%Moore",
+          "#$b#",
+          "$1"
+        ]
+      },
+      {
+        "index": 12669,
+        "key": "SDS.Dialogue.Moore.fall_Thu2.1",
+        "source_tokens": [
+          "#$b#",
+          "$5",
+          "#$b#",
+          "$3",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "$5",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "%Gi"
+        ]
+      },
+      {
+        "index": 12672,
+        "key": "SDS.Dialogue.Moore.fall_Thu4_16100544.1",
+        "source_tokens": [
+          "$4",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$4",
+          "#$b#",
+          "%Moore"
+        ]
+      },
+      {
+        "index": 12678,
+        "key": "SDS.Dialogue.Moore.fall_Thu6_16100548.1",
+        "source_tokens": [
+          "$4",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$4",
+          "#$b#",
+          "%Kh"
+        ]
+      },
+      {
+        "index": 12686,
+        "key": "SDS.Dialogue.Moore.fall_Thu10_16100552.1",
+        "source_tokens": [
+          "#$b#",
+          "$0",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "$0",
+          "#$b#",
+          "%Moore"
+        ]
+      },
+      {
+        "index": 13701,
+        "key": "SDS.Dialogue.Sariel.spring_Thu_18500134.1",
+        "source_tokens": [
+          "[236]",
+          "$1",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "[236]",
+          "$1",
+          "#$b#",
+          "%Shirai"
+        ]
+      },
+      {
+        "index": 13703,
+        "key": "SDS.Dialogue.Sariel.spring_Thu2.1",
+        "source_tokens": [
+          "#$b#",
+          "$9",
+          "#$b#",
+          "$7",
+          "#$b#",
+          "$7",
+          "#$b#",
+          "$2",
+          "#$b#",
+          "$0",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "$9",
+          "#$b#",
+          "$7",
+          "#$b#",
+          "$7",
+          "#$b#",
+          "$2",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "%N"
+        ]
+      },
+      {
+        "index": 13710,
+        "key": "SDS.Dialogue.Sariel.spring_Thu6_18500138.1",
+        "source_tokens": [
+          "$5",
+          "#$b#",
+          "#$b#"
+        ],
+        "target_tokens": [
+          "$5",
+          "#$b#",
+          "%Shirai",
+          "#$b#",
+          "%B"
+        ]
+      },
+      {
+        "index": 13717,
+        "key": "SDS.Dialogue.Sariel.spring_Thu10_18500141.1",
+        "source_tokens": [
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "[223]",
+          "$1"
+        ],
+        "target_tokens": [
+          "%B",
+          "#$b#",
+          "%C",
+          "#$b#",
+          "#$b#",
+          "%D",
+          "#$b#",
+          "[223]",
+          "$1"
+        ]
+      },
+      {
+        "index": 13719,
+        "key": "SDS.Dialogue.Sariel.spring_Thu10_S1old.1",
+        "source_tokens": [
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "#$b#",
+          "[223]",
+          "$1"
+        ],
+        "target_tokens": [
+          "%B",
+          "#$b#",
+          "%C",
+          "#$b#",
+          "#$b#",
+          "%D",
+          "#$b#",
+          "[223]",
+          "$1"
+        ]
+      },
+      {
+        "index": 13724,
+        "key": "SDS.Dialogue.Sariel.spring_Fri2.1",
+        "source_tokens": [
+          "[198]"
+        ],
+        "target_tokens": [
+          "%Shirai",
+          "[198]"
+        ]
+      }
+    ],
+    "han_hits": [],
+    "recovery_key_based_mismatches": [
+      {
+        "index": 13701,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13702,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13703,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13704,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13705,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13706,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13707,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13708,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13709,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13710,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13711,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13712,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13713,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13714,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13715,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13717,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13718,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13719,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13720,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13721,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13722,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13723,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13724,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13725,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13726,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13728,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13729,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13730,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13731,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13732,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13733,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13734,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13735,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13736,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13737,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13738,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13739,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13740,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13741,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13742,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13743,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13744,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13745,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13746,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13747,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13748,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13749,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13750,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13751,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13752,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13754,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13755,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13757,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13758,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13759,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13761,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13762,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13763,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13764,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13765,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13766,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13767,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13768,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13769,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13770,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13771,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13772,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13773,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13774,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13775,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13776,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13777,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13778,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13779,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13780,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13781,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13783,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13784,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13785,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13786,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13787,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13788,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13789,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13790,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13791,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13792,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13793,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13794,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13795,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13797,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13798,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13799,
+        "file": "recovery/index/CP_13701_13800.json"
+      },
+      {
+        "index": 13801,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13802,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13803,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13804,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13805,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13806,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13807,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13808,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13809,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13810,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13811,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13812,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13814,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13816,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13818,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13820,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13821,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13822,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13823,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13824,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13825,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13826,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13827,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13828,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13829,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13830,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13831,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13832,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13833,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13834,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13835,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13836,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13837,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13838,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13839,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13840,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13841,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13842,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13843,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13844,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13846,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13848,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13849,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13850,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13851,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13852,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13853,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13854,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13855,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13856,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13857,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13858,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13859,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13860,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13861,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13862,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13863,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13864,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13866,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13867,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13868,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13870,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13872,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13876,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13877,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13881,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13883,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13884,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13888,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13889,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13890,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13891,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13892,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13893,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13895,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13896,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13898,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13900,
+        "file": "recovery/index/CP_13801_13900.json"
+      },
+      {
+        "index": 13901,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13902,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13903,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13904,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13908,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13909,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13910,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13911,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13913,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13914,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13915,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13917,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13918,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13919,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13920,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13921,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13922,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13923,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13924,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13925,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13926,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13927,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13928,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13929,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13930,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13932,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13933,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13934,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13935,
+        "file": "recovery/index/CP_13901_14000.json"
+      },
+      {
+        "index": 13936,
+        "file": "recovery/index/CP_13901_14000.json"
+      }
+    ]
+  }
+}
