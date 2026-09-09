@@ -78,8 +78,7 @@ jobs:
           if len(items) != 24827:
               raise SystemExit(f'Unexpected CP key count: {len(items)}')
 
-          # Materialize recent QA-preserved recovery batches into source-keyed shards.
-          for start in range(17997, 18997, 100):
+          for start in range(18997, 19997, 100):
               end = start + 99
               recovery_path = Path(f'recovery/index/CP_{start}_{end}.json')
               if not recovery_path.exists():
@@ -94,8 +93,7 @@ jobs:
               out_path.write_text(json.dumps(keyed, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
               print(f'materialized={out_path} keys={len(keyed)}')
 
-          # Prepare next exact-source slice.
-          start, end = 18997, 19996
+          start, end = 19997, 20996
           entries = [{'index': i, 'key': items[i-1][0], 'value': items[i-1][1]} for i in range(start, end + 1)]
           out = {
               'source': 'Seven Deadly Sins 1.6 3.13.4 / Nexus file 178657',
@@ -114,14 +112,14 @@ jobs:
           if git diff --cached --quiet; then
             echo "No key-based changes to commit."
           else
-            git commit -m "Materialize CP 17997-18996 key-based translations"
+            git commit -m "Materialize CP 18997-19996 key-based translations"
             git push
           fi
 
       - name: Upload source slice
         uses: actions/upload-artifact@v4
         with:
-          name: sds-source-slice-18997-19996
+          name: sds-source-slice-19997-20996
           path: sds-source-slice.json
           retention-days: 1
           if-no-files-found: error
