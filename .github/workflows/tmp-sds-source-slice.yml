@@ -1,4 +1,4 @@
-name: SDS CP finalize and audit
+name: SDS CP finalize and audit v2
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
       - name: Install JSON5 parser
         run: python -m pip install --disable-pip-version-check json5
 
-      - name: Materialize recovery shards and audit CP
+      - name: Reconcile recovery and run structural audit v2
         shell: python
         run: |
           import io, json, re, zipfile
@@ -75,10 +75,11 @@ jobs:
           index_to_source = {i + 1: v for i, (_, v) in enumerate(items)}
 
           shard_re = re.compile(r'^CP_(\d+)_(\d+)\.json$')
-          materialized = []
           recovery_coverage = set()
           recovery_errors = []
+          reconciled_files = []
 
+          # Recovery is the latest QA-preserved source of truth where a complete index shard exists.
           for rp in sorted(Path('recovery/index').glob('CP_*_*.json')):
               m = shard_re.match(rp.name)
               if not m:
@@ -97,14 +98,18 @@ jobs:
                   recovery_errors.append({'file': str(rp), 'error': 'missing_indices', 'indices': missing_index_keys[:20]})
                   continue
               recovery_coverage.update(range(start, end + 1))
+              keyed = {index_to_key[i]: rdata[str(i)] for i in range(start, end + 1)}
               out_path = Path(f'translations/cp/CP_{start}_{end}.json')
-              if not out_path.exists():
-                  keyed = {index_to_key[i]: rdata[str(i)] for i in range(start, end + 1)}
+              rendered = json.dumps(keyed, ensure_ascii=False, indent=2) + '\n'
+              old = out_path.read_text(encoding='utf-8') if out_path.exists() else None
+              if old != rendered:
                   out_path.parent.mkdir(parents=True, exist_ok=True)
-                  out_path.write_text(json.dumps(keyed, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-                  materialized.append(str(out_path))
+                  out_path.write_text(rendered, encoding='utf-8')
+                  reconciled_files.append(str(out_path))
 
-          # Technical skeleton. Route directives are compared whole so IDs/route keys cannot drift.
+          # Structural token extractor. Bare % is a narrative/control marker; only known runtime
+          # percent placeholders are compared by full name, so %Pelette/%Shirai prose labels don't
+          # create false positives after Latin-name normalization.
           token_re = re.compile(
               r'\{\{.*?\}\}'
               r'|\[[^\]]+\]'
@@ -113,8 +118,10 @@ jobs:
               r'|#\$b#'
               r'|\$[qrb]'
               r'|\$\d+'
-              r'|%[A-Za-z_][A-Za-z0-9_]*'
-              r'|@|\^|\|'
+              r'|%(?:kid\d+|kids\d+|pet\d*)\b'
+              r'|%'
+              r'|@|\^|\|',
+              re.IGNORECASE
           )
           han_re = re.compile(r'[\u3400-\u4DBF\u4E00-\u9FFF]')
 
@@ -123,8 +130,8 @@ jobs:
           unknown_keys = []
           token_mismatches = []
           han_hits = []
-          key_based_values = {}
           parsed_shards = 0
+          key_based_values = {}
 
           for tp in sorted(Path('translations/cp').glob('CP_*_*.json')):
               m = shard_re.match(tp.name)
@@ -157,13 +164,10 @@ jobs:
           recovery_mismatches = []
           for rp in sorted(Path('recovery/index').glob('CP_*_*.json')):
               m = shard_re.match(rp.name)
-              if not m:
-                  continue
+              if not m: continue
               start, end = map(int, m.groups())
-              try:
-                  rdata = json.loads(rp.read_text(encoding='utf-8'))
-              except Exception:
-                  continue
+              try: rdata = json.loads(rp.read_text(encoding='utf-8'))
+              except Exception: continue
               for i in range(start, end + 1):
                   if str(i) in rdata and i in key_based_values and rdata[str(i)] != key_based_values[i]:
                       recovery_mismatches.append({'index': i, 'file': str(rp)})
@@ -171,27 +175,24 @@ jobs:
           def ranges(nums):
               nums = sorted(nums)
               if not nums: return []
-              out = []
-              a = b = nums[0]
+              out=[]; a=b=nums[0]
               for n in nums[1:]:
-                  if n == b + 1:
-                      b = n
+                  if n == b+1: b=n
                   else:
-                      out.append(f'{a}-{b}' if a != b else str(a))
-                      a = b = n
+                      out.append(f'{a}-{b}' if a != b else str(a)); a=b=n
               out.append(f'{a}-{b}' if a != b else str(a))
               return out
 
-          missing = set(range(1, len(items) + 1)) - coverage
-          missing_recovery = set(range(1, len(items) + 1)) - recovery_coverage
-
+          missing = set(range(1, len(items)+1)) - coverage
+          missing_recovery = set(range(1, len(items)+1)) - recovery_coverage
           audit = {
               'project': 'Seven Deadly Sins Vietnamese Localization',
               'source_version': '3.13.4',
               'source_nexus_file_id': 178657,
               'cp_source_key_count': len(items),
               'generated_at_utc': datetime.now(timezone.utc).isoformat(),
-              'materialized_this_run': materialized,
+              'reconciled_from_recovery_this_run': reconciled_files,
+              'policy': 'Complete recovery shards override matching key-based shards because recovery stores the latest QA-preserved Vietnamese by exact 1-based source index.',
               'key_based': {
                   'parsed_shards': parsed_shards,
                   'covered_key_count': len(coverage),
@@ -207,14 +208,14 @@ jobs:
                   'missing_index_count': len(missing_recovery),
                   'missing_ranges': ranges(missing_recovery),
                   'file_error_count': len(recovery_errors),
-                  'key_based_value_mismatch_count': len(recovery_mismatches),
+                  'key_based_value_mismatch_count_after_reconcile': len(recovery_mismatches),
               },
               'details': {
                   'recovery_errors': recovery_errors[:100],
                   'duplicate_indices': duplicate_indices[:100],
                   'unknown_keys': unknown_keys[:100],
-                  'technical_token_mismatches': token_mismatches[:200],
-                  'han_hits': han_hits[:200],
+                  'technical_token_mismatches': token_mismatches,
+                  'han_hits': han_hits,
                   'recovery_key_based_mismatches': recovery_mismatches[:200],
               },
           }
@@ -223,7 +224,7 @@ jobs:
           print(json.dumps(audit['key_based'], ensure_ascii=False, indent=2))
           print(json.dumps(audit['recovery'], ensure_ascii=False, indent=2))
 
-      - name: Commit materialized shards and audit
+      - name: Commit reconciled shards and audit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -231,6 +232,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes"
           else
-            git commit -m "Finalize recoverable CP shards and add structural audit"
+            git commit -m "Reconcile CP recovery and refine structural audit"
             git push
           fi
