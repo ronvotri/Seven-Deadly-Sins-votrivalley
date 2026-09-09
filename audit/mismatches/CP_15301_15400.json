@@ -1,0 +1,23 @@
+[
+  {
+    "index": 15392,
+    "key": "SDS.Dialogue.Hovsep.summer_Mon.1",
+    "source": "最近突然就变热了，在外面睡觉也没有之前舒服。#$b#%霍夫塞普看起来有点难过#$q 15300261/15300262 summer_Mon_H1old#...#$r 15300261 0 summer_Mon_15300261#这就是夏天啊 #$r 15300262 0 summer_Mon_15300262#不要在外面睡觉比较好吧",
+    "target": "Gần đây đột nhiên nóng hẳn lên, ngủ ngoài trời cũng không còn dễ chịu như trước.$b#%Hovsep trông hơi buồn.#$q 15300261/15300262 summer_Mon_H1old#...#$r 15300261 0 summer_Mon_15300261#Mùa hè là vậy mà #$r 15300262 0 summer_Mon_15300262#Tốt hơn hết là đừng ngủ ngoài trời",
+    "source_tokens": [
+      "#$b#",
+      "%",
+      "#$q 15300261/15300262 summer_Mon_H1old#",
+      "#$r 15300261 0 summer_Mon_15300261#",
+      "#$r 15300262 0 summer_Mon_15300262#"
+    ],
+    "target_tokens": [
+      "$b",
+      "%",
+      "#$q 15300261/15300262 summer_Mon_H1old#",
+      "#$r 15300261 0 summer_Mon_15300261#",
+      "#$r 15300262 0 summer_Mon_15300262#"
+    ],
+    "translation_file": "translations/cp/CP_15297_15396.json"
+  }
+]

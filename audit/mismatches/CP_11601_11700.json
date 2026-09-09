@@ -1,0 +1,266 @@
+[
+  {
+    "index": 11602,
+    "key": "SDS.Dialogue.Pelette.fall_Sat4.2",
+    "source": "不知道是不是昨晚也没睡好的缘故。我现在非常的困。$6#$b#……而且现在的阳光刚刚好。#$b#风也很舒服。#$b#……那朵云可真像棉花。#$b#%佩莱特呆呆地看着远处飘动着的云朵，陷入了久久的沉寂。#$q 18000553/18000554 fall_Sat4_P2old#……#$r 18000553 0 fall_Sat4_18000553#（跟着他一起发呆）#$r 18000554 0 fall_Sat4_18000554#佩莱特？",
+    "target": "Không biết có phải vì tối qua cũng ngủ không ngon không. Giờ tôi buồn ngủ kinh khủng.$6#$b#…Mà nắng hôm nay vừa đẹp.#$b#Gió cũng dễ chịu.#$b#…Đám mây kia trông hệt cục bông.$b#%Pelette ngẩn người nhìn những đám mây trôi xa, im lặng thật lâu.#$q 18000553/18000554 fall_Sat4_P2old#……#$r 18000553 0 fall_Sat4_18000553#(Ngẩn người cùng anh ấy)#$r 18000554 0 fall_Sat4_18000554#Pelette?",
+    "source_tokens": [
+      "$6",
+      "#$b#",
+      "#$b#",
+      "#$b#",
+      "#$b#",
+      "%",
+      "#$q 18000553/18000554 fall_Sat4_P2old#",
+      "#$r 18000553 0 fall_Sat4_18000553#",
+      "#$r 18000554 0 fall_Sat4_18000554#"
+    ],
+    "target_tokens": [
+      "$6",
+      "#$b#",
+      "#$b#",
+      "#$b#",
+      "$b",
+      "%",
+      "#$q 18000553/18000554 fall_Sat4_P2old#",
+      "#$r 18000553 0 fall_Sat4_18000553#",
+      "#$r 18000554 0 fall_Sat4_18000554#"
+    ],
+    "translation_file": "translations/cp/CP_11601_11700.json"
+  },
+  {
+    "index": 11686,
+    "key": "SDS.Dialogue.Pelette.winter_Wed.2",
+    "source": "…………。#$q 18000637/18000638 winter_Wed_P2old#……#$r 18000637 0 winter_Wed_18000637#早上好#$r 18000638 0 winter_Wed_18000638#你好！",
+    "target": "%Pelette đang cẩn thận kiểm tra vũ khí. Trông anh ấy khá tập trung.#$q 18000637/18000638 winter_Wed_P2old#……#$r 18000637 0 winter_Wed_18000637#(Đứng xem)#$r 18000638 0 winter_Wed_18000638#(Rời đi)",
+    "source_tokens": [
+      "#$q 18000637/18000638 winter_Wed_P2old#",
+      "#$r 18000637 0 winter_Wed_18000637#",
+      "#$r 18000638 0 winter_Wed_18000638#"
+    ],
+    "target_tokens": [
+      "%",
+      "#$q 18000637/18000638 winter_Wed_P2old#",
+      "#$r 18000637 0 winter_Wed_18000637#",
+      "#$r 18000638 0 winter_Wed_18000638#"
+    ],
+    "translation_file": "translations/cp/CP_11601_11700.json"
+  },
+  {
+    "index": 11687,
+    "key": "SDS.Dialogue.Pelette.winter_Wed_18000637.2",
+    "source": "早。#$b#%佩莱特看起来无精打采的。",
+    "target": "%Pelette vẫn tập trung kiểm tra vũ khí, không để ý tới bạn.",
+    "source_tokens": [
+      "#$b#",
+      "%"
+    ],
+    "target_tokens": [
+      "%"
+    ],
+    "translation_file": "translations/cp/CP_11601_11700.json"
+  },
+  {
+    "index": 11688,
+    "key": "SDS.Dialogue.Pelette.winter_Wed_18000638.2",
+    "source": "好。#$b#%佩莱特看起来无精打采的。",
+    "target": "……。",
+    "source_tokens": [
+      "#$b#",
+      "%"
+    ],
+    "target_tokens": [],
+    "translation_file": "translations/cp/CP_11601_11700.json"
+  },
+  {
+    "index": 11689,
+    "key": "SDS.Dialogue.Pelette.winter_Wed_P2old.2",
+    "source": "早。#$b#%佩莱特看起来无精打采的。",
+    "target": "……。",
+    "source_tokens": [
+      "#$b#",
+      "%"
+    ],
+    "target_tokens": [],
+    "translation_file": "translations/cp/CP_11601_11700.json"
+  },
+  {
+    "index": 11690,
+    "key": "SDS.Dialogue.Pelette.winter_Wed2.2",
+    "source": "怎么又是你…你很闲吗？$3#$b#…………。#$b#%佩莱特像是意识到了什么，例如农夫在冬季是会休耕的，于是他干脆的闭上了嘴。",
+    "target": "Sao trời lạnh thế này… đúng là muốn chết cóng.$3#$q 18000639/18000640 winter_Wed2_P2old#……#$r 18000639 0 winter_Wed2_18000639#Không phải cậu quen lạnh rồi sao?#$r 18000640 0 winter_Wed2_18000640#Mặc thêm áo đi",
+    "source_tokens": [
+      "$3",
+      "#$b#",
+      "#$b#",
+      "%"
+    ],
+    "target_tokens": [
+      "$3",
+      "#$q 18000639/18000640 winter_Wed2_P2old#",
+      "#$r 18000639 0 winter_Wed2_18000639#",
+      "#$r 18000640 0 winter_Wed2_18000640#"
+    ],
+    "translation_file": "translations/cp/CP_11601_11700.json"
+  },
+  {
+    "index": 11691,
+    "key": "SDS.Dialogue.Pelette.winter_Wed4.2",
+    "source": "钓鱼钓起来了颗珍珠……真是奇怪，怎么会有人把这个扔在河里？$6#$q 18000639/18000640 winter_Wed4_P2old#……#$r 18000639 0 winter_Wed4_18000639#宝箱里开出来的吗？#$r 18000640 0 winter_Wed4_18000640#可以去换钱！",
+    "target": "Quen cái quái gì. Lạnh vẫn là lạnh.$3",
+    "source_tokens": [
+      "$6",
+      "#$q 18000639/18000640 winter_Wed4_P2old#",
+      "#$r 18000639 0 winter_Wed4_18000639#",
+      "#$r 18000640 0 winter_Wed4_18000640#"
+    ],
+    "target_tokens": [
+      "$3"
+    ],
+    "translation_file": "translations/cp/CP_11601_11700.json"
+  },
+  {
+    "index": 11692,
+    "key": "SDS.Dialogue.Pelette.winter_Wed4_18000639.2",
+    "source": "宝箱？……哦，你是指那个破烂的箱子吗。的确是从里面拿出来的。$0",
+    "target": "Cậu tưởng tôi không biết à?$3",
+    "source_tokens": [
+      "$0"
+    ],
+    "target_tokens": [
+      "$3"
+    ],
+    "translation_file": "translations/cp/CP_11601_11700.json"
+  },
+  {
+    "index": 11693,
+    "key": "SDS.Dialogue.Pelette.winter_Wed4_18000640.2",
+    "source": "呃，我不太清楚去哪里换，城里吗？我记得城里似乎有个珠宝店。$7#$b#但这玩意儿不值钱吧。$6",
+    "target": "Cậu tưởng tôi không biết à?$3",
+    "source_tokens": [
+      "$7",
+      "#$b#",
+      "$6"
+    ],
+    "target_tokens": [
+      "$3"
+    ],
+    "translation_file": "translations/cp/CP_11601_11700.json"
+  },
+  {
+    "index": 11694,
+    "key": "SDS.Dialogue.Pelette.winter_Wed4_P2old.2",
+    "source": "宝箱？……哦，你是指那个破烂的箱子吗。的确是从里面拿出来的。$0",
+    "target": "Tuyết ở đây đẹp hơn quê tôi nhiều. Ít nhất nhìn nó không làm tôi nhớ tới mùi máu.$0#$q 18000641/18000642 winter_Wed4_P2old#……#$r 18000641 0 winter_Wed4_18000641#Thích thì cứ ngắm thêm đi#$r 18000642 0 winter_Wed4_18000642#Đừng nghĩ nhiều nữa",
+    "source_tokens": [
+      "$0"
+    ],
+    "target_tokens": [
+      "$0",
+      "#$q 18000641/18000642 winter_Wed4_P2old#",
+      "#$r 18000641 0 winter_Wed4_18000641#",
+      "#$r 18000642 0 winter_Wed4_18000642#"
+    ],
+    "translation_file": "translations/cp/CP_11601_11700.json"
+  },
+  {
+    "index": 11695,
+    "key": "SDS.Dialogue.Pelette.winter_Wed6.2",
+    "source": "为什么我就是控制不住自己的情绪…。$2#$q 18000641/18000642 winter_Wed6_P2old#……#$r 18000641 0 winter_Wed6_18000641#发生了什么？#$r 18000642 0 winter_Wed6_18000642#你会慢慢好起来的",
+    "target": "Ừ. Tôi cũng đang làm vậy.$1",
+    "source_tokens": [
+      "$2",
+      "#$q 18000641/18000642 winter_Wed6_P2old#",
+      "#$r 18000641 0 winter_Wed6_18000641#",
+      "#$r 18000642 0 winter_Wed6_18000642#"
+    ],
+    "target_tokens": [
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_11601_11700.json"
+  },
+  {
+    "index": 11696,
+    "key": "SDS.Dialogue.Pelette.winter_Wed6_18000641.2",
+    "source": "……我梦见了以前的事情，而噩梦惊醒的时候，我没忍住把自己的床砸了个窟窿。$6#$b#…………。#$b#呸呸似乎也被吓到了。$7",
+    "target": "Tôi biết. Chỉ là có những thứ đâu phải muốn không nghĩ là không nghĩ.$6",
+    "source_tokens": [
+      "$6",
+      "#$b#",
+      "#$b#",
+      "$7"
+    ],
+    "target_tokens": [
+      "$6"
+    ],
+    "translation_file": "translations/cp/CP_11601_11700.json"
+  },
+  {
+    "index": 11697,
+    "key": "SDS.Dialogue.Pelette.winter_Wed6_18000642.2",
+    "source": "…………但愿，如此。$2",
+    "target": "Ừ. Tôi cũng đang làm vậy.$1",
+    "source_tokens": [
+      "$2"
+    ],
+    "target_tokens": [
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_11601_11700.json"
+  },
+  {
+    "index": 11698,
+    "key": "SDS.Dialogue.Pelette.winter_Wed6_P2old.2",
+    "source": "…………但愿，如此。$2",
+    "target": "Hôm nay Peipei cứ đòi chui vào chăn tôi. Có vẻ nó cũng thấy lạnh.$1#$q 18000643/18000644 winter_Wed6_P2old#……#$r 18000643 0 winter_Wed6_18000643#Hai người ngủ cùng à?#$r 18000644 0 winter_Wed6_18000644#Ấm áp ghê",
+    "source_tokens": [
+      "$2"
+    ],
+    "target_tokens": [
+      "$1",
+      "#$q 18000643/18000644 winter_Wed6_P2old#",
+      "#$r 18000643 0 winter_Wed6_18000643#",
+      "#$r 18000644 0 winter_Wed6_18000644#"
+    ],
+    "translation_file": "translations/cp/CP_11601_11700.json"
+  },
+  {
+    "index": 11699,
+    "key": "SDS.Dialogue.Pelette.winter_Wed8.2",
+    "source": "我短暂回忆了一下过往的十来年。#$b#却发现它们根本没有留下什么印记在我的脑子里。又或者说。我以前压根没尝试过去记忆它们。$0#$b#……。#$b#但每每入睡的时候，它们就会清晰的浮现在我的眼前，是那样的阴魂不散。$3#$q 18000643/18000644 winter_Wed8_P2old#……#$r 18000643 0 winter_Wed8_18000643#（拥抱他）#$r 18000644 0 winter_Wed8_18000644#让我们创造新的记忆去裹住它们吧？",
+    "target": "Thỉnh thoảng thôi. Nó thích nằm sát chân tôi.$1",
+    "source_tokens": [
+      "#$b#",
+      "$0",
+      "#$b#",
+      "#$b#",
+      "$3",
+      "#$q 18000643/18000644 winter_Wed8_P2old#",
+      "#$r 18000643 0 winter_Wed8_18000643#",
+      "#$r 18000644 0 winter_Wed8_18000644#"
+    ],
+    "target_tokens": [
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_11601_11700.json"
+  },
+  {
+    "index": 11700,
+    "key": "SDS.Dialogue.Pelette.winter_Wed8_18000643.2",
+    "source": "…………。#$b#%佩莱特的身体有些僵硬，似乎不太习惯接受别人的肢体接触。#$b#%不过他并没有推开你。默许着这个拥抱持续了两秒，然后你才被他轻轻地推开。#$b#谢谢你，@，我好多了。没准今晚会做个好梦。$4",
+    "target": "Ừ. Có nó ở bên đúng là ấm hơn nhiều.$1",
+    "source_tokens": [
+      "#$b#",
+      "%",
+      "#$b#",
+      "%",
+      "#$b#",
+      "@",
+      "$4"
+    ],
+    "target_tokens": [
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_11601_11700.json"
+  }
+]

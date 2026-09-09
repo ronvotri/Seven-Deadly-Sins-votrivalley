@@ -1,0 +1,251 @@
+[
+  {
+    "index": 11956,
+    "key": "SDS.MarriageDialogue.Pelette.OneKid_1",
+    "source": "%kid1在婴儿床上睡得十分香甜。$1#$b#……每每当我从床边看着他熟睡的小脸的时候，我的心就不由自主的一软。$8#$b#我反复的意识到一件事——这是我们的孩子。我是他的父亲。我要去爱他。$1#$q 18000866/18000867 OneKid_1_P1old#……#$r 18000866 0 OneKid_1_18000866#你还有关于父母的记忆吗？#$r 18000867 0 OneKid_1_18000867#我爱你",
+    "target": "%kid1 đang ngủ rất ngon trong nôi.$1#$b#…Mỗi lần đứng bên giường nhìn khuôn mặt nhỏ đang ngủ, lòng anh lại tự nhiên mềm xuống.$8#$b#Anh cứ liên tục nhận ra một điều… đây là con của chúng ta. Anh là cha của con. Anh phải yêu con.$1#$q 18000866/18000867 OneKid_1_P1old#……#$r 18000866 0 OneKid_1_18000866#Anh còn nhớ cha mẹ mình không?#$r 18000867 0 OneKid_1_18000867#Em yêu anh",
+    "source_tokens": [
+      "%",
+      "$1",
+      "#$b#",
+      "$8",
+      "#$b#",
+      "$1",
+      "#$q 18000866/18000867 OneKid_1_P1old#",
+      "#$r 18000866 0 OneKid_1_18000866#",
+      "#$r 18000867 0 OneKid_1_18000867#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$1",
+      "#$b#",
+      "$8",
+      "#$b#",
+      "$1",
+      "#$q 18000866/18000867 OneKid_1_P1old#",
+      "#$r 18000866 0 OneKid_1_18000866#",
+      "#$r 18000867 0 OneKid_1_18000867#"
+    ],
+    "translation_file": "translations/cp/CP_11901_12000.json"
+  },
+  {
+    "index": 11964,
+    "key": "SDS.MarriageDialogue.Pelette.OneKid_3",
+    "source": "今天%kid1似乎咿咿呀呀说了些什么，呸呸也在旁边跟他嗷呜嗷呜的叫。#$b#真是不知道这两个小家伙在说些什么。$1#$b#但是那个场景，不知道为什么，让我有些难以忘怀。$8#$q 18000870/18000871 OneKid_3_P1old#……#$r 18000870 0 OneKid_3_18000870#抱了抱佩莱特#$r 18000871 0 OneKid_3_18000871#你很爱他们",
+    "target": "Hôm nay %kid1 hình như bi bô gì đó, Peipei cũng đứng bên cạnh hú ư ử.#$b#Thật chẳng biết hai đứa nhỏ đang nói gì với nhau.$1#$b#Nhưng cảnh đó chẳng hiểu sao khiến anh rất khó quên.$8#$q 18000870/18000871 OneKid_3_P1old#……#$r 18000870 0 OneKid_3_18000870#Ôm Pelette#$r 18000871 0 OneKid_3_18000871#Anh yêu họ rất nhiều",
+    "source_tokens": [
+      "%",
+      "#$b#",
+      "$1",
+      "#$b#",
+      "$8",
+      "#$q 18000870/18000871 OneKid_3_P1old#",
+      "#$r 18000870 0 OneKid_3_18000870#",
+      "#$r 18000871 0 OneKid_3_18000871#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "#$b#",
+      "$1",
+      "#$b#",
+      "$8",
+      "#$q 18000870/18000871 OneKid_3_P1old#",
+      "#$r 18000870 0 OneKid_3_18000870#",
+      "#$r 18000871 0 OneKid_3_18000871#"
+    ],
+    "translation_file": "translations/cp/CP_11901_12000.json"
+  },
+  {
+    "index": 11968,
+    "key": "SDS.MarriageDialogue.Pelette.OneKid_4",
+    "source": "呸呸最近陪伴着%kid1做一些有意思的事情。#$b#原来狗也会帮人一起养孩子吗？这件事我也是头一次知道。$6#$q 18000872/18000873 OneKid_4_P1old#……#$r 18000872 0 OneKid_4_18000872#听起来很可爱#$r 18000873 0 OneKid_4_18000873#他们做了什么？",
+    "target": "Gần đây Peipei hay ở bên %kid1 làm mấy chuyện thú vị.#$b#Hóa ra chó cũng biết phụ người nuôi trẻ con à? Chuyện này anh cũng mới biết lần đầu.$6#$q 18000872/18000873 OneKid_4_P1old#……#$r 18000872 0 OneKid_4_18000872#Nghe đáng yêu quá#$r 18000873 0 OneKid_4_18000873#Hai đứa làm gì vậy?",
+    "source_tokens": [
+      "%",
+      "#$b#",
+      "$6",
+      "#$q 18000872/18000873 OneKid_4_P1old#",
+      "#$r 18000872 0 OneKid_4_18000872#",
+      "#$r 18000873 0 OneKid_4_18000873#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "#$b#",
+      "$6",
+      "#$q 18000872/18000873 OneKid_4_P1old#",
+      "#$r 18000872 0 OneKid_4_18000872#",
+      "#$r 18000873 0 OneKid_4_18000873#"
+    ],
+    "translation_file": "translations/cp/CP_11901_12000.json"
+  },
+  {
+    "index": 11970,
+    "key": "SDS.MarriageDialogue.Pelette.OneKid_4_18000873",
+    "source": "呸呸会把它喜欢的东西放在%kid1的面前，然后等着%kid1去伸手拿。#$b#如果%kid1不需要这个，那它则会把这个东西再一次塞回它自己藏食物的盒子里。$1",
+    "target": "Peipei sẽ đặt thứ nó thích trước mặt %kid1 rồi chờ con đưa tay lấy.#$b#Nếu %kid1 không cần, nó lại tha món đó về hộp giấu đồ ăn của mình.$1",
+    "source_tokens": [
+      "%",
+      "%",
+      "#$b#",
+      "%",
+      "$1"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "#$b#",
+      "%kid1",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_11901_12000.json"
+  },
+  {
+    "index": 11971,
+    "key": "SDS.MarriageDialogue.Pelette.OneKid_4_P1old",
+    "source": "呸呸会把它喜欢的东西放在%kid1的面前，然后等着%kid1去伸手拿。#$b#如果%kid1不需要这个，那它则会把这个东西再一次塞回它自己藏食物的盒子里。$1",
+    "target": "Peipei sẽ đặt thứ nó thích trước mặt %kid1 rồi chờ con đưa tay lấy.#$b#Nếu %kid1 không cần, nó lại tha món đó về hộp giấu đồ ăn của mình.$1",
+    "source_tokens": [
+      "%",
+      "%",
+      "#$b#",
+      "%",
+      "$1"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "#$b#",
+      "%kid1",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_11901_12000.json"
+  },
+  {
+    "index": 11976,
+    "key": "SDS.MarriageDialogue.Pelette.TwoKids_1",
+    "source": "%kid1最近总是喜欢跟在%kid2的附近玩耍。#$b#或许是出自于自己作为年长的那一方，对于更加年幼的弟妹的照顾。$1#$q 18000876/18000877 TwoKids_1_P1old#……#$r 18000876 0 TwoKids_1_18000876#是你教育的很好#$r 18000877 0 TwoKids_1_18000877#你的表情很可爱，看起来非常自豪",
+    "target": "Gần đây %kid1 cứ thích chơi quanh %kid2.#$b#Có lẽ vì là đứa lớn nên tự nhiên muốn chăm em nhỏ.$1#$q 18000876/18000877 TwoKids_1_P1old#……#$r 18000876 0 TwoKids_1_18000876#Anh dạy con tốt lắm#$r 18000877 0 TwoKids_1_18000877#Biểu cảm anh đáng yêu thật, trông tự hào ghê",
+    "source_tokens": [
+      "%",
+      "%",
+      "#$b#",
+      "$1",
+      "#$q 18000876/18000877 TwoKids_1_P1old#",
+      "#$r 18000876 0 TwoKids_1_18000876#",
+      "#$r 18000877 0 TwoKids_1_18000877#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "#$b#",
+      "$1",
+      "#$q 18000876/18000877 TwoKids_1_P1old#",
+      "#$r 18000876 0 TwoKids_1_18000876#",
+      "#$r 18000877 0 TwoKids_1_18000877#"
+    ],
+    "translation_file": "translations/cp/CP_11901_12000.json"
+  },
+  {
+    "index": 11977,
+    "key": "SDS.MarriageDialogue.Pelette.TwoKids_1_18000876",
+    "source": "是吗，那就太好了。不过这也说明%kid1是个好孩子。$1#$b#想必再过一段时间之后，就能和他的父亲一样，成为弟妹的榜样了。$8#$b#%佩莱特的语气中充满了自豪的情绪。",
+    "target": "Vậy à, thế thì tốt. Nhưng cũng chứng tỏ %kid1 vốn là đứa trẻ ngoan.$1#$b#Chắc thêm một thời gian nữa, con sẽ giống cha mình, làm gương cho em.$8#$b#%Giọng Pelette đầy tự hào.",
+    "source_tokens": [
+      "%",
+      "$1",
+      "#$b#",
+      "$8",
+      "#$b#",
+      "%"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$1",
+      "#$b#",
+      "$8",
+      "#$b#",
+      "%"
+    ],
+    "translation_file": "translations/cp/CP_11901_12000.json"
+  },
+  {
+    "index": 11979,
+    "key": "SDS.MarriageDialogue.Pelette.TwoKids_1_P1old",
+    "source": "不过这也说明%kid1是个好孩子。$1#$b#想必再过一段时间之后，就能和他的父亲一样，成为弟妹的榜样了。$8#$b#%佩莱特的语气中充满了自豪的情绪。",
+    "target": "Nhưng cũng chứng tỏ %kid1 vốn là đứa trẻ ngoan.$1#$b#Chắc thêm một thời gian nữa, con sẽ giống cha mình, làm gương cho em.$8#$b#%Giọng Pelette đầy tự hào.",
+    "source_tokens": [
+      "%",
+      "$1",
+      "#$b#",
+      "$8",
+      "#$b#",
+      "%"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$1",
+      "#$b#",
+      "$8",
+      "#$b#",
+      "%"
+    ],
+    "translation_file": "translations/cp/CP_11901_12000.json"
+  },
+  {
+    "index": 11980,
+    "key": "SDS.MarriageDialogue.Pelette.TwoKids_2",
+    "source": "%kid1和%kid2最近总喜欢绕着整个房子跑。有时候又会卡在某些缝隙里面。#$b#好吧，真是搞不懂他们为什么这么喜欢往角落里钻——呃，或许是在家里冒险？$6#$q 18000878/18000879 TwoKids_2_P1old#……#$r 18000878 0 TwoKids_2_18000878#听起来真可爱#$r 18000879 0 TwoKids_2_18000879#继续听佩莱特说话",
+    "target": "Gần đây %kid1 và %kid2 rất thích chạy vòng quanh nhà. Có lúc còn mắc kẹt trong mấy khe nhỏ.#$b#Thật chẳng hiểu sao chúng thích chui vào góc vậy… ờ, có khi đang phiêu lưu trong nhà?$6#$q 18000878/18000879 TwoKids_2_P1old#……#$r 18000878 0 TwoKids_2_18000878#Nghe đáng yêu thật#$r 18000879 0 TwoKids_2_18000879#Tiếp tục nghe Pelette kể",
+    "source_tokens": [
+      "%",
+      "%",
+      "#$b#",
+      "$6",
+      "#$q 18000878/18000879 TwoKids_2_P1old#",
+      "#$r 18000878 0 TwoKids_2_18000878#",
+      "#$r 18000879 0 TwoKids_2_18000879#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "#$b#",
+      "$6",
+      "#$q 18000878/18000879 TwoKids_2_P1old#",
+      "#$r 18000878 0 TwoKids_2_18000878#",
+      "#$r 18000879 0 TwoKids_2_18000879#"
+    ],
+    "translation_file": "translations/cp/CP_11901_12000.json"
+  },
+  {
+    "index": 11985,
+    "key": "SDS.MarriageDialogue.Pelette.TwoKids_3_18000880",
+    "source": "嗯，我很幸福。我爱%kid1和%kid2，同样他们也爱着我。$1",
+    "target": "Ừ, anh rất hạnh phúc. Anh yêu %kid1 và %kid2, chúng cũng yêu anh.$1",
+    "source_tokens": [
+      "%",
+      "%kid2",
+      "$1"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_11901_12000.json"
+  },
+  {
+    "index": 11987,
+    "key": "SDS.MarriageDialogue.Pelette.TwoKids_3_P1old",
+    "source": "我很幸福。我爱%kid1和%kid2，同样他们也爱着我。$1",
+    "target": "Anh rất hạnh phúc. Anh yêu %kid1 và %kid2, chúng cũng yêu anh.$1",
+    "source_tokens": [
+      "%",
+      "%kid2",
+      "$1"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_11901_12000.json"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "index": 12023,
+    "key": "SDS.MarriageDialogue.Pelette.Good_7_18000900",
+    "source": "%kid1今天很乖，在我给他举高高抛起来的时候，他总是咯咯地笑，看起来很喜欢我这样做。$1",
+    "target": "Hôm nay %kid1 ngoan lắm. Lúc anh bế con tung lên, con cứ cười khanh khách, có vẻ thích lắm.$1",
+    "source_tokens": [
+      "%",
+      "$1"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_12001_12100.json"
+  },
+  {
+    "index": 12024,
+    "key": "SDS.MarriageDialogue.Pelette.Good_7_P1old",
+    "source": "%kid1今天很乖，在我给他举高高抛起来的时候，他总是咯咯地笑，看起来很喜欢我这样做。$1",
+    "target": "Hôm nay %kid1 ngoan lắm. Lúc anh bế con tung lên, con cứ cười khanh khách, có vẻ thích lắm.$1",
+    "source_tokens": [
+      "%",
+      "$1"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_12001_12100.json"
+  }
+]

@@ -1,0 +1,348 @@
+[
+  {
+    "index": 14902,
+    "key": "SDS.MarriageDialogue.Sariel.Indoor_Day_1",
+    "source": "你会想自杀吗？@。#$q 18500754/18500755 Indoor_Day_1_S1old#...#$r 18500754 0 Indoor_Day_1_18500754#为什么这么问？！#$r 18500755 0 Indoor_Day_1_18500755#不会。",
+    "target": "Cậu có bao giờ nghĩ đến chuyện tự sát không, @?$q 18500754/18500755 Indoor_Day_1_S1old#...#$r 18500754 0 Indoor_Day_1_18500754#Sao tự nhiên hỏi vậy?!#$r 18500755 0 Indoor_Day_1_18500755#Không.",
+    "source_tokens": [
+      "@",
+      "#$q 18500754/18500755 Indoor_Day_1_S1old#",
+      "#$r 18500754 0 Indoor_Day_1_18500754#",
+      "#$r 18500755 0 Indoor_Day_1_18500755#"
+    ],
+    "target_tokens": [
+      "@",
+      "$q 18500754/18500755 Indoor_Day_1_S1old#",
+      "#$r 18500754 0 Indoor_Day_1_18500754#",
+      "#$r 18500755 0 Indoor_Day_1_18500755#"
+    ],
+    "translation_file": "translations/cp/CP_14897_14996.json"
+  },
+  {
+    "index": 14922,
+    "key": "SDS.MarriageDialogue.Sariel.Indoor_Night_1",
+    "source": "我刚刚给%pet洗了澡，它白天在泥地里滑了一跤，全身都是泥巴。$3#$q 18500764/18500765 Indoor_Night_1_S1old#...#$r 18500764 0 Indoor_Night_1_18500764#天呐，感觉怎么样？#$r 18500765 0 Indoor_Night_1_18500765#%pet没事吧？",
+    "target": "Vừa rồi tôi tắm cho %pet. Ban ngày nó trượt chân trong bùn, cả người lấm lem hết.$3#$q 18500764/18500765 Indoor_Night_1_S1old#...#$r 18500764 0 Indoor_Night_1_18500764#Trời ơi, cảm giác thế nào?#$r 18500765 0 Indoor_Night_1_18500765#%pet không sao chứ?",
+    "source_tokens": [
+      "%",
+      "$3",
+      "#$q 18500764/18500765 Indoor_Night_1_S1old#",
+      "#$r 18500764 0 Indoor_Night_1_18500764#",
+      "#$r 18500765 0 Indoor_Night_1_18500765#",
+      "%"
+    ],
+    "target_tokens": [
+      "%pet",
+      "$3",
+      "#$q 18500764/18500765 Indoor_Night_1_S1old#",
+      "#$r 18500764 0 Indoor_Night_1_18500764#",
+      "#$r 18500765 0 Indoor_Night_1_18500765#",
+      "%pet"
+    ],
+    "translation_file": "translations/cp/CP_14897_14996.json"
+  },
+  {
+    "index": 14923,
+    "key": "SDS.MarriageDialogue.Sariel.Indoor_Night_1_18500764",
+    "source": "你指谁的感觉？我的还是%pet的？我想应该都很糟糕。$3",
+    "target": "Cậu hỏi cảm giác của ai? Tôi hay %pet? Tôi nghĩ cả hai đều tệ lắm.$3",
+    "source_tokens": [
+      "%",
+      "$3"
+    ],
+    "target_tokens": [
+      "%pet",
+      "$3"
+    ],
+    "translation_file": "translations/cp/CP_14897_14996.json"
+  },
+  {
+    "index": 14950,
+    "key": "SDS.MarriageDialogue.Sariel.Outdoor_2",
+    "source": "我今天给%pet的水碗加了水，修好了几个围栏……$0#$b#我做这些会让你今天轻松一点吗？$9#$q 18500778/18500779 Outdoor_2_S1old#...#$r 18500778 0 Outdoor_2_18500778#谢谢你，白井。#$r 18500779 0 Outdoor_2_18500779#做得比我好哦。",
+    "target": "Hôm nay tôi đã đổ nước vào bát của %pet, sửa mấy đoạn hàng rào……$0#$b#Tôi làm vậy có giúp cậu hôm nay nhẹ việc hơn chút nào không?$9#$q 18500778/18500779 Outdoor_2_S1old#...#$r 18500778 0 Outdoor_2_18500778#Cảm ơn cậu, Shirai.#$r 18500779 0 Outdoor_2_18500779#Cậu làm còn tốt hơn tôi đấy.",
+    "source_tokens": [
+      "%",
+      "$0",
+      "#$b#",
+      "$9",
+      "#$q 18500778/18500779 Outdoor_2_S1old#",
+      "#$r 18500778 0 Outdoor_2_18500778#",
+      "#$r 18500779 0 Outdoor_2_18500779#"
+    ],
+    "target_tokens": [
+      "%pet",
+      "$0",
+      "#$b#",
+      "$9",
+      "#$q 18500778/18500779 Outdoor_2_S1old#",
+      "#$r 18500778 0 Outdoor_2_18500778#",
+      "#$r 18500779 0 Outdoor_2_18500779#"
+    ],
+    "translation_file": "translations/cp/CP_14897_14996.json"
+  },
+  {
+    "index": 14963,
+    "key": "SDS.MarriageDialogue.Sariel.OneKid_0_18500784",
+    "source": "……。#$b#%白井有些不自然地抬起一只手，轻轻抚摸%kid1的脑袋。",
+    "target": "……#$b#%Shirai hơi vụng về giơ một tay lên, nhẹ nhàng xoa đầu %kid1.",
+    "source_tokens": [
+      "#$b#",
+      "%",
+      "%"
+    ],
+    "target_tokens": [
+      "#$b#",
+      "%",
+      "%kid1"
+    ],
+    "translation_file": "translations/cp/CP_14897_14996.json"
+  },
+  {
+    "index": 14965,
+    "key": "SDS.MarriageDialogue.Sariel.OneKid_0_S1old",
+    "source": "%白井有些不自然地抬起一只手，轻轻抚摸%kid1的脑袋。",
+    "target": "%Shirai hơi vụng về giơ một tay lên, nhẹ nhàng xoa đầu %kid1.",
+    "source_tokens": [
+      "%",
+      "%"
+    ],
+    "target_tokens": [
+      "%",
+      "%kid1"
+    ],
+    "translation_file": "translations/cp/CP_14897_14996.json"
+  },
+  {
+    "index": 14966,
+    "key": "SDS.MarriageDialogue.Sariel.OneKid_1",
+    "source": "那些育儿书籍真正的受众群体应该是孩子，我把书拿给%kid1后他就自顾自玩去了。$1#$q 18500786/18500787 OneKid_1_S1old#...#$r 18500786 0 OneKid_1_18500786#现在就看书是不是太早了。#$r 18500787 0 OneKid_1_18500787#看来育儿书籍很有用。",
+    "target": "Đối tượng thật sự của mấy cuốn sách nuôi dạy trẻ chắc phải là trẻ con mới đúng. Tôi đưa sách cho %kid1 xong, đứa nhỏ tự chơi một mình luôn.$1#$q 18500786/18500787 OneKid_1_S1old#...#$r 18500786 0 OneKid_1_18500786#Giờ đọc sách có hơi sớm không?#$r 18500787 0 OneKid_1_18500787#Xem ra sách nuôi dạy trẻ hữu ích thật.",
+    "source_tokens": [
+      "%",
+      "$1",
+      "#$q 18500786/18500787 OneKid_1_S1old#",
+      "#$r 18500786 0 OneKid_1_18500786#",
+      "#$r 18500787 0 OneKid_1_18500787#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$1",
+      "#$q 18500786/18500787 OneKid_1_S1old#",
+      "#$r 18500786 0 OneKid_1_18500786#",
+      "#$r 18500787 0 OneKid_1_18500787#"
+    ],
+    "translation_file": "translations/cp/CP_14897_14996.json"
+  },
+  {
+    "index": 14967,
+    "key": "SDS.MarriageDialogue.Sariel.OneKid_1_18500786",
+    "source": "事实上%kid1只是在拿书撕着玩，不过他看起来挺开心的。$1",
+    "target": "Thật ra %kid1 chỉ đang xé sách chơi thôi, nhưng trông đứa nhỏ khá vui.$1",
+    "source_tokens": [
+      "%",
+      "$1"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_14897_14996.json"
+  },
+  {
+    "index": 14968,
+    "key": "SDS.MarriageDialogue.Sariel.OneKid_1_18500787",
+    "source": "是的，唯一不足的是那些书快被%kid1撕完了。$0",
+    "target": "Đúng vậy. Điểm trừ duy nhất là mấy cuốn sách sắp bị %kid1 xé hết rồi.$0",
+    "source_tokens": [
+      "%",
+      "$0"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$0"
+    ],
+    "translation_file": "translations/cp/CP_14897_14996.json"
+  },
+  {
+    "index": 14969,
+    "key": "SDS.MarriageDialogue.Sariel.OneKid_1_S1old",
+    "source": "事实上%kid1只是在拿书撕着玩，不过他看起来挺开心的。$1",
+    "target": "Thật ra %kid1 chỉ đang xé sách chơi thôi, nhưng trông đứa nhỏ khá vui.$1",
+    "source_tokens": [
+      "%",
+      "$1"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_14897_14996.json"
+  },
+  {
+    "index": 14970,
+    "key": "SDS.MarriageDialogue.Sariel.OneKid_2",
+    "source": "我刚刚在给%kid1喂吃的，他看上去很好奇我的草莓蛋糕是什么味道。$0#$q 18500788/18500789 OneKid_2_S1old#...#$r 18500788 0 OneKid_2_18500788#他现在不能吃蛋糕。#$r 18500789 0 OneKid_2_18500789#你们真可爱。",
+    "target": "Vừa rồi tôi đang cho %kid1 ăn. Có vẻ đứa nhỏ rất tò mò bánh kem dâu của tôi có vị gì.$0#$q 18500788/18500789 OneKid_2_S1old#...#$r 18500788 0 OneKid_2_18500788#Giờ đứa nhỏ chưa ăn bánh được.#$r 18500789 0 OneKid_2_18500789#Hai người dễ thương thật.",
+    "source_tokens": [
+      "%",
+      "$0",
+      "#$q 18500788/18500789 OneKid_2_S1old#",
+      "#$r 18500788 0 OneKid_2_18500788#",
+      "#$r 18500789 0 OneKid_2_18500789#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$0",
+      "#$q 18500788/18500789 OneKid_2_S1old#",
+      "#$r 18500788 0 OneKid_2_18500788#",
+      "#$r 18500789 0 OneKid_2_18500789#"
+    ],
+    "translation_file": "translations/cp/CP_14897_14996.json"
+  },
+  {
+    "index": 14974,
+    "key": "SDS.MarriageDialogue.Sariel.OneKid_3",
+    "source": "%kid1一直在咿咿呀呀说些什么，我一句也听不懂。$0#$q 18500790/18500791 OneKid_3_S1old#...#$r 18500790 0 OneKid_3_18500790#可能是在尝试叫你爸爸。#$r 18500791 0 OneKid_3_18500791#猜猜他想说什么吧。",
+    "target": "%kid1 cứ bi bô nói gì đó, tôi chẳng hiểu nổi một câu.$0#$q 18500790/18500791 OneKid_3_S1old#...#$r 18500790 0 OneKid_3_18500790#Có khi con đang tập gọi cậu là ba.#$r 18500791 0 OneKid_3_18500791#Thử đoán xem con muốn nói gì.",
+    "source_tokens": [
+      "%",
+      "$0",
+      "#$q 18500790/18500791 OneKid_3_S1old#",
+      "#$r 18500790 0 OneKid_3_18500790#",
+      "#$r 18500791 0 OneKid_3_18500791#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$0",
+      "#$q 18500790/18500791 OneKid_3_S1old#",
+      "#$r 18500790 0 OneKid_3_18500790#",
+      "#$r 18500791 0 OneKid_3_18500791#"
+    ],
+    "translation_file": "translations/cp/CP_14897_14996.json"
+  },
+  {
+    "index": 14978,
+    "key": "SDS.MarriageDialogue.Sariel.OneKid_4",
+    "source": "%kid1最近在学习走路，但还是摇摇晃晃的，得时刻看着他。$1#$q 18500792/18500793 OneKid_4_S1old#...#$r 18500792 0 OneKid_4_18500792#看上去真可爱！#$r 18500793 0 OneKid_4_18500793#摔跤是学走路的必经之路呢。",
+    "target": "Gần đây %kid1 đang tập đi, nhưng vẫn còn lảo đảo. Phải để mắt đến đứa nhỏ suốt.$1#$q 18500792/18500793 OneKid_4_S1old#...#$r 18500792 0 OneKid_4_18500792#Trông dễ thương thật!#$r 18500793 0 OneKid_4_18500793#Ngã là chuyện phải trải qua khi tập đi mà.",
+    "source_tokens": [
+      "%",
+      "$1",
+      "#$q 18500792/18500793 OneKid_4_S1old#",
+      "#$r 18500792 0 OneKid_4_18500792#",
+      "#$r 18500793 0 OneKid_4_18500793#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$1",
+      "#$q 18500792/18500793 OneKid_4_S1old#",
+      "#$r 18500792 0 OneKid_4_18500792#",
+      "#$r 18500793 0 OneKid_4_18500793#"
+    ],
+    "translation_file": "translations/cp/CP_14897_14996.json"
+  },
+  {
+    "index": 14980,
+    "key": "SDS.MarriageDialogue.Sariel.OneKid_4_18500793",
+    "source": "那%kid1可能要摔很多遍了，他现在连站立都还需要扶着我的腿。$1",
+    "target": "Vậy %kid1 chắc còn phải ngã nhiều lần. Bây giờ đến đứng thôi đứa nhỏ cũng phải vịn chân tôi.$1",
+    "source_tokens": [
+      "%",
+      "$1"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_14897_14996.json"
+  },
+  {
+    "index": 14982,
+    "key": "SDS.MarriageDialogue.Sariel.TwoKids_0",
+    "source": "有了之前照顾%kid1的经验，照看%kid2就比以前轻松多了，你就放心吧。$9#$q 18500794/18500795 TwoKids_0_S1old#...#$r 18500794 0 TwoKids_0_18500794#白井真温柔~#$r 18500795 0 TwoKids_0_18500795#白井越来越像个好父亲了！",
+    "target": "Có kinh nghiệm chăm %kid1 trước đó rồi, nên trông %kid2 nhẹ nhàng hơn nhiều. Cậu cứ yên tâm.$9#$q 18500794/18500795 TwoKids_0_S1old#...#$r 18500794 0 TwoKids_0_18500794#Shirai dịu dàng thật~#$r 18500795 0 TwoKids_0_18500795#Shirai càng ngày càng giống một người cha tốt rồi!",
+    "source_tokens": [
+      "%",
+      "%",
+      "$9",
+      "#$q 18500794/18500795 TwoKids_0_S1old#",
+      "#$r 18500794 0 TwoKids_0_18500794#",
+      "#$r 18500795 0 TwoKids_0_18500795#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "$9",
+      "#$q 18500794/18500795 TwoKids_0_S1old#",
+      "#$r 18500794 0 TwoKids_0_18500794#",
+      "#$r 18500795 0 TwoKids_0_18500795#"
+    ],
+    "translation_file": "translations/cp/CP_14897_14996.json"
+  },
+  {
+    "index": 14986,
+    "key": "SDS.MarriageDialogue.Sariel.TwoKids_1",
+    "source": "照看%kid2比想象中轻松些，%kid1和%pet分走了他不少注意力。$1#$q 18500796/18500797 TwoKids_1_S1old#...#$r 18500796 0 TwoKids_1_18500796#看来是个喜欢热闹的家伙。#$r 18500797 0 TwoKids_1_18500797#辛苦你了亲爱的。",
+    "target": "Chăm %kid2 nhẹ nhàng hơn tôi tưởng. %kid1 với %pet đã chia bớt khá nhiều sự chú ý của đứa nhỏ.$1#$q 18500796/18500797 TwoKids_1_S1old#...#$r 18500796 0 TwoKids_1_18500796#Xem ra là đứa thích náo nhiệt.#$r 18500797 0 TwoKids_1_18500797#Cậu vất vả rồi, cưng.",
+    "source_tokens": [
+      "%",
+      "%",
+      "%",
+      "$1",
+      "#$q 18500796/18500797 TwoKids_1_S1old#",
+      "#$r 18500796 0 TwoKids_1_18500796#",
+      "#$r 18500797 0 TwoKids_1_18500797#"
+    ],
+    "target_tokens": [
+      "%kid2",
+      "%kid1",
+      "%pet",
+      "$1",
+      "#$q 18500796/18500797 TwoKids_1_S1old#",
+      "#$r 18500796 0 TwoKids_1_18500796#",
+      "#$r 18500797 0 TwoKids_1_18500797#"
+    ],
+    "translation_file": "translations/cp/CP_14897_14996.json"
+  },
+  {
+    "index": 14990,
+    "key": "SDS.MarriageDialogue.Sariel.TwoKids_2",
+    "source": "和%kid1一样，%kid2也很喜欢那些育儿书籍。$1#$q 18500798/18500799 TwoKids_2_S1old#...#$r 18500798 0 TwoKids_2_18500798#书没白买。#$r 18500799 0 TwoKids_2_18500799#那%kid1玩什么呢？",
+    "target": "Giống %kid1, %kid2 cũng rất thích mấy cuốn sách nuôi dạy trẻ.$1#$q 18500798/18500799 TwoKids_2_S1old#...#$r 18500798 0 TwoKids_2_18500798#Sách mua không phí rồi.#$r 18500799 0 TwoKids_2_18500799#Thế %kid1 chơi gì?",
+    "source_tokens": [
+      "%",
+      "%",
+      "$1",
+      "#$q 18500798/18500799 TwoKids_2_S1old#",
+      "#$r 18500798 0 TwoKids_2_18500798#",
+      "#$r 18500799 0 TwoKids_2_18500799#",
+      "%"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "$1",
+      "#$q 18500798/18500799 TwoKids_2_S1old#",
+      "#$r 18500798 0 TwoKids_2_18500798#",
+      "#$r 18500799 0 TwoKids_2_18500799#",
+      "%kid1"
+    ],
+    "translation_file": "translations/cp/CP_14897_14996.json"
+  },
+  {
+    "index": 14992,
+    "key": "SDS.MarriageDialogue.Sariel.TwoKids_2_18500799",
+    "source": "自从%kid1会走会跑后，他对这些书就不敢兴趣了，家里的物件可比一叠纸张有趣得多。$0",
+    "target": "Từ khi %kid1 biết đi biết chạy, đứa nhỏ chẳng còn hứng thú với mấy cuốn sách này nữa. Đồ đạc trong nhà thú vị hơn một xấp giấy nhiều.$0",
+    "source_tokens": [
+      "%",
+      "$0"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$0"
+    ],
+    "translation_file": "translations/cp/CP_14897_14996.json"
+  }
+]

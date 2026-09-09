@@ -1,0 +1,49 @@
+[
+  {
+    "index": 14140,
+    "key": "SDS.Dialogue.Sariel.winter_Wed2",
+    "source": "虽然想给你加加油什么的。$12#$b#但是，但是，有没有可能，我真的不想你和他在一起？$11#$b#毕竟这是一段注定没有好结果的‘爱’。$12",
+    "target": "Tôi cũng muốn cổ vũ cậu đấy. Nhưng mà, nhưng mà… có khả năng nào là tôi thật sự không muốn cậu ở bên nó không? Dù sao đây cũng là một thứ 'tình yêu' đã định sẵn chẳng có kết cục tốt đẹp.$12",
+    "source_tokens": [
+      "$12",
+      "#$b#",
+      "$11",
+      "#$b#",
+      "$12"
+    ],
+    "target_tokens": [
+      "$12"
+    ],
+    "translation_file": "translations/cp/CP_14101_14200.json"
+  },
+  {
+    "index": 14142,
+    "key": "SDS.Dialogue.Sariel.winter_Wed6",
+    "source": "似乎忘记说了。我不是白井哦？但也是白井。$13#$b#不如说那个孩子的名字，来自于我，所以我才是最初的‘白井’。$12",
+    "target": "Hình như tôi quên nói. Tôi không phải Shirai đâu nhé? Nhưng cũng là Shirai. Nói đúng hơn, cái tên của đứa trẻ đó bắt nguồn từ tôi, nên tôi mới là 'Shirai' đầu tiên.$13",
+    "source_tokens": [
+      "$13",
+      "#$b#",
+      "$12"
+    ],
+    "target_tokens": [
+      "$13"
+    ],
+    "translation_file": "translations/cp/CP_14101_14200.json"
+  },
+  {
+    "index": 14144,
+    "key": "SDS.Dialogue.Sariel.winter_Wed10",
+    "source": "今天白井不在，在的只有我——$11#$b#很失望吗？那就尽情失望吧！$13",
+    "target": "Hôm nay Shirai không có ở đây. Chỉ có tôi thôi—— thất vọng à? Vậy cứ thất vọng cho đã đi!$13",
+    "source_tokens": [
+      "$11",
+      "#$b#",
+      "$13"
+    ],
+    "target_tokens": [
+      "$13"
+    ],
+    "translation_file": "translations/cp/CP_14101_14200.json"
+  }
+]

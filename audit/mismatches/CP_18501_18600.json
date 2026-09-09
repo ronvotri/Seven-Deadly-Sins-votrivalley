@@ -1,0 +1,364 @@
+[
+  {
+    "index": 18540,
+    "key": "SDS.MarriageDialogue.Rane.Outdoor_1",
+    "source": "我给%Pet1的水碗换上了干净的水，然后稍微修理了一下农场的围栏。$0#$b#都说到这种程度了，要夸奖我一下吗，@。$1#$b#不会完全没表示吧？$4#$q 15400893/15400894/15400895 Outdoor_1_R1old#……#$r 15400893 0 Outdoor_1_15400893#谢谢，Ra.#$r 15400894 0 Outdoor_1_15400894#（摸摸头）#$r 15400895 0 Outdoor_1_15400895#（亲一口）",
+    "target": "Tôi đã thay nước sạch cho bát nước của %Pet1, rồi tiện tay sửa một chút hàng rào nông trại.$0#$b#Tôi đã kể đến mức này rồi, cậu không định khen tôi một câu à, @?$1#$b#Không có biểu hiện gì luôn sao?$4#$q 15400893/15400894/15400895 Outdoor_1_R1old#......#$r 15400893 0 Outdoor_1_15400893#Cảm ơn, Ra. #$r 15400894 0 Outdoor_1_15400894#(Xoa đầu) #$r 15400895 0 Outdoor_1_15400895#(Hôn một cái)",
+    "source_tokens": [
+      "%",
+      "$0",
+      "#$b#",
+      "@",
+      "$1",
+      "#$b#",
+      "$4",
+      "#$q 15400893/15400894/15400895 Outdoor_1_R1old#",
+      "#$r 15400893 0 Outdoor_1_15400893#",
+      "#$r 15400894 0 Outdoor_1_15400894#",
+      "#$r 15400895 0 Outdoor_1_15400895#"
+    ],
+    "target_tokens": [
+      "%Pet1",
+      "$0",
+      "#$b#",
+      "@",
+      "$1",
+      "#$b#",
+      "$4",
+      "#$q 15400893/15400894/15400895 Outdoor_1_R1old#",
+      "#$r 15400893 0 Outdoor_1_15400893#",
+      "#$r 15400894 0 Outdoor_1_15400894#",
+      "#$r 15400895 0 Outdoor_1_15400895#"
+    ],
+    "translation_file": "translations/cp/CP_18497_18596.json"
+  },
+  {
+    "index": 18558,
+    "key": "SDS.MarriageDialogue.Rane.OneKid_0",
+    "source": "好吵、好吵、好吵！%kid1跟La一起折磨我的耳朵！$7#$q 15400903/15400904 OneKid_0_R1old#……#$r 15400903 0 OneKid_0_15400903#（继续听）#$r 15400904 0 OneKid_0_15400904#（继续听Ra讲话）",
+    "target": "Ồn quá, ồn quá, ồn quá! %kid1 với La cùng nhau tra tấn tai tôi!$7#$q 15400903/15400904 OneKid_0_R1old#......#$r 15400903 0 OneKid_0_15400903#(Tiếp tục nghe) #$r 15400904 0 OneKid_0_15400904#(Tiếp tục nghe Ra nói)",
+    "source_tokens": [
+      "%",
+      "$7",
+      "#$q 15400903/15400904 OneKid_0_R1old#",
+      "#$r 15400903 0 OneKid_0_15400903#",
+      "#$r 15400904 0 OneKid_0_15400904#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$7",
+      "#$q 15400903/15400904 OneKid_0_R1old#",
+      "#$r 15400903 0 OneKid_0_15400903#",
+      "#$r 15400904 0 OneKid_0_15400904#"
+    ],
+    "translation_file": "translations/cp/CP_18497_18596.json"
+  },
+  {
+    "index": 18559,
+    "key": "SDS.MarriageDialogue.Rane.OneKid_0_15400903",
+    "source": "还一起打扰我做饭！都说了不要带着%kid1在地上爬……$7",
+    "target": "Còn cùng nhau làm phiền tôi nấu ăn nữa! Đã bảo đừng mang %kid1 bò trên sàn rồi......$7",
+    "source_tokens": [
+      "%",
+      "$7"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$7"
+    ],
+    "translation_file": "translations/cp/CP_18497_18596.json"
+  },
+  {
+    "index": 18563,
+    "key": "SDS.MarriageDialogue.Rane.OneKid_1_15400905",
+    "source": "我有时候会萌生出‘希望‘%kid1能够分辨谁是La，谁是Ra。$0",
+    "target": "Đôi khi tôi lại nảy ra mong muốn rằng %kid1 có thể phân biệt ai là La, ai là Ra.$0",
+    "source_tokens": [
+      "%",
+      "$0"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$0"
+    ],
+    "translation_file": "translations/cp/CP_18497_18596.json"
+  },
+  {
+    "index": 18565,
+    "key": "SDS.MarriageDialogue.Rane.OneKid_1_R1old",
+    "source": "我有时候会萌生出‘希望‘%kid1能够分辨谁是La，谁是Ra。$0",
+    "target": "Đôi khi tôi lại nảy ra mong muốn rằng %kid1 có thể phân biệt ai là La, ai là Ra.$0",
+    "source_tokens": [
+      "%",
+      "$0"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$0"
+    ],
+    "translation_file": "translations/cp/CP_18497_18596.json"
+  },
+  {
+    "index": 18566,
+    "key": "SDS.MarriageDialogue.Rane.OneKid_2",
+    "source": "在%kid1抓住我手指的时候，我才恍然发现，他居然那么的小，而且…，……那么的脆弱。$7#$q 15400907/15400908 OneKid_2_R1old#……#$r 15400907 0 OneKid_2_15400907#所以我们要…….#$r 15400908 0 OneKid_2_15400908#很可爱吧.",
+    "target": "Khi %kid1 nắm lấy ngón tay tôi, tôi mới chợt nhận ra đứa nhỏ vậy mà bé đến thế, hơn nữa... ...... mong manh đến thế.$7#$q 15400907/15400908 OneKid_2_R1old#......#$r 15400907 0 OneKid_2_15400907#Vậy nên chúng ta phải...... #$r 15400908 0 OneKid_2_15400908#Đáng yêu nhỉ.",
+    "source_tokens": [
+      "%",
+      "$7",
+      "#$q 15400907/15400908 OneKid_2_R1old#",
+      "#$r 15400907 0 OneKid_2_15400907#",
+      "#$r 15400908 0 OneKid_2_15400908#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$7",
+      "#$q 15400907/15400908 OneKid_2_R1old#",
+      "#$r 15400907 0 OneKid_2_15400907#",
+      "#$r 15400908 0 OneKid_2_15400908#"
+    ],
+    "translation_file": "translations/cp/CP_18497_18596.json"
+  },
+  {
+    "index": 18568,
+    "key": "SDS.MarriageDialogue.Rane.OneKid_2_15400908",
+    "source": "嗯嗯，那还是我更可爱一点吧！。——开个玩笑。%kid1很可爱。$1",
+    "target": "Ừ ừ, nhưng tôi vẫn đáng yêu hơn một chút nhỉ! ——Đùa thôi. %kid1 đáng yêu lắm.$1",
+    "source_tokens": [
+      "%",
+      "$1"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_18497_18596.json"
+  },
+  {
+    "index": 18570,
+    "key": "SDS.MarriageDialogue.Rane.OneKid_3",
+    "source": "La总是在我耳边问%kid1应该叫谁爸爸，有时候我一度怀疑他变成了白痴。$0#$q 15400909/15400910 OneKid_3_R1old#……#$r 15400909 0 OneKid_3_15400909#（继续听）#$r 15400910 0 OneKid_3_15400910#Ra现在的表情也傻傻的.",
+    "target": "La cứ hỏi bên tai tôi xem %kid1 nên gọi ai là ba, có lúc tôi thật sự nghi anh ta biến thành đồ ngốc rồi.$0#$q 15400909/15400910 OneKid_3_R1old#......#$r 15400909 0 OneKid_3_15400909#(Tiếp tục nghe) #$r 15400910 0 OneKid_3_15400910#Biểu cảm của Ra bây giờ cũng ngốc ngốc.",
+    "source_tokens": [
+      "%",
+      "$0",
+      "#$q 15400909/15400910 OneKid_3_R1old#",
+      "#$r 15400909 0 OneKid_3_15400909#",
+      "#$r 15400910 0 OneKid_3_15400910#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$0",
+      "#$q 15400909/15400910 OneKid_3_R1old#",
+      "#$r 15400909 0 OneKid_3_15400909#",
+      "#$r 15400910 0 OneKid_3_15400910#"
+    ],
+    "translation_file": "translations/cp/CP_18497_18596.json"
+  },
+  {
+    "index": 18571,
+    "key": "SDS.MarriageDialogue.Rane.OneKid_3_15400909",
+    "source": "但其实，我知道……我们只是跟%kid1一起变幼稚了。谁叫我们现在很幸福呢。$1#$b#%说着说着，Rane不由得笑了起来。",
+    "target": "Nhưng thật ra tôi biết...... chúng tôi chỉ trở nên trẻ con cùng %kid1 thôi. Ai bảo bây giờ chúng tôi hạnh phúc quá chứ.$1#$b#%Nói rồi Rane bất giác bật cười.",
+    "source_tokens": [
+      "%",
+      "$1",
+      "#$b#",
+      "%"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$1",
+      "#$b#",
+      "%"
+    ],
+    "translation_file": "translations/cp/CP_18497_18596.json"
+  },
+  {
+    "index": 18573,
+    "key": "SDS.MarriageDialogue.Rane.OneKid_3_R1old",
+    "source": "但其实，我知道……我们只是跟%kid1一起变幼稚了。谁叫我们现在很幸福呢。$1#$b#%说着说着，Rane不由得笑了起来。",
+    "target": "Nhưng thật ra tôi biết...... chúng tôi chỉ trở nên trẻ con cùng %kid1 thôi. Ai bảo bây giờ chúng tôi hạnh phúc quá chứ.$1#$b#%Nói rồi Rane bất giác bật cười.",
+    "source_tokens": [
+      "%",
+      "$1",
+      "#$b#",
+      "%"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$1",
+      "#$b#",
+      "%"
+    ],
+    "translation_file": "translations/cp/CP_18497_18596.json"
+  },
+  {
+    "index": 18578,
+    "key": "SDS.MarriageDialogue.Rane.TwoKids_0",
+    "source": "不知不觉我已经习惯了%kid1的存在，并且也拥有了处理相关事件的知识。所以不用担心%kid2，我和La都会照顾好他们的。$1#$q 15400913/15400914 TwoKids_0_R1old#……#$r 15400913 0 TwoKids_0_15400913#那就拜托Ra了.#$r 15400914 0 TwoKids_0_15400914#已经成为有模有样的‘父亲’了.",
+    "target": "Không biết từ lúc nào tôi đã quen với sự hiện diện của %kid1, cũng có kiến thức xử lý những chuyện liên quan rồi. Vậy nên đừng lo cho %kid2, tôi với La sẽ chăm cả hai thật tốt.$1#$q 15400913/15400914 TwoKids_0_R1old#......#$r 15400913 0 TwoKids_0_15400913#Vậy nhờ Ra nhé. #$r 15400914 0 TwoKids_0_15400914#Đã ra dáng 'người cha' rồi.",
+    "source_tokens": [
+      "%",
+      "%kid2",
+      "$1",
+      "#$q 15400913/15400914 TwoKids_0_R1old#",
+      "#$r 15400913 0 TwoKids_0_15400913#",
+      "#$r 15400914 0 TwoKids_0_15400914#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "$1",
+      "#$q 15400913/15400914 TwoKids_0_R1old#",
+      "#$r 15400913 0 TwoKids_0_15400913#",
+      "#$r 15400914 0 TwoKids_0_15400914#"
+    ],
+    "translation_file": "translations/cp/CP_18497_18596.json"
+  },
+  {
+    "index": 18582,
+    "key": "SDS.MarriageDialogue.Rane.TwoKids_1",
+    "source": "%kid1更喜欢我一些，%kid2更加亲近La。不知道是不是分辨出了父亲们的不同之处。$1#$q 15400915/15400916 TwoKids_1_R1old#……#$r 15400915 0 TwoKids_1_15400915#我也能分辨你们！#$r 15400916 0 TwoKids_1_15400916#Ra期待的事情要发生了.",
+    "target": "%kid1 thích tôi hơn một chút, còn %kid2 thân với La hơn. Không biết có phải chúng phân biệt được sự khác nhau giữa các ông bố rồi không.$1#$q 15400915/15400916 TwoKids_1_R1old#......#$r 15400915 0 TwoKids_1_15400915#Tôi cũng phân biệt được hai người! #$r 15400916 0 TwoKids_1_15400916#Chuyện Ra mong chờ sắp xảy ra rồi.",
+    "source_tokens": [
+      "%",
+      "%",
+      "$1",
+      "#$q 15400915/15400916 TwoKids_1_R1old#",
+      "#$r 15400915 0 TwoKids_1_15400915#",
+      "#$r 15400916 0 TwoKids_1_15400916#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "$1",
+      "#$q 15400915/15400916 TwoKids_1_R1old#",
+      "#$r 15400915 0 TwoKids_1_15400915#",
+      "#$r 15400916 0 TwoKids_1_15400916#"
+    ],
+    "translation_file": "translations/cp/CP_18497_18596.json"
+  },
+  {
+    "index": 18584,
+    "key": "SDS.MarriageDialogue.Rane.TwoKids_1_15400916",
+    "source": "……嘛，的确是有一些高兴。心里暖暖的。$0#$b#不过无论是%kid1还是%kid2，我都喜欢哦。$1",
+    "target": "......Ừm, đúng là có vui một chút. Trong lòng ấm áp.$0#$b#Nhưng dù là %kid1 hay %kid2, tôi đều thích.$1",
+    "source_tokens": [
+      "$0",
+      "#$b#",
+      "%",
+      "%kid2",
+      "$1"
+    ],
+    "target_tokens": [
+      "$0",
+      "#$b#",
+      "%kid1",
+      "%kid2",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_18497_18596.json"
+  },
+  {
+    "index": 18585,
+    "key": "SDS.MarriageDialogue.Rane.TwoKids_1_R1old",
+    "source": "……嘛，的确是有一些高兴。心里暖暖的。$0#$b#不过无论是%kid1还是%kid2，我都喜欢哦。$1",
+    "target": "......Ừm, đúng là có vui một chút. Trong lòng ấm áp.$0#$b#Nhưng dù là %kid1 hay %kid2, tôi đều thích.$1",
+    "source_tokens": [
+      "$0",
+      "#$b#",
+      "%",
+      "%kid2",
+      "$1"
+    ],
+    "target_tokens": [
+      "$0",
+      "#$b#",
+      "%kid1",
+      "%kid2",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_18497_18596.json"
+  },
+  {
+    "index": 18587,
+    "key": "SDS.MarriageDialogue.Rane.TwoKids_2_15400917",
+    "source": "我并不希望%kid1和%kid2变得和我们一样。所以说……先顺其自然吧，或许我们该由他们自己决定未来。$1",
+    "target": "Tôi không muốn %kid1 và %kid2 trở thành giống chúng tôi. Vậy nên...... cứ để tự nhiên trước đi. Có lẽ nên để chính chúng quyết định tương lai.$1",
+    "source_tokens": [
+      "%",
+      "%",
+      "$1"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_18497_18596.json"
+  },
+  {
+    "index": 18589,
+    "key": "SDS.MarriageDialogue.Rane.TwoKids_2_R1old",
+    "source": "我并不希望%kid1和%kid2变得和我们一样。所以说……先顺其自然吧，或许我们该由他们自己决定未来。$1",
+    "target": "Tôi không muốn %kid1 và %kid2 trở thành giống chúng tôi. Vậy nên...... cứ để tự nhiên trước đi. Có lẽ nên để chính chúng quyết định tương lai.$1",
+    "source_tokens": [
+      "%",
+      "%",
+      "$1"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_18497_18596.json"
+  },
+  {
+    "index": 18590,
+    "key": "SDS.MarriageDialogue.Rane.TwoKids_3",
+    "source": "我现在偶尔会想：我不想失去%kid1也不想失去%kid2，更加不想失去你。$0#$q 15400919/15400920 TwoKids_3_R1old#……#$r 15400919 0 TwoKids_3_15400919#（安静听Ra讲话）#$r 15400920 0 TwoKids_3_15400920#不会的，Ra.",
+    "target": "Bây giờ đôi lúc tôi nghĩ: tôi không muốn mất %kid1, cũng không muốn mất %kid2, càng không muốn mất cậu.$0#$q 15400919/15400920 TwoKids_3_R1old#......#$r 15400919 0 TwoKids_3_15400919#(Im lặng nghe Ra nói) #$r 15400920 0 TwoKids_3_15400920#Sẽ không đâu, Ra.",
+    "source_tokens": [
+      "%",
+      "%kid2",
+      "$0",
+      "#$q 15400919/15400920 TwoKids_3_R1old#",
+      "#$r 15400919 0 TwoKids_3_15400919#",
+      "#$r 15400920 0 TwoKids_3_15400920#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "$0",
+      "#$q 15400919/15400920 TwoKids_3_R1old#",
+      "#$r 15400919 0 TwoKids_3_15400919#",
+      "#$r 15400920 0 TwoKids_3_15400920#"
+    ],
+    "translation_file": "translations/cp/CP_18497_18596.json"
+  },
+  {
+    "index": 18594,
+    "key": "SDS.MarriageDialogue.Rane.TwoKids_4",
+    "source": "La非要说%kid1叫了爸爸。就我听来，他只是胡乱的啊啊了一句。而且啊！%kid1要叫也是叫我爸爸吧！$7#$q 15400921/15400922 TwoKids_4_R1old#……#$r 15400921 0 TwoKids_4_15400921#（笑了一声）#$r 15400922 0 TwoKids_4_15400922#Ra为什么这么认为？",
+    "target": "La cứ khăng khăng nói %kid1 gọi 'ba'. Theo tôi nghe thì đứa nhỏ chỉ ú ớ linh tinh một tiếng thôi. Với lại! Nếu %kid1 có gọi thì cũng phải gọi tôi là ba chứ!$7#$q 15400921/15400922 TwoKids_4_R1old#......#$r 15400921 0 TwoKids_4_15400921#(Bật cười) #$r 15400922 0 TwoKids_4_15400922#Sao Ra lại nghĩ vậy?",
+    "source_tokens": [
+      "%",
+      "%",
+      "$7",
+      "#$q 15400921/15400922 TwoKids_4_R1old#",
+      "#$r 15400921 0 TwoKids_4_15400921#",
+      "#$r 15400922 0 TwoKids_4_15400922#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid1",
+      "$7",
+      "#$q 15400921/15400922 TwoKids_4_R1old#",
+      "#$r 15400921 0 TwoKids_4_15400921#",
+      "#$r 15400922 0 TwoKids_4_15400922#"
+    ],
+    "translation_file": "translations/cp/CP_18497_18596.json"
+  }
+]

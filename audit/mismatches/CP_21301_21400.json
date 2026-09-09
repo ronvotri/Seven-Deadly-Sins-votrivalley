@@ -1,0 +1,117 @@
+[
+  {
+    "index": 21329,
+    "key": "SDS.MarriageDialogue.Maria.OneKid_1",
+    "source": "%kid1一直都很听话，他很可爱$0",
+    "target": "%kid1 lúc nào cũng ngoan, đáng yêu lắm.$0",
+    "source_tokens": [
+      "%",
+      "$0"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$0"
+    ],
+    "translation_file": "translations/cp/CP_21297_21396.json"
+  },
+  {
+    "index": 21330,
+    "key": "SDS.MarriageDialogue.Maria.OneKid_2",
+    "source": "Darling可以放心的将%kid1教给我照顾哦，不必担心$6",
+    "target": "Darling cứ yên tâm giao %kid1 cho tôi chăm nhé, không cần lo đâu.$6",
+    "source_tokens": [
+      "%",
+      "$6"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$6"
+    ],
+    "translation_file": "translations/cp/CP_21297_21396.json"
+  },
+  {
+    "index": 21331,
+    "key": "SDS.MarriageDialogue.Maria.OneKid_3",
+    "source": "%kid1真的与你很像呢，都是那样的可爱$4",
+    "target": "%kid1 thật sự rất giống bạn, đều đáng yêu như vậy.$4",
+    "source_tokens": [
+      "%",
+      "$4"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$4"
+    ],
+    "translation_file": "translations/cp/CP_21297_21396.json"
+  },
+  {
+    "index": 21332,
+    "key": "SDS.MarriageDialogue.Maria.OneKid_4",
+    "source": "Darling可以专心忙自己的事情，我会照顾好%kid1的$0",
+    "target": "Darling cứ tập trung làm việc của mình đi, tôi sẽ chăm %kid1 thật tốt.$0",
+    "source_tokens": [
+      "%",
+      "$0"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$0"
+    ],
+    "translation_file": "translations/cp/CP_21297_21396.json"
+  },
+  {
+    "index": 21333,
+    "key": "SDS.MarriageDialogue.Maria.TwoKids_0",
+    "source": "%kid1与%kid2一定会健康成长的$1",
+    "target": "%kid1 và %kid2 nhất định sẽ lớn lên khỏe mạnh.$1",
+    "source_tokens": [
+      "%",
+      "%",
+      "$1"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_21297_21396.json"
+  },
+  {
+    "index": 21334,
+    "key": "SDS.MarriageDialogue.Maria.TwoKids_1",
+    "source": "我为%kid1与%kid2轻哼了些曲子，他们很快便入睡了哦$1",
+    "target": "Tôi khe khẽ ngân vài giai điệu cho %kid1 và %kid2, chúng ngủ rất nhanh đấy.$1",
+    "source_tokens": [
+      "%",
+      "%",
+      "$1"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_21297_21396.json"
+  },
+  {
+    "index": 21335,
+    "key": "SDS.MarriageDialogue.Maria.TwoKids_2",
+    "source": "为%kid1与%kid2做了些小孩子可以吃的食物$0#$b#吃饱了他们便会安静下来，Darling也可以专心忙碌自己的事情$1",
+    "target": "Tôi đã làm chút đồ ăn trẻ con có thể ăn cho %kid1 và %kid2.$0#$b#Ăn no rồi chúng sẽ yên tĩnh, Darling cũng có thể tập trung làm việc của mình.$1",
+    "source_tokens": [
+      "%",
+      "%",
+      "$0",
+      "#$b#",
+      "$1"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "$0",
+      "#$b#",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_21297_21396.json"
+  }
+]

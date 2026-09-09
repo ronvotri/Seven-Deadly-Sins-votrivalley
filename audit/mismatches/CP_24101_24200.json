@@ -1,0 +1,191 @@
+[
+  {
+    "index": 24146,
+    "key": "SDS.MarriageDialogue.Siren.Indoor_Night_Siren_19000013",
+    "source": "诶，嗯……早上做了饭，打扫了厨房的卫生，给%pet换了水然后看了一下天气预报，毕竟外面晒了一些……$0#$b#今天就是这样哦！$4",
+    "target": "Hả, ừm…… sáng chị nấu ăn, dọn bếp, thay nước cho %pet rồi xem dự báo thời tiết, dù sao bên ngoài còn đang phơi vài thứ……$0#$b#Hôm nay chỉ vậy thôi!$4",
+    "source_tokens": [
+      "%",
+      "$0",
+      "#$b#",
+      "$4"
+    ],
+    "target_tokens": [
+      "%pet",
+      "$0",
+      "#$b#",
+      "$4"
+    ],
+    "translation_file": "translations/cp/CP_24097_24196.json"
+  },
+  {
+    "index": 24147,
+    "key": "SDS.MarriageDialogue.Siren.Indoor_Night_Siren_Sir1old",
+    "source": "早上做了饭，打扫了厨房的卫生，给%pet换了水然后看了一下天气预报，毕竟外面晒了一些……$0#$b#今天就是这样哦！$4",
+    "target": "Sáng chị nấu ăn, dọn bếp, thay nước cho %pet rồi xem dự báo thời tiết, dù sao bên ngoài còn đang phơi vài thứ……$0#$b#Hôm nay chỉ vậy thôi!$4",
+    "source_tokens": [
+      "%",
+      "$0",
+      "#$b#",
+      "$4"
+    ],
+    "target_tokens": [
+      "%pet",
+      "$0",
+      "#$b#",
+      "$4"
+    ],
+    "translation_file": "translations/cp/CP_24097_24196.json"
+  },
+  {
+    "index": 24178,
+    "key": "SDS.MarriageDialogue.Siren.Outdoor_4",
+    "source": "我给%pet的水碗添了水！还修理了一些破损的围栏，以及作物的照看。$1#$b#姐姐我是不是比起之前厉害很多啦！哼哼，我知道哦，我就是非常有用的人鱼~。$4",
+    "target": "Chị đã thêm nước vào bát của %pet! Còn sửa vài đoạn hàng rào hỏng và chăm cây trồng nữa.$1#$b#Chị đây có phải giỏi hơn trước nhiều rồi không! Hừm hừm, chị biết mà, chị là người cá cực kỳ hữu dụng~.$4",
+    "source_tokens": [
+      "%",
+      "$1",
+      "#$b#",
+      "$4"
+    ],
+    "target_tokens": [
+      "%pet",
+      "$1",
+      "#$b#",
+      "$4"
+    ],
+    "translation_file": "translations/cp/CP_24097_24196.json"
+  },
+  {
+    "index": 24181,
+    "key": "SDS.MarriageDialogue.Siren.OneKid_2",
+    "source": "啊！@你知道吗！刚刚%kid1叫了我一声母亲！哎呀，姐姐我真是太开心了！！$4#$b#……咳咳，或许下次我会教导他再叫你一声父亲。$1^……咳咳，或许下次我会教导他再叫你一声母亲。$1",
+    "target": "A! @ biết không! Vừa nãy %kid1 gọi chị một tiếng mẹ! Ấy, chị đây vui chết mất!!$4#$b#……Khụ khụ, có lẽ lần sau chị sẽ dạy bé gọi bạn một tiếng cha.$1^……Khụ khụ, có lẽ lần sau chị sẽ dạy bé gọi bạn một tiếng mẹ.$1",
+    "source_tokens": [
+      "@",
+      "%",
+      "$4",
+      "#$b#",
+      "$1",
+      "^",
+      "$1"
+    ],
+    "target_tokens": [
+      "@",
+      "%kid1",
+      "$4",
+      "#$b#",
+      "$1",
+      "^",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_24097_24196.json"
+  },
+  {
+    "index": 24182,
+    "key": "SDS.MarriageDialogue.Siren.OneKid_3",
+    "source": "%kid1的手软软的，小小的，不过没有蹼。啊啊，姐姐我有些困扰了……之后他去水里既没有尾巴，也没有脚蹼，可怎么在海里捕猎呀。$0#$b#长大成年的时候真的不会饿死吗！？啊啊，好困扰啊——！$3",
+    "target": "Tay %kid1 mềm mềm, nhỏ nhỏ, nhưng không có màng. Aaa, chị đây hơi lo rồi…… sau này bé xuống nước không có đuôi cũng không có chân chèo, vậy săn mồi dưới biển kiểu gì?$0#$b#Lớn lên thật sự không chết đói chứ!? Aaa, lo quá đi——!$3",
+    "source_tokens": [
+      "%",
+      "$0",
+      "#$b#",
+      "$3"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$0",
+      "#$b#",
+      "$3"
+    ],
+    "translation_file": "translations/cp/CP_24097_24196.json"
+  },
+  {
+    "index": 24183,
+    "key": "SDS.MarriageDialogue.Siren.OneKid_4",
+    "source": "%kid1睡着了，不要去故意骚扰他哦，@。哄孩子入睡这种事情，真是太累了！$2#$b#哎呀，虽然是这么说啦……不过姐姐我的心里到现在也是软软的，这是为什么呢？$4",
+    "target": "%kid1 ngủ rồi, đừng cố ý chọc bé nhé @. Dỗ trẻ ngủ mệt thật sự!$2#$b#Ấy, dù nói vậy…… nhưng tới giờ lòng chị vẫn mềm nhũn, sao kỳ vậy?$4",
+    "source_tokens": [
+      "%",
+      "@",
+      "$2",
+      "#$b#",
+      "$4"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "@",
+      "$2",
+      "#$b#",
+      "$4"
+    ],
+    "translation_file": "translations/cp/CP_24097_24196.json"
+  },
+  {
+    "index": 24184,
+    "key": "SDS.MarriageDialogue.Siren.TwoKids_0",
+    "source": "%kid1之后要有兄弟姊妹啦！对吧，我们小小的%kid2……$1#$b#哎呀，真是可爱。小小的胖脸。姐姐我简直爱死你们了！$4",
+    "target": "Sau này %kid1 có anh chị em rồi! Đúng không, %kid2 bé nhỏ của chúng ta……$1#$b#Ấy, đáng yêu quá. Cái má tròn tròn nhỏ xíu. Chị đây yêu hai đứa chết mất!$4",
+    "source_tokens": [
+      "%",
+      "%kid2",
+      "$1",
+      "#$b#",
+      "$4"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "$1",
+      "#$b#",
+      "$4"
+    ],
+    "translation_file": "translations/cp/CP_24097_24196.json"
+  },
+  {
+    "index": 24186,
+    "key": "SDS.MarriageDialogue.Siren.TwoKids_2",
+    "source": "%kid1也渐渐有了照顾一下%kid2的本能反应呢，@，上次我没在他们的附近，%kid1居然主动去照看了一会儿%kid2……$4#$b#实在是太可爱太贴心了！简直就像你一样可爱！$1",
+    "target": "%kid1 cũng dần có phản xạ muốn chăm sóc %kid2 rồi, @. Lần trước lúc chị không ở gần, %kid1 còn chủ động trông %kid2 một lúc……$4#$b#Dễ thương và chu đáo quá đi! Y như bạn vậy!$1",
+    "source_tokens": [
+      "%",
+      "%",
+      "@",
+      "%",
+      "%kid2",
+      "$4",
+      "#$b#",
+      "$1"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "@",
+      "%kid1",
+      "%kid2",
+      "$4",
+      "#$b#",
+      "$1"
+    ],
+    "translation_file": "translations/cp/CP_24097_24196.json"
+  },
+  {
+    "index": 24187,
+    "key": "SDS.MarriageDialogue.Siren.TwoKids_3",
+    "source": "我爱你，@，我也爱%kid1和%kid2。我爱我们的家，我想永远待在这里，然后和你一起，直到永远永远。$4",
+    "target": "Chị yêu bạn, @, cũng yêu %kid1 và %kid2. Chị yêu ngôi nhà của mình, muốn ở đây mãi mãi, rồi cùng bạn đi tới vĩnh viễn.$4",
+    "source_tokens": [
+      "@",
+      "%",
+      "%kid2",
+      "$4"
+    ],
+    "target_tokens": [
+      "@",
+      "%kid1",
+      "%kid2",
+      "$4"
+    ],
+    "translation_file": "translations/cp/CP_24097_24196.json"
+  }
+]

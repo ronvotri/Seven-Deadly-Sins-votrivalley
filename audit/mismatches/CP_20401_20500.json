@@ -1,0 +1,259 @@
+[
+  {
+    "index": 20402,
+    "key": "SDS.MarriageDialogue.Lane.Outdoor_1",
+    "source": "我给%pet的水碗换了水哦，我还修好了家里坏掉的围栏！有减少一点你的负担吗，@~$5#$q 16400891/16400892 Outdoor_1_L1old#……#$r 16400891 0 Outdoor_1_16400891#有.#$r 16400892 0 Outdoor_1_16400892#没有.",
+    "target": "Tôi thay nước trong bát của %pet rồi, còn sửa cả hàng rào bị hỏng nữa! Có đỡ cho bạn được chút nào không, @~$5#$q 16400891/16400892 Outdoor_1_L1old#……#$r 16400891 0 Outdoor_1_16400891#Có. #$r 16400892 0 Outdoor_1_16400892#Không.",
+    "source_tokens": [
+      "%",
+      "@",
+      "$5",
+      "#$q 16400891/16400892 Outdoor_1_L1old#",
+      "#$r 16400891 0 Outdoor_1_16400891#",
+      "#$r 16400892 0 Outdoor_1_16400892#"
+    ],
+    "target_tokens": [
+      "%pet",
+      "@",
+      "$5",
+      "#$q 16400891/16400892 Outdoor_1_L1old#",
+      "#$r 16400891 0 Outdoor_1_16400891#",
+      "#$r 16400892 0 Outdoor_1_16400892#"
+    ],
+    "translation_file": "translations/cp/CP_20397_20496.json"
+  },
+  {
+    "index": 20422,
+    "key": "SDS.MarriageDialogue.Lane.OneKid_1",
+    "source": "不要担心！我会照顾好%kid1的啦~。$5#$q 16400901/16400902 OneKid_1_L1old#……#$r 16400901 0 OneKid_1_16400901#辛苦了.#$r 16400902 0 OneKid_1_16400902#加油哦，孩子他爸.",
+    "target": "Đừng lo! Tôi sẽ chăm %kid1 thật tốt mà~.$5#$q 16400901/16400902 OneKid_1_L1old#……#$r 16400901 0 OneKid_1_16400901#Vất vả rồi. #$r 16400902 0 OneKid_1_16400902#Cố lên nhé, ba của con.",
+    "source_tokens": [
+      "%",
+      "$5",
+      "#$q 16400901/16400902 OneKid_1_L1old#",
+      "#$r 16400901 0 OneKid_1_16400901#",
+      "#$r 16400902 0 OneKid_1_16400902#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$5",
+      "#$q 16400901/16400902 OneKid_1_L1old#",
+      "#$r 16400901 0 OneKid_1_16400901#",
+      "#$r 16400902 0 OneKid_1_16400902#"
+    ],
+    "translation_file": "translations/cp/CP_20397_20496.json"
+  },
+  {
+    "index": 20426,
+    "key": "SDS.MarriageDialogue.Lane.OneKid_2",
+    "source": "呐，@，%kid1的手指居然是那么的柔软……在他抓住我的手指的时候，我才恍然发现这件事。$0#$q 16400903/16400904 OneKid_2_L1old#……#$r 16400903 0 OneKid_2_16400903#所以我们要…….#$r 16400904 0 OneKid_2_16400904#很可爱吧.",
+    "target": "Nè, @, ngón tay của %kid1 mềm đến không ngờ…… tới lúc con nắm lấy ngón tay tôi, tôi mới chợt nhận ra chuyện đó.$0#$q 16400903/16400904 OneKid_2_L1old#……#$r 16400903 0 OneKid_2_16400903#Vậy nên chúng ta phải…… #$r 16400904 0 OneKid_2_16400904#Đáng yêu lắm đúng không.",
+    "source_tokens": [
+      "@",
+      "%",
+      "$0",
+      "#$q 16400903/16400904 OneKid_2_L1old#",
+      "#$r 16400903 0 OneKid_2_16400903#",
+      "#$r 16400904 0 OneKid_2_16400904#"
+    ],
+    "target_tokens": [
+      "@",
+      "%kid1",
+      "$0",
+      "#$q 16400903/16400904 OneKid_2_L1old#",
+      "#$r 16400903 0 OneKid_2_16400903#",
+      "#$r 16400904 0 OneKid_2_16400904#"
+    ],
+    "translation_file": "translations/cp/CP_20397_20496.json"
+  },
+  {
+    "index": 20434,
+    "key": "SDS.MarriageDialogue.Lane.OneKid_4",
+    "source": "Ra负责家务！我负责带孩子！哟西，今天我们三个都要一起加油呢~，我们的小%kid1也要快点长大哦。$5#$q 16400907/16400908 OneKid_4_L1old#……#$r 16400907 0 OneKid_4_16400907#快点长大——.#$r 16400908 0 OneKid_4_16400908#你后半句话我已经猜出来了.",
+    "target": "Ra phụ trách việc nhà! Tôi phụ trách chăm con! Yosh, hôm nay cả ba chúng ta cùng cố lên nhé~, %kid1 bé nhỏ cũng mau lớn lên nào.$5#$q 16400907/16400908 OneKid_4_L1old#……#$r 16400907 0 OneKid_4_16400907#Mau lớn lên——. #$r 16400908 0 OneKid_4_16400908#Tôi đoán được nửa câu sau của bạn rồi.",
+    "source_tokens": [
+      "%",
+      "$5",
+      "#$q 16400907/16400908 OneKid_4_L1old#",
+      "#$r 16400907 0 OneKid_4_16400907#",
+      "#$r 16400908 0 OneKid_4_16400908#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "$5",
+      "#$q 16400907/16400908 OneKid_4_L1old#",
+      "#$r 16400907 0 OneKid_4_16400907#",
+      "#$r 16400908 0 OneKid_4_16400908#"
+    ],
+    "translation_file": "translations/cp/CP_20397_20496.json"
+  },
+  {
+    "index": 20442,
+    "key": "SDS.MarriageDialogue.Lane.TwoKids_1",
+    "source": "%kid1跟%kid2今天都很乖哦，我趴在%kid2的床边看着他的睡脸不由得陷入了回忆呢……$1#$b#在不久之前，%kid1也是像这样，睡在摇篮里。$0#$q 16400911/16400912 TwoKids_1_L1old#……#$r 16400911 0 TwoKids_1_16400911#拥抱La.#$r 16400912 0 TwoKids_1_16400912#抚摸La的脸颊.",
+    "target": "Hôm nay %kid1 và %kid2 đều ngoan lắm. Tôi nằm bên giường %kid2 nhìn khuôn mặt con lúc ngủ rồi bất giác nhớ lại chuyện trước đây……$1#$b#Cách đây không lâu, %kid1 cũng từng nằm trong nôi như thế.$0#$q 16400911/16400912 TwoKids_1_L1old#……#$r 16400911 0 TwoKids_1_16400911#Ôm La. #$r 16400912 0 TwoKids_1_16400912#Vuốt má La.",
+    "source_tokens": [
+      "%",
+      "%",
+      "%",
+      "$1",
+      "#$b#",
+      "%",
+      "$0",
+      "#$q 16400911/16400912 TwoKids_1_L1old#",
+      "#$r 16400911 0 TwoKids_1_16400911#",
+      "#$r 16400912 0 TwoKids_1_16400912#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "%kid2",
+      "$1",
+      "#$b#",
+      "%kid1",
+      "$0",
+      "#$q 16400911/16400912 TwoKids_1_L1old#",
+      "#$r 16400911 0 TwoKids_1_16400911#",
+      "#$r 16400912 0 TwoKids_1_16400912#"
+    ],
+    "translation_file": "translations/cp/CP_20397_20496.json"
+  },
+  {
+    "index": 20446,
+    "key": "SDS.MarriageDialogue.Lane.TwoKids_2",
+    "source": "%kid1喜欢到处跑，%kid2也非常的健康。不过我总担心%kid1会磕磕绊绊伤到自己……#$b#嗯，或许我得去多检查一下家中的家具。$1#$q 16400913/16400914 TwoKids_2_L1old#……#$r 16400913 0 TwoKids_2_16400913#家具怎么了吗？#$r 16400914 0 TwoKids_2_16400914#亲一口La.",
+    "target": "%kid1 thích chạy khắp nơi, %kid2 cũng rất khỏe mạnh. Nhưng tôi cứ lo %kid1 sẽ vấp ngã rồi bị thương……#$b#Ừm, có lẽ tôi phải kiểm tra lại đồ đạc trong nhà thật kỹ.$1#$q 16400913/16400914 TwoKids_2_L1old#……#$r 16400913 0 TwoKids_2_16400913#Đồ đạc làm sao? #$r 16400914 0 TwoKids_2_16400914#Hôn La một cái.",
+    "source_tokens": [
+      "%",
+      "%",
+      "%",
+      "#$b#",
+      "$1",
+      "#$q 16400913/16400914 TwoKids_2_L1old#",
+      "#$r 16400913 0 TwoKids_2_16400913#",
+      "#$r 16400914 0 TwoKids_2_16400914#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "%kid1",
+      "#$b#",
+      "$1",
+      "#$q 16400913/16400914 TwoKids_2_L1old#",
+      "#$r 16400913 0 TwoKids_2_16400913#",
+      "#$r 16400914 0 TwoKids_2_16400914#"
+    ],
+    "translation_file": "translations/cp/CP_20397_20496.json"
+  },
+  {
+    "index": 20450,
+    "key": "SDS.MarriageDialogue.Lane.TwoKids_3",
+    "source": "%kid1跟%kid2长大了会想学什么呢，是跟我学制作药剂，还是跟Ra学习料理呢？#$b#哎呀，真是的……干脆和爸爸们一样算了！$1 0#$q 16400915/16400916 TwoKids_3_L1old#……#$r 16400915 0 TwoKids_3_16400915#让他们长大后自己选择吧.#$r 16400916 0 TwoKids_3_16400916#La想得好久远.",
+    "target": "Sau này %kid1 và %kid2 lớn lên sẽ muốn học gì nhỉ, học chế thuốc với tôi hay học nấu ăn với Ra?#$b#Ui da, thật tình…… thôi cứ giống các ông bố là được rồi!$1 0#$q 16400915/16400916 TwoKids_3_L1old#……#$r 16400915 0 TwoKids_3_16400915#Để chúng tự chọn khi lớn lên đi. #$r 16400916 0 TwoKids_3_16400916#La nghĩ xa thật đấy.",
+    "source_tokens": [
+      "%",
+      "%",
+      "#$b#",
+      "$1",
+      "#$q 16400915/16400916 TwoKids_3_L1old#",
+      "#$r 16400915 0 TwoKids_3_16400915#",
+      "#$r 16400916 0 TwoKids_3_16400916#"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "%kid2",
+      "#$b#",
+      "$1",
+      "#$q 16400915/16400916 TwoKids_3_L1old#",
+      "#$r 16400915 0 TwoKids_3_16400915#",
+      "#$r 16400916 0 TwoKids_3_16400916#"
+    ],
+    "translation_file": "translations/cp/CP_20397_20496.json"
+  },
+  {
+    "index": 20454,
+    "key": "SDS.MarriageDialogue.Lane.TwoKids_4",
+    "source": "呐呐，@！%kid1今天叫爸爸了诶~！虽然可能只是在吱吱呀呀……$1#$b#反正我觉得就是喊了爸爸！嗯！$5#$q 16400917/16400918 TwoKids_4_L1old#……#$r 16400917 0 TwoKids_4_16400917#La看起来好开心.#$r 16400918 0 TwoKids_4_16400918#‘爸爸’.",
+    "target": "Nè nè, @! Hôm nay %kid1 gọi bố rồi đấy~! Dù có thể chỉ là đang ê a thôi……$1#$b#Dù sao tôi vẫn thấy là con gọi bố! Ừm!$5#$q 16400917/16400918 TwoKids_4_L1old#……#$r 16400917 0 TwoKids_4_16400917#La trông vui quá. #$r 16400918 0 TwoKids_4_16400918#'Bố'.",
+    "source_tokens": [
+      "@",
+      "%",
+      "$1",
+      "#$b#",
+      "$5",
+      "#$q 16400917/16400918 TwoKids_4_L1old#",
+      "#$r 16400917 0 TwoKids_4_16400917#",
+      "#$r 16400918 0 TwoKids_4_16400918#"
+    ],
+    "target_tokens": [
+      "@",
+      "%kid1",
+      "$1",
+      "#$b#",
+      "$5",
+      "#$q 16400917/16400918 TwoKids_4_L1old#",
+      "#$r 16400917 0 TwoKids_4_16400917#",
+      "#$r 16400918 0 TwoKids_4_16400918#"
+    ],
+    "translation_file": "translations/cp/CP_20397_20496.json"
+  },
+  {
+    "index": 20455,
+    "key": "SDS.MarriageDialogue.Lane.TwoKids_4_16400917",
+    "source": "那当然了！我都想到%Kids2叫我爸爸的时候了~哼哼。@也要多和孩子们玩哦。$5",
+    "target": "Tất nhiên rồi! Tôi còn tưởng tượng tới lúc %Kids2 gọi mình là bố nữa cơ~ hừm hừm. @ cũng phải chơi với các con nhiều hơn nhé.$5",
+    "source_tokens": [
+      "%",
+      "@",
+      "$5"
+    ],
+    "target_tokens": [
+      "%Kids2",
+      "@",
+      "$5"
+    ],
+    "translation_file": "translations/cp/CP_20397_20496.json"
+  },
+  {
+    "index": 20456,
+    "key": "SDS.MarriageDialogue.Lane.TwoKids_4_16400918",
+    "source": "……嘘嘘嘘，孩子还在啦！这时候玩这种情趣不好吧！$4#$b#……可恶，%Kids1跟%Kids2什么时候睡觉啊，真是的！果然还是得早点让他们滚蛋！$2#$b#%你被Lane不轻不重地咬了一口。",
+    "target": "……Suỵt suỵt suỵt, con vẫn còn ở đây mà! Chơi kiểu tình thú này lúc này không hay đâu!$4#$b#……Đáng ghét, %Kids1 với %Kids2 bao giờ mới ngủ đây, thật tình! Quả nhiên vẫn phải cho chúng cuốn gói sớm thôi!$2#$b#%Bạn bị Lane cắn một cái không nhẹ cũng chẳng nặng.",
+    "source_tokens": [
+      "$4",
+      "#$b#",
+      "%",
+      "%",
+      "$2",
+      "#$b#",
+      "%"
+    ],
+    "target_tokens": [
+      "$4",
+      "#$b#",
+      "%Kids1",
+      "%Kids2",
+      "$2",
+      "#$b#",
+      "%"
+    ],
+    "translation_file": "translations/cp/CP_20397_20496.json"
+  },
+  {
+    "index": 20457,
+    "key": "SDS.MarriageDialogue.Lane.TwoKids_4_L1old",
+    "source": "我都想到%Kids2叫我爸爸的时候了~哼哼。@也要多和孩子们玩哦。$5",
+    "target": "Tôi còn tưởng tượng tới lúc %Kids2 gọi mình là bố nữa cơ~ hừm hừm. @ cũng phải chơi với các con nhiều hơn nhé.$5",
+    "source_tokens": [
+      "%",
+      "@",
+      "$5"
+    ],
+    "target_tokens": [
+      "%Kids2",
+      "@",
+      "$5"
+    ],
+    "translation_file": "translations/cp/CP_20397_20496.json"
+  }
+]

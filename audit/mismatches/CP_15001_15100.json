@@ -1,0 +1,23 @@
+[
+  {
+    "index": 15023,
+    "key": "SDS.MarriageDialogue.Sariel.Good_5",
+    "source": "%pet这两天总是围着我打转，这是为什么？$0#$q 18500815/18500816 Good_5_S1old#...#$r 18500815 0 Good_5_18500815#它认可你是家里的一部分啦。#$r 18500816 0 Good_5_18500816#它在熟悉你的气味。",
+    "target": "Hai ngày nay %pet cứ vòng quanh tôi mãi. Tại sao vậy?$0#$q 18500815/18500816 Good_5_S1old#...#$r 18500815 0 Good_5_18500815#Nó công nhận cậu là một phần của gia đình rồi.#$r 18500816 0 Good_5_18500816#Nó đang làm quen với mùi của cậu.",
+    "source_tokens": [
+      "%",
+      "$0",
+      "#$q 18500815/18500816 Good_5_S1old#",
+      "#$r 18500815 0 Good_5_18500815#",
+      "#$r 18500816 0 Good_5_18500816#"
+    ],
+    "target_tokens": [
+      "%pet",
+      "$0",
+      "#$q 18500815/18500816 Good_5_S1old#",
+      "#$r 18500815 0 Good_5_18500815#",
+      "#$r 18500816 0 Good_5_18500816#"
+    ],
+    "translation_file": "translations/cp/CP_14997_15096.json"
+  }
+]

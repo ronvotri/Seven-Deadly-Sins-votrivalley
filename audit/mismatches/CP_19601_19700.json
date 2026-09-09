@@ -1,0 +1,42 @@
+[
+  {
+    "index": 19641,
+    "key": "SDS.Dialogue.Lane.spring_Thu_16400203.2",
+    "source": "客人也吃过吗？#$b#哎呀，还真是和我有缘呢。那为了维系住这份来之不易的缘——$5#$b#客人还不赶紧把今天的商品全部买下？给您打9。99折哦！$6",
+    "target": "Khách cũng từng ăn rồi sao?#$b#Ôi chao, đúng là có duyên với tôi thật. Vậy để duy trì mối duyên khó có được này——$5#$b#Khách còn không mau mua hết hàng hôm nay đi? Tôi giảm cho bạn 9,99% nhé!$6",
+    "source_tokens": [
+      "#$b#",
+      "$5",
+      "#$b#",
+      "$6"
+    ],
+    "target_tokens": [
+      "#$b#",
+      "$5",
+      "#$b#",
+      "%",
+      "$6"
+    ],
+    "translation_file": "translations/cp/CP_19597_19696.json"
+  },
+  {
+    "index": 19642,
+    "key": "SDS.Dialogue.Lane.spring_Thu_L2old.2",
+    "source": "客人也吃过吗？#$b#哎呀，还真是和我有缘呢。那为了维系住这份来之不易的缘——$5#$b#客人还不赶紧把今天的商品全部买下？给您打9。99折哦！$6",
+    "target": "Khách cũng từng ăn rồi sao?#$b#Ôi chao, đúng là có duyên với tôi thật. Vậy để duy trì mối duyên khó có được này——$5#$b#Khách còn không mau mua hết hàng hôm nay đi? Tôi giảm cho bạn 9,99% nhé!$6",
+    "source_tokens": [
+      "#$b#",
+      "$5",
+      "#$b#",
+      "$6"
+    ],
+    "target_tokens": [
+      "#$b#",
+      "$5",
+      "#$b#",
+      "%",
+      "$6"
+    ],
+    "translation_file": "translations/cp/CP_19597_19696.json"
+  }
+]
