@@ -7,17 +7,19 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   extract:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
+      - uses: actions/checkout@v4
+
       - name: Install JSON5 parser
         run: python -m pip install --disable-pip-version-check json5
 
-      - name: Extract CP 14997-15996 from exact 3.13.4 mod dump
+      - name: Extract exact source, materialize shards, and prepare next slice
         shell: python
         run: |
           import io
@@ -36,33 +38,22 @@ jobs:
                   self.length = int(head.headers['Content-Length'])
                   self.pos = 0
                   print(f'archive_bytes={self.length}')
-
               def readable(self): return True
               def seekable(self): return True
               def tell(self): return self.pos
-
               def seek(self, offset, whence=io.SEEK_SET):
-                  if whence == io.SEEK_SET:
-                      new = offset
-                  elif whence == io.SEEK_CUR:
-                      new = self.pos + offset
-                  elif whence == io.SEEK_END:
-                      new = self.length + offset
-                  else:
-                      raise ValueError('invalid whence')
-                  if new < 0:
-                      raise ValueError('negative seek')
+                  if whence == io.SEEK_SET: new = offset
+                  elif whence == io.SEEK_CUR: new = self.pos + offset
+                  elif whence == io.SEEK_END: new = self.length + offset
+                  else: raise ValueError('invalid whence')
+                  if new < 0: raise ValueError('negative seek')
                   self.pos = min(new, self.length)
                   return self.pos
-
               def read(self, size=-1):
-                  if self.pos >= self.length:
-                      return b''
-                  if size is None or size < 0:
-                      end = self.length - 1
+                  if self.pos >= self.length: return b''
+                  if size is None or size < 0: end = self.length - 1
                   else:
-                      if size == 0:
-                          return b''
+                      if size == 0: return b''
                       end = min(self.length - 1, self.pos + size - 1)
                   requested = f'bytes={self.pos}-{end}'
                   r = self.session.get(self.url, headers={'Range': requested}, allow_redirects=True, timeout=180)
@@ -73,16 +64,10 @@ jobs:
                   return body
 
           url = 'https://smapistorage.blob.core.windows.net/exports/stardew-mod-dataset.zip'
-          start, end = 14997, 15996
           reader = ExplicitRangeReader(url)
           with zipfile.ZipFile(reader) as rz:
               names = rz.namelist()
-              candidates = [
-                  n for n in names
-                  if 'Nexus/15/15100/178657/' in n.replace('\\', '/')
-                  and n.replace('\\', '/').lower().endswith('/i18n/default.json')
-                  and '[cp]' in n.lower()
-              ]
+              candidates = [n for n in names if 'Nexus/15/15100/178657/' in n.replace('\\', '/') and n.replace('\\', '/').lower().endswith('/i18n/default.json') and '[cp]' in n.lower()]
               if len(candidates) != 1:
                   raise SystemExit(f'Expected exactly one CP default.json, found {len(candidates)}')
               raw = rz.read(candidates[0])
@@ -93,10 +78,21 @@ jobs:
           if len(items) != 24827:
               raise SystemExit(f'Unexpected CP key count: {len(items)}')
 
-          entries = [
-              {'index': i, 'key': items[i-1][0], 'value': items[i-1][1]}
-              for i in range(start, end + 1)
-          ]
+          # Materialize key-based shards from the QA-preserved recovery index.
+          for start, end in [(15797, 15896), (15897, 15996)]:
+              recovery_path = Path(f'recovery/index/CP_{start}_{end}.json')
+              recovery = json.loads(recovery_path.read_text(encoding='utf-8'))
+              if len(recovery) != end - start + 1:
+                  raise SystemExit(f'Unexpected recovery count in {recovery_path}: {len(recovery)}')
+              keyed = {items[i-1][0]: recovery[str(i)] for i in range(start, end + 1)}
+              out_path = Path(f'translations/cp/CP_{start}_{end}.json')
+              out_path.parent.mkdir(parents=True, exist_ok=True)
+              out_path.write_text(json.dumps(keyed, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+              print(f'materialized={out_path} keys={len(keyed)}')
+
+          # Prepare the next exact-source slice.
+          start, end = 15997, 16996
+          entries = [{'index': i, 'key': items[i-1][0], 'value': items[i-1][1]} for i in range(start, end + 1)]
           out = {
               'source': 'Seven Deadly Sins 1.6 3.13.4 / Nexus file 178657',
               'cp_key_count': len(items),
@@ -104,14 +100,24 @@ jobs:
               'end_index': end,
               'entries': entries
           }
-          Path('sds-source-slice.json').write_text(
-              json.dumps(out, ensure_ascii=False, indent=2), encoding='utf-8'
-          )
+          Path('sds-source-slice.json').write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding='utf-8')
+
+      - name: Commit materialized key-based shards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add translations/cp/CP_15797_15896.json translations/cp/CP_15897_15996.json
+          if git diff --cached --quiet; then
+            echo "No key-based changes to commit."
+          else
+            git commit -m "Materialize CP 15797-15996 key-based translations"
+            git push
+          fi
 
       - name: Upload source slice
         uses: actions/upload-artifact@v4
         with:
-          name: sds-source-slice-14997-15996
+          name: sds-source-slice-15997-16996
           path: sds-source-slice.json
           retention-days: 1
           if-no-files-found: error
