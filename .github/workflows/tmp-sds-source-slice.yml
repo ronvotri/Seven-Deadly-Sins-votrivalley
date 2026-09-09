@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install JSON5 parser
         run: python -m pip install --disable-pip-version-check json5
-      - name: Extract exact source and materialize latest shards
+      - name: Extract final exact source and materialize latest shards
         shell: python
         run: |
           import io, json, zipfile
@@ -46,7 +46,7 @@ jobs:
               raw=z.read(c[0])
           items=list(json5.loads(raw.decode('utf-8-sig'),allow_duplicate_keys=True).items())
           if len(items)!=24827: raise SystemExit(f'bad key count {len(items)}')
-          for start in range(21997,22997,100):
+          for start in range(22997,23997,100):
               end=start+99
               rp=Path(f'recovery/index/CP_{start}_{end}.json')
               if not rp.exists(): raise SystemExit(f'missing {rp}')
@@ -54,7 +54,7 @@ jobs:
               if len(r)!=100: raise SystemExit(f'bad recovery count {rp}: {len(r)}')
               out={items[i-1][0]:r[str(i)] for i in range(start,end+1)}
               p=Path(f'translations/cp/CP_{start}_{end}.json'); p.parent.mkdir(parents=True,exist_ok=True); p.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-          start,end=22997,23996
+          start,end=23997,24827
           out={'source':'Seven Deadly Sins 1.6 3.13.4 / Nexus file 178657','cp_key_count':len(items),'start_index':start,'end_index':end,'entries':[{'index':i,'key':items[i-1][0],'value':items[i-1][1]} for i in range(start,end+1)]}
           Path('sds-source-slice.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
       - name: Commit materialized key-based shards
@@ -62,11 +62,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add translations/cp
-          if git diff --cached --quiet; then echo "No changes"; else git commit -m "Materialize CP 21997-22996 key-based translations" && git push; fi
-      - name: Upload source slice
+          if git diff --cached --quiet; then echo "No changes"; else git commit -m "Materialize CP 22997-23996 key-based translations" && git push; fi
+      - name: Upload final source slice
         uses: actions/upload-artifact@v4
         with:
-          name: sds-source-slice-22997-23996
+          name: sds-source-slice-23997-24827
           path: sds-source-slice.json
           retention-days: 1
           if-no-files-found: error
