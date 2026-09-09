@@ -4,38 +4,55 @@
   "source_mod_name": "Seven Deadly Sins 1.6",
   "cp_total_keys": 24827,
   "dll_total_keys": 2419,
-  "session_verified": {
-    "cp": {
-      "start_index": 5701,
-      "end_index": 12700,
-      "key_count": 7000,
-      "next_index": 12701,
-      "status": "translated_in_current_conversation_and_QA_checked_in_batches"
-    }
+  "latest_verified": {
+    "cp_end_index": 14996,
+    "cp_next_index": 14997,
+    "status": "translated_QA_checked_and_preserved_on_github"
+  },
+  "source_verification": {
+    "cp_default_key_count": 24827,
+    "nexus_file_id": 178657,
+    "source_path_in_smapi_dump": "downloads/Nexus/15/15100/178657/Seven Deadly Sins 1.6/[CP] Seven Deadly Sins/i18n/default.json",
+    "status": "exact_3.13.4_source_verified"
   },
   "github_materialized": {
-    "cp_key_based_shards": {
-      "start_index": 5701,
-      "end_index": 6900,
-      "key_count": 1200,
-      "path": "translations/cp"
+    "cp_key_based": {
+      "confirmed_through_index": 14500,
+      "additional_shards": [
+        "translations/cp/CP_14797_14896.json",
+        "translations/cp/CP_14897_14996.json"
+      ],
+      "known_key_based_gap": ["14501-14796"]
     },
-    "cp_recovery_index_shards": {
-      "start_index": 11601,
-      "end_index": 12700,
-      "key_count": 1100,
-      "path": "recovery/index",
-      "status": "actual Vietnamese translations preserved by 1-based source index"
-    },
-    "qa_override": {
-      "path": "recovery/index/CP_11601_11800_QA_PATCH.json",
-      "apply_after_base_recovery_shards": true,
-      "note": "Final QA corrections for index 11602 and 11686-11720."
+    "cp_recovery_index": {
+      "latest_end_index": 14996,
+      "latest_shards": [
+        "recovery/index/CP_14501_14600.json",
+        "recovery/index/CP_14601_14700.json",
+        "recovery/index/CP_14701_14796.json",
+        "recovery/index/CP_14797_14896.json",
+        "recovery/index/CP_14897_14996.json"
+      ],
+      "status": "Vietnamese translations preserved by 1-based source index"
     }
   },
-  "recovery_in_progress": {
-    "cp_ranges_to_upload": ["6901-11600"],
-    "source": "recovering exact translation batches from current conversation history"
+  "latest_session_batches": [
+    {
+      "range": "14797-14896",
+      "key_count": 100,
+      "qa_token_errors": 0,
+      "han_characters_remaining": 0
+    },
+    {
+      "range": "14897-14996",
+      "key_count": 100,
+      "qa_token_errors": 0,
+      "han_characters_remaining": 0
+    }
+  ],
+  "reconstruction_needed": {
+    "cp_key_based_ranges": ["14501-14796"],
+    "note": "Translation text is preserved in recovery/index; rebuild key-based shards from exact 3.13.4 source before final release."
   },
   "missing_or_unverified": {
     "cp_ranges": ["1-5700"],
@@ -43,10 +60,10 @@
     "note": "These were reported translated earlier, but no persisted copy has yet been verified in the repository."
   },
   "resume_target": {
-    "cp_next_translation_index": 12701,
-    "priority_before_more_translation": "Continue materializing recoverable CP 6901-11600 when possible; new translation may resume at 12701 once persistence is judged safe.",
-    "release_blocker": "Recover/retranslate CP 1-5700 and DLL 1-2419 before final release if no persisted copies are found."
+    "cp_next_translation_index": 14997,
+    "priority": "Continue CP from 14997 using exact 3.13.4 source; write both key-based and recovery-index shards per batch.",
+    "release_blocker": "Recover/retranslate CP 1-5700, DLL 1-2419, and rebuild CP key-based 14501-14796 before final release if no persisted copies are found."
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-09T02:24:00+07:00"
+  "updated_at": "2026-09-09T12:30:00+07:00"
 }
