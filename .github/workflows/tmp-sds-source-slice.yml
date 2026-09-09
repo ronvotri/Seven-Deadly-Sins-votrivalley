@@ -14,23 +14,77 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Install remotezip
-        run: python -m pip install --disable-pip-version-check remotezip
-
       - name: Extract CP 14797-14996 from exact 3.13.4 mod dump
         shell: python
         run: |
+          import io
           import json
+          import zipfile
           from pathlib import Path
-          from remotezip import RemoteZip
+          import requests
+
+          class ExplicitRangeReader(io.RawIOBase):
+              def __init__(self, url):
+                  self.url = url
+                  self.session = requests.Session()
+                  head = self.session.head(url, allow_redirects=True, timeout=60)
+                  head.raise_for_status()
+                  self.length = int(head.headers['Content-Length'])
+                  self.pos = 0
+                  print(f'archive_bytes={self.length}')
+
+              def readable(self):
+                  return True
+
+              def seekable(self):
+                  return True
+
+              def tell(self):
+                  return self.pos
+
+              def seek(self, offset, whence=io.SEEK_SET):
+                  if whence == io.SEEK_SET:
+                      new = offset
+                  elif whence == io.SEEK_CUR:
+                      new = self.pos + offset
+                  elif whence == io.SEEK_END:
+                      new = self.length + offset
+                  else:
+                      raise ValueError('invalid whence')
+                  if new < 0:
+                      raise ValueError('negative seek')
+                  self.pos = min(new, self.length)
+                  return self.pos
+
+              def read(self, size=-1):
+                  if self.pos >= self.length:
+                      return b''
+                  if size is None or size < 0:
+                      end = self.length - 1
+                  else:
+                      if size == 0:
+                          return b''
+                      end = min(self.length - 1, self.pos + size - 1)
+                  headers = {'Range': f'bytes={self.pos}-{end}'}
+                  r = self.session.get(self.url, headers=headers, allow_redirects=True, timeout=180)
+                  if r.status_code != 206:
+                      raise RuntimeError(
+                          f'Range GET failed: status={r.status_code}, requested={headers["Range"]}, '
+                          f'content-range={r.headers.get("Content-Range")}, content-length={r.headers.get("Content-Length")}'
+                      )
+                  body = r.content
+                  self.pos += len(body)
+                  return body
 
           url = 'https://smapistorage.blob.core.windows.net/exports/stardew-mod-dataset.zip'
           start, end = 14797, 14996
-          with RemoteZip(url) as rz:
+          reader = ExplicitRangeReader(url)
+          with zipfile.ZipFile(reader) as rz:
               names = rz.namelist()
+              print(f'archive_entry_count={len(names)}')
               candidates = [
                   n for n in names
-                  if 'Nexus/15/15100/178657/' in n
+                  if 'Nexus/15/15100/178657/' in n.replace('\\', '/')
                   and n.replace('\\', '/').lower().endswith('/i18n/default.json')
                   and '[cp]' in n.lower()
               ]
@@ -38,6 +92,10 @@ jobs:
               for n in candidates:
                   print(f'candidate={n}')
               if not candidates:
+                  nearby = [n for n in names if 'Nexus/15/15100/178657/' in n.replace('\\', '/')]
+                  print(f'nearby_count={len(nearby)}')
+                  for n in nearby[:100]:
+                      print(f'nearby={n}')
                   raise SystemExit('Exact CP i18n/default.json not found in mod dump.')
               raw = rz.read(candidates[0])
 
