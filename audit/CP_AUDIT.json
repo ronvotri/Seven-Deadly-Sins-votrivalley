@@ -3,36 +3,28 @@
   "source_version": "3.13.4",
   "source_nexus_file_id": 178657,
   "cp_source_key_count": 24827,
-  "generated_at_utc": "2026-09-10T06:56:49.126492+00:00",
+  "generated_at_utc": "2026-09-10T08:05:35.946163+00:00",
   "materialized_from_recovery_this_run": [
-    "translations/cp/CP_1501_1600.json",
-    "translations/cp/CP_1601_1700.json",
-    "translations/cp/CP_1701_1800.json",
-    "translations/cp/CP_1801_1900.json",
-    "translations/cp/CP_1901_2000.json",
-    "translations/cp/CP_2001_2100.json",
-    "translations/cp/CP_2101_2200.json",
-    "translations/cp/CP_2201_2300.json",
-    "translations/cp/CP_2301_2400.json",
-    "translations/cp/CP_2401_2500.json",
-    "translations/cp/CP_2501_2600.json",
-    "translations/cp/CP_2601_2700.json",
-    "translations/cp/CP_2701_2800.json",
-    "translations/cp/CP_2801_2900.json",
-    "translations/cp/CP_2901_3000.json"
+    "translations/cp/CP_3001_3100.json",
+    "translations/cp/CP_3101_3200.json",
+    "translations/cp/CP_3201_3300.json",
+    "translations/cp/CP_3301_3500.json",
+    "translations/cp/CP_3501_3600.json",
+    "translations/cp/CP_3601_3800.json",
+    "translations/cp/CP_3801_4000.json"
   ],
   "key_based": {
-    "covered_key_count": 16527,
-    "missing_key_count": 8300,
+    "covered_key_count": 17527,
+    "missing_key_count": 7300,
     "missing_ranges": [
-      "3001-5700",
+      "4001-5700",
       "6901-11200",
       "11301-11600",
       "12701-13700"
     ],
     "duplicate_index_count": 0,
     "unknown_key_count": 0,
-    "technical_token_mismatch_count": 1,
+    "technical_token_mismatch_count": 2,
     "han_hit_count": 0
   },
   "details": {
@@ -52,6 +44,14 @@
           "%",
           "#$b#",
           "$1"
+        ]
+      },
+      {
+        "index": 3470,
+        "key": "SDS.Shops.SDCitysupermarket.SDS.SDCitysupermarketOpen",
+        "source_tokens": [],
+        "target_tokens": [
+          "%"
         ]
       }
     ],
