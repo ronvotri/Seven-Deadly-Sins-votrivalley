@@ -3,83 +3,55 @@
   "source_version": "3.13.4",
   "source_nexus_file_id": 178657,
   "cp_source_key_count": 24827,
-  "generated_at_utc": "2026-09-10T04:26:50.335424+00:00",
+  "generated_at_utc": "2026-09-10T06:56:49.126492+00:00",
   "materialized_from_recovery_this_run": [
-    "translations/cp/CP_1301_1400.json",
-    "translations/cp/CP_1401_1500.json"
+    "translations/cp/CP_1501_1600.json",
+    "translations/cp/CP_1601_1700.json",
+    "translations/cp/CP_1701_1800.json",
+    "translations/cp/CP_1801_1900.json",
+    "translations/cp/CP_1901_2000.json",
+    "translations/cp/CP_2001_2100.json",
+    "translations/cp/CP_2101_2200.json",
+    "translations/cp/CP_2201_2300.json",
+    "translations/cp/CP_2301_2400.json",
+    "translations/cp/CP_2401_2500.json",
+    "translations/cp/CP_2501_2600.json",
+    "translations/cp/CP_2601_2700.json",
+    "translations/cp/CP_2701_2800.json",
+    "translations/cp/CP_2801_2900.json",
+    "translations/cp/CP_2901_3000.json"
   ],
   "key_based": {
-    "covered_key_count": 15027,
-    "missing_key_count": 9800,
+    "covered_key_count": 16527,
+    "missing_key_count": 8300,
     "missing_ranges": [
-      "1501-5700",
+      "3001-5700",
       "6901-11200",
       "11301-11600",
       "12701-13700"
     ],
     "duplicate_index_count": 0,
     "unknown_key_count": 0,
-    "technical_token_mismatch_count": 2,
+    "technical_token_mismatch_count": 1,
     "han_hit_count": 0
   },
   "details": {
     "technical_token_mismatches": [
       {
-        "index": 358,
-        "key": "SDS.mail.SDSSariel4.4",
+        "index": 2093,
+        "key": "SDS.NPCGiftTastes.Trinity.2",
         "source_tokens": [
-          "^",
-          "^",
-          "[生活]",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "[letterbg LooseSprites/SDS.letterBG 1]",
-          "[textcolor gray]",
-          "[#]"
+          "$3",
+          "#$b#",
+          "#$b#",
+          "$1"
         ],
         "target_tokens": [
-          "^",
-          "^",
-          "[Đời sống]",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "^",
-          "[letterbg LooseSprites/SDS.letterBG 1]",
-          "[textcolor gray]",
-          "[#]"
-        ]
-      },
-      {
-        "index": 664,
-        "key": "SDS.StringsFromMaps.SDS.icecream.8",
-        "source_tokens": [
-          "[蘑菇香草冰淇淋]"
-        ],
-        "target_tokens": [
-          "[Kem nấm thảo mộc]"
+          "$3",
+          "#$b#",
+          "%",
+          "#$b#",
+          "$1"
         ]
       }
     ],
