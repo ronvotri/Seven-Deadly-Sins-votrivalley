@@ -27,9 +27,15 @@
 
 ### Repo reconstruction hiện tại
 
-- Recovery/key-based đã được khôi phục liên tục tới **#8600**.
-- Shard mới nhất đã commit: `recovery/index/CP_8501_8600.json`.
-- **Điểm tiếp tục chính xác hiện tại: #8601.**
+- Recovery đã được khôi phục liên tục tới **#8900**.
+- Các shard mới đã commit trong phiên này:
+  - `recovery/index/CP_8501_8600.json`
+  - `recovery/index/CP_8601_8700.json`
+  - `recovery/index/CP_8701_8800.json`
+  - `recovery/index/CP_8801_8850.json`
+  - `recovery/index/CP_8851_8900.json`
+- QA cho các batch mới: **0 technical token mismatch / 0 Hán tự**.
+- **Điểm tiếp tục chính xác hiện tại: #8901.**
 - Exact missing-source artifact cho CP gaps + DLL 2,419 key đã được tạo thành công bằng GitHub Actions.
 
 ## QUY TẮC BẮT BUỘC: CUỐI MỖI PHIÊN PHẢI PERSIST GITHUB
@@ -89,7 +95,7 @@
 
 ## Việc cần làm từ đây
 
-1. Tiếp tục CP từ **#8601**.
+1. Tiếp tục CP từ **#8901**.
 2. Hoàn tất toàn bộ CP gaps còn lại và materialize sang `translations/cp`.
 3. Refresh full CP audit, mục tiêu 24,827/24,827, 0 token mismatch, 0 Hán tự, 0 unknown.
 4. Hoàn tất DLL 2,419 key, persist + QA.
