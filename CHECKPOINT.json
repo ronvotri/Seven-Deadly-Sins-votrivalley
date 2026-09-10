@@ -10,66 +10,54 @@
     "source_path_in_smapi_dump": "downloads/Nexus/15/15100/178657/Seven Deadly Sins 1.6/[CP] Seven Deadly Sins/i18n/default.json",
     "status": "exact_3.13.4_source_verified"
   },
-  "translation_endpoint": {
+  "translation_status": {
+    "cp_sequential_translation_complete": true,
     "cp_last_source_index_reached": 24827,
     "cp_last_batch": "24797-24827",
-    "cp_last_batch_key_count": 31,
     "cp_last_batch_qa_token_errors": 0,
     "cp_last_batch_han_characters_remaining": 0,
-    "status": "sequential_translation_reached_end_of_cp_source"
+    "meaning": "CP content translation has already reached the end of the exact source. Missing repo files are persistence/reconstruction gaps, not evidence that those lines were never translated."
   },
-  "repo_audit": {
-    "audit_file": "audit/CP_AUDIT.json",
-    "mismatch_summary_file": "audit/CP_MISMATCH_SUMMARY.json",
-    "key_based_covered_key_count": 13527,
-    "key_based_missing_key_count": 11300,
-    "key_based_missing_ranges": [
-      "1-5700",
-      "6901-11200",
-      "11301-11600",
-      "12701-13700"
+  "anti_loop_policy": {
+    "retranslate_on_missing_repo_file": false,
+    "recovery_first": true,
+    "required_search_order": [
+      "recovery/index",
+      "translations/cp",
+      "git commit history",
+      "GitHub Actions artifacts/workflow outputs",
+      "other persisted handoff/files from prior sessions"
     ],
-    "recovery_covered_index_count": 12227,
-    "recovery_missing_index_count": 12600,
-    "recovery_missing_ranges": [
-      "1-11200",
-      "11301-11600",
-      "12701-13700",
-      "15497-15596"
-    ],
-    "technical_token_mismatch_count": 189,
-    "technical_token_mismatch_blocks": 22,
-    "han_hit_count": 0,
-    "duplicate_index_count": 0,
-    "unknown_key_count": 0,
-    "recovery_key_based_value_mismatch_count_after_reconcile": 0,
-    "status": "audited_not_release_ready"
+    "retranslation_rule": "Do not retranslate automatically. Only consider retranslation after exhaustive recovery proves no persisted copy exists and the user explicitly approves it."
   },
-  "repo_reconciliation": {
-    "policy": "Complete recovery shards are treated as the latest QA-preserved source of truth and overwrite matching key-based shard values during reconciliation.",
-    "result": "Recovery and key-based values now match wherever complete recovery shards exist.",
-    "final_key_based_shard": "translations/cp/CP_24797_24827.json",
-    "final_recovery_shard": "recovery/index/CP_24797_24827.json"
+  "repo_reconstruction": {
+    "status": "in_progress",
+    "known_recovery_contiguous_through": 8500,
+    "latest_restored_shard": "recovery/index/CP_8401_8500.json",
+    "materialization_target": "Materialize all complete recovery shards into translations/cp using exact 3.13.4 index-to-key mapping, then refresh audit.",
+    "note": "Audit missing ranges describe repo coverage holes only; they must not be interpreted as untranslated content."
   },
   "dll_status": {
     "expected_keys": 2419,
+    "historical_completion_reported": true,
     "persisted_translation_directory_verified": false,
-    "note": "Earlier chat history reported DLL completion, but the repository currently contains only translations/cp; no persisted DLL translation has been verified."
+    "policy": "Recovery-first. Do not automatically retranslate DLL because the current repo does not show it."
   },
   "release_ready": false,
   "remaining_release_blockers": [
-    "Recover or retranslate missing CP ranges: 1-5700, 6901-11200, 11301-11600, 12701-13700.",
-    "Repair 189 structural token mismatches listed in audit/CP_MISMATCH_SUMMARY.json and audit/mismatches/*.json.",
-    "Recover or retranslate and persist DLL 1-2419.",
-    "Run final full CP/DLL structural QA after all missing ranges are restored."
+    "Finish reconstructing/materializing all previously translated CP data into the repository.",
+    "Reconcile overlaps and repair structural token mismatches after coverage reconstruction.",
+    "Recover and persist the previously completed DLL translation.",
+    "Run final full CP/DLL structural QA and package the release."
   ],
   "resume_target": {
-    "mode": "repair_and_recovery_not_sequential_tail_translation",
-    "priority_1": "Repair exact CP token mismatches using audit/mismatches diagnostics; update both recovery and key-based copies.",
-    "priority_2": "Recover prior translations for missing CP ranges if a trustworthy persisted source is found; otherwise retranslate against exact 3.13.4 source.",
-    "priority_3": "Recover/retranslate DLL 1-2419 and persist it in the repository.",
-    "do_not_resume_from": 24828
+    "mode": "repo_reconstruction_and_finalization_only",
+    "priority_1": "Materialize all available recovery shards and refresh current audit.",
+    "priority_2": "Recover repo holes from Git history, workflow artifacts, and persisted prior-session sources without retranslating.",
+    "priority_3": "Recover DLL using the same recovery-first policy.",
+    "do_not_resume_from": 24828,
+    "do_not_auto_retranslate": true
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-10T05:28:00+07:00"
+  "updated_at": "2026-09-10T23:55:00+07:00"
 }
