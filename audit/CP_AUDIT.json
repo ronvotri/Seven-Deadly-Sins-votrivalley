@@ -3,22 +3,19 @@
   "source_version": "3.13.4",
   "source_nexus_file_id": 178657,
   "cp_source_key_count": 24827,
-  "generated_at_utc": "2026-09-10T09:05:06.244111+00:00",
+  "generated_at_utc": "2026-09-10T09:24:07.072488+00:00",
   "materialized_from_recovery_this_run": [
-    "translations/cp/CP_2001_2100.json",
-    "translations/cp/CP_3301_3500.json"
-  ],
-  "repaired_recovery_files": [
-    "recovery/index/CP_2001_2100.json",
-    "recovery/index/CP_3301_3500.json"
+    "translations/cp/CP_4701_4800.json",
+    "translations/cp/CP_4801_4900.json",
+    "translations/cp/CP_4901_5000.json"
   ],
   "malformed_recovery_files": [],
   "malformed_translation_files": [],
   "key_based": {
-    "covered_key_count": 18227,
-    "missing_key_count": 6600,
+    "covered_key_count": 18527,
+    "missing_key_count": 6300,
     "missing_ranges": [
-      "4701-5700",
+      "5001-5700",
       "6901-11200",
       "11301-11600",
       "12701-13700"
