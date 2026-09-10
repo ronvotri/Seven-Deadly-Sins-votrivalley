@@ -3,13 +3,15 @@
   "source_version": "3.13.4",
   "source_nexus_file_id": 178657,
   "cp_source_key_count": 24827,
-  "generated_at_utc": "2026-09-10T08:57:19.360540+00:00",
+  "generated_at_utc": "2026-09-10T09:05:06.244111+00:00",
   "materialized_from_recovery_this_run": [
-    "translations/cp/CP_4001_4100.json",
-    "translations/cp/CP_4101_4200.json",
-    "translations/cp/CP_4601_4700.json"
+    "translations/cp/CP_2001_2100.json",
+    "translations/cp/CP_3301_3500.json"
   ],
-  "repaired_recovery_files": [],
+  "repaired_recovery_files": [
+    "recovery/index/CP_2001_2100.json",
+    "recovery/index/CP_3301_3500.json"
+  ],
   "malformed_recovery_files": [],
   "malformed_translation_files": [],
   "key_based": {
@@ -23,37 +25,11 @@
     ],
     "duplicate_index_count": 0,
     "unknown_key_count": 0,
-    "technical_token_mismatch_count": 2,
+    "technical_token_mismatch_count": 0,
     "han_hit_count": 0
   },
   "details": {
-    "technical_token_mismatches": [
-      {
-        "index": 2093,
-        "key": "SDS.NPCGiftTastes.Trinity.2",
-        "source_tokens": [
-          "$3",
-          "#$b#",
-          "#$b#",
-          "$1"
-        ],
-        "target_tokens": [
-          "$3",
-          "#$b#",
-          "%",
-          "#$b#",
-          "$1"
-        ]
-      },
-      {
-        "index": 3470,
-        "key": "SDS.Shops.SDCitysupermarket.SDS.SDCitysupermarketOpen",
-        "source_tokens": [],
-        "target_tokens": [
-          "%"
-        ]
-      }
-    ],
+    "technical_token_mismatches": [],
     "han_hits": [],
     "duplicate_indices": [],
     "unknown_keys": []
