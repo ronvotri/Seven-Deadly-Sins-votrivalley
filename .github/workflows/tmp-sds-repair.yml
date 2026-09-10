@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install JSON5 parser
         run: python -m pip install --disable-pip-version-check json5
-      - name: Materialize recovery, audit, and extract CP 2001-3000
+      - name: Materialize recovery, audit, and extract CP 3001-4000
         shell: python
         run: |
           import io, json, re, zipfile
@@ -71,7 +71,7 @@ jobs:
                   tp.write_text(rendered,encoding='utf-8')
                   materialized.append(str(tp))
 
-          token_re=re.compile(r'\{\{.*?\}\}|\[[^\]]+\]|#?\$q\s+[^#]+#|#?\$r\s+[^#]+#|#\$b#|\$[qrb]|\$\d+|%(?:kid\d+|kids\d+|pet\d*)|%|@|\^|\|',re.IGNORECASE)
+          token_re=re.compile(r'\{\{.*?\}\}|\[(?:SDS_[^\]]+|\d+)\]|#?\$q\s+[^#]+#|#?\$r\s+[^#]+#|#\$b#|\$[qrb]|\$\d+|%(?:kid\d+|kids\d+|pet\d*)|%|@|\^|\|',re.IGNORECASE)
           han_re=re.compile(r'[\u3400-\u4DBF\u4E00-\u9FFF]')
           coverage=set(); duplicate=[]; unknown=[]; mismatches=[]; han=[]
           for tp in sorted(Path('translations/cp').glob('CP_*_*.json')):
@@ -103,9 +103,9 @@ jobs:
           Path('audit').mkdir(exist_ok=True)
           Path('audit/CP_AUDIT.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
-          start,end=2001,3000
+          start,end=3001,4000
           source_slice={'source':'Seven Deadly Sins 1.6 / 3.13.4 / Nexus 178657','cp_key_count':len(items),'start_index':start,'end_index':end,'entries':[{'index':i,'key':items[i-1][0],'value':items[i-1][1]} for i in range(start,end+1)]}
-          Path('sds-cp-source-02001-03000.json').write_text(json.dumps(source_slice,ensure_ascii=False,indent=2),encoding='utf-8')
+          Path('sds-cp-source-03001-04000.json').write_text(json.dumps(source_slice,ensure_ascii=False,indent=2),encoding='utf-8')
           print(json.dumps(audit['key_based'],ensure_ascii=False,indent=2))
 
       - name: Commit materialized shards and audit
@@ -113,11 +113,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add translations/cp audit/CP_AUDIT.json
-          if git diff --cached --quiet; then echo "No changes"; else git commit -m "Materialize restored CP shards and correct audit" && git push; fi
+          if git diff --cached --quiet; then echo "No changes"; else git commit -m "Materialize restored CP shards and refresh audit" && git push; fi
       - name: Upload exact source slice
         uses: actions/upload-artifact@v4
         with:
-          name: sds-cp-source-02001-03000
-          path: sds-cp-source-02001-03000.json
+          name: sds-cp-source-03001-04000
+          path: sds-cp-source-03001-04000.json
           retention-days: 1
           if-no-files-found: error
