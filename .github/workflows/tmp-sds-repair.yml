@@ -53,7 +53,7 @@ jobs:
           ikey={i+1:k for i,(k,v) in enumerate(items)}; ival={i+1:v for i,(k,v) in enumerate(items)}
           kidx={k:i+1 for i,(k,v) in enumerate(items)}
 
-          token_re=re.compile(r'\{\{.*?\}\}|\[[^\]]+\]|#?\$q\s+[^#]+#|#?\$r\s+[^#]+#|#\$b#|\$[qrb]|\$\d+|%(?:kid\d+|kids\d+|pet\d*)\b|%|@|\^|\|',re.I)
+          token_re=re.compile(r'\{\{.*?\}\}|\[[^\]]+\]|#?\$q\s+[^#]+#|#?\$r\s+[^#]+#|#\$b#|\$[qrb]|\$\d+|%(?:kid\d+|kids\d+|pet\d*)|%|@|\^|\|',re.I)
           han_re=re.compile(r'[\u3400-\u4DBF\u4E00-\u9FFF]')
           shard_re=re.compile(r'^CP_(\d+)_(\d+)\.json$')
 
@@ -86,7 +86,6 @@ jobs:
               td=json.loads(tp.read_text(encoding='utf-8')); td[ikey[idx]]=target
               tp.write_text(json.dumps(td,ensure_ascii=False,indent=2)+'\n',encoding='utf-8'); touched.add(str(tp))
 
-          # Audit key-based coverage and structural tokens after repair.
           coverage=set(); duplicate=[]; unknown=[]; mism=[]; han=[]
           for tp in sorted(Path('translations/cp').glob('CP_*_*.json')):
               if not shard_re.match(tp.name): continue
