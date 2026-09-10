@@ -1,0 +1,163 @@
+name: SDS materialize and source 5001-6000
+
+on:
+  push:
+    paths:
+      - '.github/workflows/tmp-sds-source-5001-6000.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install JSON5 parser
+        run: python -m pip install --disable-pip-version-check json5
+      - name: Materialize recovery audit and extract source
+        shell: python
+        run: |
+          import io, json, re, zipfile
+          from pathlib import Path
+          from datetime import datetime, timezone
+          import requests, json5
+
+          class R(io.RawIOBase):
+              def __init__(self, url):
+                  self.url=url; self.s=requests.Session()
+                  h=self.s.head(url,allow_redirects=True,timeout=60); h.raise_for_status()
+                  self.n=int(h.headers['Content-Length']); self.p=0
+              def readable(self): return True
+              def seekable(self): return True
+              def tell(self): return self.p
+              def seek(self,o,w=io.SEEK_SET):
+                  self.p=o if w==io.SEEK_SET else self.p+o if w==io.SEEK_CUR else self.n+o
+                  return self.p
+              def read(self,size=-1):
+                  if self.p>=self.n: return b''
+                  if size==0: return b''
+                  e=self.n-1 if size is None or size<0 else min(self.n-1,self.p+size-1)
+                  r=self.s.get(self.url,headers={'Range':f'bytes={self.p}-{e}'},allow_redirects=True,timeout=180)
+                  if r.status_code!=206: raise RuntimeError(r.status_code)
+                  b=r.content; self.p+=len(b); return b
+
+          reader=R('https://smapistorage.blob.core.windows.net/exports/stardew-mod-dataset.zip')
+          with zipfile.ZipFile(reader) as z:
+              candidates=[n for n in z.namelist() if 'Nexus/15/15100/178657/' in n.replace('\\','/') and n.replace('\\','/').lower().endswith('/i18n/default.json') and '[cp]' in n.lower()]
+              if len(candidates)!=1: raise SystemExit(f'expected one CP source, got {len(candidates)}')
+              raw=z.read(candidates[0])
+          items=list(json5.loads(raw.decode('utf-8-sig'),allow_duplicate_keys=True).items())
+          if len(items)!=24827: raise SystemExit(f'bad key count {len(items)}')
+          key_to_index={k:i+1 for i,(k,v) in enumerate(items)}
+          shard_re=re.compile(r'^CP_(\d+)_(\d+)\.json$')
+
+          materialized=[]; malformed_recovery=[]
+          for rp in sorted(Path('recovery/index').glob('CP_*_*.json')):
+              m=shard_re.match(rp.name)
+              if not m: continue
+              a,b=map(int,m.groups())
+              if a<1 or b>len(items) or b<a: continue
+              try:
+                  r=json.loads(rp.read_text(encoding='utf-8'))
+              except Exception as e:
+                  malformed_recovery.append({'file':str(rp),'error':f'{type(e).__name__}: {e}'})
+                  continue
+              if any(str(i) not in r for i in range(a,b+1)): continue
+              out={items[i-1][0]:r[str(i)] for i in range(a,b+1)}
+              tp=Path(f'translations/cp/CP_{a}_{b}.json')
+              rendered=json.dumps(out,ensure_ascii=False,indent=2)+'\n'
+              old=tp.read_text(encoding='utf-8') if tp.exists() else None
+              if old!=rendered:
+                  tp.parent.mkdir(parents=True,exist_ok=True)
+                  tp.write_text(rendered,encoding='utf-8')
+                  materialized.append(str(tp))
+
+          token_re=re.compile(r'\{\{.*?\}\}|\[(?:SDS_[^\]]+|\d+)\]|#?\$q\s+[^#]+#|#?\$r\s+[^#]+#|#\$b#|\$[qrb]|\$\d+|%(?:kid\d+|kids\d+|pet\d*)|%|@|\^|\|',re.IGNORECASE)
+          han_re=re.compile(r'[\u3400-\u4DBF\u4E00-\u9FFF]')
+          coverage=set(); duplicate=[]; unknown=[]; mismatches=[]; han=[]; malformed_translation=[]
+          for tp in sorted(Path('translations/cp').glob('CP_*_*.json')):
+              if not shard_re.match(tp.name): continue
+              try:
+                  d=json.loads(tp.read_text(encoding='utf-8'))
+              except Exception as e:
+                  malformed_translation.append({'file':str(tp),'error':f'{type(e).__name__}: {e}'})
+                  continue
+              for k,t in d.items():
+                  idx=key_to_index.get(k)
+                  if idx is None:
+                      unknown.append({'file':str(tp),'key':k}); continue
+                  if idx in coverage: duplicate.append({'index':idx,'key':k,'file':str(tp)})
+                  coverage.add(idx)
+                  s=items[idx-1][1]
+                  st=token_re.findall(s); tt=token_re.findall(t)
+                  if st!=tt: mismatches.append({'index':idx,'key':k,'source_tokens':st,'target_tokens':tt})
+                  hs=han_re.findall(t)
+                  if hs: han.append({'index':idx,'key':k,'chars':''.join(hs[:20])})
+
+          def ranges(nums):
+              nums=sorted(nums)
+              if not nums: return []
+              out=[]; a=b=nums[0]
+              for n in nums[1:]:
+                  if n==b+1: b=n
+                  else:
+                      out.append(f'{a}-{b}' if a!=b else str(a)); a=b=n
+              out.append(f'{a}-{b}' if a!=b else str(a)); return out
+
+          missing=set(range(1,len(items)+1))-coverage
+          audit={
+              'project':'Seven Deadly Sins Vietnamese Localization',
+              'source_version':'3.13.4',
+              'source_nexus_file_id':178657,
+              'cp_source_key_count':len(items),
+              'generated_at_utc':datetime.now(timezone.utc).isoformat(),
+              'materialized_from_recovery_this_run':materialized,
+              'malformed_recovery_files':malformed_recovery,
+              'malformed_translation_files':malformed_translation,
+              'key_based':{
+                  'covered_key_count':len(coverage),
+                  'missing_key_count':len(missing),
+                  'missing_ranges':ranges(missing),
+                  'duplicate_index_count':len(duplicate),
+                  'unknown_key_count':len(unknown),
+                  'technical_token_mismatch_count':len(mismatches),
+                  'han_hit_count':len(han)
+              },
+              'details':{
+                  'technical_token_mismatches':mismatches,
+                  'han_hits':han,
+                  'duplicate_indices':duplicate,
+                  'unknown_keys':unknown
+              }
+          }
+          Path('audit').mkdir(exist_ok=True)
+          Path('audit/CP_AUDIT.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
+          start,end=5001,6000
+          source_slice={
+              'source':'Seven Deadly Sins 1.6 / 3.13.4 / Nexus 178657',
+              'cp_key_count':len(items),
+              'start_index':start,
+              'end_index':end,
+              'entries':[{'index':i,'key':items[i-1][0],'value':items[i-1][1]} for i in range(start,end+1)]
+          }
+          Path('sds-cp-source-05001-06000.json').write_text(json.dumps(source_slice,ensure_ascii=False,indent=2),encoding='utf-8')
+          print(json.dumps(audit['key_based'],ensure_ascii=False,indent=2))
+
+      - name: Commit materialized shards and audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add translations/cp audit/CP_AUDIT.json
+          if git diff --cached --quiet; then echo "No changes"; else git commit -m "Materialize CP 4701-5000 and refresh audit" && git push; fi
+
+      - name: Upload exact source 5001-6000
+        uses: actions/upload-artifact@v4
+        with:
+          name: sds-cp-source-05001-06000
+          path: sds-cp-source-05001-06000.json
+          retention-days: 1
+          if-no-files-found: error
