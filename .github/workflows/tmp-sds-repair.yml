@@ -96,7 +96,8 @@ jobs:
                   if idx in coverage: duplicate.append({'index':idx,'file':str(tp)})
                   coverage.add(idx)
                   st=token_re.findall(ival[idx]); tt=token_re.findall(t)
-                  if st!=tt: mism.append({'index':idx,'key':k,'source_tokens':st,'target_tokens':tt,'file':str(tp)})
+                  if st!=tt:
+                      mism.append({'index':idx,'key':k,'source':ival[idx],'target':t,'source_tokens':st,'target_tokens':tt,'file':str(tp)})
                   hs=han_re.findall(t)
                   if hs: han.append({'index':idx,'key':k,'chars':''.join(hs[:20])})
           missing=set(range(1,len(items)+1))-coverage
@@ -108,20 +109,35 @@ jobs:
                   if n==b+1:b=n
                   else:out.append(f'{a}-{b}' if a!=b else str(a));a=b=n
               out.append(f'{a}-{b}' if a!=b else str(a));return out
+
           audit={
               'project':'Seven Deadly Sins Vietnamese Localization',
               'source_version':'3.13.4','source_nexus_file_id':178657,'cp_source_key_count':len(items),
               'generated_at_utc':datetime.now(timezone.utc).isoformat(),
               'applied_repair_index_count':len(patches),'applied_repair_indices':sorted(patches),
               'key_based':{'covered_key_count':len(coverage),'missing_key_count':len(missing),'missing_ranges':ranges(missing),'duplicate_index_count':len(duplicate),'unknown_key_count':len(unknown),'technical_token_mismatch_count':len(mism),'han_hit_count':len(han)},
-              'details':{'technical_token_mismatches':mism,'han_hits':han,'duplicate_indices':duplicate,'unknown_keys':unknown},
+              'details':{'technical_token_mismatches':[{'index':x['index'],'key':x['key'],'source_tokens':x['source_tokens'],'target_tokens':x['target_tokens'],'file':x['file']} for x in mism],'han_hits':han,'duplicate_indices':duplicate,'unknown_keys':unknown},
           }
           Path('audit').mkdir(exist_ok=True)
           Path('audit/CP_AUDIT.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
+          outdir=Path('audit/mismatches_current'); outdir.mkdir(parents=True,exist_ok=True)
+          for old in outdir.glob('*.json'): old.unlink()
+          blocks={}
+          for x in mism:
+              b=((x['index']-1)//100)*100+1
+              blocks.setdefault(b,[]).append(x)
+          block_summary=[]
+          for b,arr in sorted(blocks.items()):
+              e=b+99
+              p=outdir/f'CP_{b}_{e}.json'
+              p.write_text(json.dumps(arr,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+              block_summary.append({'block':f'{b}-{e}','count':len(arr),'first':arr[0]['index'],'last':arr[-1]['index'],'file':str(p)})
+          Path('audit/CP_MISMATCH_SUMMARY_CURRENT.json').write_text(json.dumps({'mismatch_count':len(mism),'ranges':ranges([x['index'] for x in mism]),'blocks':block_summary},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           print('touched',len(touched),'mismatches',len(mism),'missing',len(missing),'han',len(han))
       - name: Commit repairs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add recovery/index translations/cp audit/CP_AUDIT.json
-          if git diff --cached --quiet; then echo "No changes"; else git commit -m "Repair CP token drift from QA patches" && git push; fi
+          git add recovery/index translations/cp audit/CP_AUDIT.json audit/CP_MISMATCH_SUMMARY_CURRENT.json audit/mismatches_current
+          if git diff --cached --quiet; then echo "No changes"; else git commit -m "Refresh corrected CP mismatch diagnostics" && git push; fi
