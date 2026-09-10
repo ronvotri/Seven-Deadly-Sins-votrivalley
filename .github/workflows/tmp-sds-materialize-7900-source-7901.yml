@@ -1,4 +1,4 @@
-name: SDS materialize through 7900 and source 7901-8900
+name: SDS materialize all available recovery and source 7901-8900
 
 on:
   push:
@@ -151,7 +151,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add translations/cp audit/CP_AUDIT.json
-          if git diff --cached --quiet; then echo "No changes"; else git commit -m "Materialize CP through 7900 and refresh audit" && git push; fi
+          if git diff --cached --quiet; then echo "No changes"; else git commit -m "Materialize all available CP recovery and refresh audit" && git push; fi
 
       - name: Upload exact source 7901-8900
         uses: actions/upload-artifact@v4
