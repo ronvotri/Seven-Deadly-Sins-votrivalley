@@ -1,0 +1,87 @@
+[
+  {
+    "index": 13926,
+    "key": "SDS.Dialogue.Sariel.summer_Sun6_18500243.1",
+    "source": "好——不，算了，你别来打扰我。#$b#……，你在我会分心，虽然现在还不知道是为什么。$5#$b#但我总会知道的。$9",
+    "target": "Được—— không, thôi. Cậu đừng tới làm phiền tôi. ……Cậu ở đó làm tôi phân tâm, dù hiện giờ tôi vẫn chưa biết tại sao.$5#$b#Nhưng rồi tôi sẽ biết thôi.$9",
+    "source_tokens": [
+      "#$b#",
+      "$5",
+      "#$b#",
+      "$9"
+    ],
+    "target_tokens": [
+      "$5",
+      "#$b#",
+      "$9"
+    ],
+    "file": "translations/cp/CP_13901_14000.json"
+  },
+  {
+    "index": 13986,
+    "key": "SDS.Dialogue.Sariel.fall_Wed2",
+    "source": "虽然想给你加加油什么的。$12#$b#但是，但是，有没有可能，我真的不想你和他在一起？$11#$b#毕竟这是一段注定没有好结果的‘爱’。$12",
+    "target": "Tôi cũng muốn cổ vũ cậu đấy. Nhưng mà, nhưng mà… có khả năng nào là tôi thật sự không muốn cậu ở bên nó không? Dù sao đây cũng là một thứ 'tình yêu' đã định sẵn chẳng có kết cục tốt đẹp.$12",
+    "source_tokens": [
+      "$12",
+      "#$b#",
+      "$11",
+      "#$b#",
+      "$12"
+    ],
+    "target_tokens": [
+      "$12"
+    ],
+    "file": "translations/cp/CP_13901_14000.json"
+  },
+  {
+    "index": 13988,
+    "key": "SDS.Dialogue.Sariel.fall_Wed6",
+    "source": "似乎忘记说了。我不是白井哦？但也是白井。$13#$b#不如说那个孩子的名字，来自于我，所以我才是最初的‘白井’。$12",
+    "target": "Hình như tôi quên nói. Tôi không phải Shirai đâu nhé? Nhưng cũng là Shirai. Nói đúng hơn, cái tên của đứa trẻ đó bắt nguồn từ tôi, nên tôi mới là 'Shirai' đầu tiên.$13",
+    "source_tokens": [
+      "$13",
+      "#$b#",
+      "$12"
+    ],
+    "target_tokens": [
+      "$13"
+    ],
+    "file": "translations/cp/CP_13901_14000.json"
+  },
+  {
+    "index": 13990,
+    "key": "SDS.Dialogue.Sariel.fall_Wed10",
+    "source": "今天白井不在，在的只有我——$11#$b#很失望吗？那就尽情失望吧！$13",
+    "target": "Hôm nay Shirai không có ở đây. Chỉ có tôi thôi—— thất vọng à? Vậy cứ thất vọng cho đã đi!$13",
+    "source_tokens": [
+      "$11",
+      "#$b#",
+      "$13"
+    ],
+    "target_tokens": [
+      "$13"
+    ],
+    "file": "translations/cp/CP_13901_14000.json"
+  },
+  {
+    "index": 13991,
+    "key": "SDS.Dialogue.Sariel.fall_Thu.1",
+    "source": "城市里面很难会看见流星，不如说那些厚重的霾完全遮蔽了天空。#$b#即使是晴天也好……真是、太暗了。$0#$q 18500273/18500274 fall_Thu_S1old#...#$r 18500273 0 fall_Thu_18500273#白井不喜欢吗？#$r 18500274 0 fall_Thu_18500274#这边能看见星星了！",
+    "target": "Ở thành phố rất khó nhìn thấy sao băng. Nói đúng hơn, lớp sương mù dày đặc che kín bầu trời, kể cả ngày nắng cũng vậy… thật sự quá tối.$0#$q 18500273/18500274 fall_Thu_S1old#...#$r 18500273 0 fall_Thu_18500273#Shirai không thích à?#$r 18500274 0 fall_Thu_18500274#Ở đây có thể nhìn thấy sao!",
+    "source_tokens": [
+      "#$b#",
+      "$0",
+      "#$q 18500273/18500274 fall_Thu_S1old#",
+      "#$r 18500273 0 fall_Thu_18500273#",
+      "#$r 18500274 0 fall_Thu_18500274#"
+    ],
+    "target_tokens": [
+      "$0",
+      "#$q 18500273/18500274 fall_Thu_S1old#",
+      "#$r 18500273 0 fall_Thu_18500273#",
+      "#$r 18500274 0 fall_Thu_18500274#"
+    ],
+    "file": "translations/cp/CP_13901_14000.json"
+  }
+]

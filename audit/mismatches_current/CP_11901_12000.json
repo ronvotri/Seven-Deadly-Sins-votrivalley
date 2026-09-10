@@ -1,0 +1,42 @@
+[
+  {
+    "index": 11970,
+    "key": "SDS.MarriageDialogue.Pelette.OneKid_4_18000873",
+    "source": "呸呸会把它喜欢的东西放在%kid1的面前，然后等着%kid1去伸手拿。#$b#如果%kid1不需要这个，那它则会把这个东西再一次塞回它自己藏食物的盒子里。$1",
+    "target": "Peipei sẽ đặt thứ nó thích trước mặt %kid1 rồi chờ con đưa tay lấy.#$b#Nếu %kid1 không cần, nó lại tha món đó về hộp giấu đồ ăn của mình.$1",
+    "source_tokens": [
+      "%kid1",
+      "%kid1",
+      "#$b#",
+      "%kid1",
+      "$1"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "#$b#",
+      "%kid1",
+      "$1"
+    ],
+    "file": "translations/cp/CP_11901_12000.json"
+  },
+  {
+    "index": 11971,
+    "key": "SDS.MarriageDialogue.Pelette.OneKid_4_P1old",
+    "source": "呸呸会把它喜欢的东西放在%kid1的面前，然后等着%kid1去伸手拿。#$b#如果%kid1不需要这个，那它则会把这个东西再一次塞回它自己藏食物的盒子里。$1",
+    "target": "Peipei sẽ đặt thứ nó thích trước mặt %kid1 rồi chờ con đưa tay lấy.#$b#Nếu %kid1 không cần, nó lại tha món đó về hộp giấu đồ ăn của mình.$1",
+    "source_tokens": [
+      "%kid1",
+      "%kid1",
+      "#$b#",
+      "%kid1",
+      "$1"
+    ],
+    "target_tokens": [
+      "%kid1",
+      "#$b#",
+      "%kid1",
+      "$1"
+    ],
+    "file": "translations/cp/CP_11901_12000.json"
+  }
+]

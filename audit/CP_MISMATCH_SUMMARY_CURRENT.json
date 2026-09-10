@@ -1,0 +1,167 @@
+{
+  "mismatch_count": 81,
+  "ranges": [
+    "11970-11971",
+    "13810-13811",
+    "13826",
+    "13838",
+    "13840",
+    "13842",
+    "13853-13856",
+    "13870",
+    "13926",
+    "13986",
+    "13988",
+    "13990-13991",
+    "14018",
+    "14034",
+    "14038",
+    "14054",
+    "14068",
+    "14140",
+    "14142",
+    "14144",
+    "14244-14245",
+    "14262",
+    "14280",
+    "14287-14289",
+    "14300",
+    "14306",
+    "14308",
+    "14319",
+    "14321-14323",
+    "14341",
+    "14385",
+    "14391-14392",
+    "14405",
+    "14409",
+    "14411",
+    "14450",
+    "14455",
+    "14482",
+    "14501-14502",
+    "14526-14527",
+    "14530",
+    "14548-14549",
+    "14568",
+    "14582",
+    "14614",
+    "14618",
+    "14641",
+    "14655",
+    "14665-14666",
+    "14699",
+    "14715",
+    "14739",
+    "14741-14743",
+    "14748",
+    "14757",
+    "14759",
+    "14787",
+    "14789",
+    "14791",
+    "14902",
+    "15392",
+    "19641-19642"
+  ],
+  "blocks": [
+    {
+      "block": "11901-12000",
+      "count": 2,
+      "first": 11970,
+      "last": 11971,
+      "file": "audit/mismatches_current/CP_11901_12000.json"
+    },
+    {
+      "block": "13801-13900",
+      "count": 11,
+      "first": 13810,
+      "last": 13870,
+      "file": "audit/mismatches_current/CP_13801_13900.json"
+    },
+    {
+      "block": "13901-14000",
+      "count": 5,
+      "first": 13926,
+      "last": 13991,
+      "file": "audit/mismatches_current/CP_13901_14000.json"
+    },
+    {
+      "block": "14001-14100",
+      "count": 5,
+      "first": 14018,
+      "last": 14068,
+      "file": "audit/mismatches_current/CP_14001_14100.json"
+    },
+    {
+      "block": "14101-14200",
+      "count": 3,
+      "first": 14140,
+      "last": 14144,
+      "file": "audit/mismatches_current/CP_14101_14200.json"
+    },
+    {
+      "block": "14201-14300",
+      "count": 8,
+      "first": 14244,
+      "last": 14300,
+      "file": "audit/mismatches_current/CP_14201_14300.json"
+    },
+    {
+      "block": "14301-14400",
+      "count": 10,
+      "first": 14306,
+      "last": 14392,
+      "file": "audit/mismatches_current/CP_14301_14400.json"
+    },
+    {
+      "block": "14401-14500",
+      "count": 6,
+      "first": 14405,
+      "last": 14482,
+      "file": "audit/mismatches_current/CP_14401_14500.json"
+    },
+    {
+      "block": "14501-14600",
+      "count": 9,
+      "first": 14501,
+      "last": 14582,
+      "file": "audit/mismatches_current/CP_14501_14600.json"
+    },
+    {
+      "block": "14601-14700",
+      "count": 7,
+      "first": 14614,
+      "last": 14699,
+      "file": "audit/mismatches_current/CP_14601_14700.json"
+    },
+    {
+      "block": "14701-14800",
+      "count": 11,
+      "first": 14715,
+      "last": 14791,
+      "file": "audit/mismatches_current/CP_14701_14800.json"
+    },
+    {
+      "block": "14901-15000",
+      "count": 1,
+      "first": 14902,
+      "last": 14902,
+      "file": "audit/mismatches_current/CP_14901_15000.json"
+    },
+    {
+      "block": "15301-15400",
+      "count": 1,
+      "first": 15392,
+      "last": 15392,
+      "file": "audit/mismatches_current/CP_15301_15400.json"
+    },
+    {
+      "block": "19601-19700",
+      "count": 2,
+      "first": 19641,
+      "last": 19642,
+      "file": "audit/mismatches_current/CP_19601_19700.json"
+    }
+  ]
+}

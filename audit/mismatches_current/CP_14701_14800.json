@@ -1,0 +1,194 @@
+[
+  {
+    "index": 14715,
+    "key": "SDS.Dialogue.Sariel.winter_Thu8.2",
+    "source": "那个老奶奶，她时常会和我一起讨论关于种花的事情。#$b#虽然园艺相关的内容，我多半是从书本上获取的。$0#$q 18500632/18500633 winter_Thu8_S2old#...#$r 18500632 0 winter_Thu8_18500632#你不会没记住她的名字吧#$r 18500633 0 winter_Thu8_18500633#那你怎么教霍夫塞普的…",
+    "target": "Bà cụ kia thường bàn với tôi chuyện trồng hoa. Dù kiến thức làm vườn của tôi phần lớn đều đọc từ sách.$0#$q 18500632/18500633 winter_Thu8_S2old#...#$r 18500632 0 winter_Thu8_18500632#Cậu không phải quên tên bà ấy rồi đấy chứ#$r 18500633 0 winter_Thu8_18500633#Vậy sao cậu dạy Hovsep được…",
+    "source_tokens": [
+      "#$b#",
+      "$0",
+      "#$q 18500632/18500633 winter_Thu8_S2old#",
+      "#$r 18500632 0 winter_Thu8_18500632#",
+      "#$r 18500633 0 winter_Thu8_18500633#"
+    ],
+    "target_tokens": [
+      "$0",
+      "#$q 18500632/18500633 winter_Thu8_S2old#",
+      "#$r 18500632 0 winter_Thu8_18500632#",
+      "#$r 18500633 0 winter_Thu8_18500633#"
+    ],
+    "file": "translations/cp/CP_14701_14796.json"
+  },
+  {
+    "index": 14739,
+    "key": "SDS.Dialogue.Sariel.winter_Fri8.2",
+    "source": "其实，我的眼睛最开始应该是同一个颜色的。#$b#而现在的异色瞳只是因为另一只已经瞎了而已。$0#$q 18500644/18500645 winter_Fri8_S2old#...#$r 18500644 0 winter_Fri8_18500644#疼吗？#$r 18500645 0 winter_Fri8_18500645#为什么？",
+    "target": "Thật ra ban đầu hai mắt tôi hẳn cùng màu. Dị sắc bây giờ chỉ vì một bên đã mù thôi.$0#$q 18500644/18500645 winter_Fri8_S2old#...#$r 18500644 0 winter_Fri8_18500644#Có đau không?#$r 18500645 0 winter_Fri8_18500645#Tại sao?",
+    "source_tokens": [
+      "#$b#",
+      "$0",
+      "#$q 18500644/18500645 winter_Fri8_S2old#",
+      "#$r 18500644 0 winter_Fri8_18500644#",
+      "#$r 18500645 0 winter_Fri8_18500645#"
+    ],
+    "target_tokens": [
+      "$0",
+      "#$q 18500644/18500645 winter_Fri8_S2old#",
+      "#$r 18500644 0 winter_Fri8_18500644#",
+      "#$r 18500645 0 winter_Fri8_18500645#"
+    ],
+    "file": "translations/cp/CP_14701_14796.json"
+  },
+  {
+    "index": 14741,
+    "key": "SDS.Dialogue.Sariel.winter_Fri8_18500645.2",
+    "source": "因为魔力溢散，躯体逐渐魔力匮乏而结晶化了吧。#$b#大概。$9",
+    "target": "Chắc do ma lực thất thoát, cơ thể dần thiếu ma lực rồi kết tinh.$b#Đại khái vậy.$9",
+    "source_tokens": [
+      "#$b#",
+      "$9"
+    ],
+    "target_tokens": [
+      "$b",
+      "$9"
+    ],
+    "file": "translations/cp/CP_14701_14796.json"
+  },
+  {
+    "index": 14742,
+    "key": "SDS.Dialogue.Sariel.winter_Fri8_S2old.2",
+    "source": "因为魔力溢散，躯体逐渐魔力匮乏而结晶化了吧。#$b#大概。$9",
+    "target": "Chắc do ma lực thất thoát, cơ thể dần thiếu ma lực rồi kết tinh.$b#Đại khái vậy.$9",
+    "source_tokens": [
+      "#$b#",
+      "$9"
+    ],
+    "target_tokens": [
+      "$b",
+      "$9"
+    ],
+    "file": "translations/cp/CP_14701_14796.json"
+  },
+  {
+    "index": 14743,
+    "key": "SDS.Dialogue.Sariel.winter_Fri10.2",
+    "source": "偶尔我扮演人类的时候，其实看不清瞎了的那只眼的那边。#$b#如果他刚好站在了我的视觉死角里，是会很麻烦的。$0#$q 18500646/18500647 winter_Fri10_S2old#...#$r 18500646 0 winter_Fri10_18500646#所以你才经常扭头？#$r 18500647 0 winter_Fri10_18500647#原来你看不见吗",
+    "target": "Đôi khi lúc giả làm con người, phía bên mắt mù thật ra tôi nhìn không rõ. Nếu cậu vừa hay đứng trong góc chết thì khá phiền.$0#$q 18500646/18500647 winter_Fri10_S2old#...#$r 18500646 0 winter_Fri10_18500646#Vậy nên cậu hay quay đầu?#$r 18500647 0 winter_Fri10_18500647#Hóa ra cậu không nhìn thấy à",
+    "source_tokens": [
+      "#$b#",
+      "$0",
+      "#$q 18500646/18500647 winter_Fri10_S2old#",
+      "#$r 18500646 0 winter_Fri10_18500646#",
+      "#$r 18500647 0 winter_Fri10_18500647#"
+    ],
+    "target_tokens": [
+      "$0",
+      "#$q 18500646/18500647 winter_Fri10_S2old#",
+      "#$r 18500646 0 winter_Fri10_18500646#",
+      "#$r 18500647 0 winter_Fri10_18500647#"
+    ],
+    "file": "translations/cp/CP_14701_14796.json"
+  },
+  {
+    "index": 14748,
+    "key": "SDS.Dialogue.Sariel.winter_Sat_18500648.2",
+    "source": "一种甜薄饼或咸味薄饼。#$b#通常与各种各样的馅料一起食用，例如奶酪、水果、奶油、肉类以及各种涂抹酱。$9 ",
+    "target": "Một loại bánh mỏng ngọt hoặc mặn, thường ăn cùng nhiều loại nhân như phô mai, trái cây, kem, thịt và các loại sốt phết.$9 ",
+    "source_tokens": [
+      "#$b#",
+      "$9"
+    ],
+    "target_tokens": [
+      "$9"
+    ],
+    "file": "translations/cp/CP_14701_14796.json"
+  },
+  {
+    "index": 14757,
+    "key": "SDS.Dialogue.Sariel.winter_Sat4_18500653.2",
+    "source": "是啊。无论是为了一点吃的打起来，还是为了一点点地盘打起来。$7#$b#真是有趣至极！——也无聊至极。$1",
+    "target": "Đúng vậy. Dù là đánh nhau vì chút đồ ăn hay vì chút lãnh thổ, đều thú vị hết sức!—— Và cũng nhàm chán hết sức.$1",
+    "source_tokens": [
+      "$7",
+      "#$b#",
+      "$1"
+    ],
+    "target_tokens": [
+      "$1"
+    ],
+    "file": "translations/cp/CP_14701_14796.json"
+  },
+  {
+    "index": 14759,
+    "key": "SDS.Dialogue.Sariel.winter_Sat4_S2old.2",
+    "source": "无论是为了一点吃的打起来，还是为了一点点地盘打起来。$7#$b#真是有趣至极！——也无聊至极。$1",
+    "target": "Dù là đánh nhau vì chút đồ ăn hay vì chút lãnh thổ, đều thú vị hết sức!—— Và cũng nhàm chán hết sức.$1",
+    "source_tokens": [
+      "$7",
+      "#$b#",
+      "$1"
+    ],
+    "target_tokens": [
+      "$1"
+    ],
+    "file": "translations/cp/CP_14701_14796.json"
+  },
+  {
+    "index": 14787,
+    "key": "SDS.Dialogue.Sariel.winter_Sun6_S2old.2",
+    "source": "直率吗？有什么隐藏的必要吗？#$b#你们人类才是最奇怪的吧，明明心里有事却总憋着不说。$5#$b#对我来说，没有隐藏的必要，…但‘伪装’不是隐藏。$0",
+    "target": "Thẳng thắn à? Có gì cần giấu sao? Con người các cậu mới kỳ lạ. Rõ ràng trong lòng có chuyện mà cứ nhịn không nói.$5#$b#Với tôi chẳng cần giấu gì cả… nhưng 'ngụy trang' không phải che giấu.$0",
+    "source_tokens": [
+      "#$b#",
+      "$5",
+      "#$b#",
+      "$0"
+    ],
+    "target_tokens": [
+      "$5",
+      "#$b#",
+      "$0"
+    ],
+    "file": "translations/cp/CP_14701_14796.json"
+  },
+  {
+    "index": 14789,
+    "key": "SDS.Dialogue.Sariel.winter_Sun8_18500669.2",
+    "source": "虽然我并不乐意于被你当作愚蠢的同类，但我又很开心你把我当做同类来对待。$9#$b#但不要忘记了我的危险性，@。#$b#一旦有什么不可挽回的事情发生了——是会被吃下肚子的。$7",
+    "target": "Dù tôi không vui khi bị cậu xem như đồng loại ngu ngốc, nhưng tôi lại rất vui vì cậu đối xử với tôi như đồng loại.$9#$b#Nhưng đừng quên tôi nguy hiểm, @. Nếu xảy ra chuyện không thể cứu vãn—— cậu sẽ bị ăn vào bụng.$7",
+    "source_tokens": [
+      "$9",
+      "#$b#",
+      "@",
+      "#$b#",
+      "$7"
+    ],
+    "target_tokens": [
+      "$9",
+      "#$b#",
+      "@",
+      "$7"
+    ],
+    "file": "translations/cp/CP_14701_14796.json"
+  },
+  {
+    "index": 14791,
+    "key": "SDS.Dialogue.Sariel.winter_Sun8_S2old.2",
+    "source": "虽然我并不乐意于被你当作愚蠢的同类，但我又很开心你把我当做同类来对待。$9#$b#但不要忘记了我的危险性，@。#$b#一旦有什么不可挽回的事情发生了——是会被吃下肚子的。$7",
+    "target": "Dù tôi không vui khi bị cậu xem như đồng loại ngu ngốc, nhưng tôi lại rất vui vì cậu đối xử với tôi như đồng loại.$9#$b#Nhưng đừng quên tôi nguy hiểm, @. Nếu xảy ra chuyện không thể cứu vãn—— cậu sẽ bị ăn vào bụng.$7",
+    "source_tokens": [
+      "$9",
+      "#$b#",
+      "@",
+      "#$b#",
+      "$7"
+    ],
+    "target_tokens": [
+      "$9",
+      "#$b#",
+      "@",
+      "$7"
+    ],
+    "file": "translations/cp/CP_14701_14796.json"
+  }
+]
