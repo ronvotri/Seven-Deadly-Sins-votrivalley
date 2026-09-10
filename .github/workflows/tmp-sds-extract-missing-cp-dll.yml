@@ -1,0 +1,91 @@
+name: SDS extract exact missing CP and DLL source
+
+on:
+  push:
+    paths:
+      - '.github/workflows/tmp-sds-extract-missing-cp-dll.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install parser
+        run: python -m pip install --disable-pip-version-check json5 requests
+      - name: Extract exact sources
+        shell: python
+        run: |
+          import io, json, zipfile
+          from pathlib import Path
+          import requests, json5
+
+          class R(io.RawIOBase):
+              def __init__(self, url):
+                  self.url=url; self.s=requests.Session()
+                  h=self.s.head(url,allow_redirects=True,timeout=60); h.raise_for_status()
+                  self.n=int(h.headers['Content-Length']); self.p=0
+              def readable(self): return True
+              def seekable(self): return True
+              def tell(self): return self.p
+              def seek(self,o,w=io.SEEK_SET):
+                  self.p=o if w==io.SEEK_SET else self.p+o if w==io.SEEK_CUR else self.n+o
+                  return self.p
+              def read(self,size=-1):
+                  if self.p>=self.n:return b''
+                  if size==0:return b''
+                  e=self.n-1 if size is None or size<0 else min(self.n-1,self.p+size-1)
+                  r=self.s.get(self.url,headers={'Range':f'bytes={self.p}-{e}'},allow_redirects=True,timeout=180)
+                  if r.status_code!=206: raise RuntimeError(r.status_code)
+                  b=r.content; self.p+=len(b); return b
+
+          root='downloads/Nexus/15/15100/178657/'
+          reader=R('https://smapistorage.blob.core.windows.net/exports/stardew-mod-dataset.zip')
+          with zipfile.ZipFile(reader) as z:
+              names=[n for n in z.namelist() if root in n.replace('\\','/') and n.replace('\\','/').lower().endswith('/i18n/default.json')]
+              cp=[n for n in names if '[cp]' in n.lower()]
+              if len(cp)!=1: raise SystemExit(f'expected one CP source, got {len(cp)}: {cp}')
+              cp_items=list(json5.loads(z.read(cp[0]).decode('utf-8-sig'),allow_duplicate_keys=True).items())
+              if len(cp_items)!=24827: raise SystemExit(f'CP key count {len(cp_items)}')
+
+              candidates=[]
+              for n in names:
+                  if n==cp[0]: continue
+                  try:
+                      obj=json5.loads(z.read(n).decode('utf-8-sig'),allow_duplicate_keys=True)
+                      if isinstance(obj,dict): candidates.append((n,len(obj),obj))
+                  except Exception as e:
+                      candidates.append((n,-1,{'__error__':str(e)}))
+
+          Path('source_export').mkdir(exist_ok=True)
+          manifest={'default_json_candidates':[{'path':n,'key_count':c} for n,c,_ in candidates]}
+          Path('source_export/manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
+
+          for a,b in [(8501,11200),(11301,11600),(12701,13700)]:
+              payload={
+                  'source':'Seven Deadly Sins 1.6 / 3.13.4 / Nexus 178657',
+                  'start_index':a,'end_index':b,
+                  'entries':[{'index':i,'key':cp_items[i-1][0],'value':cp_items[i-1][1]} for i in range(a,b+1)]
+              }
+              Path(f'source_export/CP_{a}_{b}_SOURCE.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding='utf-8')
+
+          dll=[(n,c,o) for n,c,o in candidates if c==2419]
+          if len(dll)!=1:
+              print('DLL candidates with 2419 keys:',[(n,c) for n,c,_ in dll])
+              raise SystemExit(f'expected exactly one 2419-key DLL default.json, got {len(dll)}')
+          n,c,o=dll[0]
+          Path('source_export/DLL_1_2419_SOURCE.json').write_text(json.dumps({'source_path':n,'key_count':c,'entries':[{'index':i,'key':k,'value':v} for i,(k,v) in enumerate(o.items(),1)]},ensure_ascii=False,indent=2),encoding='utf-8')
+          print(json.dumps(manifest,ensure_ascii=False,indent=2))
+          print('DLL source:',n)
+
+      - name: Upload exact sources
+        uses: actions/upload-artifact@v4
+        with:
+          name: sds-exact-missing-cp-dll-source
+          path: source_export
+          retention-days: 1
+          if-no-files-found: error
