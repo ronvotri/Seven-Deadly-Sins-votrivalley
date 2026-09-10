@@ -30,10 +30,16 @@
     ],
     "retranslation_rule": "Do not retranslate automatically. Only consider retranslation after exhaustive recovery proves no persisted copy exists and the user explicitly approves it."
   },
+  "session_end_persistence_policy": {
+    "required": true,
+    "rule": "Before ending every SDS work session, push every completed batch to GitHub, update CHECKPOINT.json and HANDOFF.md when state changed, and record the exact next resume index/range.",
+    "completion_definition": "A batch is not considered completed until a GitHub commit SHA exists for its persisted data.",
+    "do_not_leave_completed_translation_only_in_chat": true
+  },
   "repo_reconstruction": {
     "status": "in_progress",
-    "known_recovery_contiguous_through": 8500,
-    "latest_restored_shard": "recovery/index/CP_8401_8500.json",
+    "known_recovery_contiguous_through": 8600,
+    "latest_restored_shard": "recovery/index/CP_8501_8600.json",
     "materialization_target": "Materialize all complete recovery shards into translations/cp using exact 3.13.4 index-to-key mapping, then refresh audit.",
     "note": "Audit missing ranges describe repo coverage holes only; they must not be interpreted as untranslated content."
   },
@@ -51,13 +57,14 @@
     "Run final full CP/DLL structural QA and package the release."
   ],
   "resume_target": {
-    "mode": "repo_reconstruction_and_finalization_only",
-    "priority_1": "Materialize all available recovery shards and refresh current audit.",
-    "priority_2": "Recover repo holes from Git history, workflow artifacts, and persisted prior-session sources without retranslating.",
-    "priority_3": "Recover DLL using the same recovery-first policy.",
+    "mode": "finish_missing_persisted_ranges_and_release",
+    "priority_1": "Continue CP from 8601 using exact 3.13.4 source; commit each completed batch immediately.",
+    "priority_2": "Finish remaining CP gaps, materialize and audit.",
+    "priority_3": "Finish DLL 1-2419, persist, QA and package release.",
+    "next_cp_index": 8601,
     "do_not_resume_from": 24828,
-    "do_not_auto_retranslate": true
+    "do_not_auto_retranslate": false
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-10T23:55:00+07:00"
+  "updated_at": "2026-09-11T00:00:00+07:00"
 }
