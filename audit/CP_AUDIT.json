@@ -3,31 +3,28 @@
   "source_version": "3.13.4",
   "source_nexus_file_id": 178657,
   "cp_source_key_count": 24827,
-  "generated_at_utc": "2026-09-10T08:43:33.044399+00:00",
+  "generated_at_utc": "2026-09-10T08:47:47.012678+00:00",
   "materialized_from_recovery_this_run": [
-    "translations/cp/CP_4201_4400.json",
-    "translations/cp/CP_4401_4500.json"
+    "translations/cp/CP_4001_4200.json",
+    "translations/cp/CP_4501_4600.json"
   ],
-  "malformed_recovery_files": [
-    {
-      "file": "recovery/index/CP_4001_4200.json",
-      "error": "JSONDecodeError: Expecting property name enclosed in double quotes: line 61 column 29 (char 5308)"
-    }
+  "repaired_recovery_files": [
+    "recovery/index/CP_4001_4200.json"
   ],
+  "malformed_recovery_files": [],
   "malformed_translation_files": [],
   "key_based": {
-    "covered_key_count": 17827,
-    "missing_key_count": 7000,
+    "covered_key_count": 18127,
+    "missing_key_count": 6700,
     "missing_ranges": [
-      "4001-4200",
-      "4501-5700",
+      "4601-5700",
       "6901-11200",
       "11301-11600",
       "12701-13700"
     ],
     "duplicate_index_count": 0,
     "unknown_key_count": 0,
-    "technical_token_mismatch_count": 2,
+    "technical_token_mismatch_count": 132,
     "han_hit_count": 0
   },
   "details": {
@@ -56,6 +53,1445 @@
         "target_tokens": [
           "%"
         ]
+      },
+      {
+        "index": 4001,
+        "key": "event-19215216.28",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "@",
+          "$0",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4003,
+        "key": "event-19215216.30",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "@",
+          "$3",
+          "#$b#",
+          "$4",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "%",
+          "#$b#",
+          "$4"
+        ]
+      },
+      {
+        "index": 4004,
+        "key": "event-19215216.31",
+        "source_tokens": [
+          "@",
+          "$1"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "%",
+          "#$b#",
+          "$4"
+        ]
+      },
+      {
+        "index": 4005,
+        "key": "event-19215216.32",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "$4"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "%",
+          "#$b#",
+          "$4"
+        ]
+      },
+      {
+        "index": 4006,
+        "key": "event-19215216.33",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "$3"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "%",
+          "#$b#",
+          "$4"
+        ]
+      },
+      {
+        "index": 4007,
+        "key": "event-19215217.01",
+        "source_tokens": [],
+        "target_tokens": [
+          "#$b#",
+          "%",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "%",
+          "#$b#",
+          "$4"
+        ]
+      },
+      {
+        "index": 4008,
+        "key": "event-19215217.02",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "$0"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "%",
+          "#$b#",
+          "$4"
+        ]
+      },
+      {
+        "index": 4009,
+        "key": "event-19215217.03",
+        "source_tokens": [],
+        "target_tokens": [
+          "#$b#",
+          "%",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "%",
+          "#$b#",
+          "$4"
+        ]
+      },
+      {
+        "index": 4010,
+        "key": "event-19215217.04",
+        "source_tokens": [],
+        "target_tokens": [
+          "#$b#",
+          "%",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "%",
+          "#$b#",
+          "$4"
+        ]
+      },
+      {
+        "index": 4011,
+        "key": "event-19215217.05",
+        "source_tokens": [
+          "@",
+          "$1"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "%",
+          "#$b#",
+          "$4"
+        ]
+      },
+      {
+        "index": 4012,
+        "key": "event-19215217.06",
+        "source_tokens": [],
+        "target_tokens": [
+          "#$b#",
+          "%",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "%",
+          "#$b#",
+          "$4"
+        ]
+      },
+      {
+        "index": 4013,
+        "key": "event-19215217.07",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "$1",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "%",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "$1"
+        ]
+      },
+      {
+        "index": 4017,
+        "key": "event-19215217.11",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": [
+          "@",
+          "$0",
+          "#$b#",
+          "$1",
+          "#$b#",
+          "$3"
+        ]
+      },
+      {
+        "index": 4019,
+        "key": "event-19215217.13",
+        "source_tokens": [],
+        "target_tokens": [
+          "$0",
+          "#$b#",
+          "$3"
+        ]
+      },
+      {
+        "index": 4020,
+        "key": "event-19215217.14",
+        "source_tokens": [
+          "$2",
+          "#$b#",
+          "%"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4021,
+        "key": "event-19215217.15",
+        "source_tokens": [],
+        "target_tokens": [
+          "$1",
+          "^",
+          "$1",
+          "#$b#",
+          "$3"
+        ]
+      },
+      {
+        "index": 4024,
+        "key": "event-19215217.18",
+        "source_tokens": [],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "$3"
+        ]
+      },
+      {
+        "index": 4027,
+        "key": "event-19215217.Radisappointment.02",
+        "source_tokens": [
+          "@",
+          "$6",
+          "#$b#",
+          "$1",
+          "#$b#",
+          "$3"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "$3"
+        ]
+      },
+      {
+        "index": 4029,
+        "key": "event-19215217.Radisappointment.04",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "$1",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 4030,
+        "key": "event-19215217.Radisappointment.05",
+        "source_tokens": [],
+        "target_tokens": [
+          "$4"
+        ]
+      },
+      {
+        "index": 4031,
+        "key": "event-19215217.Radisappointment.06",
+        "source_tokens": [
+          "$7"
+        ],
+        "target_tokens": [
+          "$3"
+        ]
+      },
+      {
+        "index": 4032,
+        "key": "event-19215217.Radisappointment.07",
+        "source_tokens": [],
+        "target_tokens": [
+          "$2",
+          "#$b#",
+          "$3"
+        ]
+      },
+      {
+        "index": 4033,
+        "key": "event-19215226.01",
+        "source_tokens": [],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 4034,
+        "key": "event-19215226.02",
+        "source_tokens": [
+          "@",
+          "$1",
+          "#$b#",
+          "$3"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4035,
+        "key": "event-19215226.03",
+        "source_tokens": [],
+        "target_tokens": [
+          "$3"
+        ]
+      },
+      {
+        "index": 4036,
+        "key": "event-19215226.04",
+        "source_tokens": [
+          "$0",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "$3"
+        ]
+      },
+      {
+        "index": 4038,
+        "key": "event-19215226.06",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "$3",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": [
+          "$4"
+        ]
+      },
+      {
+        "index": 4039,
+        "key": "event-19215226.07",
+        "source_tokens": [
+          "$0",
+          "#$b#",
+          "$2",
+          "#$b#",
+          "$3"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "$3"
+        ]
+      },
+      {
+        "index": 4040,
+        "key": "event-19215226.08",
+        "source_tokens": [
+          "$3"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4041,
+        "key": "event-19215226.09",
+        "source_tokens": [
+          "$0",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4042,
+        "key": "event-19215226.10",
+        "source_tokens": [
+          "@",
+          "$8",
+          "#$b#",
+          "$1",
+          "#$b#",
+          "$3"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4048,
+        "key": "event-19215226.16",
+        "source_tokens": [
+          "@",
+          "$1",
+          "#$b#",
+          "$3"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4049,
+        "key": "event-19215226.17",
+        "source_tokens": [],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "$4"
+        ]
+      },
+      {
+        "index": 4050,
+        "key": "event-19215226.18",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "$6",
+          "#$b#",
+          "@",
+          "$1",
+          "#$b#",
+          "$3"
+        ],
+        "target_tokens": [
+          "$3",
+          "#$b#",
+          "$1"
+        ]
+      },
+      {
+        "index": 4051,
+        "key": "event-19215226.19",
+        "source_tokens": [
+          "$1"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4052,
+        "key": "event-19215226.20",
+        "source_tokens": [],
+        "target_tokens": [
+          "$3"
+        ]
+      },
+      {
+        "index": 4053,
+        "key": "event-19215226.nonono.01",
+        "source_tokens": [
+          "@",
+          "$3",
+          "#$b#",
+          "$6",
+          "#$b#",
+          "$1",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "$3"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%"
+        ]
+      },
+      {
+        "index": 4054,
+        "key": "event-19215272.01",
+        "source_tokens": [],
+        "target_tokens": [
+          "#$b#",
+          "%"
+        ]
+      },
+      {
+        "index": 4055,
+        "key": "event-19215272.02",
+        "source_tokens": [
+          "$3",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4057,
+        "key": "event-19215272.04",
+        "source_tokens": [
+          "$6",
+          "#$b#",
+          "$4",
+          "#$b#",
+          "$6"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4060,
+        "key": "event-19215272.07",
+        "source_tokens": [
+          "$4",
+          "#$b#",
+          "$6"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 4061,
+        "key": "event-19215272.08",
+        "source_tokens": [],
+        "target_tokens": [
+          "$3"
+        ]
+      },
+      {
+        "index": 4062,
+        "key": "event-19215272.09",
+        "source_tokens": [
+          "$6",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4064,
+        "key": "event-19215272.11",
+        "source_tokens": [
+          "$8",
+          "#$b#",
+          "$9"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 4066,
+        "key": "event-19215272.13",
+        "source_tokens": [],
+        "target_tokens": [
+          "$3",
+          "#$b#",
+          "$1"
+        ]
+      },
+      {
+        "index": 4067,
+        "key": "event-19215272.14",
+        "source_tokens": [],
+        "target_tokens": [
+          "$4"
+        ]
+      },
+      {
+        "index": 4069,
+        "key": "event-19215272.16",
+        "source_tokens": [
+          "$7",
+          "#$b#",
+          "%",
+          "#$b#",
+          "@",
+          "$8",
+          "#$b#",
+          "@",
+          "$9",
+          "#$b#",
+          "$9"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4070,
+        "key": "event-19215272.17",
+        "source_tokens": [],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "$3"
+        ]
+      },
+      {
+        "index": 4072,
+        "key": "event-19215272.Lusjl1.01",
+        "source_tokens": [
+          "$9"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4073,
+        "key": "event-19215272.Lusjl1.02",
+        "source_tokens": [],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 4074,
+        "key": "event-19215272.Lusjl1.03",
+        "source_tokens": [
+          "@",
+          "$8",
+          "#$b#",
+          "$9"
+        ],
+        "target_tokens": [
+          "$3"
+        ]
+      },
+      {
+        "index": 4075,
+        "key": "event-19215272.Lusjl1.04",
+        "source_tokens": [],
+        "target_tokens": [
+          "$4"
+        ]
+      },
+      {
+        "index": 4077,
+        "key": "event-19215244.02",
+        "source_tokens": [
+          "$1"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4078,
+        "key": "event-19215244.03",
+        "source_tokens": [
+          "$0"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "$3"
+        ]
+      },
+      {
+        "index": 4080,
+        "key": "event-19215244.05",
+        "source_tokens": [
+          "$6"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4082,
+        "key": "event-19215244.07",
+        "source_tokens": [
+          "$0"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4084,
+        "key": "event-19215244.09",
+        "source_tokens": [
+          "$1"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4085,
+        "key": "event-19215244.10",
+        "source_tokens": [
+          "$0",
+          "#$b#",
+          "$4"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4086,
+        "key": "event-19215244.11",
+        "source_tokens": [
+          "$4",
+          "#$b#",
+          "$6"
+        ],
+        "target_tokens": [
+          "#$b#",
+          "%"
+        ]
+      },
+      {
+        "index": 4087,
+        "key": "event-19215244.12",
+        "source_tokens": [],
+        "target_tokens": [
+          "$3"
+        ]
+      },
+      {
+        "index": 4088,
+        "key": "event-19215244.13",
+        "source_tokens": [
+          "$1"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4089,
+        "key": "event-19215244.14",
+        "source_tokens": [],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 4090,
+        "key": "event-19215244.15",
+        "source_tokens": [
+          "$6",
+          "^",
+          "$6"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4093,
+        "key": "event-19215244.18",
+        "source_tokens": [],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "$3"
+        ]
+      },
+      {
+        "index": 4094,
+        "key": "event-19215244.19",
+        "source_tokens": [],
+        "target_tokens": [
+          "$4"
+        ]
+      },
+      {
+        "index": 4096,
+        "key": "event-19215244.21",
+        "source_tokens": [
+          "$4"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 4098,
+        "key": "event-19215244.23",
+        "source_tokens": [
+          "$6"
+        ],
+        "target_tokens": [
+          "$3"
+        ]
+      },
+      {
+        "index": 4099,
+        "key": "event-19215256.01",
+        "source_tokens": [
+          "$3"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 4100,
+        "key": "event-19215256.02",
+        "source_tokens": [
+          "$2",
+          "#$b#",
+          "$2"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4101,
+        "key": "event-19215256.03",
+        "source_tokens": [
+          "$0",
+          "#$b#",
+          "$3"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4108,
+        "key": "event-19215256.10",
+        "source_tokens": [],
+        "target_tokens": [
+          "#$b#",
+          "%"
+        ]
+      },
+      {
+        "index": 4112,
+        "key": "event-19215256.14",
+        "source_tokens": [
+          "$0"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4114,
+        "key": "event-19215256.16",
+        "source_tokens": [
+          "$4"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4115,
+        "key": "event-19215256.17",
+        "source_tokens": [
+          "$3",
+          "#$b#",
+          "$4"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4116,
+        "key": "event-19215256.18",
+        "source_tokens": [
+          "$6",
+          "^",
+          "$6"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "$3"
+        ]
+      },
+      {
+        "index": 4118,
+        "key": "event-19215256.20",
+        "source_tokens": [
+          "$6",
+          "#$b#",
+          "$4"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 4121,
+        "key": "event-19215257.01",
+        "source_tokens": [
+          "$4",
+          "#$b#",
+          "$3"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4122,
+        "key": "event-19215257.02",
+        "source_tokens": [
+          "$0"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4123,
+        "key": "event-19215257.03",
+        "source_tokens": [
+          "$3",
+          "#$b#",
+          "$0",
+          "#$b#",
+          "$4"
+        ],
+        "target_tokens": [
+          "$3"
+        ]
+      },
+      {
+        "index": 4124,
+        "key": "event-19215257.04",
+        "source_tokens": [
+          "$2",
+          "#$b#",
+          "$3"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "$3"
+        ]
+      },
+      {
+        "index": 4127,
+        "key": "event-19215257.07",
+        "source_tokens": [
+          "$3",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4128,
+        "key": "event-19215257.08",
+        "source_tokens": [
+          "@",
+          "$6"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4129,
+        "key": "event-19215257.09",
+        "source_tokens": [],
+        "target_tokens": [
+          "$3"
+        ]
+      },
+      {
+        "index": 4130,
+        "key": "event-19215257.10",
+        "source_tokens": [
+          "$8"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4131,
+        "key": "event-19215257.11",
+        "source_tokens": [],
+        "target_tokens": [
+          "$11",
+          "#$b#",
+          "%"
+        ]
+      },
+      {
+        "index": 4132,
+        "key": "event-19215257.12",
+        "source_tokens": [
+          "$9"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4134,
+        "key": "event-19215257.Lhbyh.02",
+        "source_tokens": [
+          "$3"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4135,
+        "key": "event-19215257.Lhbyh.03",
+        "source_tokens": [
+          "$11",
+          "#$b#",
+          "$2"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4137,
+        "key": "event-19215257.Lhbyh.05",
+        "source_tokens": [
+          "$4"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4139,
+        "key": "event-19215257.Lhbyh.07",
+        "source_tokens": [
+          "$11",
+          "#$b#",
+          "$4"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4140,
+        "key": "event-19215257.Lhbyh.08",
+        "source_tokens": [],
+        "target_tokens": [
+          "$3"
+        ]
+      },
+      {
+        "index": 4142,
+        "key": "event-19215257.Lhbyh.10",
+        "source_tokens": [
+          "@",
+          "$3"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4143,
+        "key": "event-19215257.Lhbyh.11",
+        "source_tokens": [
+          "$6"
+        ],
+        "target_tokens": [
+          "$1",
+          "#$b#",
+          "$3"
+        ]
+      },
+      {
+        "index": 4144,
+        "key": "event-19215257.Lhbyh.12",
+        "source_tokens": [],
+        "target_tokens": [
+          "$6"
+        ]
+      },
+      {
+        "index": 4145,
+        "key": "event-19215257.Lhbyh.13",
+        "source_tokens": [
+          "$6"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4150,
+        "key": "event-19215257.Lhbyh.18",
+        "source_tokens": [],
+        "target_tokens": [
+          "$6"
+        ]
+      },
+      {
+        "index": 4151,
+        "key": "event-19215257.Lhbyh.19",
+        "source_tokens": [
+          "$12"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4154,
+        "key": "event-19215257.Lhbyh.22",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "$4"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4155,
+        "key": "event-19215257.Lhbyh.23",
+        "source_tokens": [],
+        "target_tokens": [
+          "$3"
+        ]
+      },
+      {
+        "index": 4156,
+        "key": "event-19215257.Lhbyh.24",
+        "source_tokens": [],
+        "target_tokens": [
+          "$6"
+        ]
+      },
+      {
+        "index": 4157,
+        "key": "event-19215257.Lhbyh.25",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "$3"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4158,
+        "key": "event-19215257.Lhbyh.26",
+        "source_tokens": [
+          "$3"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4159,
+        "key": "event-19215257.Lhbyh.27",
+        "source_tokens": [],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 4162,
+        "key": "event-19215254.01",
+        "source_tokens": [
+          "@",
+          "$14"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4164,
+        "key": "event-19215254.03",
+        "source_tokens": [],
+        "target_tokens": [
+          "$3",
+          "#$b#",
+          "$1"
+        ]
+      },
+      {
+        "index": 4165,
+        "key": "event-19215254.04",
+        "source_tokens": [
+          "$14",
+          "#$b#",
+          "$15"
+        ],
+        "target_tokens": [
+          "$6"
+        ]
+      },
+      {
+        "index": 4166,
+        "key": "event-19215254.05",
+        "source_tokens": [
+          "$22",
+          "#$b#",
+          "$22"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4167,
+        "key": "event-19215254.06",
+        "source_tokens": [
+          "$21",
+          "#$b#",
+          "$22"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4168,
+        "key": "event-19215254.07",
+        "source_tokens": [
+          "$22",
+          "#$b#",
+          "$21"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 4169,
+        "key": "event-19215254.08",
+        "source_tokens": [
+          "$21"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4170,
+        "key": "event-19215254.09",
+        "source_tokens": [
+          "$22",
+          "#$b#",
+          "$21"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4171,
+        "key": "event-19215254.10",
+        "source_tokens": [
+          "$22"
+        ],
+        "target_tokens": [
+          "$3"
+        ]
+      },
+      {
+        "index": 4172,
+        "key": "event-19215254.11",
+        "source_tokens": [],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 4174,
+        "key": "event-19215254.13",
+        "source_tokens": [
+          "$18"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4177,
+        "key": "event-19215254.16",
+        "source_tokens": [
+          "$12",
+          "#$b#",
+          "$10"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4178,
+        "key": "event-19215254.17",
+        "source_tokens": [],
+        "target_tokens": [
+          "#$b#",
+          "%"
+        ]
+      },
+      {
+        "index": 4179,
+        "key": "event-19215254.18",
+        "source_tokens": [
+          "$13",
+          "#$b#",
+          "$13",
+          "#$b#",
+          "$10"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 4180,
+        "key": "event-19215254.19",
+        "source_tokens": [],
+        "target_tokens": [
+          "$3"
+        ]
+      },
+      {
+        "index": 4181,
+        "key": "event-19215254.20",
+        "source_tokens": [
+          "$3"
+        ],
+        "target_tokens": [
+          "$6"
+        ]
+      },
+      {
+        "index": 4183,
+        "key": "event-19215254.22",
+        "source_tokens": [
+          "$0"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4184,
+        "key": "event-19215254.23",
+        "source_tokens": [],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 4185,
+        "key": "event-19215254.24",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "$2",
+          "#$b#",
+          "$3"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4187,
+        "key": "event-19215254.26",
+        "source_tokens": [
+          "@",
+          "$11"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4189,
+        "key": "event-19215254.28",
+        "source_tokens": [
+          "$3",
+          "#$b#",
+          "$1",
+          "#$b#",
+          "$4"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4190,
+        "key": "event-19215254.Ltf.01",
+        "source_tokens": [
+          "$20"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4193,
+        "key": "event-19215254.Lpy.01",
+        "source_tokens": [
+          "$11",
+          "#$b#",
+          "$4"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4194,
+        "key": "event-19215254.Lpy.02",
+        "source_tokens": [
+          "$13"
+        ],
+        "target_tokens": [
+          "$1"
+        ]
+      },
+      {
+        "index": 4195,
+        "key": "event-19215254.Lpy.03",
+        "source_tokens": [
+          "$1"
+        ],
+        "target_tokens": [
+          "$3"
+        ]
+      },
+      {
+        "index": 4197,
+        "key": "event-19215270.01",
+        "source_tokens": [
+          "$1",
+          "#$b#",
+          "$3"
+        ],
+        "target_tokens": []
+      },
+      {
+        "index": 4199,
+        "key": "event-19215270.03",
+        "source_tokens": [
+          "$0",
+          "#$b#",
+          "$1"
+        ],
+        "target_tokens": []
       }
     ],
     "han_hits": [],
