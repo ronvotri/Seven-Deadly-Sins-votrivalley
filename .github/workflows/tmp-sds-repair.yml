@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install JSON5 parser
         run: python -m pip install --disable-pip-version-check json5
-      - name: Materialize recovery, audit, and extract CP 4001-5000
+      - name: Materialize recovery, audit, and extract CP 4001-5000 (through CP 4500 restore)
         shell: python
         run: |
           import io, json, re, zipfile
