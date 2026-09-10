@@ -1,31 +1,24 @@
-name: Temporary SDS CP repair
+name: Temporary SDS missing CP source
 
 on:
   push:
     paths:
       - '.github/workflows/tmp-sds-repair.yml'
-      - 'repairs/CP_TOKEN_FIXES_*.json'
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
-  repair:
+  extract:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - name: Install JSON5 parser
         run: python -m pip install --disable-pip-version-check json5
-      - name: Apply repair patches and regenerate audit
+      - name: Extract exact CP source 1-1000
         shell: python
         run: |
-          import io, json, re, zipfile
-          from pathlib import Path
-          from datetime import datetime, timezone
+          import io, json, zipfile
           import requests, json5
-
           class R(io.RawIOBase):
               def __init__(self,url):
                   self.url=url; self.s=requests.Session(); h=self.s.head(url,allow_redirects=True,timeout=60); h.raise_for_status(); self.n=int(h.headers['Content-Length']); self.p=0
@@ -33,111 +26,28 @@ jobs:
               def seekable(self): return True
               def tell(self): return self.p
               def seek(self,o,w=io.SEEK_SET):
-                  self.p=o if w==io.SEEK_SET else self.p+o if w==io.SEEK_CUR else self.n+o
-                  return self.p
+                  self.p=o if w==io.SEEK_SET else self.p+o if w==io.SEEK_CUR else self.n+o; return self.p
               def read(self,size=-1):
                   if self.p>=self.n:return b''
                   if size==0:return b''
                   e=self.n-1 if size is None or size<0 else min(self.n-1,self.p+size-1)
                   r=self.s.get(self.url,headers={'Range':f'bytes={self.p}-{e}'},allow_redirects=True,timeout=180)
-                  if r.status_code!=206: raise RuntimeError(r.status_code)
-                  b=r.content; self.p+=len(b); return b
-
+                  if r.status_code!=206:raise RuntimeError(r.status_code)
+                  b=r.content;self.p+=len(b);return b
           reader=R('https://smapistorage.blob.core.windows.net/exports/stardew-mod-dataset.zip')
           with zipfile.ZipFile(reader) as z:
               c=[n for n in z.namelist() if 'Nexus/15/15100/178657/' in n.replace('\\','/') and n.replace('\\','/').lower().endswith('/i18n/default.json') and '[cp]' in n.lower()]
-              if len(c)!=1: raise SystemExit(f'expected one source, got {len(c)}')
+              if len(c)!=1:raise SystemExit(f'expected one source, got {len(c)}')
               raw=z.read(c[0])
           items=list(json5.loads(raw.decode('utf-8-sig'),allow_duplicate_keys=True).items())
-          if len(items)!=24827: raise SystemExit(f'bad key count {len(items)}')
-          ikey={i+1:k for i,(k,v) in enumerate(items)}; ival={i+1:v for i,(k,v) in enumerate(items)}
-          kidx={k:i+1 for i,(k,v) in enumerate(items)}
-
-          token_re=re.compile(r'\{\{.*?\}\}|\[[^\]]+\]|#?\$q\s+[^#]+#|#?\$r\s+[^#]+#|#\$b#|\$[qrb]|\$\d+|%(?:kid\d+|kids\d+|pet\d*)|%|@|\^|\|',re.I)
-          han_re=re.compile(r'[\u3400-\u4DBF\u4E00-\u9FFF]')
-          shard_re=re.compile(r'^CP_(\d+)_(\d+)\.json$')
-
-          def find_shard(folder, idx):
-              for p in Path(folder).glob('CP_*_*.json'):
-                  m=shard_re.match(p.name)
-                  if m and int(m.group(1))<=idx<=int(m.group(2)): return p
-              return None
-
-          patches={}
-          for pp in sorted(Path('repairs').glob('CP_TOKEN_FIXES_*.json')):
-              data=json.loads(pp.read_text(encoding='utf-8'))
-              for si,t in data.items(): patches[int(si)]=t
-          if not patches: raise SystemExit('no repair patches found')
-
-          touched=set()
-          for idx,target in sorted(patches.items()):
-              if idx<1 or idx>len(items): raise SystemExit(f'bad patch index {idx}')
-              st=token_re.findall(ival[idx]); tt=token_re.findall(target)
-              if st!=tt: raise SystemExit(f'token mismatch patch {idx}: {st} != {tt}')
-              if han_re.search(target): raise SystemExit(f'Han remains in patch {idx}')
-
-              rp=find_shard('recovery/index',idx)
-              if rp is None: raise SystemExit(f'no recovery shard for patched index {idx}')
-              rd=json.loads(rp.read_text(encoding='utf-8')); rd[str(idx)]=target
-              rp.write_text(json.dumps(rd,ensure_ascii=False,indent=2)+'\n',encoding='utf-8'); touched.add(str(rp))
-
-              tp=find_shard('translations/cp',idx)
-              if tp is None: raise SystemExit(f'no key-based shard for patched index {idx}')
-              td=json.loads(tp.read_text(encoding='utf-8')); td[ikey[idx]]=target
-              tp.write_text(json.dumps(td,ensure_ascii=False,indent=2)+'\n',encoding='utf-8'); touched.add(str(tp))
-
-          coverage=set(); duplicate=[]; unknown=[]; mism=[]; han=[]
-          for tp in sorted(Path('translations/cp').glob('CP_*_*.json')):
-              if not shard_re.match(tp.name): continue
-              td=json.loads(tp.read_text(encoding='utf-8'))
-              for k,t in td.items():
-                  idx=kidx.get(k)
-                  if idx is None: unknown.append({'file':str(tp),'key':k}); continue
-                  if idx in coverage: duplicate.append({'index':idx,'file':str(tp)})
-                  coverage.add(idx)
-                  st=token_re.findall(ival[idx]); tt=token_re.findall(t)
-                  if st!=tt:
-                      mism.append({'index':idx,'key':k,'source':ival[idx],'target':t,'source_tokens':st,'target_tokens':tt,'file':str(tp)})
-                  hs=han_re.findall(t)
-                  if hs: han.append({'index':idx,'key':k,'chars':''.join(hs[:20])})
-          missing=set(range(1,len(items)+1))-coverage
-          def ranges(nums):
-              nums=sorted(nums)
-              if not nums:return []
-              out=[];a=b=nums[0]
-              for n in nums[1:]:
-                  if n==b+1:b=n
-                  else:out.append(f'{a}-{b}' if a!=b else str(a));a=b=n
-              out.append(f'{a}-{b}' if a!=b else str(a));return out
-
-          audit={
-              'project':'Seven Deadly Sins Vietnamese Localization',
-              'source_version':'3.13.4','source_nexus_file_id':178657,'cp_source_key_count':len(items),
-              'generated_at_utc':datetime.now(timezone.utc).isoformat(),
-              'applied_repair_index_count':len(patches),'applied_repair_indices':sorted(patches),
-              'key_based':{'covered_key_count':len(coverage),'missing_key_count':len(missing),'missing_ranges':ranges(missing),'duplicate_index_count':len(duplicate),'unknown_key_count':len(unknown),'technical_token_mismatch_count':len(mism),'han_hit_count':len(han)},
-              'details':{'technical_token_mismatches':[{'index':x['index'],'key':x['key'],'source_tokens':x['source_tokens'],'target_tokens':x['target_tokens'],'file':x['file']} for x in mism],'han_hits':han,'duplicate_indices':duplicate,'unknown_keys':unknown},
-          }
-          Path('audit').mkdir(exist_ok=True)
-          Path('audit/CP_AUDIT.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-
-          outdir=Path('audit/mismatches_current'); outdir.mkdir(parents=True,exist_ok=True)
-          for old in outdir.glob('*.json'): old.unlink()
-          blocks={}
-          for x in mism:
-              b=((x['index']-1)//100)*100+1
-              blocks.setdefault(b,[]).append(x)
-          block_summary=[]
-          for b,arr in sorted(blocks.items()):
-              e=b+99
-              p=outdir/f'CP_{b}_{e}.json'
-              p.write_text(json.dumps(arr,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-              block_summary.append({'block':f'{b}-{e}','count':len(arr),'first':arr[0]['index'],'last':arr[-1]['index'],'file':str(p)})
-          Path('audit/CP_MISMATCH_SUMMARY_CURRENT.json').write_text(json.dumps({'mismatch_count':len(mism),'ranges':ranges([x['index'] for x in mism]),'blocks':block_summary},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-          print('touched',len(touched),'mismatches',len(mism),'missing',len(missing),'han',len(han))
-      - name: Commit repairs
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add recovery/index translations/cp audit/CP_AUDIT.json audit/CP_MISMATCH_SUMMARY_CURRENT.json audit/mismatches_current
-          if git diff --cached --quiet; then echo "No changes"; else git commit -m "Refresh corrected CP mismatch diagnostics" && git push; fi
+          if len(items)!=24827:raise SystemExit(f'bad key count {len(items)}')
+          start,end=1,1000
+          out={'source':'Seven Deadly Sins 1.6 / 3.13.4 / Nexus 178657','cp_key_count':len(items),'start_index':start,'end_index':end,'entries':[{'index':i,'key':items[i-1][0],'value':items[i-1][1]} for i in range(start,end+1)]}
+          open('sds-cp-source-00001-01000.json','w',encoding='utf-8').write(json.dumps(out,ensure_ascii=False,indent=2))
+      - name: Upload exact source slice
+        uses: actions/upload-artifact@v4
+        with:
+          name: sds-cp-source-00001-01000
+          path: sds-cp-source-00001-01000.json
+          retention-days: 1
+          if-no-files-found: error
