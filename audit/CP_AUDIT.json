@@ -3,19 +3,28 @@
   "source_version": "3.13.4",
   "source_nexus_file_id": 178657,
   "cp_source_key_count": 24827,
-  "generated_at_utc": "2026-09-10T09:24:07.072488+00:00",
+  "generated_at_utc": "2026-09-10T10:23:28.065232+00:00",
+  "standardized_name_files_this_run": [
+    "recovery/index/CP_4801_4900.json",
+    "recovery/index/CP_5101_5200.json",
+    "recovery/index/CP_5201_5300.json"
+  ],
   "materialized_from_recovery_this_run": [
-    "translations/cp/CP_4701_4800.json",
     "translations/cp/CP_4801_4900.json",
-    "translations/cp/CP_4901_5000.json"
+    "translations/cp/CP_5001_5100.json",
+    "translations/cp/CP_5101_5200.json",
+    "translations/cp/CP_5201_5300.json",
+    "translations/cp/CP_5301_5400.json",
+    "translations/cp/CP_5401_5500.json",
+    "translations/cp/CP_5501_5600.json",
+    "translations/cp/CP_5601_5700.json"
   ],
   "malformed_recovery_files": [],
   "malformed_translation_files": [],
   "key_based": {
-    "covered_key_count": 18527,
-    "missing_key_count": 6300,
+    "covered_key_count": 19227,
+    "missing_key_count": 5600,
     "missing_ranges": [
-      "5001-5700",
       "6901-11200",
       "11301-11600",
       "12701-13700"
