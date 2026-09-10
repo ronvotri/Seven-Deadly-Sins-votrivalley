@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install JSON5 parser
         run: python -m pip install --disable-pip-version-check json5
-      - name: Materialize recovery, audit, and extract CP 3001-4000
+      - name: Materialize recovery, audit, and extract CP 4001-5000
         shell: python
         run: |
           import io, json, re, zipfile
@@ -103,9 +103,9 @@ jobs:
           Path('audit').mkdir(exist_ok=True)
           Path('audit/CP_AUDIT.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
-          start,end=3001,4000
+          start,end=4001,5000
           source_slice={'source':'Seven Deadly Sins 1.6 / 3.13.4 / Nexus 178657','cp_key_count':len(items),'start_index':start,'end_index':end,'entries':[{'index':i,'key':items[i-1][0],'value':items[i-1][1]} for i in range(start,end+1)]}
-          Path('sds-cp-source-03001-04000.json').write_text(json.dumps(source_slice,ensure_ascii=False,indent=2),encoding='utf-8')
+          Path('sds-cp-source-04001-05000.json').write_text(json.dumps(source_slice,ensure_ascii=False,indent=2),encoding='utf-8')
           print(json.dumps(audit['key_based'],ensure_ascii=False,indent=2))
 
       - name: Commit materialized shards and audit
@@ -117,7 +117,7 @@ jobs:
       - name: Upload exact source slice
         uses: actions/upload-artifact@v4
         with:
-          name: sds-cp-source-03001-04000
-          path: sds-cp-source-03001-04000.json
+          name: sds-cp-source-04001-05000
+          path: sds-cp-source-04001-05000.json
           retention-days: 1
           if-no-files-found: error
