@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install JSON5 parser
         run: python -m pip install --disable-pip-version-check json5
-      - name: Materialize recovery and audit through CP 4700
+      - name: Materialize recovery, apply final token fixes, and audit through CP 4700
         shell: python
         run: |
           import io, json, re, zipfile
@@ -69,11 +69,26 @@ jobs:
                       r=json.loads(fixed)
                       rp.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
                       repaired_recovery.append(str(rp))
-                      print(f'REPAIRED_RECOVERY {rp}: literal \\n separator normalized')
+                      print(f'REPAIRED_RECOVERY {rp}: literal newline separator normalized')
                   except Exception as e:
                       malformed_recovery.append({'file':str(rp),'error':f'{type(e).__name__}: {e}','original_error':f'{type(first_error).__name__}: {first_error}'})
                       print(f'MALFORMED_RECOVERY {rp}: {type(e).__name__}: {e}')
                       continue
+
+              targeted_fix=False
+              if str(2093) in r and '#$b#%Trinity' in r[str(2093)]:
+                  r[str(2093)]=r[str(2093)].replace('#$b#%Trinity','#$b#Trinity')
+                  targeted_fix=True
+                  print('FIXED 2093 SDS.NPCGiftTastes.Trinity.2: removed stray technical % marker')
+              if str(3470) in r and '10%' in r[str(3470)]:
+                  r[str(3470)]=r[str(3470)].replace('10%','10 phần trăm')
+                  targeted_fix=True
+                  print('FIXED 3470 SDCitysupermarketOpen: rendered literal percent as words')
+              if targeted_fix:
+                  rp.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+                  if str(rp) not in repaired_recovery:
+                      repaired_recovery.append(str(rp))
+
               if any(str(i) not in r for i in range(a,b+1)): continue
               out={items[i-1][0]:r[str(i)] for i in range(a,b+1)}
               tp=Path(f'translations/cp/CP_{a}_{b}.json')
@@ -132,7 +147,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add translations/cp audit/CP_AUDIT.json recovery/index
-          if git diff --cached --quiet; then echo "No changes"; else git commit -m "Repair legacy recovery JSON and refresh CP audit" && git push; fi
+          if git diff --cached --quiet; then echo "No changes"; else git commit -m "Fix final CP token mismatches and refresh audit" && git push; fi
       - name: Upload exact source slice
         uses: actions/upload-artifact@v4
         with:
