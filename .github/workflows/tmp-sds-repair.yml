@@ -1,4 +1,4 @@
-name: Temporary SDS missing CP source
+name: Temporary SDS restore and source
 
 on:
   push:
@@ -6,18 +6,22 @@ on:
       - '.github/workflows/tmp-sds-repair.yml'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
-  extract:
+  restore:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - name: Install JSON5 parser
         run: python -m pip install --disable-pip-version-check json5
-      - name: Extract exact CP source 1-1000
+      - name: Materialize recovery and extract CP 1001-2000
         shell: python
         run: |
-          import io, json, zipfile
+          import io, json, re, zipfile
+          from pathlib import Path
           import requests, json5
           class R(io.RawIOBase):
               def __init__(self,url):
@@ -41,13 +45,35 @@ jobs:
               raw=z.read(c[0])
           items=list(json5.loads(raw.decode('utf-8-sig'),allow_duplicate_keys=True).items())
           if len(items)!=24827:raise SystemExit(f'bad key count {len(items)}')
-          start,end=1,1000
+          shard_re=re.compile(r'^CP_(\d+)_(\d+)\.json$')
+          made=[]
+          for rp in sorted(Path('recovery/index').glob('CP_*_*.json')):
+              m=shard_re.match(rp.name)
+              if not m: continue
+              a,b=map(int,m.groups())
+              if a<1 or b>len(items) or b<a: continue
+              r=json.loads(rp.read_text(encoding='utf-8'))
+              if any(str(i) not in r for i in range(a,b+1)): continue
+              tp=Path(f'translations/cp/CP_{a}_{b}.json')
+              if tp.exists(): continue
+              out={items[i-1][0]:r[str(i)] for i in range(a,b+1)}
+              tp.parent.mkdir(parents=True,exist_ok=True)
+              tp.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+              made.append(str(tp))
+          start,end=1001,2000
           out={'source':'Seven Deadly Sins 1.6 / 3.13.4 / Nexus 178657','cp_key_count':len(items),'start_index':start,'end_index':end,'entries':[{'index':i,'key':items[i-1][0],'value':items[i-1][1]} for i in range(start,end+1)]}
-          open('sds-cp-source-00001-01000.json','w',encoding='utf-8').write(json.dumps(out,ensure_ascii=False,indent=2))
+          Path('sds-cp-source-01001-02000.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
+          print('materialized',made)
+      - name: Commit materialized shards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add translations/cp
+          if git diff --cached --quiet; then echo "No changes"; else git commit -m "Materialize restored CP recovery shards" && git push; fi
       - name: Upload exact source slice
         uses: actions/upload-artifact@v4
         with:
-          name: sds-cp-source-00001-01000
-          path: sds-cp-source-00001-01000.json
+          name: sds-cp-source-01001-02000
+          path: sds-cp-source-01001-02000.json
           retention-days: 1
           if-no-files-found: error
