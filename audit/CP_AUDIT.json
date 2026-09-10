@@ -3,34 +3,45 @@
   "source_version": "3.13.4",
   "source_nexus_file_id": 178657,
   "cp_source_key_count": 24827,
-  "generated_at_utc": "2026-09-09T22:25:58.369542+00:00",
-  "reconciled_from_recovery_this_run": [
-    "translations/cp/CP_13701_13800.json",
-    "translations/cp/CP_13801_13900.json",
-    "translations/cp/CP_13901_14000.json",
-    "translations/cp/CP_14001_14100.json",
-    "translations/cp/CP_14101_14200.json",
-    "translations/cp/CP_14201_14300.json",
-    "translations/cp/CP_14301_14400.json",
-    "translations/cp/CP_14401_14500.json",
-    "translations/cp/CP_14797_14896.json",
-    "translations/cp/CP_14897_14996.json",
-    "translations/cp/CP_14997_15096.json",
-    "translations/cp/CP_15097_15196.json",
-    "translations/cp/CP_15197_15296.json",
-    "translations/cp/CP_15297_15396.json",
-    "translations/cp/CP_15397_15496.json",
-    "translations/cp/CP_15597_15696.json",
-    "translations/cp/CP_15697_15796.json",
-    "translations/cp/CP_16197_16296.json",
-    "translations/cp/CP_16897_16996.json",
-    "translations/cp/CP_16997_17096.json",
-    "translations/cp/CP_17097_17196.json",
-    "translations/cp/CP_20697_20796.json"
+  "generated_at_utc": "2026-09-10T02:40:50.689427+00:00",
+  "applied_repair_index_count": 34,
+  "applied_repair_indices": [
+    11602,
+    11686,
+    11687,
+    11688,
+    11689,
+    11690,
+    11691,
+    11692,
+    11693,
+    11694,
+    11695,
+    11696,
+    11697,
+    11698,
+    11699,
+    11700,
+    11701,
+    11702,
+    11703,
+    11704,
+    11705,
+    11706,
+    11707,
+    11708,
+    11709,
+    11710,
+    11711,
+    11712,
+    11713,
+    11714,
+    11715,
+    11716,
+    11717,
+    11718
   ],
-  "policy": "Complete recovery shards override matching key-based shards because recovery stores the latest QA-preserved Vietnamese by exact 1-based source index.",
   "key_based": {
-    "parsed_shards": 136,
     "covered_key_count": 13527,
     "missing_key_count": 11300,
     "missing_ranges": [
@@ -41,494 +52,11 @@
     ],
     "duplicate_index_count": 0,
     "unknown_key_count": 0,
-    "technical_token_mismatch_count": 189,
+    "technical_token_mismatch_count": 155,
     "han_hit_count": 0
   },
-  "recovery": {
-    "covered_index_count": 12227,
-    "missing_index_count": 12600,
-    "missing_ranges": [
-      "1-11200",
-      "11301-11600",
-      "12701-13700",
-      "15497-15596"
-    ],
-    "file_error_count": 0,
-    "key_based_value_mismatch_count_after_reconcile": 0
-  },
   "details": {
-    "recovery_errors": [],
-    "duplicate_indices": [],
-    "unknown_keys": [],
     "technical_token_mismatches": [
-      {
-        "index": 11602,
-        "key": "SDS.Dialogue.Pelette.fall_Sat4.2",
-        "source_tokens": [
-          "$6",
-          "#$b#",
-          "#$b#",
-          "#$b#",
-          "#$b#",
-          "%",
-          "#$q 18000553/18000554 fall_Sat4_P2old#",
-          "#$r 18000553 0 fall_Sat4_18000553#",
-          "#$r 18000554 0 fall_Sat4_18000554#"
-        ],
-        "target_tokens": [
-          "$6",
-          "#$b#",
-          "#$b#",
-          "#$b#",
-          "$b",
-          "%",
-          "#$q 18000553/18000554 fall_Sat4_P2old#",
-          "#$r 18000553 0 fall_Sat4_18000553#",
-          "#$r 18000554 0 fall_Sat4_18000554#"
-        ]
-      },
-      {
-        "index": 11686,
-        "key": "SDS.Dialogue.Pelette.winter_Wed.2",
-        "source_tokens": [
-          "#$q 18000637/18000638 winter_Wed_P2old#",
-          "#$r 18000637 0 winter_Wed_18000637#",
-          "#$r 18000638 0 winter_Wed_18000638#"
-        ],
-        "target_tokens": [
-          "%",
-          "#$q 18000637/18000638 winter_Wed_P2old#",
-          "#$r 18000637 0 winter_Wed_18000637#",
-          "#$r 18000638 0 winter_Wed_18000638#"
-        ]
-      },
-      {
-        "index": 11687,
-        "key": "SDS.Dialogue.Pelette.winter_Wed_18000637.2",
-        "source_tokens": [
-          "#$b#",
-          "%"
-        ],
-        "target_tokens": [
-          "%"
-        ]
-      },
-      {
-        "index": 11688,
-        "key": "SDS.Dialogue.Pelette.winter_Wed_18000638.2",
-        "source_tokens": [
-          "#$b#",
-          "%"
-        ],
-        "target_tokens": []
-      },
-      {
-        "index": 11689,
-        "key": "SDS.Dialogue.Pelette.winter_Wed_P2old.2",
-        "source_tokens": [
-          "#$b#",
-          "%"
-        ],
-        "target_tokens": []
-      },
-      {
-        "index": 11690,
-        "key": "SDS.Dialogue.Pelette.winter_Wed2.2",
-        "source_tokens": [
-          "$3",
-          "#$b#",
-          "#$b#",
-          "%"
-        ],
-        "target_tokens": [
-          "$3",
-          "#$q 18000639/18000640 winter_Wed2_P2old#",
-          "#$r 18000639 0 winter_Wed2_18000639#",
-          "#$r 18000640 0 winter_Wed2_18000640#"
-        ]
-      },
-      {
-        "index": 11691,
-        "key": "SDS.Dialogue.Pelette.winter_Wed4.2",
-        "source_tokens": [
-          "$6",
-          "#$q 18000639/18000640 winter_Wed4_P2old#",
-          "#$r 18000639 0 winter_Wed4_18000639#",
-          "#$r 18000640 0 winter_Wed4_18000640#"
-        ],
-        "target_tokens": [
-          "$3"
-        ]
-      },
-      {
-        "index": 11692,
-        "key": "SDS.Dialogue.Pelette.winter_Wed4_18000639.2",
-        "source_tokens": [
-          "$0"
-        ],
-        "target_tokens": [
-          "$3"
-        ]
-      },
-      {
-        "index": 11693,
-        "key": "SDS.Dialogue.Pelette.winter_Wed4_18000640.2",
-        "source_tokens": [
-          "$7",
-          "#$b#",
-          "$6"
-        ],
-        "target_tokens": [
-          "$3"
-        ]
-      },
-      {
-        "index": 11694,
-        "key": "SDS.Dialogue.Pelette.winter_Wed4_P2old.2",
-        "source_tokens": [
-          "$0"
-        ],
-        "target_tokens": [
-          "$0",
-          "#$q 18000641/18000642 winter_Wed4_P2old#",
-          "#$r 18000641 0 winter_Wed4_18000641#",
-          "#$r 18000642 0 winter_Wed4_18000642#"
-        ]
-      },
-      {
-        "index": 11695,
-        "key": "SDS.Dialogue.Pelette.winter_Wed6.2",
-        "source_tokens": [
-          "$2",
-          "#$q 18000641/18000642 winter_Wed6_P2old#",
-          "#$r 18000641 0 winter_Wed6_18000641#",
-          "#$r 18000642 0 winter_Wed6_18000642#"
-        ],
-        "target_tokens": [
-          "$1"
-        ]
-      },
-      {
-        "index": 11696,
-        "key": "SDS.Dialogue.Pelette.winter_Wed6_18000641.2",
-        "source_tokens": [
-          "$6",
-          "#$b#",
-          "#$b#",
-          "$7"
-        ],
-        "target_tokens": [
-          "$6"
-        ]
-      },
-      {
-        "index": 11697,
-        "key": "SDS.Dialogue.Pelette.winter_Wed6_18000642.2",
-        "source_tokens": [
-          "$2"
-        ],
-        "target_tokens": [
-          "$1"
-        ]
-      },
-      {
-        "index": 11698,
-        "key": "SDS.Dialogue.Pelette.winter_Wed6_P2old.2",
-        "source_tokens": [
-          "$2"
-        ],
-        "target_tokens": [
-          "$1",
-          "#$q 18000643/18000644 winter_Wed6_P2old#",
-          "#$r 18000643 0 winter_Wed6_18000643#",
-          "#$r 18000644 0 winter_Wed6_18000644#"
-        ]
-      },
-      {
-        "index": 11699,
-        "key": "SDS.Dialogue.Pelette.winter_Wed8.2",
-        "source_tokens": [
-          "#$b#",
-          "$0",
-          "#$b#",
-          "#$b#",
-          "$3",
-          "#$q 18000643/18000644 winter_Wed8_P2old#",
-          "#$r 18000643 0 winter_Wed8_18000643#",
-          "#$r 18000644 0 winter_Wed8_18000644#"
-        ],
-        "target_tokens": [
-          "$1"
-        ]
-      },
-      {
-        "index": 11700,
-        "key": "SDS.Dialogue.Pelette.winter_Wed8_18000643.2",
-        "source_tokens": [
-          "#$b#",
-          "%",
-          "#$b#",
-          "%",
-          "#$b#",
-          "@",
-          "$4"
-        ],
-        "target_tokens": [
-          "$1"
-        ]
-      },
-      {
-        "index": 11701,
-        "key": "SDS.Dialogue.Pelette.winter_Wed8_18000644.2",
-        "source_tokens": [
-          "#$b#",
-          "$1"
-        ],
-        "target_tokens": [
-          "$1"
-        ]
-      },
-      {
-        "index": 11702,
-        "key": "SDS.Dialogue.Pelette.winter_Wed8_P2old.2",
-        "source_tokens": [
-          "#$b#",
-          "$1"
-        ],
-        "target_tokens": [
-          "$1",
-          "#$q 18000645/18000646 winter_Wed8_P2old#",
-          "#$r 18000645 0 winter_Wed8_18000645#",
-          "#$r 18000646 0 winter_Wed8_18000646#"
-        ]
-      },
-      {
-        "index": 11703,
-        "key": "SDS.Dialogue.Pelette.winter_Wed10.2",
-        "source_tokens": [
-          "$6",
-          "#$q 18000645/18000646 winter_Wed10_P2old#",
-          "#$r 18000645 0 winter_Wed10_18000645#",
-          "#$r 18000646 0 winter_Wed10_18000646#"
-        ],
-        "target_tokens": [
-          "$1"
-        ]
-      },
-      {
-        "index": 11704,
-        "key": "SDS.Dialogue.Pelette.winter_Wed10_18000645.2",
-        "source_tokens": [
-          "$0",
-          "#$b#",
-          "$6"
-        ],
-        "target_tokens": [
-          "$5"
-        ]
-      },
-      {
-        "index": 11705,
-        "key": "SDS.Dialogue.Pelette.winter_Wed10_18000646.2",
-        "source_tokens": [
-          "@",
-          "$1",
-          "#$b#",
-          "#$b#",
-          "$6",
-          "#$b#",
-          "$6",
-          "#$b#",
-          "@",
-          "$1"
-        ],
-        "target_tokens": [
-          "$5"
-        ]
-      },
-      {
-        "index": 11706,
-        "key": "SDS.Dialogue.Pelette.winter_Wed10_P2old.2",
-        "source_tokens": [
-          "@",
-          "$1",
-          "#$b#",
-          "#$b#",
-          "$6",
-          "#$b#",
-          "$6",
-          "#$b#",
-          "@",
-          "$1"
-        ],
-        "target_tokens": [
-          "$6",
-          "#$q 18000647/18000648 winter_Wed10_P2old#",
-          "#$r 18000647 0 winter_Wed10_18000647#",
-          "#$r 18000648 0 winter_Wed10_18000648#"
-        ]
-      },
-      {
-        "index": 11707,
-        "key": "SDS.Dialogue.Pelette.winter_Thu.2",
-        "source_tokens": [
-          "#$b#",
-          "%"
-        ],
-        "target_tokens": [
-          "$1"
-        ]
-      },
-      {
-        "index": 11708,
-        "key": "SDS.Dialogue.Pelette.winter_Thu2.2",
-        "source_tokens": [
-          "$3",
-          "#$q 18000659/18000660 winter_Thu2_P2old#",
-          "#$r 18000659 0 winter_Thu2_18000659#",
-          "#$r 18000660 0 winter_Thu2_18000660#"
-        ],
-        "target_tokens": [
-          "$1"
-        ]
-      },
-      {
-        "index": 11709,
-        "key": "SDS.Dialogue.Pelette.winter_Thu2_18000659.2",
-        "source_tokens": [
-          "#$b#",
-          "%"
-        ],
-        "target_tokens": [
-          "$1"
-        ]
-      },
-      {
-        "index": 11710,
-        "key": "SDS.Dialogue.Pelette.winter_Thu2_18000660.2",
-        "source_tokens": [
-          "#$b#",
-          "$3",
-          "#$b#",
-          "$3"
-        ],
-        "target_tokens": [
-          "%",
-          "#$q 18000661/18000662 winter_Thu_P2old#",
-          "#$r 18000661 0 winter_Thu_18000661#",
-          "#$r 18000662 0 winter_Thu_18000662#"
-        ]
-      },
-      {
-        "index": 11711,
-        "key": "SDS.Dialogue.Pelette.winter_Thu2_P2old.2",
-        "source_tokens": [
-          "#$b#",
-          "%"
-        ],
-        "target_tokens": [
-          "$1"
-        ]
-      },
-      {
-        "index": 11712,
-        "key": "SDS.Dialogue.Pelette.winter_Thu4.2",
-        "source_tokens": [
-          "#$q 18000661/18000662 winter_Thu4_P2old#",
-          "#$r 18000661 0 winter_Thu4_18000661#",
-          "#$r 18000662 0 winter_Thu4_18000662#"
-        ],
-        "target_tokens": [
-          "$5"
-        ]
-      },
-      {
-        "index": 11713,
-        "key": "SDS.Dialogue.Pelette.winter_Thu4_18000661.2",
-        "source_tokens": [
-          "$6",
-          "#$b#",
-          "$6",
-          "#$b#",
-          "$6"
-        ],
-        "target_tokens": [
-          "$1"
-        ]
-      },
-      {
-        "index": 11714,
-        "key": "SDS.Dialogue.Pelette.winter_Thu4_18000662.2",
-        "source_tokens": [
-          "$1",
-          "#$b#",
-          "$6",
-          "#$b#",
-          "$6"
-        ],
-        "target_tokens": [
-          "$1",
-          "#$q 18000663/18000664 winter_Thu2_P2old#",
-          "#$r 18000663 0 winter_Thu2_18000663#",
-          "#$r 18000664 0 winter_Thu2_18000664#"
-        ]
-      },
-      {
-        "index": 11715,
-        "key": "SDS.Dialogue.Pelette.winter_Thu4_P2old.2",
-        "source_tokens": [
-          "$1",
-          "#$b#",
-          "$6",
-          "#$b#",
-          "$6"
-        ],
-        "target_tokens": [
-          "$1"
-        ]
-      },
-      {
-        "index": 11716,
-        "key": "SDS.Dialogue.Pelette.winter_Thu6.2",
-        "source_tokens": [
-          "#$b#",
-          "%",
-          "#$b#"
-        ],
-        "target_tokens": [
-          "$5"
-        ]
-      },
-      {
-        "index": 11717,
-        "key": "SDS.Dialogue.Pelette.winter_Thu8.2",
-        "source_tokens": [
-          "@",
-          "#$b#",
-          "$1",
-          "#$q 18000726/18000727 winter_Thu8_P2old#",
-          "#$r 18000726 0 winter_Thu8_18000726#",
-          "#$r 18000727 0 winter_Thu8_18000727#"
-        ],
-        "target_tokens": [
-          "$5"
-        ]
-      },
-      {
-        "index": 11718,
-        "key": "SDS.Dialogue.Pelette.winter_Thu8_18000726.2",
-        "source_tokens": [
-          "$1",
-          "#$b#",
-          "%"
-        ],
-        "target_tokens": [
-          "$1",
-          "#$q 18000726/18000727 winter_Thu8_P2old#",
-          "#$r 18000726 0 winter_Thu8_18000726#",
-          "#$r 18000727 0 winter_Thu8_18000727#"
-        ]
-      },
       {
         "index": 11956,
         "key": "SDS.MarriageDialogue.Pelette.OneKid_1",
@@ -553,7 +81,8 @@
           "#$q 18000866/18000867 OneKid_1_P1old#",
           "#$r 18000866 0 OneKid_1_18000866#",
           "#$r 18000867 0 OneKid_1_18000867#"
-        ]
+        ],
+        "file": "translations/cp/CP_11901_12000.json"
       },
       {
         "index": 11964,
@@ -577,7 +106,8 @@
           "#$q 18000870/18000871 OneKid_3_P1old#",
           "#$r 18000870 0 OneKid_3_18000870#",
           "#$r 18000871 0 OneKid_3_18000871#"
-        ]
+        ],
+        "file": "translations/cp/CP_11901_12000.json"
       },
       {
         "index": 11968,
@@ -597,7 +127,8 @@
           "#$q 18000872/18000873 OneKid_4_P1old#",
           "#$r 18000872 0 OneKid_4_18000872#",
           "#$r 18000873 0 OneKid_4_18000873#"
-        ]
+        ],
+        "file": "translations/cp/CP_11901_12000.json"
       },
       {
         "index": 11970,
@@ -614,7 +145,8 @@
           "#$b#",
           "%kid1",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_11901_12000.json"
       },
       {
         "index": 11971,
@@ -631,7 +163,8 @@
           "#$b#",
           "%kid1",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_11901_12000.json"
       },
       {
         "index": 11976,
@@ -653,7 +186,8 @@
           "#$q 18000876/18000877 TwoKids_1_P1old#",
           "#$r 18000876 0 TwoKids_1_18000876#",
           "#$r 18000877 0 TwoKids_1_18000877#"
-        ]
+        ],
+        "file": "translations/cp/CP_11901_12000.json"
       },
       {
         "index": 11977,
@@ -673,7 +207,8 @@
           "$8",
           "#$b#",
           "%"
-        ]
+        ],
+        "file": "translations/cp/CP_11901_12000.json"
       },
       {
         "index": 11979,
@@ -693,7 +228,8 @@
           "$8",
           "#$b#",
           "%"
-        ]
+        ],
+        "file": "translations/cp/CP_11901_12000.json"
       },
       {
         "index": 11980,
@@ -715,7 +251,8 @@
           "#$q 18000878/18000879 TwoKids_2_P1old#",
           "#$r 18000878 0 TwoKids_2_18000878#",
           "#$r 18000879 0 TwoKids_2_18000879#"
-        ]
+        ],
+        "file": "translations/cp/CP_11901_12000.json"
       },
       {
         "index": 11985,
@@ -729,7 +266,8 @@
           "%kid1",
           "%kid2",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_11901_12000.json"
       },
       {
         "index": 11987,
@@ -743,7 +281,8 @@
           "%kid1",
           "%kid2",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_11901_12000.json"
       },
       {
         "index": 12023,
@@ -755,7 +294,8 @@
         "target_tokens": [
           "%kid1",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_12001_12100.json"
       },
       {
         "index": 12024,
@@ -767,7 +307,8 @@
         "target_tokens": [
           "%kid1",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_12001_12100.json"
       },
       {
         "index": 13810,
@@ -786,7 +327,8 @@
           "#$b#",
           "#$b#",
           "[SDS_Frozenyoghurt]"
-        ]
+        ],
+        "file": "translations/cp/CP_13801_13900.json"
       },
       {
         "index": 13811,
@@ -805,7 +347,8 @@
           "#$b#",
           "#$b#",
           "[SDS_Frozenyoghurt]"
-        ]
+        ],
+        "file": "translations/cp/CP_13801_13900.json"
       },
       {
         "index": 13826,
@@ -825,7 +368,8 @@
           "#$b#",
           "%",
           "#$b#"
-        ]
+        ],
+        "file": "translations/cp/CP_13801_13900.json"
       },
       {
         "index": 13838,
@@ -839,7 +383,8 @@
         ],
         "target_tokens": [
           "$12"
-        ]
+        ],
+        "file": "translations/cp/CP_13801_13900.json"
       },
       {
         "index": 13840,
@@ -852,7 +397,8 @@
         "target_tokens": [
           "#$b#",
           "$13"
-        ]
+        ],
+        "file": "translations/cp/CP_13801_13900.json"
       },
       {
         "index": 13842,
@@ -864,7 +410,8 @@
         ],
         "target_tokens": [
           "$13"
-        ]
+        ],
+        "file": "translations/cp/CP_13801_13900.json"
       },
       {
         "index": 13853,
@@ -898,7 +445,8 @@
           "$5",
           "#$b#",
           "%"
-        ]
+        ],
+        "file": "translations/cp/CP_13801_13900.json"
       },
       {
         "index": 13854,
@@ -927,7 +475,8 @@
           "%",
           "#$b#",
           "%"
-        ]
+        ],
+        "file": "translations/cp/CP_13801_13900.json"
       },
       {
         "index": 13855,
@@ -961,7 +510,8 @@
           "$5",
           "#$b#",
           "%"
-        ]
+        ],
+        "file": "translations/cp/CP_13801_13900.json"
       },
       {
         "index": 13856,
@@ -978,7 +528,8 @@
           "#$q 18500208/18500209 summer_Thu8_S1old#",
           "#$r 18500208 0 summer_Thu8_18500208#",
           "#$r 18500209 0 summer_Thu8_18500209#"
-        ]
+        ],
+        "file": "translations/cp/CP_13801_13900.json"
       },
       {
         "index": 13870,
@@ -990,7 +541,8 @@
         ],
         "target_tokens": [
           "$2"
-        ]
+        ],
+        "file": "translations/cp/CP_13801_13900.json"
       },
       {
         "index": 13926,
@@ -1005,7 +557,8 @@
           "$5",
           "#$b#",
           "$9"
-        ]
+        ],
+        "file": "translations/cp/CP_13901_14000.json"
       },
       {
         "index": 13986,
@@ -1019,7 +572,8 @@
         ],
         "target_tokens": [
           "$12"
-        ]
+        ],
+        "file": "translations/cp/CP_13901_14000.json"
       },
       {
         "index": 13988,
@@ -1031,7 +585,8 @@
         ],
         "target_tokens": [
           "$13"
-        ]
+        ],
+        "file": "translations/cp/CP_13901_14000.json"
       },
       {
         "index": 13990,
@@ -1043,7 +598,8 @@
         ],
         "target_tokens": [
           "$13"
-        ]
+        ],
+        "file": "translations/cp/CP_13901_14000.json"
       },
       {
         "index": 13991,
@@ -1060,7 +616,8 @@
           "#$q 18500273/18500274 fall_Thu_S1old#",
           "#$r 18500273 0 fall_Thu_18500273#",
           "#$r 18500274 0 fall_Thu_18500274#"
-        ]
+        ],
+        "file": "translations/cp/CP_13901_14000.json"
       },
       {
         "index": 14018,
@@ -1073,7 +630,8 @@
         "target_tokens": [
           "@",
           "$9"
-        ]
+        ],
+        "file": "translations/cp/CP_14001_14100.json"
       },
       {
         "index": 14034,
@@ -1095,7 +653,8 @@
           "$5",
           "#$b#",
           "$0"
-        ]
+        ],
+        "file": "translations/cp/CP_14001_14100.json"
       },
       {
         "index": 14038,
@@ -1115,7 +674,8 @@
           "%",
           "#$b#",
           "%"
-        ]
+        ],
+        "file": "translations/cp/CP_14001_14100.json"
       },
       {
         "index": 14054,
@@ -1139,7 +699,8 @@
           "$7",
           "#$b#",
           "%"
-        ]
+        ],
+        "file": "translations/cp/CP_14001_14100.json"
       },
       {
         "index": 14068,
@@ -1153,7 +714,8 @@
         "target_tokens": [
           "@",
           "$9"
-        ]
+        ],
+        "file": "translations/cp/CP_14001_14100.json"
       },
       {
         "index": 14140,
@@ -1167,7 +729,8 @@
         ],
         "target_tokens": [
           "$12"
-        ]
+        ],
+        "file": "translations/cp/CP_14101_14200.json"
       },
       {
         "index": 14142,
@@ -1179,7 +742,8 @@
         ],
         "target_tokens": [
           "$13"
-        ]
+        ],
+        "file": "translations/cp/CP_14101_14200.json"
       },
       {
         "index": 14144,
@@ -1191,7 +755,8 @@
         ],
         "target_tokens": [
           "$13"
-        ]
+        ],
+        "file": "translations/cp/CP_14101_14200.json"
       },
       {
         "index": 14244,
@@ -1202,7 +767,8 @@
         ],
         "target_tokens": [
           "$5"
-        ]
+        ],
+        "file": "translations/cp/CP_14201_14300.json"
       },
       {
         "index": 14245,
@@ -1213,7 +779,8 @@
         ],
         "target_tokens": [
           "$5"
-        ]
+        ],
+        "file": "translations/cp/CP_14201_14300.json"
       },
       {
         "index": 14262,
@@ -1234,7 +801,8 @@
           "#$q 18500405/18500406 spring_Tue_S2old#",
           "#$r 18500405 0 spring_Tue_18500405#",
           "#$r 18500406 0 spring_Tue_18500406#"
-        ]
+        ],
+        "file": "translations/cp/CP_14201_14300.json"
       },
       {
         "index": 14280,
@@ -1246,7 +814,8 @@
         ],
         "target_tokens": [
           "$5"
-        ]
+        ],
+        "file": "translations/cp/CP_14201_14300.json"
       },
       {
         "index": 14287,
@@ -1258,7 +827,8 @@
         ],
         "target_tokens": [
           "$0"
-        ]
+        ],
+        "file": "translations/cp/CP_14201_14300.json"
       },
       {
         "index": 14288,
@@ -1275,7 +845,8 @@
           "$9",
           "#$b#",
           "$0"
-        ]
+        ],
+        "file": "translations/cp/CP_14201_14300.json"
       },
       {
         "index": 14289,
@@ -1292,7 +863,8 @@
           "$9",
           "#$b#",
           "$0"
-        ]
+        ],
+        "file": "translations/cp/CP_14201_14300.json"
       },
       {
         "index": 14300,
@@ -1309,7 +881,8 @@
           "#$q 18500424/18500425 spring_Thu8_S2old#",
           "#$r 18500424 0 spring_Thu8_18500424#",
           "#$r 18500425 0 spring_Thu8_18500425#"
-        ]
+        ],
+        "file": "translations/cp/CP_14201_14300.json"
       },
       {
         "index": 14306,
@@ -1333,7 +906,8 @@
           "$7",
           "#$b#",
           "%"
-        ]
+        ],
+        "file": "translations/cp/CP_14301_14400.json"
       },
       {
         "index": 14308,
@@ -1352,7 +926,8 @@
           "#$q 18500428/18500429 spring_Fri_S2old#",
           "#$r 18500428 0 spring_Fri_18500428#",
           "#$r 18500429 0 spring_Fri_18500429#"
-        ]
+        ],
+        "file": "translations/cp/CP_14301_14400.json"
       },
       {
         "index": 14319,
@@ -1363,7 +938,8 @@
         ],
         "target_tokens": [
           "$0"
-        ]
+        ],
+        "file": "translations/cp/CP_14301_14400.json"
       },
       {
         "index": 14321,
@@ -1377,7 +953,8 @@
         "target_tokens": [
           "#$b#",
           "%"
-        ]
+        ],
+        "file": "translations/cp/CP_14301_14400.json"
       },
       {
         "index": 14322,
@@ -1399,7 +976,8 @@
           "%",
           "#$b#",
           "$5"
-        ]
+        ],
+        "file": "translations/cp/CP_14301_14400.json"
       },
       {
         "index": 14323,
@@ -1411,7 +989,8 @@
         ],
         "target_tokens": [
           "%"
-        ]
+        ],
+        "file": "translations/cp/CP_14301_14400.json"
       },
       {
         "index": 14341,
@@ -1429,7 +1008,8 @@
           "#$q 18500445/18500446 spring_Sat4_S2old#",
           "#$r 18500445 0 spring_Sat4_18500445#",
           "#$r 18500446 0 spring_Sat4_18500446#"
-        ]
+        ],
+        "file": "translations/cp/CP_14301_14400.json"
       },
       {
         "index": 14385,
@@ -1448,7 +1028,8 @@
           "#$q 18500469/18500470 summer_Mon_S2old#",
           "#$r 18500469 0 summer_Mon_18500469#",
           "#$r 18500470 0 summer_Mon_18500470#"
-        ]
+        ],
+        "file": "translations/cp/CP_14301_14400.json"
       },
       {
         "index": 14391,
@@ -1459,7 +1040,8 @@
         ],
         "target_tokens": [
           "$2"
-        ]
+        ],
+        "file": "translations/cp/CP_14301_14400.json"
       },
       {
         "index": 14392,
@@ -1470,7 +1052,8 @@
         ],
         "target_tokens": [
           "$2"
-        ]
+        ],
+        "file": "translations/cp/CP_14301_14400.json"
       },
       {
         "index": 14405,
@@ -1485,7 +1068,8 @@
         "target_tokens": [
           "[233]",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_14401_14500.json"
       },
       {
         "index": 14409,
@@ -1498,7 +1082,8 @@
         "target_tokens": [
           "@",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_14401_14500.json"
       },
       {
         "index": 14411,
@@ -1516,7 +1101,8 @@
           "#$q 18500482/18500483 summer_Tue2_S2old#",
           "#$r 18500482 0 summer_Tue2_18500482#",
           "#$r 18500483 0 summer_Tue2_18500483#"
-        ]
+        ],
+        "file": "translations/cp/CP_14401_14500.json"
       },
       {
         "index": 14450,
@@ -1528,7 +1114,8 @@
         ],
         "target_tokens": [
           "$9"
-        ]
+        ],
+        "file": "translations/cp/CP_14401_14500.json"
       },
       {
         "index": 14455,
@@ -1539,7 +1126,8 @@
         ],
         "target_tokens": [
           "$7"
-        ]
+        ],
+        "file": "translations/cp/CP_14401_14500.json"
       },
       {
         "index": 14482,
@@ -1553,7 +1141,8 @@
           "$q 18500517/18500518 summer_Sat4_S2old#",
           "#$r 18500517 0 summer_Sat4_18500517#",
           "#$r 18500518 0 summer_Sat4_18500518#"
-        ]
+        ],
+        "file": "translations/cp/CP_14401_14500.json"
       },
       {
         "index": 14501,
@@ -1566,7 +1155,8 @@
         "target_tokens": [
           "@",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_14501_14600.json"
       },
       {
         "index": 14502,
@@ -1579,7 +1169,8 @@
         "target_tokens": [
           "@",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_14501_14600.json"
       },
       {
         "index": 14526,
@@ -1592,7 +1183,8 @@
         "target_tokens": [
           "@",
           "$9"
-        ]
+        ],
+        "file": "translations/cp/CP_14501_14600.json"
       },
       {
         "index": 14527,
@@ -1605,7 +1197,8 @@
         "target_tokens": [
           "@",
           "$9"
-        ]
+        ],
+        "file": "translations/cp/CP_14501_14600.json"
       },
       {
         "index": 14530,
@@ -1616,7 +1209,8 @@
         ],
         "target_tokens": [
           "$5"
-        ]
+        ],
+        "file": "translations/cp/CP_14501_14600.json"
       },
       {
         "index": 14548,
@@ -1635,7 +1229,8 @@
           "#$q 18500551/18500552 fall_Tue_S2old#",
           "#$r 18500551 0 fall_Tue_18500551#",
           "#$r 18500552 0 fall_Tue_18500552#"
-        ]
+        ],
+        "file": "translations/cp/CP_14501_14600.json"
       },
       {
         "index": 14549,
@@ -1646,7 +1241,8 @@
         ],
         "target_tokens": [
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_14501_14600.json"
       },
       {
         "index": 14568,
@@ -1663,7 +1259,8 @@
           "#$q 18500561/18500562 fall_Tue10_S2old#",
           "#$r 18500561 0 fall_Tue10_18500561#",
           "#$r 18500562 0 fall_Tue10_18500562#"
-        ]
+        ],
+        "file": "translations/cp/CP_14501_14600.json"
       },
       {
         "index": 14582,
@@ -1680,7 +1277,8 @@
           "#$q 18500567/18500568 fall_Thu8_S2old#",
           "#$r 18500567 0 fall_Thu8_18500567#",
           "#$r 18500568 0 fall_Thu8_18500568#"
-        ]
+        ],
+        "file": "translations/cp/CP_14501_14600.json"
       },
       {
         "index": 14614,
@@ -1698,7 +1296,8 @@
           "#$q 18500583/18500584 fall_Sat_S2old#",
           "#$r 18500583 0 fall_Sat_18500583#",
           "#$r 18500584 0 fall_Sat_18500584#"
-        ]
+        ],
+        "file": "translations/cp/CP_14601_14700.json"
       },
       {
         "index": 14618,
@@ -1715,7 +1314,8 @@
           "#$q 18500585/18500586 fall_Sat2_S2old#",
           "#$r 18500585 0 fall_Sat2_18500585#",
           "#$r 18500586 0 fall_Sat2_18500586#"
-        ]
+        ],
+        "file": "translations/cp/CP_14601_14700.json"
       },
       {
         "index": 14641,
@@ -1731,7 +1331,8 @@
           "@",
           "[396]",
           "$9"
-        ]
+        ],
+        "file": "translations/cp/CP_14601_14700.json"
       },
       {
         "index": 14655,
@@ -1754,7 +1355,8 @@
           "#$q 18500604/18500605 fall_Sun8_S2old#",
           "#$r 18500604 0 fall_Sun8_18500604#",
           "#$r 18500605 0 fall_Sun8_18500605#"
-        ]
+        ],
+        "file": "translations/cp/CP_14601_14700.json"
       },
       {
         "index": 14665,
@@ -1768,7 +1370,8 @@
         "target_tokens": [
           "[219]",
           "$9"
-        ]
+        ],
+        "file": "translations/cp/CP_14601_14700.json"
       },
       {
         "index": 14666,
@@ -1782,7 +1385,8 @@
         "target_tokens": [
           "[219]",
           "$9"
-        ]
+        ],
+        "file": "translations/cp/CP_14601_14700.json"
       },
       {
         "index": 14699,
@@ -1793,7 +1397,8 @@
         "target_tokens": [
           "#$b#",
           "$9"
-        ]
+        ],
+        "file": "translations/cp/CP_14601_14700.json"
       },
       {
         "index": 14715,
@@ -1810,7 +1415,8 @@
           "#$q 18500632/18500633 winter_Thu8_S2old#",
           "#$r 18500632 0 winter_Thu8_18500632#",
           "#$r 18500633 0 winter_Thu8_18500633#"
-        ]
+        ],
+        "file": "translations/cp/CP_14701_14796.json"
       },
       {
         "index": 14739,
@@ -1827,7 +1433,8 @@
           "#$q 18500644/18500645 winter_Fri8_S2old#",
           "#$r 18500644 0 winter_Fri8_18500644#",
           "#$r 18500645 0 winter_Fri8_18500645#"
-        ]
+        ],
+        "file": "translations/cp/CP_14701_14796.json"
       },
       {
         "index": 14741,
@@ -1839,7 +1446,8 @@
         "target_tokens": [
           "$b",
           "$9"
-        ]
+        ],
+        "file": "translations/cp/CP_14701_14796.json"
       },
       {
         "index": 14742,
@@ -1851,7 +1459,8 @@
         "target_tokens": [
           "$b",
           "$9"
-        ]
+        ],
+        "file": "translations/cp/CP_14701_14796.json"
       },
       {
         "index": 14743,
@@ -1868,7 +1477,8 @@
           "#$q 18500646/18500647 winter_Fri10_S2old#",
           "#$r 18500646 0 winter_Fri10_18500646#",
           "#$r 18500647 0 winter_Fri10_18500647#"
-        ]
+        ],
+        "file": "translations/cp/CP_14701_14796.json"
       },
       {
         "index": 14748,
@@ -1879,7 +1489,8 @@
         ],
         "target_tokens": [
           "$9"
-        ]
+        ],
+        "file": "translations/cp/CP_14701_14796.json"
       },
       {
         "index": 14757,
@@ -1891,7 +1502,8 @@
         ],
         "target_tokens": [
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_14701_14796.json"
       },
       {
         "index": 14759,
@@ -1903,7 +1515,8 @@
         ],
         "target_tokens": [
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_14701_14796.json"
       },
       {
         "index": 14787,
@@ -1918,7 +1531,8 @@
           "$5",
           "#$b#",
           "$0"
-        ]
+        ],
+        "file": "translations/cp/CP_14701_14796.json"
       },
       {
         "index": 14789,
@@ -1935,7 +1549,8 @@
           "#$b#",
           "@",
           "$7"
-        ]
+        ],
+        "file": "translations/cp/CP_14701_14796.json"
       },
       {
         "index": 14791,
@@ -1952,7 +1567,8 @@
           "#$b#",
           "@",
           "$7"
-        ]
+        ],
+        "file": "translations/cp/CP_14701_14796.json"
       },
       {
         "index": 14902,
@@ -1968,7 +1584,8 @@
           "$q 18500754/18500755 Indoor_Day_1_S1old#",
           "#$r 18500754 0 Indoor_Day_1_18500754#",
           "#$r 18500755 0 Indoor_Day_1_18500755#"
-        ]
+        ],
+        "file": "translations/cp/CP_14897_14996.json"
       },
       {
         "index": 14922,
@@ -1988,7 +1605,8 @@
           "#$r 18500764 0 Indoor_Night_1_18500764#",
           "#$r 18500765 0 Indoor_Night_1_18500765#",
           "%pet"
-        ]
+        ],
+        "file": "translations/cp/CP_14897_14996.json"
       },
       {
         "index": 14923,
@@ -2000,7 +1618,8 @@
         "target_tokens": [
           "%pet",
           "$3"
-        ]
+        ],
+        "file": "translations/cp/CP_14897_14996.json"
       },
       {
         "index": 14950,
@@ -2022,7 +1641,8 @@
           "#$q 18500778/18500779 Outdoor_2_S1old#",
           "#$r 18500778 0 Outdoor_2_18500778#",
           "#$r 18500779 0 Outdoor_2_18500779#"
-        ]
+        ],
+        "file": "translations/cp/CP_14897_14996.json"
       },
       {
         "index": 14963,
@@ -2036,7 +1656,8 @@
           "#$b#",
           "%",
           "%kid1"
-        ]
+        ],
+        "file": "translations/cp/CP_14897_14996.json"
       },
       {
         "index": 14965,
@@ -2048,7 +1669,8 @@
         "target_tokens": [
           "%",
           "%kid1"
-        ]
+        ],
+        "file": "translations/cp/CP_14897_14996.json"
       },
       {
         "index": 14966,
@@ -2066,7 +1688,8 @@
           "#$q 18500786/18500787 OneKid_1_S1old#",
           "#$r 18500786 0 OneKid_1_18500786#",
           "#$r 18500787 0 OneKid_1_18500787#"
-        ]
+        ],
+        "file": "translations/cp/CP_14897_14996.json"
       },
       {
         "index": 14967,
@@ -2078,7 +1701,8 @@
         "target_tokens": [
           "%kid1",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_14897_14996.json"
       },
       {
         "index": 14968,
@@ -2090,7 +1714,8 @@
         "target_tokens": [
           "%kid1",
           "$0"
-        ]
+        ],
+        "file": "translations/cp/CP_14897_14996.json"
       },
       {
         "index": 14969,
@@ -2102,7 +1727,8 @@
         "target_tokens": [
           "%kid1",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_14897_14996.json"
       },
       {
         "index": 14970,
@@ -2120,7 +1746,8 @@
           "#$q 18500788/18500789 OneKid_2_S1old#",
           "#$r 18500788 0 OneKid_2_18500788#",
           "#$r 18500789 0 OneKid_2_18500789#"
-        ]
+        ],
+        "file": "translations/cp/CP_14897_14996.json"
       },
       {
         "index": 14974,
@@ -2138,7 +1765,8 @@
           "#$q 18500790/18500791 OneKid_3_S1old#",
           "#$r 18500790 0 OneKid_3_18500790#",
           "#$r 18500791 0 OneKid_3_18500791#"
-        ]
+        ],
+        "file": "translations/cp/CP_14897_14996.json"
       },
       {
         "index": 14978,
@@ -2156,7 +1784,8 @@
           "#$q 18500792/18500793 OneKid_4_S1old#",
           "#$r 18500792 0 OneKid_4_18500792#",
           "#$r 18500793 0 OneKid_4_18500793#"
-        ]
+        ],
+        "file": "translations/cp/CP_14897_14996.json"
       },
       {
         "index": 14980,
@@ -2168,7 +1797,8 @@
         "target_tokens": [
           "%kid1",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_14897_14996.json"
       },
       {
         "index": 14982,
@@ -2188,7 +1818,8 @@
           "#$q 18500794/18500795 TwoKids_0_S1old#",
           "#$r 18500794 0 TwoKids_0_18500794#",
           "#$r 18500795 0 TwoKids_0_18500795#"
-        ]
+        ],
+        "file": "translations/cp/CP_14897_14996.json"
       },
       {
         "index": 14986,
@@ -2210,7 +1841,8 @@
           "#$q 18500796/18500797 TwoKids_1_S1old#",
           "#$r 18500796 0 TwoKids_1_18500796#",
           "#$r 18500797 0 TwoKids_1_18500797#"
-        ]
+        ],
+        "file": "translations/cp/CP_14897_14996.json"
       },
       {
         "index": 14990,
@@ -2232,7 +1864,8 @@
           "#$r 18500798 0 TwoKids_2_18500798#",
           "#$r 18500799 0 TwoKids_2_18500799#",
           "%kid1"
-        ]
+        ],
+        "file": "translations/cp/CP_14897_14996.json"
       },
       {
         "index": 14992,
@@ -2244,7 +1877,8 @@
         "target_tokens": [
           "%kid1",
           "$0"
-        ]
+        ],
+        "file": "translations/cp/CP_14897_14996.json"
       },
       {
         "index": 15023,
@@ -2262,7 +1896,8 @@
           "#$q 18500815/18500816 Good_5_S1old#",
           "#$r 18500815 0 Good_5_18500815#",
           "#$r 18500816 0 Good_5_18500816#"
-        ]
+        ],
+        "file": "translations/cp/CP_14997_15096.json"
       },
       {
         "index": 15392,
@@ -2280,7 +1915,8 @@
           "#$q 15300261/15300262 summer_Mon_H1old#",
           "#$r 15300261 0 summer_Mon_15300261#",
           "#$r 15300262 0 summer_Mon_15300262#"
-        ]
+        ],
+        "file": "translations/cp/CP_15297_15396.json"
       },
       {
         "index": 18540,
@@ -2310,7 +1946,8 @@
           "#$r 15400893 0 Outdoor_1_15400893#",
           "#$r 15400894 0 Outdoor_1_15400894#",
           "#$r 15400895 0 Outdoor_1_15400895#"
-        ]
+        ],
+        "file": "translations/cp/CP_18497_18596.json"
       },
       {
         "index": 18558,
@@ -2328,7 +1965,8 @@
           "#$q 15400903/15400904 OneKid_0_R1old#",
           "#$r 15400903 0 OneKid_0_15400903#",
           "#$r 15400904 0 OneKid_0_15400904#"
-        ]
+        ],
+        "file": "translations/cp/CP_18497_18596.json"
       },
       {
         "index": 18559,
@@ -2340,7 +1978,8 @@
         "target_tokens": [
           "%kid1",
           "$7"
-        ]
+        ],
+        "file": "translations/cp/CP_18497_18596.json"
       },
       {
         "index": 18563,
@@ -2352,7 +1991,8 @@
         "target_tokens": [
           "%kid1",
           "$0"
-        ]
+        ],
+        "file": "translations/cp/CP_18497_18596.json"
       },
       {
         "index": 18565,
@@ -2364,7 +2004,8 @@
         "target_tokens": [
           "%kid1",
           "$0"
-        ]
+        ],
+        "file": "translations/cp/CP_18497_18596.json"
       },
       {
         "index": 18566,
@@ -2382,7 +2023,8 @@
           "#$q 15400907/15400908 OneKid_2_R1old#",
           "#$r 15400907 0 OneKid_2_15400907#",
           "#$r 15400908 0 OneKid_2_15400908#"
-        ]
+        ],
+        "file": "translations/cp/CP_18497_18596.json"
       },
       {
         "index": 18568,
@@ -2394,7 +2036,8 @@
         "target_tokens": [
           "%kid1",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_18497_18596.json"
       },
       {
         "index": 18570,
@@ -2412,7 +2055,8 @@
           "#$q 15400909/15400910 OneKid_3_R1old#",
           "#$r 15400909 0 OneKid_3_15400909#",
           "#$r 15400910 0 OneKid_3_15400910#"
-        ]
+        ],
+        "file": "translations/cp/CP_18497_18596.json"
       },
       {
         "index": 18571,
@@ -2428,7 +2072,8 @@
           "$1",
           "#$b#",
           "%"
-        ]
+        ],
+        "file": "translations/cp/CP_18497_18596.json"
       },
       {
         "index": 18573,
@@ -2444,7 +2089,8 @@
           "$1",
           "#$b#",
           "%"
-        ]
+        ],
+        "file": "translations/cp/CP_18497_18596.json"
       },
       {
         "index": 18578,
@@ -2464,7 +2110,8 @@
           "#$q 15400913/15400914 TwoKids_0_R1old#",
           "#$r 15400913 0 TwoKids_0_15400913#",
           "#$r 15400914 0 TwoKids_0_15400914#"
-        ]
+        ],
+        "file": "translations/cp/CP_18497_18596.json"
       },
       {
         "index": 18582,
@@ -2484,7 +2131,8 @@
           "#$q 15400915/15400916 TwoKids_1_R1old#",
           "#$r 15400915 0 TwoKids_1_15400915#",
           "#$r 15400916 0 TwoKids_1_15400916#"
-        ]
+        ],
+        "file": "translations/cp/CP_18497_18596.json"
       },
       {
         "index": 18584,
@@ -2502,7 +2150,8 @@
           "%kid1",
           "%kid2",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_18497_18596.json"
       },
       {
         "index": 18585,
@@ -2520,7 +2169,8 @@
           "%kid1",
           "%kid2",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_18497_18596.json"
       },
       {
         "index": 18587,
@@ -2534,7 +2184,8 @@
           "%kid1",
           "%kid2",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_18497_18596.json"
       },
       {
         "index": 18589,
@@ -2548,7 +2199,8 @@
           "%kid1",
           "%kid2",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_18497_18596.json"
       },
       {
         "index": 18590,
@@ -2568,7 +2220,8 @@
           "#$q 15400919/15400920 TwoKids_3_R1old#",
           "#$r 15400919 0 TwoKids_3_15400919#",
           "#$r 15400920 0 TwoKids_3_15400920#"
-        ]
+        ],
+        "file": "translations/cp/CP_18497_18596.json"
       },
       {
         "index": 18594,
@@ -2588,7 +2241,8 @@
           "#$q 15400921/15400922 TwoKids_4_R1old#",
           "#$r 15400921 0 TwoKids_4_15400921#",
           "#$r 15400922 0 TwoKids_4_15400922#"
-        ]
+        ],
+        "file": "translations/cp/CP_18497_18596.json"
       },
       {
         "index": 19641,
@@ -2605,7 +2259,8 @@
           "#$b#",
           "%",
           "$6"
-        ]
+        ],
+        "file": "translations/cp/CP_19597_19696.json"
       },
       {
         "index": 19642,
@@ -2622,7 +2277,8 @@
           "#$b#",
           "%",
           "$6"
-        ]
+        ],
+        "file": "translations/cp/CP_19597_19696.json"
       },
       {
         "index": 20402,
@@ -2642,7 +2298,8 @@
           "#$q 16400891/16400892 Outdoor_1_L1old#",
           "#$r 16400891 0 Outdoor_1_16400891#",
           "#$r 16400892 0 Outdoor_1_16400892#"
-        ]
+        ],
+        "file": "translations/cp/CP_20397_20496.json"
       },
       {
         "index": 20422,
@@ -2660,7 +2317,8 @@
           "#$q 16400901/16400902 OneKid_1_L1old#",
           "#$r 16400901 0 OneKid_1_16400901#",
           "#$r 16400902 0 OneKid_1_16400902#"
-        ]
+        ],
+        "file": "translations/cp/CP_20397_20496.json"
       },
       {
         "index": 20426,
@@ -2680,7 +2338,8 @@
           "#$q 16400903/16400904 OneKid_2_L1old#",
           "#$r 16400903 0 OneKid_2_16400903#",
           "#$r 16400904 0 OneKid_2_16400904#"
-        ]
+        ],
+        "file": "translations/cp/CP_20397_20496.json"
       },
       {
         "index": 20434,
@@ -2698,7 +2357,8 @@
           "#$q 16400907/16400908 OneKid_4_L1old#",
           "#$r 16400907 0 OneKid_4_16400907#",
           "#$r 16400908 0 OneKid_4_16400908#"
-        ]
+        ],
+        "file": "translations/cp/CP_20397_20496.json"
       },
       {
         "index": 20442,
@@ -2726,7 +2386,8 @@
           "#$q 16400911/16400912 TwoKids_1_L1old#",
           "#$r 16400911 0 TwoKids_1_16400911#",
           "#$r 16400912 0 TwoKids_1_16400912#"
-        ]
+        ],
+        "file": "translations/cp/CP_20397_20496.json"
       },
       {
         "index": 20446,
@@ -2750,7 +2411,8 @@
           "#$q 16400913/16400914 TwoKids_2_L1old#",
           "#$r 16400913 0 TwoKids_2_16400913#",
           "#$r 16400914 0 TwoKids_2_16400914#"
-        ]
+        ],
+        "file": "translations/cp/CP_20397_20496.json"
       },
       {
         "index": 20450,
@@ -2772,7 +2434,8 @@
           "#$q 16400915/16400916 TwoKids_3_L1old#",
           "#$r 16400915 0 TwoKids_3_16400915#",
           "#$r 16400916 0 TwoKids_3_16400916#"
-        ]
+        ],
+        "file": "translations/cp/CP_20397_20496.json"
       },
       {
         "index": 20454,
@@ -2796,7 +2459,8 @@
           "#$q 16400917/16400918 TwoKids_4_L1old#",
           "#$r 16400917 0 TwoKids_4_16400917#",
           "#$r 16400918 0 TwoKids_4_16400918#"
-        ]
+        ],
+        "file": "translations/cp/CP_20397_20496.json"
       },
       {
         "index": 20455,
@@ -2810,7 +2474,8 @@
           "%Kids2",
           "@",
           "$5"
-        ]
+        ],
+        "file": "translations/cp/CP_20397_20496.json"
       },
       {
         "index": 20456,
@@ -2832,7 +2497,8 @@
           "$2",
           "#$b#",
           "%"
-        ]
+        ],
+        "file": "translations/cp/CP_20397_20496.json"
       },
       {
         "index": 20457,
@@ -2846,7 +2512,8 @@
           "%Kids2",
           "@",
           "$5"
-        ]
+        ],
+        "file": "translations/cp/CP_20397_20496.json"
       },
       {
         "index": 21329,
@@ -2858,7 +2525,8 @@
         "target_tokens": [
           "%kid1",
           "$0"
-        ]
+        ],
+        "file": "translations/cp/CP_21297_21396.json"
       },
       {
         "index": 21330,
@@ -2870,7 +2538,8 @@
         "target_tokens": [
           "%kid1",
           "$6"
-        ]
+        ],
+        "file": "translations/cp/CP_21297_21396.json"
       },
       {
         "index": 21331,
@@ -2882,7 +2551,8 @@
         "target_tokens": [
           "%kid1",
           "$4"
-        ]
+        ],
+        "file": "translations/cp/CP_21297_21396.json"
       },
       {
         "index": 21332,
@@ -2894,7 +2564,8 @@
         "target_tokens": [
           "%kid1",
           "$0"
-        ]
+        ],
+        "file": "translations/cp/CP_21297_21396.json"
       },
       {
         "index": 21333,
@@ -2908,7 +2579,8 @@
           "%kid1",
           "%kid2",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_21297_21396.json"
       },
       {
         "index": 21334,
@@ -2922,7 +2594,8 @@
           "%kid1",
           "%kid2",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_21297_21396.json"
       },
       {
         "index": 21335,
@@ -2940,7 +2613,8 @@
           "$0",
           "#$b#",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_21297_21396.json"
       },
       {
         "index": 24146,
@@ -2956,7 +2630,8 @@
           "$0",
           "#$b#",
           "$4"
-        ]
+        ],
+        "file": "translations/cp/CP_24097_24196.json"
       },
       {
         "index": 24147,
@@ -2972,7 +2647,8 @@
           "$0",
           "#$b#",
           "$4"
-        ]
+        ],
+        "file": "translations/cp/CP_24097_24196.json"
       },
       {
         "index": 24178,
@@ -2988,7 +2664,8 @@
           "$1",
           "#$b#",
           "$4"
-        ]
+        ],
+        "file": "translations/cp/CP_24097_24196.json"
       },
       {
         "index": 24181,
@@ -3010,7 +2687,8 @@
           "$1",
           "^",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_24097_24196.json"
       },
       {
         "index": 24182,
@@ -3026,7 +2704,8 @@
           "$0",
           "#$b#",
           "$3"
-        ]
+        ],
+        "file": "translations/cp/CP_24097_24196.json"
       },
       {
         "index": 24183,
@@ -3044,7 +2723,8 @@
           "$2",
           "#$b#",
           "$4"
-        ]
+        ],
+        "file": "translations/cp/CP_24097_24196.json"
       },
       {
         "index": 24184,
@@ -3062,7 +2742,8 @@
           "$1",
           "#$b#",
           "$4"
-        ]
+        ],
+        "file": "translations/cp/CP_24097_24196.json"
       },
       {
         "index": 24186,
@@ -3086,7 +2767,8 @@
           "$4",
           "#$b#",
           "$1"
-        ]
+        ],
+        "file": "translations/cp/CP_24097_24196.json"
       },
       {
         "index": 24187,
@@ -3102,10 +2784,12 @@
           "%kid1",
           "%kid2",
           "$4"
-        ]
+        ],
+        "file": "translations/cp/CP_24097_24196.json"
       }
     ],
     "han_hits": [],
-    "recovery_key_based_mismatches": []
+    "duplicate_indices": [],
+    "unknown_keys": []
   }
 }
