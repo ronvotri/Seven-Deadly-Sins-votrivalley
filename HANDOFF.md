@@ -1,6 +1,6 @@
 # HANDOFF - Seven Deadly Sins Vietnamese Localization
 
-> **Nguồn sự thật cho các phiên sau. Mục tiêu hiện tại là HOÀN THIỆN REPO, không dịch lại nội dung đã làm.**
+> **Nguồn sự thật cho các phiên sau. Mục tiêu hiện tại là hoàn thiện repo và bản Việt hóa phát hành.**
 
 ## Repo
 
@@ -19,46 +19,44 @@
 
 ## TRẠNG THÁI DỊCH THỰC TẾ
 
-### CP ĐÃ DỊCH TUẦN TỰ TỚI CUỐI
+### CP từng được dịch tuần tự tới cuối
 
-- Đã đi tới **#24,827 / 24,827**.
-- Batch cuối: `#24,797 → #24,827`.
-- Batch cuối QA: **0 lỗi token / 0 Hán tự**.
-- Đây là mốc hoàn thành nội dung dịch CP, không được hiểu thành yêu cầu dịch tiếp từ #24,828.
+- Đã đi tới **#24,827 / 24,827** trong lịch sử làm việc.
+- Batch cuối lịch sử: `#24,797 → #24,827`.
+- Một số đoạn từng dịch nhưng không được persist, nên hiện đang khôi phục/làm lại đúng các khoảng dữ liệu thất lạc để tạo file phát hành thật.
 
-### Vấn đề còn lại là PERSISTENCE / RECONSTRUCTION
+### Repo reconstruction hiện tại
 
-Một số phiên cũ đã dịch nhưng dữ liệu không được commit đầy đủ vào repo, hoặc tồn tại ở recovery shard / lịch sử / artifact thay vì `translations/cp`.
+- Recovery/key-based đã được khôi phục liên tục tới **#8600**.
+- Shard mới nhất đã commit: `recovery/index/CP_8501_8600.json`.
+- **Điểm tiếp tục chính xác hiện tại: #8601.**
+- Exact missing-source artifact cho CP gaps + DLL 2,419 key đã được tạo thành công bằng GitHub Actions.
 
-**Từ thời điểm này, tuyệt đối phân biệt:**
+## QUY TẮC BẮT BUỘC: CUỐI MỖI PHIÊN PHẢI PERSIST GITHUB
 
-- `translation complete` = nội dung đã từng được dịch tới cuối source.
-- `repo complete` = toàn bộ dữ liệu đã được khôi phục, materialize, QA và ghép vào repo.
-
-Hiện mục tiêu duy nhất là đưa repo từ trạng thái thứ nhất sang trạng thái thứ hai.
+1. **Một batch chỉ được tính là hoàn thành khi đã có commit SHA trên GitHub.**
+2. Trước khi kết thúc mỗi phiên SDS, phải:
+   - commit toàn bộ batch đã hoàn thành;
+   - cập nhật `CHECKPOINT.json` nếu trạng thái/điểm nối thay đổi;
+   - cập nhật `HANDOFF.md` khi cần;
+   - ghi rõ exact next index/range để phiên sau nối tiếp.
+3. **Không để phần dịch hoàn chỉnh chỉ nằm trong chat.** Nếu bị ngắt giữa batch, batch đó chưa được tính là hoàn thành và phải tiếp tục từ source/recovery ở phiên kế tiếp.
+4. Ưu tiên commit theo batch nhỏ-vừa, thường 100 key, để giảm rủi ro mất dữ liệu.
 
 ## CHÍNH SÁCH CHỐNG VÒNG LẶP
 
-1. **KHÔNG dịch lại một key chỉ vì `translations/cp` đang thiếu file.**
-2. Với mọi dải thiếu, phải vét theo thứ tự:
+1. Không dịch lại chỉ vì `translations/cp` thiếu file nếu còn bản đã persist ở nơi khác.
+2. Với mọi dải thiếu, kiểm tra theo thứ tự:
    - `recovery/index/`
    - `translations/cp/`
    - git commit history
-   - GitHub Actions artifacts / workflow outputs
-   - file/handoff đã persisted từ các phiên trước
-3. Nếu recovery shard đã có tiếng Việt, chỉ materialize sang exact key 3.13.4. **Không dịch lại câu chữ.**
-4. Nếu key-based và recovery khác nhau, ưu tiên bản QA-preserved đáng tin cậy hơn rồi chạy token audit.
-5. **Chỉ được dịch lại sau khi chứng minh không còn bất kỳ persisted copy nào và phải có sự đồng ý rõ ràng của người dùng.** Không tự động fallback sang retranslation.
-6. Không dùng số liệu audit cũ để kết luận “chưa dịch”. Audit chỉ phản ánh mức độ dữ liệu đang nằm trong repo tại thời điểm chạy.
+   - GitHub Actions artifacts/workflow outputs
+   - file/handoff persisted từ các phiên trước
+3. Nếu recovery shard đã có tiếng Việt, chỉ materialize sang exact key 3.13.4.
+4. Nếu dữ liệu thực sự thất lạc sau khi đã vét recovery/history/artifact, được phép làm lại đúng khoảng thất lạc để hoàn thiện file phát hành.
+5. Audit missing range phản ánh repo coverage, không tự động đồng nghĩa với chưa từng dịch trong lịch sử.
 
-## Tình trạng recovery gần nhất
-
-- Chuỗi restore gần nhất trên `main` đã đưa `recovery/index` liên tục tới ít nhất **CP #8500**.
-- Các commit mới nhất gồm các shard restore `7901-8000` → `8401-8500`.
-- Workflow materialization đã được kích hoạt lại để chuyển **mọi recovery shard hiện có** sang `translations/cp` và refresh audit.
-- Các dải phía sau vẫn có nhiều key-based/recovery shard đã persisted ở repo, bao gồm tail tới `24797-24827`.
-
-## Quy tắc dịch/QA giữ nguyên
+## Quy tắc dịch/QA
 
 1. Tiếng Việt tự nhiên như hội thoại game, không dịch máy cứng.
 2. Giữ cá tính NPC.
@@ -67,20 +65,35 @@ Hiện mục tiêu duy nhất là đưa repo từ trạng thái thứ nhất san
 5. QA bằng token skeleton đúng thứ tự + quét Hán tự.
 6. Không tự gán giới tính cho `%kid1`, `%kid2`, `%pet` nếu source/game không bắt buộc.
 
+## Giọng nhân vật quan trọng
+
+- Lane: ngọt, láu lỉnh, thương nhân, hơi flirt.
+- Rane: sắc hơn Lane, trêu/chọc, hơi chiếm hữu.
+- Sariel: lịch sự, kiêu hãnh, ngọt có gai.
+- Uriel: nghiêm, kiêu, trang trọng, đôi lúc cay độc.
+- Moore: lạnh, tàn nhẫn, hoa mỹ.
+- Hovsep: nhút nhát, mềm, đáng yêu, dễ giật mình, buồn ngủ.
+- Lucas: ngọt nhưng nguy hiểm, thông minh, thích trêu.
+- Teresa: giữ self-reference `Nunu` khi source dùng đặc điểm đó.
+- Shirai: kỳ dị, rờn rợn, thân mật bất an.
+- Cupid: hoạt ngôn, đáng yêu, tự tin, mê trà/chuyện phiếm/tình yêu.
+- Pelette: cộc, nóng tính, có vết thương quá khứ; mềm hơn ở heart/marriage cao.
+- Siren: sôi nổi, tò mò văn hóa loài người, thường tự xưng `chị đây`.
+- Wim: bartender thân thiện, hơi sân khấu, thích Xenia, muốn là quý ông đáng tin.
+
 ## DLL
 
 - Expected: **2,419 key**.
-- Lịch sử trước đây đã báo DLL từng hoàn thành, nhưng repo hiện chưa xác minh được persisted DLL translation.
-- **Áp dụng cùng chính sách recovery-first. Không tự dịch lại DLL chỉ vì repo hiện chưa thấy file.**
+- Exact DLL source 2,419 key đã được workflow xác định và đưa vào artifact cùng missing CP source.
+- Sau khi CP gaps hoàn tất, tiếp tục DLL 1-2419, persist theo cùng quy tắc mỗi batch phải có commit SHA.
 
 ## Việc cần làm từ đây
 
-1. Materialize toàn bộ `recovery/index` hiện có sang exact key-based `translations/cp`.
-2. Refresh audit để xác định **repo holes**, không gọi chúng là “chưa dịch”.
-3. Với từng repo hole, tìm bản đã dịch trong history/artifact/persisted source trước.
-4. Reconcile duplicate/overlap và sửa lỗi cấu trúc token nếu có.
-5. Khôi phục DLL theo cùng nguyên tắc recovery-first.
-6. Khi coverage repo đạt đủ, chạy final QA và đóng gói bản Việt hóa phát hành.
+1. Tiếp tục CP từ **#8601**.
+2. Hoàn tất toàn bộ CP gaps còn lại và materialize sang `translations/cp`.
+3. Refresh full CP audit, mục tiêu 24,827/24,827, 0 token mismatch, 0 Hán tự, 0 unknown.
+4. Hoàn tất DLL 2,419 key, persist + QA.
+5. Ghép file `vi.json`/cấu trúc i18n cần thiết và build gói release chỉ chứa file Việt hóa.
 
 ## Cách bắt đầu ở chat mới
 
@@ -88,7 +101,7 @@ Người dùng chỉ cần nói:
 
 > `Tiếp tục Seven Deadly Sins từ HANDOFF mới nhất trên GitHub.`
 
-Assistant phải đọc `HANDOFF.md`, `CHECKPOINT.json`, audit mới nhất và **không được tự quay lại dịch các range đã từng hoàn thành**.
+Assistant phải đọc `HANDOFF.md`, `CHECKPOINT.json`, audit mới nhất và nối từ exact persisted checkpoint, không dựa vào đoạn chat chưa commit.
 
 ## Mục tiêu phát hành
 
