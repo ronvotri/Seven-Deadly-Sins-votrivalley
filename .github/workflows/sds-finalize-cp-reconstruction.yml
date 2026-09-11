@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/sds-finalize-cp-reconstruction.yml'
+      - 'recovery/index/**'
   workflow_dispatch:
 
 permissions:
@@ -58,7 +59,6 @@ jobs:
           key_to_index={k:i+1 for i,(k,v) in enumerate(items)}
           shard_re=re.compile(r'^CP_(\d+)_(\d+)\.json$')
 
-          # Existing key-based data remains authoritative outside the three historical gaps.
           candidates={}
           translation_conflicts=[]
           for tp in sorted(Path('translations/cp').glob('CP_*_*.json')):
@@ -76,7 +76,6 @@ jobs:
           def inside_gap(a,b):
               return any(a>=ga and b<=gb for ga,gb in gaps)
 
-          # Only recovery shards wholly inside the reconstructed gaps override key-based data.
           recovery={}; recovery_conflicts=[]; malformed=[]
           for rp in sorted(Path('recovery/index').glob('CP_*_*.json')):
               m=shard_re.match(rp.name)
@@ -98,7 +97,6 @@ jobs:
 
           if malformed: raise SystemExit('malformed target recovery: '+json.dumps(malformed,ensure_ascii=False))
           if recovery_conflicts: raise SystemExit('conflicting target recovery: '+json.dumps(recovery_conflicts[:20],ensure_ascii=False))
-
           expected_gap_count=sum(b-a+1 for a,b in gaps)
           if len(recovery)!=expected_gap_count:
               miss=[i for a,b in gaps for i in range(a,b+1) if i not in recovery]
