@@ -51,14 +51,45 @@
     }
   },
   "remaining_release_blockers": [],
+  "compatibility_research": {
+    "state": "in_progress",
+    "focus": "Seven Deadly Sins 3.13.4 x East Scarp 3.0.9, with SVE-aware behavior",
+    "research_file": "compatibility/SDS-EastScarp-SVE-RESEARCH.md",
+    "research_commit": "d718a376f70ef6d52c34420a2c16f6da9dc89130",
+    "east_scarp_version": "3.0.9",
+    "confirmed_east_scarp_findings": {
+      "patches_vanilla_town_without_sve": true,
+      "town_patch_asset": "assets/Patches/Town_ES.tmx",
+      "town_target": "Maps/Town",
+      "town_patch_area": {
+        "x": 109,
+        "y": 63,
+        "width": 21,
+        "height": 14
+      },
+      "observed_town_warp_region": "X~120, Y~72-75 -> EastScarp_Crossing",
+      "vanilla_town_patch_disabled_when_sve_present": true,
+      "sve_condition": "HasMod FlashShifter.StardewValleyExpandedCP = false",
+      "sve_route_observed": "Custom_ShearwaterBridge -> EastScarp_Village"
+    },
+    "important_interpretation": "SDS + East Scarp without SVE and SDS + East Scarp + SVE are distinct compatibility cases. SVE disables East Scarp's normal east-Town entrance patch, but this does not yet prove the full combination is conflict-free.",
+    "sds_map_extraction": {
+      "workflow": ".github/workflows/sds-extract-map-compat.yml",
+      "trigger_commit": "42977829ac9a7d65c1a14b5f0bf60db4df78e2ca",
+      "initial_run_id": 34609160529,
+      "source": "SMAPI dataset exact Nexus file 178657",
+      "status_at_checkpoint": "running_or_pending_inspection"
+    },
+    "next_action": "Inspect exact SDS 3.13.4 extracted map/content files, record all Maps/Town and warp edits, then compare their rectangles and warp properties against East Scarp's X109 Y63 W21 H14 area and separately evaluate the SVE route."
+  },
   "resume_target": {
-    "mode": "release_complete",
+    "mode": "compatibility_research",
     "cp_is_done": true,
     "dll_is_done": true,
     "package_is_done": true,
     "do_not_resume_translation": true,
-    "next_action": "Only revise if testing finds an in-game issue or the source mod receives a newer version."
+    "next_action": "Continue SDS x East Scarp x SVE compatibility research from compatibility/SDS-EastScarp-SVE-RESEARCH.md; first inspect the SDS 3.13.4 map extraction workflow/result."
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-11T13:38:00+07:00"
+  "updated_at": "2026-09-11T21:12:00+07:00"
 }
