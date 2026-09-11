@@ -1,0 +1,24 @@
+{
+  "project": "Seven Deadly Sins Vietnamese Localization",
+  "source_version": "3.13.4",
+  "source_nexus_file_id": 178657,
+  "dll_source_path": "downloads/Nexus/15/15100/178657/Seven Deadly Sins 1.6/SevenDeadlySins/i18n/default.json",
+  "dll_source_key_count": 2419,
+  "generated_at_utc": "2026-09-11T06:34:13.679832+00:00",
+  "key_based": {
+    "covered_index_count": 2419,
+    "missing_index_count": 0,
+    "duplicate_index_count": 0,
+    "conflicting_duplicate_count": 0,
+    "unknown_index_count": 0,
+    "technical_token_mismatch_count": 0,
+    "han_hit_count": 0
+  },
+  "details": {
+    "missing_indices": [],
+    "duplicate_indices": [],
+    "unknown_indices": [],
+    "technical_token_mismatches": [],
+    "han_hits": []
+  }
+}
