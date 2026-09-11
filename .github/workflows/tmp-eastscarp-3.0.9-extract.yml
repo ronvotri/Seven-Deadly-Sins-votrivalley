@@ -1,0 +1,105 @@
+name: Extract exact East Scarp 3.0.9 compatibility files
+
+on:
+  push:
+    paths:
+      - '.github/workflows/tmp-eastscarp-3.0.9-extract.yml'
+  workflow_dispatch:
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract exact East Scarp 3.0.9 compatibility files from SMAPI dataset
+        shell: python
+        run: |
+          import io, json, pathlib, zipfile, requests
+
+          class RangeReader(io.RawIOBase):
+              def __init__(self, url):
+                  self.s=requests.Session(); self.url=url
+                  h=self.s.head(url,allow_redirects=True,timeout=60); h.raise_for_status()
+                  self.n=int(h.headers['Content-Length']); self.p=0
+              def readable(self): return True
+              def seekable(self): return True
+              def tell(self): return self.p
+              def seek(self,o,w=io.SEEK_SET):
+                  self.p=o if w==io.SEEK_SET else self.p+o if w==io.SEEK_CUR else self.n+o
+                  return self.p
+              def read(self,size=-1):
+                  if self.p>=self.n:return b''
+                  if size==0:return b''
+                  e=self.n-1 if size is None or size<0 else min(self.n-1,self.p+size-1)
+                  r=self.s.get(self.url,headers={'Range':f'bytes={self.p}-{e}'},allow_redirects=True,timeout=180)
+                  if r.status_code!=206: raise RuntimeError(r.status_code)
+                  b=r.content; self.p+=len(b); return b
+
+          url='https://smapistorage.blob.core.windows.net/exports/stardew-mod-dataset.zip'
+          base='downloads/Nexus/5/5787/'
+          out=pathlib.Path('eastscarp_3.0.9_extract')
+          out.mkdir(exist_ok=True)
+          rr=RangeReader(url)
+          with zipfile.ZipFile(rr) as z:
+              all_names=[n for n in z.namelist() if n.replace('\\','/').startswith(base)]
+              manifests=[]
+              for n in all_names:
+                  norm=n.replace('\\','/')
+                  if pathlib.PurePosixPath(norm).name.lower()!='manifest.json':
+                      continue
+                  try:
+                      data=json.loads(z.read(n).decode('utf-8-sig'))
+                  except Exception:
+                      continue
+                  uid=str(data.get('UniqueID') or data.get('UniqueId') or '')
+                  ver=str(data.get('Version') or '')
+                  if uid.lower()=='lemurkat.eastscarp' and ver.startswith('3.0.9'):
+                      parts=norm.split('/')
+                      if len(parts) < 6:
+                          continue
+                      group='/'.join(parts[:5])+'/'
+                      manifests.append({'path':norm,'group':group,'uid':uid,'version':ver})
+              print('core 3.0.9 candidates:',json.dumps(manifests,indent=2))
+              groups=sorted({x['group'] for x in manifests})
+              if len(groups)!=1:
+                  raise SystemExit(f'Expected exactly one East Scarp 3.0.9 download group, got {groups}')
+              group=groups[0]
+              selected=[]
+              for n in all_names:
+                  norm=n.replace('\\','/')
+                  if not norm.startswith(group) or norm.endswith('/'):
+                      continue
+                  rel=norm[len(group):]
+                  low=rel.lower()
+                  name=pathlib.PurePosixPath(rel).name.lower()
+                  keep=False
+                  if name in {'manifest.json','content.json'}:
+                      keep=True
+                  if any(k in low for k in [
+                      'town_es.tmx','shearwater','scarpcrossing','sve.json','othermaps.json',
+                      'shortcutwarps.json','locationdata.json','overworldmap.json','warpnetwork.json'
+                  ]):
+                      keep=True
+                  if keep:
+                      data=z.read(n)
+                      dest=out/rel
+                      dest.parent.mkdir(parents=True,exist_ok=True)
+                      dest.write_bytes(data)
+                      selected.append({'path':rel,'size':len(data)})
+              meta={
+                  'source':'East Scarp 3.0.9 / Nexus mod 5787 / exact SMAPI dataset download group',
+                  'download_group':group,
+                  'core_manifest_candidates':manifests,
+                  'count':len(selected),
+                  'files':selected
+              }
+              (out/'_manifest.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2),encoding='utf-8')
+              print('selected',len(selected),'files from',group)
+              for x in selected:
+                  print(x['path'],x['size'])
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eastscarp-3.0.9-compat-files
+          path: eastscarp_3.0.9_extract
+          if-no-files-found: error
