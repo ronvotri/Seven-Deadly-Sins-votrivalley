@@ -1,4 +1,4 @@
-name: SDS finalize CP reconstruction
+name: SDS finalize CP reconstruction v2
 
 on:
   push:
