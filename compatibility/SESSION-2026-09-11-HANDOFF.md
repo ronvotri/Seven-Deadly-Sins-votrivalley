@@ -1,6 +1,6 @@
 # Session Handoff — 2026-09-11
 
-This file closes the 2026-09-11 SDS compatibility research session and is intended as the first read for the next work session.
+This file closes the SDS compatibility map-research phase and remains the first read for continuation sessions.
 
 ## Repository
 
@@ -31,7 +31,7 @@ The user wants to play a large combined Stardew Valley setup centered on:
 
 The user specifically remembered a map conflict on the right/east side of Pelican Town and asked whether East Scarp was the problematic mod.
 
-## Exact source material used this session
+## Exact source material used in the completed map audit
 
 ### SDS 3.13.4
 
@@ -151,37 +151,64 @@ They do not solve SDS/East Scarp conflicts by themselves.
 
 For the user's intended setup, install the corresponding Pelipper compatibility packs for every expansion actually present.
 
-## What NOT to do next session
+## Runtime-validation framework added in continuation
+
+A concrete runtime matrix now exists at:
+
+`compatibility/RUNTIME-VALIDATION-CHECKLIST.md`
+
+Checklist commit:
+
+`3bc0be9f50b01f9586f715ac16068822ab344577`
+
+Checkpoint was advanced to runtime-validation-ready state in:
+
+`045aca0cf23e9664d5bbd3760559a2ed1756618e`
+
+The checklist covers:
+
+- clean SMAPI boot / dependency / Content Patcher errors;
+- Town -> Custom_ShearwaterBridge -> EastScarp_Village and return;
+- SDS Avalia Forest access;
+- Pelipper integration sanity checks;
+- Ridgeside Village travel sanity checks;
+- NPC schedule/pathfinding checks;
+- festival validation;
+- failure classification and minimal-patch policy.
+
+No runtime compatibility result has been invented or claimed without an actual test run.
+
+## What NOT to do next
 
 - Do not resume Vietnamese translation.
 - Do not repeat the SDS map extraction.
 - Do not re-investigate the East Scarp Town rectangle from zero.
 - Do not create a compatibility patch for the SVE case without a reproduced runtime issue.
+- Do not label a Pelipper or RSV failure as an SDS conflict until SDS involvement is evidenced.
 
-## Exact next action for the next session
+## Exact next action
 
 The next phase is **runtime compatibility validation**.
 
-1. User installs/launches the intended full modpack.
-2. Get the fresh SMAPI log.
-3. Inspect Content Patcher warnings, duplicate map edits, missing dependencies, schedule/path errors, and load-order issues.
-4. In game, verify both directions of:
-   - Town -> Custom_ShearwaterBridge -> East Scarp
-   - East Scarp -> Custom_ShearwaterBridge -> Town
+1. Launch the intended full modpack and load a save.
+2. Exercise both directions of `Town -> Custom_ShearwaterBridge -> EastScarp_Village`.
+3. Capture a fresh complete SMAPI log from the same run.
+4. Inspect Content Patcher warnings, duplicate map edits, missing dependencies, schedule/path errors, festival errors, and load-order issues.
 5. Verify SDS Avalia Forest access still works.
-6. Check major festivals and NPC schedules because those can conflict even when static maps are fine.
+6. Sanity-test RSV travel and every installed Pelipper compatibility route.
 7. Only if a concrete reproducible runtime problem appears, build the smallest targeted compatibility patch.
 
 If the user specifically wants a setup without SVE later, that is already a proven incompatible case and should go straight to designing a dedicated East Scarp reroute compatibility mod.
 
-## Source-of-truth files for next session
+## Source-of-truth files for next continuation
 
 Read these first:
 
 1. `compatibility/SESSION-2026-09-11-HANDOFF.md`
-2. `compatibility/SDS-EastScarp-SVE-RESEARCH.md`
-3. `CHECKPOINT.json`
-4. `HANDOFF.md`
+2. `compatibility/RUNTIME-VALIDATION-CHECKLIST.md`
+3. `compatibility/SDS-EastScarp-SVE-RESEARCH.md`
+4. `CHECKPOINT.json`
+5. `HANDOFF.md`
 
 ## Persistence rule
 
