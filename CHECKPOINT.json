@@ -19,44 +19,46 @@
     "unknown_key_count": 0,
     "technical_token_mismatch_count": 0,
     "han_hit_count": 0,
-    "reconstructed_gap_index_count": 4000,
     "canonical_commit": "2ca310f",
-    "audit_file": "audit/CP_AUDIT.json",
-    "translations_directory": "translations/cp",
-    "note": "CP reconstruction is finished. Do not resume CP translation unless a new source version requires an update."
+    "audit_file": "audit/CP_AUDIT.json"
   },
   "dll_status": {
     "state": "complete_clean_canonical",
-    "expected_keys": 2419,
     "covered_index_count": 2419,
     "missing_index_count": 0,
     "duplicate_index_count": 0,
-    "conflicting_duplicate_count": 0,
     "unknown_index_count": 0,
     "technical_token_mismatch_count": 0,
     "han_hit_count": 0,
-    "last_persisted_index": 2419,
     "canonical_commit": "c2e0461693e423785a6dc4ea44eb5fc430b84949",
     "canonical_file": "translations/dll/vi.json",
-    "audit_file": "audit/DLL_AUDIT.json",
-    "source_path": "downloads/Nexus/15/15100/178657/Seven Deadly Sins 1.6/SevenDeadlySins/i18n/default.json",
-    "note": "DLL translation and full structural audit are complete. Do not resume DLL translation unless a new source version requires an update."
+    "audit_file": "audit/DLL_AUDIT.json"
   },
-  "release_ready": false,
-  "remaining_release_blockers": [
-    "Assemble CP and DLL canonical localization into the installation-ready Vietnamese folder structure.",
-    "Verify final package paths and JSON validity.",
-    "Build the release archive containing localization files only."
-  ],
+  "release_ready": true,
+  "release": {
+    "commit": "cac241011ff8e0eb15d8902ed94b06e78006bfa7",
+    "archive": "dist/Seven-Deadly-Sins-3.13.4-Vietnamese-Localization.zip",
+    "artifact_id": 10187640215,
+    "artifact_retention_days": 30,
+    "localization_only": true,
+    "zip_contents": [
+      "Seven Deadly Sins 1.6/[CP] Seven Deadly Sins/i18n/vi.json",
+      "Seven Deadly Sins 1.6/SevenDeadlySins/i18n/vi.json"
+    ],
+    "verified_key_counts": {
+      "cp": 24827,
+      "dll": 2419
+    }
+  },
+  "remaining_release_blockers": [],
   "resume_target": {
-    "mode": "release_packaging",
-    "priority_1": "Determine exact install paths for the CP and DLL vi.json files from the original mod structure.",
-    "priority_2": "Assemble the localization-only package from canonical CP and DLL translations.",
-    "priority_3": "Validate the archive contents and publish/store the finished release artifact in the repo.",
+    "mode": "release_complete",
     "cp_is_done": true,
     "dll_is_done": true,
-    "do_not_resume_translation": true
+    "package_is_done": true,
+    "do_not_resume_translation": true,
+    "next_action": "Only revise if testing finds an in-game issue or the source mod receives a newer version."
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-11T13:35:00+07:00"
+  "updated_at": "2026-09-11T13:38:00+07:00"
 }
