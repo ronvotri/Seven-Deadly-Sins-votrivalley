@@ -1,0 +1,157 @@
+name: SDS build Vietnamese release
+
+on:
+  push:
+    paths:
+      - '.github/workflows/sds-build-release.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install parser
+        run: python -m pip install --disable-pip-version-check json5 requests
+
+      - name: Build and validate localization-only package
+        shell: python
+        run: |
+          import io, json, re, shutil, zipfile
+          from pathlib import Path
+          from datetime import datetime, timezone
+          import requests, json5
+
+          class R(io.RawIOBase):
+              def __init__(self, url):
+                  self.url=url; self.s=requests.Session()
+                  h=self.s.head(url,allow_redirects=True,timeout=60); h.raise_for_status()
+                  self.n=int(h.headers['Content-Length']); self.p=0
+              def readable(self): return True
+              def seekable(self): return True
+              def tell(self): return self.p
+              def seek(self,o,w=io.SEEK_SET):
+                  self.p=o if w==io.SEEK_SET else self.p+o if w==io.SEEK_CUR else self.n+o
+                  return self.p
+              def read(self,size=-1):
+                  if self.p>=self.n:return b''
+                  if size==0:return b''
+                  e=self.n-1 if size is None or size<0 else min(self.n-1,self.p+size-1)
+                  r=self.s.get(self.url,headers={'Range':f'bytes={self.p}-{e}'},allow_redirects=True,timeout=180)
+                  if r.status_code!=206: raise RuntimeError(r.status_code)
+                  b=r.content; self.p+=len(b); return b
+
+          root='downloads/Nexus/15/15100/178657/'
+          reader=R('https://smapistorage.blob.core.windows.net/exports/stardew-mod-dataset.zip')
+          with zipfile.ZipFile(reader) as z:
+              names=[n for n in z.namelist() if root in n.replace('\\','/') and n.replace('\\','/').lower().endswith('/i18n/default.json')]
+              cp=[n for n in names if '[cp]' in n.lower()]
+              if len(cp)!=1: raise SystemExit(f'expected one CP source, got {cp}')
+              cp_obj=json5.loads(z.read(cp[0]).decode('utf-8-sig'),allow_duplicate_keys=True)
+              if len(cp_obj)!=24827: raise SystemExit(f'bad CP count {len(cp_obj)}')
+              candidates=[]
+              for n in names:
+                  if n==cp[0]: continue
+                  try:
+                      o=json5.loads(z.read(n).decode('utf-8-sig'),allow_duplicate_keys=True)
+                      if isinstance(o,dict): candidates.append((n,len(o),o))
+                  except Exception: pass
+              dll=[x for x in candidates if x[1]==2419]
+              if len(dll)!=1: raise SystemExit(f'expected one DLL source, got {[(n,c) for n,c,_ in dll]}')
+              dll_path,_,dll_obj=dll[0]
+
+          # Merge canonical CP shards.
+          cp_target={}
+          shard_re=re.compile(r'^CP_(\d+)_(\d+)\.json$')
+          for p in Path('translations/cp').glob('CP_*_*.json'):
+              if not shard_re.match(p.name): continue
+              d=json.loads(p.read_text(encoding='utf-8'))
+              overlap=set(cp_target).intersection(d)
+              if overlap: raise SystemExit(f'duplicate CP keys while packaging: {list(overlap)[:10]}')
+              cp_target.update(d)
+          if set(cp_target)!=set(cp_obj):
+              missing=list(set(cp_obj)-set(cp_target))[:20]
+              extra=list(set(cp_target)-set(cp_obj))[:20]
+              raise SystemExit(f'CP key mismatch missing={missing} extra={extra}')
+          cp_ordered={k:cp_target[k] for k in cp_obj}
+
+          # Load canonical DLL.
+          dll_target=json.loads(Path('translations/dll/vi.json').read_text(encoding='utf-8'))
+          if set(dll_target)!=set(dll_obj):
+              missing=list(set(dll_obj)-set(dll_target))[:20]
+              extra=list(set(dll_target)-set(dll_obj))[:20]
+              raise SystemExit(f'DLL key mismatch missing={missing} extra={extra}')
+          dll_ordered={k:dll_target[k] for k in dll_obj}
+
+          release=Path('release/Seven Deadly Sins 1.6')
+          if Path('release').exists(): shutil.rmtree('release')
+          (release/'[CP] Seven Deadly Sins/i18n').mkdir(parents=True,exist_ok=True)
+          (release/'SevenDeadlySins/i18n').mkdir(parents=True,exist_ok=True)
+          cp_out=release/'[CP] Seven Deadly Sins/i18n/vi.json'
+          dll_out=release/'SevenDeadlySins/i18n/vi.json'
+          cp_out.write_text(json.dumps(cp_ordered,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          dll_out.write_text(json.dumps(dll_ordered,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
+          # Parse the actual generated files again.
+          assert len(json.loads(cp_out.read_text(encoding='utf-8')))==24827
+          assert len(json.loads(dll_out.read_text(encoding='utf-8')))==2419
+
+          Path('dist').mkdir(exist_ok=True)
+          archive=Path('dist/Seven-Deadly-Sins-3.13.4-Vietnamese-Localization.zip')
+          if archive.exists(): archive.unlink()
+          with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as out:
+              for f in [cp_out,dll_out]:
+                  out.write(f,f.as_posix().removeprefix('release/'))
+
+          with zipfile.ZipFile(archive) as check:
+              expected=[
+                  'Seven Deadly Sins 1.6/[CP] Seven Deadly Sins/i18n/vi.json',
+                  'Seven Deadly Sins 1.6/SevenDeadlySins/i18n/vi.json'
+              ]
+              if check.namelist()!=expected: raise SystemExit(f'bad ZIP contents: {check.namelist()}')
+              if len(json.loads(check.read(expected[0]).decode('utf-8')))!=24827: raise SystemExit('bad CP in ZIP')
+              if len(json.loads(check.read(expected[1]).decode('utf-8')))!=2419: raise SystemExit('bad DLL in ZIP')
+
+          manifest={
+              'project':'Seven Deadly Sins Vietnamese Localization',
+              'version':'3.13.4',
+              'nexus_file_id':178657,
+              'built_at_utc':datetime.now(timezone.utc).isoformat(),
+              'cp_source_path':cp[0],
+              'dll_source_path':dll_path,
+              'cp_keys':24827,
+              'dll_keys':2419,
+              'zip_path':archive.as_posix(),
+              'zip_contents':expected,
+              'localization_only':True
+          }
+          Path('release/RELEASE_MANIFEST.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(manifest,ensure_ascii=False,indent=2))
+
+      - name: Commit release files and archive
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add release dist/Seven-Deadly-Sins-3.13.4-Vietnamese-Localization.zip
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Build installation-ready Vietnamese localization release"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Upload release archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: Seven-Deadly-Sins-3.13.4-Vietnamese-Localization
+          path: dist/Seven-Deadly-Sins-3.13.4-Vietnamese-Localization.zip
+          retention-days: 30
+          if-no-files-found: error
