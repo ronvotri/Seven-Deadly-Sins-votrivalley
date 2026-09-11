@@ -25,37 +25,38 @@
     "translations_directory": "translations/cp",
     "note": "CP reconstruction is finished. Do not resume CP translation unless a new source version requires an update."
   },
-  "important_cp_repairs": {
-    "restored_missing_batch": "9301-9400",
-    "realigned_batches": [
-      "10101-10200",
-      "10601-10700"
-    ],
-    "final_token_fix": 10608
-  },
   "dll_status": {
-    "state": "next_phase",
+    "state": "complete_clean_canonical",
     "expected_keys": 2419,
-    "exact_source_artifact_extracted": true,
-    "persisted_translation_directory_verified": false,
-    "next_index": 1,
-    "batch_policy": "Translate/recover in approximately 100-key batches, QA token skeleton and Han characters, and commit each completed batch immediately."
+    "covered_index_count": 2419,
+    "missing_index_count": 0,
+    "duplicate_index_count": 0,
+    "conflicting_duplicate_count": 0,
+    "unknown_index_count": 0,
+    "technical_token_mismatch_count": 0,
+    "han_hit_count": 0,
+    "last_persisted_index": 2419,
+    "canonical_commit": "c2e0461693e423785a6dc4ea44eb5fc430b84949",
+    "canonical_file": "translations/dll/vi.json",
+    "audit_file": "audit/DLL_AUDIT.json",
+    "source_path": "downloads/Nexus/15/15100/178657/Seven Deadly Sins 1.6/SevenDeadlySins/i18n/default.json",
+    "note": "DLL translation and full structural audit are complete. Do not resume DLL translation unless a new source version requires an update."
   },
   "release_ready": false,
   "remaining_release_blockers": [
-    "Complete and persist DLL 1-2419.",
-    "Run final DLL structural QA.",
-    "Merge CP and DLL localization into the installation-ready Vietnamese package.",
-    "Build and verify the final release archive containing localization files only."
+    "Assemble CP and DLL canonical localization into the installation-ready Vietnamese folder structure.",
+    "Verify final package paths and JSON validity.",
+    "Build the release archive containing localization files only."
   ],
   "resume_target": {
-    "mode": "dll_translation_and_release",
-    "priority_1": "Continue DLL from index 1 using the exact extracted 3.13.4 source.",
-    "priority_2": "Persist every DLL batch immediately after QA.",
-    "priority_3": "After DLL 2419, run final CP/DLL QA and build the release package.",
-    "next_dll_index": 1,
-    "cp_is_done": true
+    "mode": "release_packaging",
+    "priority_1": "Determine exact install paths for the CP and DLL vi.json files from the original mod structure.",
+    "priority_2": "Assemble the localization-only package from canonical CP and DLL translations.",
+    "priority_3": "Validate the archive contents and publish/store the finished release artifact in the repo.",
+    "cp_is_done": true,
+    "dll_is_done": true,
+    "do_not_resume_translation": true
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-11T12:12:00+07:00"
+  "updated_at": "2026-09-11T13:35:00+07:00"
 }
