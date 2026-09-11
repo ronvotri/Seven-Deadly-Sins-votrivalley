@@ -21,6 +21,10 @@ Session-closeout handoff for the next chat/session:
 
 `compatibility/SESSION-2026-09-11-HANDOFF.md`
 
+Current session handoff commit:
+
+`85b23342d6155da49a01a15beb6779df6e037ffa`
+
 Runtime validation matrix:
 
 `compatibility/RUNTIME-VALIDATION-CHECKLIST.md`
@@ -29,17 +33,13 @@ Runtime checklist commit:
 
 `3bc0be9f50b01f9586f715ac16068822ab344577`
 
-Session handoff commit at the end of the map-research session:
-
-`957577b8590b8f149052eb54c9022100a8ebc6b3`
-
 Latest completed map-research commit:
 
 `58df2ebb03fa4f20c7a97f24d2c27e4bd51e3ce7`
 
-Checkpoint advanced to runtime-validation-ready state:
+Current runtime-phase checkpoint commit:
 
-`045aca0cf23e9664d5bbd3760559a2ed1756618e`
+`4e395b536d4ce4c40b5227cbd4187da62ed60733`
 
 Versions audited:
 
