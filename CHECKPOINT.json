@@ -41,11 +41,13 @@
     }
   },
   "compatibility_research": {
-    "state": "map_audit_complete_runtime_test_pending",
+    "state": "runtime_validation_framework_ready_log_pending",
     "research_file": "compatibility/SDS-EastScarp-SVE-RESEARCH.md",
     "research_latest_commit": "58df2ebb03fa4f20c7a97f24d2c27e4bd51e3ce7",
     "session_handoff_file": "compatibility/SESSION-2026-09-11-HANDOFF.md",
     "session_handoff_commit": "957577b8590b8f149052eb54c9022100a8ebc6b3",
+    "runtime_checklist_file": "compatibility/RUNTIME-VALIDATION-CHECKLIST.md",
+    "runtime_checklist_commit": "3bc0be9f50b01f9586f715ac16068822ab344577",
     "versions": {
       "sds": "3.13.4",
       "east_scarp": "3.0.9"
@@ -83,6 +85,17 @@
         "East Scarp SVE Mountain patch X86,Y35,W9,H6 does not overlap SDS Mountain edits"
       ]
     },
+    "runtime_validation": {
+      "framework_ready": true,
+      "fresh_smapi_log_received": false,
+      "east_scarp_route_tested": false,
+      "avalia_route_tested": false,
+      "ridgeside_sanity_tested": false,
+      "pelipper_integrations_tested": false,
+      "npc_schedule_tested": false,
+      "festival_tested": false,
+      "patch_required": "unknown_until_runtime_failure_is_reproduced"
+    },
     "sds_exact_source": {
       "artifact_id": 10267372515,
       "run_id": 34609160529
@@ -100,8 +113,10 @@
     "do_not_resume_translation": true,
     "map_research_done": true,
     "read_first": "compatibility/SESSION-2026-09-11-HANDOFF.md",
-    "next_action": "Test the intended SDS + SVE + East Scarp + RSV + Pelipper setup in game, inspect a fresh SMAPI log, verify Town -> Shearwater Bridge -> East Scarp both directions, verify SDS Avalia Forest access, and test festivals/schedules. Build a compatibility patch only if a concrete runtime issue is reproduced."
+    "runtime_checklist": "compatibility/RUNTIME-VALIDATION-CHECKLIST.md",
+    "next_input": "Fresh full SMAPI log from the intended full modpack after loading a save and exercising Town <-> Custom_ShearwaterBridge <-> EastScarp_Village.",
+    "next_action": "Inspect the fresh SMAPI log, classify any dependency/Content Patcher/map/warp/schedule/festival failures, verify the audited East Scarp route and SDS Avalia Forest access, then build only the smallest targeted compatibility patch if a concrete reproducible issue exists."
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-11T22:35:00+07:00"
+  "updated_at": "2026-09-11T22:44:00+07:00"
 }
