@@ -103,9 +103,9 @@ Hồ sơ nghiên cứu chuẩn:
 
 `compatibility/SDS-EastScarp-SVE-RESEARCH.md`
 
-Research checkpoint commit:
+Latest research commit:
 
-`d718a376f70ef6d52c34420a2c16f6da9dc89130`
+`166c6aaf5c12be75113cdb6ecec60ef6b500a967`
 
 ## East Scarp đã xác minh
 
@@ -155,9 +155,9 @@ chỉ giải quyết **Pelipper Town ↔ expansion tương ứng**.
 
 Chúng **không phải** patch cho `SDS ↔ East Scarp` hay `SDS ↔ SVE`.
 
-## SDS map extraction đang thực hiện
+## SDS map extraction - DONE
 
-Repo Việt hóa không giữ toàn bộ asset/map gốc SDS, nên exact source SDS 3.13.4 đang được extract lại từ đúng SMAPI dataset/Nexus file `178657`.
+Exact source SDS 3.13.4 đã được extract thành công từ đúng SMAPI dataset/Nexus file `178657`.
 
 Workflow:
 
@@ -167,9 +167,21 @@ Trigger commit:
 
 `42977829ac9a7d65c1a14b5f0bf60db4df78e2ca`
 
-Initial run ID:
+Run ID:
 
 `34609160529`
+
+Result:
+
+**SUCCESS**
+
+Artifact:
+
+- name: `sds-3.13.4-map-compat-files`
+- ID: `10267372515`
+- size: `4,405,688 bytes`
+- digest: `sha256:9078e6128212727ad159c43cc62af69a5f4c1ffacf61add8bfd88e267d941c83`
+- expires: `2026-12-10T14:16:35Z`
 
 ## Điểm resume chính xác
 
@@ -178,7 +190,7 @@ Initial run ID:
 Khi tiếp tục:
 
 1. mở `compatibility/SDS-EastScarp-SVE-RESEARCH.md`;
-2. kiểm kết quả workflow extract SDS 3.13.4;
+2. mở artifact `10267372515`;
 3. tìm tất cả patch SDS đụng `Maps/Town`, Town/warp/tile property và các location liên quan;
 4. ghi chính xác `FromArea` / `ToArea` hoặc vùng patch SDS;
 5. đối chiếu với East Scarp `X109 Y63 W21 H14`;
