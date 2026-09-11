@@ -1,0 +1,40 @@
+name: Fix final CP token mismatch 10608
+
+on:
+  push:
+    paths:
+      - '.github/workflows/tmp-fix-cp-10608-token.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Patch 10608 exact token
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          p=Path('recovery/index/CP_10601_10700.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          old=d['10608']
+          needle='.$q 18000192/18000193 spring_Thu_P1old#'
+          repl='.#$q 18000192/18000193 spring_Thu_P1old#'
+          if needle not in old:
+              raise SystemExit('Expected 10608 token pattern not found')
+          d['10608']=old.replace(needle,repl,1)
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+      - name: Commit fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add recovery/index/CP_10601_10700.json
+          git commit -m "Fix CP 10608 dialogue token skeleton"
+          git pull --rebase origin main
+          git push origin HEAD:main
