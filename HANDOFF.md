@@ -21,19 +21,31 @@ Session-closeout handoff for the next chat/session:
 
 `compatibility/SESSION-2026-09-11-HANDOFF.md`
 
-Session handoff commit:
+Runtime validation matrix:
+
+`compatibility/RUNTIME-VALIDATION-CHECKLIST.md`
+
+Runtime checklist commit:
+
+`3bc0be9f50b01f9586f715ac16068822ab344577`
+
+Session handoff commit at the end of the map-research session:
 
 `957577b8590b8f149052eb54c9022100a8ebc6b3`
 
-Latest map-research commit:
+Latest completed map-research commit:
 
 `58df2ebb03fa4f20c7a97f24d2c27e4bd51e3ce7`
+
+Checkpoint advanced to runtime-validation-ready state:
+
+`045aca0cf23e9664d5bbd3760559a2ed1756618e`
 
 Versions audited:
 
 - Seven Deadly Sins **3.13.4**
 - East Scarp **3.0.9**
-- SVE-aware routing checked against current upstream SVE Town layout
+- SVE-aware routing checked against current upstream SVE Town layout used in the completed map audit
 
 ## Exact sources
 
@@ -124,20 +136,42 @@ Pelipper optional files only integrate Pelipper with those expansions. They are 
 
 ---
 
+# RUNTIME VALIDATION FRAMEWORK
+
+The runtime phase is now prepared in:
+
+`compatibility/RUNTIME-VALIDATION-CHECKLIST.md`
+
+It defines PASS/FAIL checks for:
+
+- clean SMAPI launch and dependency/load errors;
+- Town -> Custom_ShearwaterBridge -> EastScarp_Village;
+- East Scarp -> Custom_ShearwaterBridge -> Town 118,72;
+- SDS Avalia Forest access;
+- Pelipper compatibility packs;
+- Ridgeside Village sanity travel;
+- NPC schedules/pathfinding;
+- festival maps and placements;
+- runtime failure classification and minimal-patch policy.
+
+No runtime result has been claimed yet. A fresh full SMAPI log from the intended modpack is still required before diagnosing or patching a runtime problem.
+
+---
+
 # EXACT NEXT ACTION
 
-**Read `compatibility/SESSION-2026-09-11-HANDOFF.md` first in the next work session.**
+**Read `compatibility/SESSION-2026-09-11-HANDOFF.md` and `compatibility/RUNTIME-VALIDATION-CHECKLIST.md` first in the next work session.**
 
 Do not restart map research from zero and do not resume localization.
 
 Next phase is **runtime validation**:
 
-1. install the intended modpack;
-2. launch via SMAPI and capture a fresh log;
-3. inspect Content Patcher warnings, duplicate map edits, dependency errors, schedule/pathfinding issues and load-order problems;
-4. verify Town -> Shearwater Bridge -> East Scarp both directions;
+1. launch the intended full modpack and load a save;
+2. exercise Town -> Shearwater Bridge -> East Scarp and return;
+3. capture a fresh complete SMAPI log from that same run;
+4. inspect dependency, Content Patcher, map, warp, schedule, festival and load-order issues;
 5. verify SDS Avalia Forest access still works;
-6. test major festivals and NPC schedules;
+6. sanity-test RSV and installed Pelipper integrations;
 7. only build a compatibility patch if a concrete reproducible runtime issue remains.
 
 If a no-SVE setup is specifically requested later, build a dedicated reroute compatibility mod because that case is already proven incompatible.
