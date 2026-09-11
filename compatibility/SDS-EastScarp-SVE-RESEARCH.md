@@ -1,25 +1,25 @@
 # SDS × East Scarp × SVE Compatibility Research
 
-> Source-of-truth compatibility checkpoint. Confirmed findings are separated from provisional conclusions.
+> Source-of-truth compatibility checkpoint. **Map-level investigation is now complete for the tested versions.** Runtime festival/schedule/event testing is still recommended before calling the entire mod combination universally compatible.
 
-## Goal
+## Target setup
 
-Determine whether **Seven Deadly Sins 3.13.4** can coexist with **East Scarp 3.0.9**, especially in the intended larger modpack:
+User is considering a large modpack containing:
 
-- Seven Deadly Sins 3.13.4
-- East Scarp 3.0.9
+- Seven Deadly Sins **3.13.4**
+- East Scarp **3.0.9**
 - Stardew Valley Expanded (SVE)
 - Ridgeside Village
 - Pelipper Town + optional compatibility packs
 - StarCrossed
 
-The immediate problem is the eastern/right side of Pelican Town and the routes into East Scarp / SDS custom areas.
+The main question investigated here is the eastern/right side of Pelican Town and the route into East Scarp.
 
 ---
 
-## Exact source inputs
+# Exact source inputs
 
-### Seven Deadly Sins 3.13.4
+## Seven Deadly Sins 3.13.4
 
 - Nexus mod: `15100`
 - Nexus file ID: `178657`
@@ -31,152 +31,87 @@ The immediate problem is the eastern/right side of Pelican Town and the routes i
 - Artifact ID: `10267372515`
 - Artifact digest: `sha256:9078e6128212727ad159c43cc62af69a5f4c1ffacf61add8bfd88e267d941c83`
 
-### East Scarp 3.0.9
+## East Scarp 3.0.9
 
-User supplied full `East Scarp.rar`.
+User supplied the complete `East Scarp.rar`.
 
-A second exact extractor is also being run against the SMAPI dataset so the final comparison does not depend on local RAR tooling:
+Exact core files were successfully extracted locally from that archive using libarchive, including:
+
+- `East Scarp Core/manifest.json`
+- `East Scarp Core/content.json`
+- `East Scarp Core/assets/Data/OtherMaps.json`
+- `East Scarp Core/assets/Data/SVE.json`
+- `East Scarp Core/assets/Data/LocationData.json`
+- `East Scarp Core/assets/Data/ShortCutWarps.json`
+- `East Scarp Core/assets/Data/WarpNetwork.json`
+- `East Scarp Core/assets/Patches/Town_ES.tmx`
+- `East Scarp Core/assets/Patches/ES_ShearwaterBridgeStrip.tmx`
+- `East Scarp Core/assets/Locations/Outdoors/ScarpCrossing_ESR.tmx`
+- `East Scarp Core/assets/Locations/Outdoors/ScarpCrossing_SVE.tmx`
+
+Manifest confirms:
+
+- Name: `East Scarp: Locations`
+- Version: **3.0.9**
+- UniqueID: `Lemurkat.EastScarp`
+- optional SVE dependency: `FlashShifter.StardewValleyExpandedCP`
+
+The manifest also still lists an old optional SDS-family dependency `ricehit.SDSMAPS`; current SDS 3.13.4 uses `ricehit.SevenDeadlySinsCP`, so this old dependency should not be assumed to provide modern SDS compatibility or load ordering.
+
+A temporary SMAPI-dataset extractor for East Scarp was also attempted:
 
 - workflow: `.github/workflows/tmp-eastscarp-3.0.9-extract.yml`
-- trigger commit: `5ca602cd531f4bed7ead182d640a407a2c424253`
 - run: `34614235814`
-- desired source version: **3.0.9**
+- result: **failure** because the dataset export did not expose an unpacked 3.0.9 core under Nexus 5787.
 
-The Nexus/SMAPI metadata for East Scarp 3.0.9 explicitly says the mod is **likely not compatible with Seven Deadly Sins**, which matches the map conflict described below. That statement is treated as a warning, not as a technical explanation by itself.
+This does not block the research because the exact user-supplied 3.0.9 RAR was successfully extracted locally.
 
 ---
 
-# Confirmed SDS map behavior
+# Case A: SDS + East Scarp WITHOUT SVE
 
-## A. SDS WITHOUT SVE
+## 🔴 Status: CONFIRMED HARD MAP CONFLICT
 
-SDS 3.13.4 does not merely add a few tiles to vanilla Town.
+### SDS behavior
 
-It has this logic in `assets/Data/MapWarps.json`:
+Without SVE, SDS 3.13.4 loads:
 
 ```text
 Action: Load
 Target: Maps/Town
 FromFile: Maps/SDS.Town.tmx
-When: HasMod FlashShifter.StardewValleyExpandedCP = false
+When: SVE = false
 ```
 
-So when SVE is absent, SDS **replaces the entire Pelican Town map** with `Maps/SDS.Town.tmx`.
+So SDS replaces the entire Pelican Town map.
 
-Exact SDS Town map size:
+Exact SDS Town dimensions:
 
-- Width: **173 tiles**
-- Height: **110 tiles**
+- **173 × 110 tiles**
 
-SDS also adds Town warps to its custom Avalia Forest:
+### East Scarp behavior
 
-```text
-129 22 -> Custom_SDS.AvaliaForest 3 29
-130 22 -> Custom_SDS.AvaliaForest 3 29
-131 22 -> Custom_SDS.AvaliaForest 3 29
-```
-
-## B. SDS WITH SVE
-
-SDS 3.13.4 contains substantial **built-in SVE compatibility**.
-
-When `FlashShifter.StardewValleyExpandedCP` is installed, SDS does **not** load `Maps/SDS.Town.tmx` as the whole Town map. Instead it overlays SVE's Town using `Maps/Compatible/...` assets.
-
-Important SVE-aware SDS Town patches include:
-
-- `SDS.Town.Flowerstall.tmx` → `X0 Y53 W28 H27`
-- `SDS.Town.Shop(.tmx/_Joja)` → `X22 Y39 W26 H16`
-- `SDS.Town.Tree(.tmx/_Joja)` → `X50 Y37 W18 H15`
-- `SDS.Town.Centertree(.tmx/_Joja)` → `X44 Y22 W8 H11`
-- `SDS.Town.lemonade.tmx` → `X16 Y19 W5 H5`
-- `SDS.Town.draw*` → around `X57 Y95`
-
-Most importantly, the main right-side SDS/SVE patch is:
+Without SVE, East Scarp 3.0.9 patches:
 
 ```text
 Target: Maps/Town
-ToArea: X110 Y0 W63 H116
-Priority: Late
-When: SVE installed
+FromFile: assets/Patches/Town_ES.tmx
+ToArea: X109 Y63 W21 H14
+When: SVE = false
 ```
 
-There are three state variants of that same rectangle:
-
-- `SDS.Town.Main.tmx`
-- `SDS.Town.Main_Joja_Morris.tmx`
-- `SDS.Town.Main_Joja.tmx`
-
-Each source patch is exactly **63 × 116 tiles** and contains thousands of non-empty map tiles, so this is a major structural addition rather than a cosmetic patch.
-
-SDS also adds, under SVE:
+It also appends Town warps:
 
 ```text
-129 22 -> Custom_SDS.AvaliaForest 3 29
-130 22 -> Custom_SDS.AvaliaForest 3 29
-131 22 -> Custom_SDS.AvaliaForest 3 29
+120 72 -> EastScarp_Crossing
+120 73 -> EastScarp_Crossing
+120 74 -> EastScarp_Crossing
+120 75 -> EastScarp_Crossing
 ```
 
-Additional SVE-specific edits include a Morris property warp and removal/replacement of selected Town day/night tiles.
+### Exact overlap test
 
-### Critical search result
-
-A full text scan of the extracted SDS 3.13.4 source found **no references** to:
-
-- `EastScarp`
-- `EastScarp_Village`
-- `ScarpCrossing`
-- `Shearwater`
-- `Custom_ShearwaterBridge`
-
-So SDS itself does not appear to patch or depend on East Scarp's SVE bridge route.
-
----
-
-# Confirmed East Scarp findings
-
-## 1. East Scarp without SVE patches vanilla `Maps/Town`
-
-Observed East Scarp 3.0.9 Town entrance integration:
-
-- patch asset: `assets/Patches/Town_ES.tmx`
-- target: `Maps/Town`
-- ToArea:
-  - **X = 109**
-  - **Y = 63**
-  - **Width = 21**
-  - **Height = 14**
-
-Town-side transition is around:
-
-- X ≈ 120
-- Y ≈ 72–75
-- destination: `EastScarp_Crossing`
-
-## 2. East Scarp disables that vanilla Town entrance when SVE is present
-
-The Town integration has a condition equivalent to:
-
-```text
-HasMod FlashShifter.StardewValleyExpandedCP = false
-```
-
-Therefore `SDS + East Scarp` and `SDS + East Scarp + SVE` are technically different cases.
-
-## 3. East Scarp's SVE-aware route uses Shearwater Bridge
-
-Observed SVE-aware route:
-
-```text
-Custom_ShearwaterBridge -> EastScarp_Village
-```
-
-The exact East Scarp 3.0.9 extractor is being used to verify every relevant 3.0.9 patch before this case is marked fully clean.
-
----
-
-# Direct overlap test: East Scarp rectangle vs SDS Town
-
-East Scarp vanilla Town rectangle:
+East Scarp rectangle:
 
 ```text
 X109..129
@@ -184,75 +119,213 @@ Y63..76
 21 × 14 = 294 tiles
 ```
 
-That exact rectangle was sampled from **SDS 3.13.4 `Maps/SDS.Town.tmx`**.
+Occupancy in exact SDS `Maps/SDS.Town.tmx` across those 294 tiles:
 
-Occupancy inside those 294 tiles:
-
-- `Back`: **294 / 294** non-empty
-- `Buildings`: **222 / 294** non-empty
-- `Front`: **111 / 294** non-empty
-- `AlwaysFront`: **112 / 294** non-empty
+- Back: **294 / 294**
+- Buildings: **222 / 294**
+- Front: **111 / 294**
+- AlwaysFront: **112 / 294**
 - plus smaller Back2 / Paths content
 
-This is decisive: the East Scarp entrance is **not landing on empty SDS terrain**. It cuts directly through a densely built part of SDS Town.
+This is not empty terrain. East Scarp cuts directly through a heavily built SDS Town region.
+
+### Conclusion
+
+**SDS + East Scarp without SVE requires a compatibility patch.**
+
+A clean solution should reroute East Scarp instead of forcing `Town_ES.tmx` into the same SDS structure.
 
 ---
 
-# Compatibility classification
+# Case B: SDS + East Scarp + SVE
 
-## Case A: SDS 3.13.4 + East Scarp 3.0.9, NO SVE
+## 🟢 Status: NO HARD MAP COLLISION FOUND IN THE EAST SCARP ROUTE
 
-### Status: 🔴 CONFIRMED HARD MAP CONFLICT
+This case behaves very differently from Case A.
 
-Reasons:
+## 1. East Scarp disables its vanilla Town entrance
 
-1. SDS replaces the full `Maps/Town` with `SDS.Town.tmx`.
-2. East Scarp edits the eastern Town rectangle `X109 Y63 W21 H14`.
-3. That rectangle is heavily occupied by SDS Buildings/Front/AlwaysFront content.
-4. Load/edit order can therefore either:
-   - overwrite part of SDS's built Town;
-   - erase East Scarp's entrance;
-   - produce broken collision/tile properties;
-   - or leave inaccessible/bad warps depending on patch order.
+Exact East Scarp 3.0.9:
 
-This is no longer a hypothesis.
+```text
+Town_ES.tmx -> Maps/Town X109 Y63 W21 H14
+When: SVE = false
+```
 
-### Patch requirement
+Therefore the destructive no-SVE Town overlay does **not** run when SVE is installed.
 
-A compatibility patch is required if the user wants to run **SDS + East Scarp without SVE**.
+## 2. East Scarp switches to SVE's Shearwater Bridge
 
-The likely clean solution is **not** to preserve East Scarp's vanilla east-Town entrance in the same rectangle. Instead, move/re-route East Scarp's entrance to a safe connection or create a dedicated compatibility transition map.
+Exact `assets/Data/SVE.json`:
+
+East Scarp patches:
+
+```text
+Maps/Custom_ShearwaterBridge
+FromFile: assets/Patches/ES_ShearwaterBridgeStrip.tmx
+ToArea: X59 Y14 W1 H12
+```
+
+Bridge map Warp property becomes:
+
+```text
+west edge y19..23 -> Town 118 72
+x60 y19..23 -> EastScarp_Village y70..74
+```
+
+East Scarp Village also gets corresponding warps to `Custom_ShearwaterBridge`.
+
+## 3. SVE's actual Town exit is X119, Y72–76
+
+Current upstream SVE Town map defines:
+
+```text
+119 72 -> Custom_ShearwaterBridge 0 20
+119 73 -> Custom_ShearwaterBridge 0 20
+119 74 -> Custom_ShearwaterBridge 0 20
+119 75 -> Custom_ShearwaterBridge 0 20
+119 76 -> Custom_ShearwaterBridge 0 20
+```
+
+So the route expected by East Scarp is:
+
+```text
+Town X119,Y72–76
+↔ Custom_ShearwaterBridge
+↔ EastScarp_Village
+```
+
+with return landing at `Town 118,72`.
+
+## 4. SDS does patch over that area, but the route remains walkable
+
+With SVE installed, SDS uses a large `Priority: Late` patch:
+
+```text
+Target: Maps/Town
+ToArea: X110 Y0 W63 H116
+```
+
+Variants:
+
+- `SDS.Town.Main.tmx`
+- `SDS.Town.Main_Joja_Morris.tmx`
+- `SDS.Town.Main_Joja.tmx`
+
+This includes the SVE bridge entrance coordinates.
+
+However, exact tile inspection shows the critical strip stays walkable in **all three SDS variants**:
+
+### Town 118,72
+
+- has Back tile
+- no Buildings / Buildings2 / Buildings7 collision tile
+
+### Town 119,72–76
+
+All five outgoing SVE warp tiles have a Back tile and **no Buildings-layer blocker** in all three SDS state variants.
+
+Examples in normal `SDS.Town.Main.tmx`:
+
+```text
+119,72: Back + decorative AlwaysFront, no Buildings
+119,73: Back + decorative AlwaysFront, no Buildings
+119,74: Back only
+119,75: Back only
+119,76: Back only
+```
+
+The grass/floor Back tiles used there have no blocking property.
+
+A walkability graph using Back-present + no-Buildings as the passability rule found a continuous route from `Town 119,72` back to the western edge of SDS's main patch in **all three SDS variants**.
+
+Therefore SDS changes the visuals/terrain in this region, but does not wall off the Shearwater warp strip.
+
+## 5. The SVE Warp map property should survive SDS's tile overlay
+
+SDS's `SDS.Town.Main*` source maps contain no replacement `Warp` map property.
+
+The SDS patch edits tiles and separately uses `AddWarps` for its own Avalia Forest connection; it does not replace SVE's existing Town Warp property.
+
+Content Patcher's `EditMap` default map patch mode is `ReplaceByLayer`, which replaces tile layers in the patched rectangle, not unrelated map-property keys that aren't supplied by the source patch.
+
+So SVE's Town warp entries at X119,Y72–76 are expected to remain after the SDS tile patch.
+
+## 6. Other East Scarp SVE-aware Town edits do not overlap SDS Town additions
+
+Exact East Scarp 3.0.9 SVE-related Town edits include:
+
+- Aideen garden area: roughly `X59 Y13 W10 H8`
+- single quest tile: `X66 Y17`
+- several Paths removals around X59/X65, Y15–20
+
+Relevant SDS SVE patches are elsewhere:
+
+- Center tree: `X44 Y22 W8 H11`
+- Tree: `X50 Y37 W18 H15`
+- Shop: `X22 Y39 W26 H16`
+- Main right side: `X110 Y0 W63 H116`
+
+No geometric overlap was found between East Scarp's Aideen/quest Town edits and SDS's nearby SVE patches.
+
+## 7. Mountain edits also do not overlap
+
+East Scarp SVE Mountain patch:
+
+```text
+X86 Y35 W9 H6
+```
+
+SDS SVE Mountain road patch:
+
+```text
+X41 Y0 W6 H6
+```
+
+Other SDS Mountain changes are around the far-left mine entrance. No overlap with East Scarp's SVE Mountain patch was found.
+
+## 8. SDS does not edit Shearwater Bridge itself
+
+Full exact SDS 3.13.4 source scan found zero references to:
+
+- `EastScarp`
+- `EastScarp_Village`
+- `EastScarp_Crossing`
+- `ScarpCrossing`
+- `Shearwater`
+- `Custom_ShearwaterBridge`
+
+So East Scarp's bridge/location maps are not directly overwritten by SDS.
+
+### Map-level conclusion for SVE setup
+
+For **SDS 3.13.4 + East Scarp 3.0.9 + SVE**, the specific hard map conflict seen without SVE is avoided.
+
+The East Scarp route through Shearwater Bridge appears **functionally preserved at the map/warp layer**.
+
+### Important scope limit
+
+This does **not** prove universal full-mod compatibility. Remaining possible issues include:
+
+- festival maps / festival NPC placement;
+- NPC schedules or pathfinding during special days;
+- event conditions and shared vanilla locations;
+- third-party East Scarp addons;
+- interactions introduced by other large mods in the user's pack.
+
+Therefore the practical classification is:
+
+**🟢 MAP-LEVEL COMPATIBLE WITH SVE, RUNTIME VALIDATION RECOMMENDED.**
+
+No compatibility patch should be created for the SVE case unless actual gameplay/SMAPI testing reveals a remaining problem.
 
 ---
 
-## Case B: SDS 3.13.4 + East Scarp 3.0.9 + SVE
+# Case C: SDS + Ridgeside Village
 
-### Status: 🟢/🟡 DIRECT TOWN CONFLICT APPEARS AVOIDED, FINAL 3.0.9 AUDIT IN PROGRESS
+No equivalent hard map collision has been established in this investigation.
 
-Evidence so far:
-
-1. SDS detects SVE and switches to its own SVE-compatible Town overlays.
-2. East Scarp detects SVE and disables its normal vanilla east-Town entrance.
-3. East Scarp instead connects through `Custom_ShearwaterBridge`.
-4. SDS 3.13.4 contains **zero** references to East Scarp / ScarpCrossing / Shearwater Bridge.
-5. SDS's SVE Town warp to Avalia Forest is at `X129–131, Y22`, far from East Scarp's old vanilla entrance around `Y72–75`.
-
-This strongly suggests the user's intended combination **SDS + East Scarp + SVE** may avoid the specific hard collision that makes the no-SVE setup incompatible.
-
-Still to verify from exact East Scarp 3.0.9 source:
-
-- every `Maps/Town` patch condition;
-- every `Maps/Custom_ShearwaterBridge` patch;
-- any SVE-specific ScarpCrossing map load/edit;
-- whether East Scarp 3.0.9 patches any other SDS/SVE location that SDS also modifies.
-
-Do not call this fully green until that exact 3.0.9 source comparison is complete.
-
----
-
-## Case C: SDS + Ridgeside Village
-
-No direct map collision has been established in this investigation. Runtime festival/schedule overlap is still possible, but no equivalent hard Town-map conflict has been found yet.
+Runtime festival/schedule testing is still recommended, especially in a large combined expansion pack.
 
 ---
 
@@ -265,33 +338,45 @@ These optional packs:
 - `PelipperTown.EastScarp`
 - `PelipperTown.StarCrossed`
 
-only integrate **Pelipper Town ↔ each expansion**.
+integrate **Pelipper Town ↔ each listed expansion**.
 
-They do not repair the SDS/East Scarp collision described above.
+They do not repair the no-SVE SDS/East Scarp collision, and they are not a substitute for SDS compatibility analysis.
+
+For the user's intended SVE setup, install the corresponding Pelipper compatibility files for each expansion being used.
 
 ---
 
-# Next technical steps
+# Practical recommendation
 
-1. Let exact East Scarp 3.0.9 extractor run `34614235814` finish.
-2. Inspect its exact `content.json`, `OtherMaps.json`, `SVE.json`, `Town_ES.tmx`, Shearwater/ScarpCrossing files.
-3. Enumerate every East Scarp 3.0.9 target touching:
-   - `Maps/Town`
-   - `Maps/Custom_ShearwaterBridge`
-   - SVE connection maps
-4. Compare those targets against exact SDS 3.13.4 target list.
-5. Finalize Case B classification.
-6. If the user wants support for the **no-SVE** case, design a separate compatibility mod that reroutes East Scarp instead of overwriting SDS Town.
-7. If the user is definitely installing SVE, prioritize a minimal SVE-aware compatibility guard only if the exact audit finds a remaining overlap.
+For this specific modpack, prefer:
+
+```text
+SDS 3.13.4
++ SVE
++ East Scarp 3.0.9
++ Ridgeside Village
++ Pelipper Town
++ Pelipper compatibility packs for SVE / East Scarp / RSV / StarCrossed as applicable
+```
+
+Do **not** use `SDS + East Scarp` without SVE unless a dedicated reroute compatibility patch is added.
+
+For the SVE setup, first test without an extra SDS/East Scarp patch. If gameplay reveals a broken route or map issue, capture the SMAPI log and exact location; then make the smallest targeted patch instead of pre-emptively modifying maps that already appear compatible.
 
 ---
 
 ## Persistence rule
 
-All confirmed compatibility findings and any compatibility patch must be committed to GitHub before being counted as complete.
+All confirmed compatibility findings and any future compatibility patch must be committed to GitHub before being counted as complete.
 
 ## Current resume point
 
-**SDS side is fully inspected. Exact East Scarp 3.0.9 extraction is running.**
+**Map-level SDS × East Scarp × SVE investigation is complete.**
 
-Do not restart localization or repeat SDS map analysis. Next session should inspect run `34614235814` / artifact from `.github/workflows/tmp-eastscarp-3.0.9-extract.yml`, then finish the SVE-aware comparison.
+Next valid work:
+
+1. runtime-test the intended modpack;
+2. inspect SMAPI warnings/conflicts;
+3. test Town → Shearwater Bridge → East Scarp in game;
+4. test important festivals and NPC schedules;
+5. only build a compatibility patch if a concrete runtime problem is reproduced.
