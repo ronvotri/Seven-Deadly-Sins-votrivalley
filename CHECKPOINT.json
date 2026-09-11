@@ -35,16 +35,32 @@
     "commit": "cac241011ff8e0eb15d8902ed94b06e78006bfa7",
     "archive": "dist/Seven-Deadly-Sins-3.13.4-Vietnamese-Localization.zip",
     "localization_only": true,
-    "verified_key_counts": {"cp": 24827, "dll": 2419}
+    "verified_key_counts": {
+      "cp": 24827,
+      "dll": 2419
+    }
   },
   "compatibility_research": {
     "state": "map_audit_complete_runtime_test_pending",
     "research_file": "compatibility/SDS-EastScarp-SVE-RESEARCH.md",
     "research_latest_commit": "58df2ebb03fa4f20c7a97f24d2c27e4bd51e3ce7",
+    "session_handoff_file": "compatibility/SESSION-2026-09-11-HANDOFF.md",
+    "session_handoff_commit": "957577b8590b8f149052eb54c9022100a8ebc6b3",
     "versions": {
       "sds": "3.13.4",
       "east_scarp": "3.0.9"
     },
+    "intended_modpack": [
+      "Seven Deadly Sins 3.13.4",
+      "Stardew Valley Expanded",
+      "East Scarp 3.0.9",
+      "Ridgeside Village",
+      "Pelipper Town",
+      "PelipperTown.SVE",
+      "PelipperTown.EastScarp",
+      "PelipperTown.RidgesideVillage",
+      "PelipperTown.StarCrossed when StarCrossed is installed"
+    ],
     "without_sve": {
       "classification": "confirmed_hard_map_conflict",
       "patch_required": true,
@@ -83,8 +99,9 @@
     "mode": "runtime_compatibility_validation",
     "do_not_resume_translation": true,
     "map_research_done": true,
-    "next_action": "Test the intended SDS + SVE + East Scarp + RSV + Pelipper setup in game, inspect SMAPI log, verify Town -> Shearwater Bridge -> East Scarp and festivals/schedules. Build a compatibility patch only if a concrete runtime issue is reproduced."
+    "read_first": "compatibility/SESSION-2026-09-11-HANDOFF.md",
+    "next_action": "Test the intended SDS + SVE + East Scarp + RSV + Pelipper setup in game, inspect a fresh SMAPI log, verify Town -> Shearwater Bridge -> East Scarp both directions, verify SDS Avalia Forest access, and test festivals/schedules. Build a compatibility patch only if a concrete runtime issue is reproduced."
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-11T22:20:00+07:00"
+  "updated_at": "2026-09-11T22:35:00+07:00"
 }
