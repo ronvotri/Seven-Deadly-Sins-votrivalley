@@ -7,16 +7,14 @@
   "dll_total_keys": 2419,
   "session_end_persistence_policy": {
     "required": true,
-    "completion_definition": "A batch is not completed until a GitHub commit SHA exists.",
-    "rule": "Persist every completed batch to GitHub before ending a session, then update CHECKPOINT.json and HANDOFF.md with the exact next resume point.",
-    "do_not_leave_completed_translation_only_in_chat": true
+    "completion_definition": "A batch or confirmed compatibility finding is not completed until a GitHub commit SHA exists.",
+    "rule": "Persist completed work to GitHub before ending a session, then update CHECKPOINT.json and HANDOFF.md with the exact next resume point.",
+    "do_not_leave_completed_work_only_in_chat": true
   },
   "cp_status": {
     "state": "complete_clean_canonical",
     "covered_key_count": 24827,
     "missing_key_count": 0,
-    "duplicate_index_count": 0,
-    "unknown_key_count": 0,
     "technical_token_mismatch_count": 0,
     "han_hit_count": 0,
     "canonical_commit": "2ca310f",
@@ -26,8 +24,6 @@
     "state": "complete_clean_canonical",
     "covered_index_count": 2419,
     "missing_index_count": 0,
-    "duplicate_index_count": 0,
-    "unknown_index_count": 0,
     "technical_token_mismatch_count": 0,
     "han_hit_count": 0,
     "canonical_commit": "c2e0461693e423785a6dc4ea44eb5fc430b84949",
@@ -38,63 +34,57 @@
   "release": {
     "commit": "cac241011ff8e0eb15d8902ed94b06e78006bfa7",
     "archive": "dist/Seven-Deadly-Sins-3.13.4-Vietnamese-Localization.zip",
-    "artifact_id": 10187640215,
-    "artifact_retention_days": 30,
     "localization_only": true,
-    "zip_contents": [
-      "Seven Deadly Sins 1.6/[CP] Seven Deadly Sins/i18n/vi.json",
-      "Seven Deadly Sins 1.6/SevenDeadlySins/i18n/vi.json"
-    ],
-    "verified_key_counts": {
-      "cp": 24827,
-      "dll": 2419
+    "verified_key_counts": {"cp": 24827, "dll": 2419}
+  },
+  "compatibility_research": {
+    "state": "map_audit_complete_runtime_test_pending",
+    "research_file": "compatibility/SDS-EastScarp-SVE-RESEARCH.md",
+    "research_latest_commit": "58df2ebb03fa4f20c7a97f24d2c27e4bd51e3ce7",
+    "versions": {
+      "sds": "3.13.4",
+      "east_scarp": "3.0.9"
+    },
+    "without_sve": {
+      "classification": "confirmed_hard_map_conflict",
+      "patch_required": true,
+      "east_scarp_town_area": "X109 Y63 W21 H14",
+      "reason": "East Scarp entrance overlaps densely occupied SDS.Town.tmx tiles."
+    },
+    "with_sve": {
+      "classification": "map_level_compatible_runtime_validation_recommended",
+      "patch_required_now": false,
+      "route": "Town X119,Y72-76 <-> Custom_ShearwaterBridge <-> EastScarp_Village",
+      "return_tile": "Town 118,72",
+      "sds_main_patch": "X110 Y0 W63 H116 Priority Late",
+      "verified": [
+        "East Scarp disables Town_ES.tmx when SVE is installed",
+        "SDS does not target Custom_ShearwaterBridge or East Scarp maps",
+        "SDS tiles at Town X119,Y72-76 have no Buildings-layer blockers in all three SDS main variants",
+        "Town 118,72 is walkable in SDS main variants",
+        "a walkable route from the bridge strip back to the western edge of the SDS main patch exists in all three variants",
+        "East Scarp SVE Town quest patches near X59-68,Y13-20 do not overlap SDS SVE Town rectangles",
+        "East Scarp SVE Mountain patch X86,Y35,W9,H6 does not overlap SDS Mountain edits"
+      ]
+    },
+    "sds_exact_source": {
+      "artifact_id": 10267372515,
+      "run_id": 34609160529
+    },
+    "east_scarp_exact_source": {
+      "origin": "user-supplied East Scarp.rar",
+      "extracted_version": "3.0.9",
+      "smapi_dataset_attempt_run": 34614235814,
+      "smapi_dataset_attempt_result": "failed_no_unpacked_current_core",
+      "local_archive_extraction_result": "success"
     }
   },
-  "remaining_release_blockers": [],
-  "compatibility_research": {
-    "state": "in_progress",
-    "focus": "Seven Deadly Sins 3.13.4 x East Scarp 3.0.9, with SVE-aware behavior",
-    "research_file": "compatibility/SDS-EastScarp-SVE-RESEARCH.md",
-    "research_latest_commit": "166c6aaf5c12be75113cdb6ecec60ef6b500a967",
-    "east_scarp_version": "3.0.9",
-    "confirmed_east_scarp_findings": {
-      "patches_vanilla_town_without_sve": true,
-      "town_patch_asset": "assets/Patches/Town_ES.tmx",
-      "town_target": "Maps/Town",
-      "town_patch_area": {
-        "x": 109,
-        "y": 63,
-        "width": 21,
-        "height": 14
-      },
-      "observed_town_warp_region": "X~120, Y~72-75 -> EastScarp_Crossing",
-      "vanilla_town_patch_disabled_when_sve_present": true,
-      "sve_condition": "HasMod FlashShifter.StardewValleyExpandedCP = false",
-      "sve_route_observed": "Custom_ShearwaterBridge -> EastScarp_Village"
-    },
-    "important_interpretation": "SDS + East Scarp without SVE and SDS + East Scarp + SVE are distinct compatibility cases. SVE disables East Scarp's normal east-Town entrance patch, but this does not yet prove the full combination is conflict-free.",
-    "sds_map_extraction": {
-      "workflow": ".github/workflows/sds-extract-map-compat.yml",
-      "trigger_commit": "42977829ac9a7d65c1a14b5f0bf60db4df78e2ca",
-      "run_id": 34609160529,
-      "source": "SMAPI dataset exact Nexus file 178657",
-      "status": "success",
-      "artifact_name": "sds-3.13.4-map-compat-files",
-      "artifact_id": 10267372515,
-      "artifact_size_bytes": 4405688,
-      "artifact_digest": "sha256:9078e6128212727ad159c43cc62af69a5f4c1ffacf61add8bfd88e267d941c83",
-      "artifact_expires_at": "2026-12-10T14:16:35Z"
-    },
-    "next_action": "Open artifact 10267372515, inspect exact SDS 3.13.4 map/content files, record all Maps/Town and warp edits, then compare their rectangles and warp properties against East Scarp's X109 Y63 W21 H14 area and separately evaluate the SVE route."
-  },
   "resume_target": {
-    "mode": "compatibility_research",
-    "cp_is_done": true,
-    "dll_is_done": true,
-    "package_is_done": true,
+    "mode": "runtime_compatibility_validation",
     "do_not_resume_translation": true,
-    "next_action": "Continue SDS x East Scarp x SVE compatibility research from compatibility/SDS-EastScarp-SVE-RESEARCH.md; inspect SDS map artifact 10267372515 first."
+    "map_research_done": true,
+    "next_action": "Test the intended SDS + SVE + East Scarp + RSV + Pelipper setup in game, inspect SMAPI log, verify Town -> Shearwater Bridge -> East Scarp and festivals/schedules. Build a compatibility patch only if a concrete runtime issue is reproduced."
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-11T21:18:35+07:00"
+  "updated_at": "2026-09-11T22:20:00+07:00"
 }
