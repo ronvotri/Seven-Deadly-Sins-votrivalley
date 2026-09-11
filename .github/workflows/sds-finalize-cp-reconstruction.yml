@@ -1,0 +1,173 @@
+name: SDS finalize CP reconstruction
+
+on:
+  push:
+    paths:
+      - '.github/workflows/sds-finalize-cp-reconstruction.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install JSON5 parser
+        run: python -m pip install --disable-pip-version-check json5
+
+      - name: Rebuild canonical CP shards and audit
+        shell: python
+        run: |
+          import io, json, re, zipfile
+          from pathlib import Path
+          from datetime import datetime, timezone
+          import requests, json5
+
+          class R(io.RawIOBase):
+              def __init__(self, url):
+                  self.s=requests.Session()
+                  h=self.s.head(url,allow_redirects=True,timeout=60); h.raise_for_status()
+                  self.n=int(h.headers['Content-Length']); self.p=0; self.url=url
+              def readable(self): return True
+              def seekable(self): return True
+              def tell(self): return self.p
+              def seek(self,o,w=io.SEEK_SET):
+                  self.p=o if w==io.SEEK_SET else self.p+o if w==io.SEEK_CUR else self.n+o
+                  return self.p
+              def read(self,size=-1):
+                  if self.p>=self.n:return b''
+                  if size==0:return b''
+                  e=self.n-1 if size is None or size<0 else min(self.n-1,self.p+size-1)
+                  r=self.s.get(self.url,headers={'Range':f'bytes={self.p}-{e}'},allow_redirects=True,timeout=180)
+                  if r.status_code!=206: raise RuntimeError(r.status_code)
+                  b=r.content; self.p+=len(b); return b
+
+          reader=R('https://smapistorage.blob.core.windows.net/exports/stardew-mod-dataset.zip')
+          with zipfile.ZipFile(reader) as z:
+              c=[n for n in z.namelist() if 'Nexus/15/15100/178657/' in n.replace('\\','/') and n.replace('\\','/').lower().endswith('/i18n/default.json') and '[cp]' in n.lower()]
+              if len(c)!=1: raise SystemExit(f'expected one CP source, got {len(c)}')
+              raw=z.read(c[0])
+          items=list(json5.loads(raw.decode('utf-8-sig'),allow_duplicate_keys=True).items())
+          if len(items)!=24827: raise SystemExit(f'bad key count {len(items)}')
+          key_to_index={k:i+1 for i,(k,v) in enumerate(items)}
+          shard_re=re.compile(r'^CP_(\d+)_(\d+)\.json$')
+
+          # Collect existing key-based translations as fallback.
+          candidates={}
+          translation_conflicts=[]
+          for tp in sorted(Path('translations/cp').glob('CP_*_*.json')):
+              if not shard_re.match(tp.name): continue
+              d=json.loads(tp.read_text(encoding='utf-8'))
+              for k,v in d.items():
+                  idx=key_to_index.get(k)
+                  if idx is None: continue
+                  if idx in candidates and candidates[idx] != v:
+                      translation_conflicts.append(idx)
+                  else:
+                      candidates.setdefault(idx,v)
+
+          # Recovery is authoritative. Permit duplicate recovery only when values agree.
+          recovery={}
+          recovery_conflicts=[]
+          malformed=[]
+          for rp in sorted(Path('recovery/index').glob('CP_*_*.json')):
+              m=shard_re.match(rp.name)
+              if not m: continue
+              a,b=map(int,m.groups())
+              try:
+                  d=json.loads(rp.read_text(encoding='utf-8'))
+              except Exception as e:
+                  malformed.append({'file':str(rp),'error':str(e)}); continue
+              if any(str(i) not in d for i in range(a,b+1)):
+                  malformed.append({'file':str(rp),'error':'incomplete index range'}); continue
+              for i in range(a,b+1):
+                  v=d[str(i)]
+                  if i in recovery and recovery[i] != v:
+                      recovery_conflicts.append({'index':i,'file':str(rp)})
+                  else:
+                      recovery.setdefault(i,v)
+
+          if malformed: raise SystemExit('malformed recovery: '+json.dumps(malformed,ensure_ascii=False))
+          if recovery_conflicts: raise SystemExit('conflicting recovery: '+json.dumps(recovery_conflicts[:20],ensure_ascii=False))
+
+          canonical=dict(candidates)
+          canonical.update(recovery)
+          missing=[i for i in range(1,len(items)+1) if i not in canonical]
+          if missing:
+              raise SystemExit(f'canonical coverage missing {len(missing)} indices, first={missing[:30]}')
+
+          # Rebuild translations/cp as non-overlapping canonical 100-key shards.
+          outdir=Path('translations/cp'); outdir.mkdir(parents=True,exist_ok=True)
+          for p in outdir.glob('CP_*_*.json'):
+              if shard_re.match(p.name): p.unlink()
+          for a in range(1,len(items)+1,100):
+              b=min(a+99,len(items))
+              out={items[i-1][0]:canonical[i] for i in range(a,b+1)}
+              (outdir/f'CP_{a}_{b}.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
+          token_re=re.compile(r'\{\{.*?\}\}|\[(?:SDS_[^\]]+|\d+)\]|#?\$q\s+[^#]+#|#?\$r\s+[^#]+#|#\$b#|\$[qrb]|\$\d+|%(?:kid\d+|kids\d+|pet\d*)|%|@|\^|\|',re.IGNORECASE)
+          han_re=re.compile(r'[\u3400-\u4DBF\u4E00-\u9FFF]')
+          mismatch=[]; han=[]; unknown=[]; coverage=set(); duplicates=[]
+          for tp in sorted(outdir.glob('CP_*_*.json')):
+              d=json.loads(tp.read_text(encoding='utf-8'))
+              for k,t in d.items():
+                  idx=key_to_index.get(k)
+                  if idx is None: unknown.append({'file':str(tp),'key':k}); continue
+                  if idx in coverage: duplicates.append(idx)
+                  coverage.add(idx)
+                  s=items[idx-1][1]
+                  if token_re.findall(s)!=token_re.findall(t):
+                      mismatch.append({'index':idx,'key':k,'source_tokens':token_re.findall(s),'target_tokens':token_re.findall(t)})
+                  hs=han_re.findall(t)
+                  if hs: han.append({'index':idx,'key':k,'chars':' '.join(hs[:20])})
+
+          missing_final=sorted(set(range(1,len(items)+1))-coverage)
+          audit={
+              'project':'Seven Deadly Sins Vietnamese Localization',
+              'source_version':'3.13.4',
+              'source_nexus_file_id':178657,
+              'cp_source_key_count':len(items),
+              'generated_at_utc':datetime.now(timezone.utc).isoformat(),
+              'canonical_rebuild':True,
+              'recovery_index_count':len(recovery),
+              'fallback_translation_conflict_indices':sorted(set(translation_conflicts)),
+              'key_based':{
+                  'covered_key_count':len(coverage),
+                  'missing_key_count':len(missing_final),
+                  'duplicate_index_count':len(duplicates),
+                  'unknown_key_count':len(unknown),
+                  'technical_token_mismatch_count':len(mismatch),
+                  'han_hit_count':len(han)
+              },
+              'details':{
+                  'missing_indices':missing_final,
+                  'duplicate_indices':duplicates,
+                  'unknown_keys':unknown,
+                  'technical_token_mismatches':mismatch,
+                  'han_hits':han
+              }
+          }
+          Path('audit').mkdir(exist_ok=True)
+          Path('audit/CP_AUDIT.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(audit['key_based'],ensure_ascii=False,indent=2))
+          if missing_final or duplicates or unknown or mismatch or han:
+              raise SystemExit('CP audit is not clean')
+
+      - name: Commit canonical CP shards and audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A translations/cp audit/CP_AUDIT.json
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Finalize canonical CP translation and clean audit"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
