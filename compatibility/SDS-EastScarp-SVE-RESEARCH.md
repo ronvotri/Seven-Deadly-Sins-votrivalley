@@ -26,15 +26,21 @@ The immediate investigation is specifically **SDS ↔ East Scarp**, with SVE con
 - Version: **3.13.4**
 - Nexus file ID: **178657**
 - Existing repository contains the completed Vietnamese localization and audits, but not the complete original SDS map/assets.
-- Exact original SDS map-related files are being extracted from the same SMAPI dataset source used for the 3.13.4 localization audit.
+- Exact original SDS map-related files were extracted from the same SMAPI dataset source used for the 3.13.4 localization audit.
 
 Temporary extraction workflow:
 
 - `.github/workflows/sds-extract-map-compat.yml`
 - workflow trigger commit: `42977829ac9a7d65c1a14b5f0bf60db4df78e2ca`
-- initial workflow run: `34609160529`
+- workflow run: `34609160529`
+- result: **success**
+- artifact name: `sds-3.13.4-map-compat-files`
+- artifact ID: `10267372515`
+- artifact size: `4,405,688 bytes`
+- artifact digest: `sha256:9078e6128212727ad159c43cc62af69a5f4c1ffacf61add8bfd88e267d941c83`
+- artifact expires: `2026-12-10T14:16:35Z`
 
-Do not infer SDS map conclusions until the extracted source has been inspected.
+The extraction is complete. The next step is to inspect its exact SDS map/content files before drawing final compatibility conclusions.
 
 ### East Scarp
 
@@ -157,7 +163,7 @@ No direct map collision has been established in this investigation yet. Treat as
 
 ## Next technical steps
 
-1. Finish extracting exact **SDS 3.13.4** map/content files from Nexus file ID `178657` via the SMAPI dataset.
+1. Download/open artifact `10267372515` (`sds-3.13.4-map-compat-files`).
 2. Identify all SDS entries that target or edit:
    - `Maps/Town`
    - `Town`
@@ -190,11 +196,11 @@ When continuing this investigation in another chat/session:
 - do not restart the Vietnamese localization;
 - do not re-investigate East Scarp from zero;
 - start from this file;
-- first inspect the result of the SDS map extraction workflow;
+- inspect artifact `10267372515` first;
 - then compare exact SDS Town/map edits with the East Scarp findings above.
 
 ## Current resume point
 
-**Waiting for / inspecting exact SDS 3.13.4 map extraction.**
+**SDS 3.13.4 map extraction is complete and ready for inspection.**
 
 The most important confirmed discovery so far is that **East Scarp's vanilla east-Town patch is conditional and is disabled when SVE is installed**, which means `SDS + East Scarp` and `SDS + East Scarp + SVE` must be treated as two distinct compatibility cases.
