@@ -1,0 +1,16 @@
+{
+  "project": "Seven Deadly Sins Vietnamese Localization",
+  "version": "3.13.4",
+  "nexus_file_id": 178657,
+  "built_at_utc": "2026-09-11T06:37:01.949524+00:00",
+  "cp_source_path": "downloads/Nexus/15/15100/178657/Seven Deadly Sins 1.6/[CP] Seven Deadly Sins/i18n/default.json",
+  "dll_source_path": "downloads/Nexus/15/15100/178657/Seven Deadly Sins 1.6/SevenDeadlySins/i18n/default.json",
+  "cp_keys": 24827,
+  "dll_keys": 2419,
+  "zip_path": "dist/Seven-Deadly-Sins-3.13.4-Vietnamese-Localization.zip",
+  "zip_contents": [
+    "Seven Deadly Sins 1.6/[CP] Seven Deadly Sins/i18n/vi.json",
+    "Seven Deadly Sins 1.6/SevenDeadlySins/i18n/vi.json"
+  ],
+  "localization_only": true
+}
