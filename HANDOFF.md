@@ -1,208 +1,138 @@
-# HANDOFF - Seven Deadly Sins Vietnamese Localization
+# HANDOFF - Seven Deadly Sins 3.13.4
 
-> **Seven Deadly Sins 3.13.4 Việt hóa đã hoàn tất, audit sạch và đóng gói xong. Không tiếp tục dịch lại nếu không có lỗi test hoặc source version mới.**
+> **Vietnamese localization is complete, clean, packaged and release-ready. Do not resume translation unless an in-game localization bug or a new source version appears.**
 
-## Repo
+## Localization status
 
-`ronvotri/Seven-Deadly-Sins-votrivalley`
-
-## Source
-
-- Mod: Seven Deadly Sins 1.6
-- Version: **3.13.4**
-- Nexus file ID: **178657**
-- CP source: **24,827 key**
-- DLL source: **2,419 key**
-
-## CP - DONE
-
-Canonical commit: `2ca310f`
-
-`audit/CP_AUDIT.json`:
-
-- 24,827 / 24,827 covered
-- missing 0
-- duplicate 0
-- unknown 0
-- token mismatch 0
-- Hán tự 0
-
-## DLL - DONE
-
-Canonical commit:
-
-`c2e0461693e423785a6dc4ea44eb5fc430b84949`
-
-Canonical file:
-
-`translations/dll/vi.json`
-
-`audit/DLL_AUDIT.json`:
-
-- 2,419 / 2,419 covered
-- missing 0
-- duplicate 0
-- conflicting duplicate 0
-- unknown 0
-- token mismatch 0
-- Hán tự 0
-
-## RELEASE - DONE
-
-Release commit:
-
-`cac241011ff8e0eb15d8902ed94b06e78006bfa7`
-
-Archive trong repo:
-
-`dist/Seven-Deadly-Sins-3.13.4-Vietnamese-Localization.zip`
-
-GitHub Actions artifact ID:
-
-`10187640215`
-
-ZIP đã được build và mở lại để xác minh. Nó chỉ chứa đúng hai file Việt hóa:
-
-1. `Seven Deadly Sins 1.6/[CP] Seven Deadly Sins/i18n/vi.json`
-2. `Seven Deadly Sins 1.6/SevenDeadlySins/i18n/vi.json`
-
-Số key thực tế trong ZIP:
-
-- CP `vi.json`: **24,827**
-- DLL `vi.json`: **2,419**
-
-Không kèm asset gốc hoặc file mod gốc không cần thiết.
-
-## Trạng thái chính thức của Việt hóa
-
-**RELEASE READY.**
-
-Không còn range dịch nào cần tiếp tục trong 3.13.4.
-
-Nếu user nói `tiếp` trong ngữ cảnh Việt hóa, không được tự dịch lại. Việc hợp lệ chỉ là:
-
-1. hỗ trợ test bản ZIP trong game;
-2. sửa lỗi cụ thể nếu log/gameplay phát hiện;
-3. chuẩn bị nội dung Nexus/README/changelog nếu user yêu cầu;
-4. update Việt hóa khi Seven Deadly Sins có source version mới.
+- CP: **24,827 / 24,827**, clean audit, canonical commit `2ca310f`
+- DLL: **2,419 / 2,419**, clean audit, canonical commit `c2e0461693e423785a6dc4ea44eb5fc430b84949`
+- Release commit: `cac241011ff8e0eb15d8902ed94b06e78006bfa7`
+- Release archive: `dist/Seven-Deadly-Sins-3.13.4-Vietnamese-Localization.zip`
 
 ---
 
-# COMPATIBILITY RESEARCH - IN PROGRESS
+# COMPATIBILITY RESEARCH
 
-User hiện đang nghiên cứu khả năng chơi đồng thời:
-
-- Seven Deadly Sins 3.13.4
-- East Scarp 3.0.9
-- Stardew Valley Expanded
-- Ridgeside Village
-- Pelipper Town + optional compatibility files
-- StarCrossed
-
-Hồ sơ nghiên cứu chuẩn:
+Source of truth:
 
 `compatibility/SDS-EastScarp-SVE-RESEARCH.md`
 
 Latest research commit:
 
-`166c6aaf5c12be75113cdb6ecec60ef6b500a967`
+`58df2ebb03fa4f20c7a97f24d2c27e4bd51e3ce7`
 
-## East Scarp đã xác minh
+Versions audited:
 
-Từ archive East Scarp 3.0.9 do user cung cấp:
+- Seven Deadly Sins **3.13.4**
+- East Scarp **3.0.9**
+- SVE-aware routing checked against current upstream SVE Town layout
 
-- East Scarp **có patch trực tiếp `Maps/Town` khi không cài SVE**.
-- Asset patch liên quan: `assets/Patches/Town_ES.tmx`.
-- Vùng patch đã quan sát:
-  - X = 109
-  - Y = 63
-  - Width = 21
-  - Height = 14
-- Warp ở mép đông Town quan sát quanh:
-  - X ≈ 120
-  - Y ≈ 72–75
-  - destination `EastScarp_Crossing`
+## Exact sources
 
-### Điểm cực kỳ quan trọng về SVE
+### SDS
 
-East Scarp Town patch nói trên có điều kiện tương đương:
+Exact SDS 3.13.4 map source was extracted from Nexus file `178657` through the SMAPI dataset:
 
-`HasMod FlashShifter.StardewValleyExpandedCP = false`
+- run `34609160529`
+- artifact ID `10267372515`
 
-Tức là **khi có SVE, East Scarp không dùng entrance vanilla ở mép phải Pelican Town theo cách trên**.
+### East Scarp
 
-Đã thấy route SVE-aware:
+User supplied full `East Scarp.rar`.
 
-`Custom_ShearwaterBridge -> EastScarp_Village`
+Exact East Scarp Core 3.0.9 files were successfully extracted locally with libarchive, including `content.json`, `SVE.json`, `Town_ES.tmx`, `ScarpCrossing_SVE.tmx`, and `ES_ShearwaterBridgeStrip.tmx`.
 
-Vì vậy phải tách riêng hai trường hợp:
+A separate SMAPI dataset extraction attempt, run `34614235814`, failed only because the dataset export did not expose the current unpacked 3.0.9 core. This failure does not invalidate the local exact archive analysis.
 
-1. `SDS + East Scarp` không có SVE;
-2. `SDS + East Scarp + SVE`.
+---
 
-Không được kết luận hai trường hợp giống nhau.
+# FINAL MAP-LEVEL CLASSIFICATION
 
-## Pelipper compatibility files
+## SDS + East Scarp WITHOUT SVE
 
-Các file kiểu:
+### 🔴 CONFIRMED HARD MAP CONFLICT
 
-- `PelipperTown.RidgesideVillage`
-- `PelipperTown.SVE`
-- `PelipperTown.EastScarp`
-- `PelipperTown.StarCrossed`
+East Scarp patches:
 
-chỉ giải quyết **Pelipper Town ↔ expansion tương ứng**.
+`Maps/Town X109 Y63 W21 H14`
 
-Chúng **không phải** patch cho `SDS ↔ East Scarp` hay `SDS ↔ SVE`.
+SDS without SVE loads the entire `Maps/SDS.Town.tmx`.
 
-## SDS map extraction - DONE
+Within the exact East Scarp rectangle, SDS has:
 
-Exact source SDS 3.13.4 đã được extract thành công từ đúng SMAPI dataset/Nexus file `178657`.
+- Back: 294 / 294 occupied
+- Buildings: 222 / 294
+- Front: 111 / 294
+- AlwaysFront: 112 / 294
 
-Workflow:
+Therefore a compatibility/reroute patch is required if running SDS + East Scarp without SVE.
 
-`.github/workflows/sds-extract-map-compat.yml`
+## SDS + East Scarp + SVE
 
-Trigger commit:
+### 🟢 MAP-LEVEL COMPATIBLE, RUNTIME VALIDATION RECOMMENDED
 
-`42977829ac9a7d65c1a14b5f0bf60db4df78e2ca`
+East Scarp disables `Town_ES.tmx` when SVE exists and instead routes through:
 
-Run ID:
+`Town -> Custom_ShearwaterBridge -> EastScarp_Village`
 
-`34609160529`
+Exact East Scarp 3.0.9 SVE route:
 
-Result:
+- SVE Town outgoing warp: X119, Y72-76 -> `Custom_ShearwaterBridge`
+- East Scarp bridge return: -> Town `118,72`
 
-**SUCCESS**
+SDS SVE main patch covers `X110 Y0 W63 H116` at Priority Late, but exact tile inspection shows:
 
-Artifact:
+- Town 118,72 is walkable
+- Town 119,72-76 is walkable in all three SDS main variants
+- those warp tiles contain no Buildings/Buildings2/Buildings7 blockers
+- a continuous walkable route exists from the warp strip back to the western edge of the SDS main patch in all three variants
+- SDS does not target `Custom_ShearwaterBridge` or any East Scarp location
+- SDS main patch doesn't replace SVE's Town Warp map-property key
 
-- name: `sds-3.13.4-map-compat-files`
-- ID: `10267372515`
-- size: `4,405,688 bytes`
-- digest: `sha256:9078e6128212727ad159c43cc62af69a5f4c1ffacf61add8bfd88e267d941c83`
-- expires: `2026-12-10T14:16:35Z`
+Other exact East Scarp SVE-aware edits also do not geometrically overlap SDS:
 
-## Điểm resume chính xác
+- East Scarp Town quest/garden: around X59-68, Y13-20
+- East Scarp Mountain: X86 Y35 W9 H6
+- SDS Town/Mountain patches are elsewhere for those areas
 
-**Không dịch lại. Không nghiên cứu East Scarp từ đầu.**
+Therefore do **not** make a pre-emptive SDS/East Scarp map patch for the SVE setup. Test in game first.
 
-Khi tiếp tục:
+---
 
-1. mở `compatibility/SDS-EastScarp-SVE-RESEARCH.md`;
-2. mở artifact `10267372515`;
-3. tìm tất cả patch SDS đụng `Maps/Town`, Town/warp/tile property và các location liên quan;
-4. ghi chính xác `FromArea` / `ToArea` hoặc vùng patch SDS;
-5. đối chiếu với East Scarp `X109 Y63 W21 H14`;
-6. kiểm riêng trường hợp có SVE vì East Scarp chuyển route sang Shearwater Bridge;
-7. sau đó mới kết luận:
-   - không cần patch;
-   - chỉ cần patch warp;
-   - cần map compatibility patch;
-   - hoặc xung đột lớn hơn.
+# Practical intended modpack
 
-Nếu cần patch, làm thành **mod compatibility riêng**, không sửa trực tiếp file Việt hóa.
+User is considering:
 
-## Quy tắc persist vẫn giữ nguyên
+- SDS 3.13.4
+- SVE
+- East Scarp 3.0.9
+- Ridgeside Village
+- Pelipper Town
+- PelipperTown.SVE
+- PelipperTown.EastScarp
+- PelipperTown.RidgesideVillage
+- PelipperTown.StarCrossed when StarCrossed is installed
 
-Mọi phát hiện compatibility đã xác minh hoặc patch hoàn thành phải commit GitHub trước khi tính là hoàn thành. Cuối mỗi phiên phải cập nhật lại `CHECKPOINT.json`, `HANDOFF.md` và file nghiên cứu compatibility nếu trạng thái thay đổi.
+Pelipper optional files only integrate Pelipper with those expansions. They are not SDS compatibility patches.
+
+---
+
+# EXACT NEXT ACTION
+
+Do not restart map research from zero and do not resume localization.
+
+Next work is **runtime validation**:
+
+1. install intended modpack;
+2. launch via SMAPI and capture log;
+3. verify Town -> Shearwater Bridge -> East Scarp both directions;
+4. verify SDS Avalia Forest warp still works;
+5. test major festivals and NPC schedules;
+6. inspect any Content Patcher conflict/warning in the SMAPI log;
+7. only build a compatibility patch if a concrete reproducible issue remains.
+
+If a no-SVE setup is specifically requested later, build a dedicated reroute compatibility mod because that case is already proven incompatible.
+
+## Persistence rule
+
+Every confirmed finding or compatibility patch must be committed to GitHub before being called complete, and CHECKPOINT/HANDOFF should be updated at session end.
