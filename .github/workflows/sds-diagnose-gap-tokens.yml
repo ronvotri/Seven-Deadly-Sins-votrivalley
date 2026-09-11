@@ -1,0 +1,77 @@
+name: SDS diagnose reconstructed CP token mismatches
+
+on:
+  push:
+    paths:
+      - '.github/workflows/sds-diagnose-gap-tokens.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python -m pip install --disable-pip-version-check json5
+      - name: Build exact mismatch report
+        shell: python
+        run: |
+          import io,json,re,zipfile
+          from pathlib import Path
+          import requests,json5
+          class R(io.RawIOBase):
+              def __init__(self,url):
+                  self.s=requests.Session(); self.url=url
+                  h=self.s.head(url,allow_redirects=True,timeout=60); h.raise_for_status()
+                  self.n=int(h.headers['Content-Length']); self.p=0
+              def readable(self): return True
+              def seekable(self): return True
+              def tell(self): return self.p
+              def seek(self,o,w=io.SEEK_SET):
+                  self.p=o if w==io.SEEK_SET else self.p+o if w==io.SEEK_CUR else self.n+o; return self.p
+              def read(self,size=-1):
+                  if self.p>=self.n:return b''
+                  e=self.n-1 if size is None or size<0 else min(self.n-1,self.p+size-1)
+                  r=self.s.get(self.url,headers={'Range':f'bytes={self.p}-{e}'},allow_redirects=True,timeout=180)
+                  if r.status_code!=206: raise RuntimeError(r.status_code)
+                  b=r.content; self.p+=len(b); return b
+          r=R('https://smapistorage.blob.core.windows.net/exports/stardew-mod-dataset.zip')
+          with zipfile.ZipFile(r) as z:
+              names=[n for n in z.namelist() if 'Nexus/15/15100/178657/' in n.replace('\\','/') and n.replace('\\','/').lower().endswith('/i18n/default.json') and '[cp]' in n.lower()]
+              raw=z.read(names[0])
+          items=list(json5.loads(raw.decode('utf-8-sig'),allow_duplicate_keys=True).items())
+          gaps=[(8501,11200),(11301,11600),(12701,13700)]
+          def in_gap(i): return any(a<=i<=b for a,b in gaps)
+          shard_re=re.compile(r'^CP_(\d+)_(\d+)\.json$')
+          rec={}
+          for p in sorted(Path('recovery/index').glob('CP_*_*.json')):
+              m=shard_re.match(p.name)
+              if not m: continue
+              a,b=map(int,m.groups())
+              if not any(a>=ga and b<=gb for ga,gb in gaps): continue
+              d=json.loads(p.read_text(encoding='utf-8'))
+              for i in range(a,b+1): rec[i]=d[str(i)]
+          token_re=re.compile(r'\{\{.*?\}\}|\[(?:SDS_[^\]]+|\d+)\]|#?\$q\s+[^#]+#|#?\$r\s+[^#]+#|#\$b#|\$[qrb]|\$\d+|%(?:kid\d+|kids\d+|pet\d*)|%|@|\^|\|',re.I)
+          out=[]
+          for i,t in sorted(rec.items()):
+              s=items[i-1][1]
+              st=token_re.findall(s); tt=token_re.findall(t)
+              if st!=tt:
+                  out.append({'index':i,'key':items[i-1][0],'source':s,'target':t,'source_tokens':st,'target_tokens':tt})
+          Path('audit').mkdir(exist_ok=True)
+          Path('audit/GAP_TOKEN_MISMATCHES.json').write_text(json.dumps({'count':len(out),'mismatches':out},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print('mismatch_count=',len(out))
+          print('indices=',[x['index'] for x in out])
+      - name: Commit diagnostic report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audit/GAP_TOKEN_MISMATCHES.json
+          git commit -m "Record reconstructed CP token mismatch diagnostics" || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main
