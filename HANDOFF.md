@@ -13,11 +13,19 @@
 
 # COMPATIBILITY RESEARCH
 
-Source of truth:
+Primary source of truth:
 
 `compatibility/SDS-EastScarp-SVE-RESEARCH.md`
 
-Latest research commit:
+Session-closeout handoff for the next chat/session:
+
+`compatibility/SESSION-2026-09-11-HANDOFF.md`
+
+Session handoff commit:
+
+`957577b8590b8f149052eb54c9022100a8ebc6b3`
+
+Latest map-research commit:
 
 `58df2ebb03fa4f20c7a97f24d2c27e4bd51e3ce7`
 
@@ -40,9 +48,9 @@ Exact SDS 3.13.4 map source was extracted from Nexus file `178657` through the S
 
 User supplied full `East Scarp.rar`.
 
-Exact East Scarp Core 3.0.9 files were successfully extracted locally with libarchive, including `content.json`, `SVE.json`, `Town_ES.tmx`, `ScarpCrossing_SVE.tmx`, and `ES_ShearwaterBridgeStrip.tmx`.
+Exact East Scarp Core 3.0.9 files were successfully extracted locally, including `content.json`, `SVE.json`, `Town_ES.tmx`, `ScarpCrossing_SVE.tmx`, and `ES_ShearwaterBridgeStrip.tmx`.
 
-A separate SMAPI dataset extraction attempt, run `34614235814`, failed only because the dataset export did not expose the current unpacked 3.0.9 core. This failure does not invalidate the local exact archive analysis.
+A separate SMAPI dataset extraction attempt, run `34614235814`, failed only because the dataset export did not expose the current unpacked 3.0.9 core. This does not invalidate the direct archive analysis.
 
 ---
 
@@ -75,7 +83,7 @@ East Scarp disables `Town_ES.tmx` when SVE exists and instead routes through:
 
 `Town -> Custom_ShearwaterBridge -> EastScarp_Village`
 
-Exact East Scarp 3.0.9 SVE route:
+Exact route:
 
 - SVE Town outgoing warp: X119, Y72-76 -> `Custom_ShearwaterBridge`
 - East Scarp bridge return: -> Town `118,72`
@@ -85,15 +93,14 @@ SDS SVE main patch covers `X110 Y0 W63 H116` at Priority Late, but exact tile in
 - Town 118,72 is walkable
 - Town 119,72-76 is walkable in all three SDS main variants
 - those warp tiles contain no Buildings/Buildings2/Buildings7 blockers
-- a continuous walkable route exists from the warp strip back to the western edge of the SDS main patch in all three variants
+- a continuous walkable route exists from the warp strip back into Town in all three variants
 - SDS does not target `Custom_ShearwaterBridge` or any East Scarp location
-- SDS main patch doesn't replace SVE's Town Warp map-property key
+- SDS main patch does not replace SVE's Town Warp map-property key
 
 Other exact East Scarp SVE-aware edits also do not geometrically overlap SDS:
 
 - East Scarp Town quest/garden: around X59-68, Y13-20
 - East Scarp Mountain: X86 Y35 W9 H6
-- SDS Town/Mountain patches are elsewhere for those areas
 
 Therefore do **not** make a pre-emptive SDS/East Scarp map patch for the SVE setup. Test in game first.
 
@@ -119,20 +126,22 @@ Pelipper optional files only integrate Pelipper with those expansions. They are 
 
 # EXACT NEXT ACTION
 
+**Read `compatibility/SESSION-2026-09-11-HANDOFF.md` first in the next work session.**
+
 Do not restart map research from zero and do not resume localization.
 
-Next work is **runtime validation**:
+Next phase is **runtime validation**:
 
-1. install intended modpack;
-2. launch via SMAPI and capture log;
-3. verify Town -> Shearwater Bridge -> East Scarp both directions;
-4. verify SDS Avalia Forest warp still works;
-5. test major festivals and NPC schedules;
-6. inspect any Content Patcher conflict/warning in the SMAPI log;
-7. only build a compatibility patch if a concrete reproducible issue remains.
+1. install the intended modpack;
+2. launch via SMAPI and capture a fresh log;
+3. inspect Content Patcher warnings, duplicate map edits, dependency errors, schedule/pathfinding issues and load-order problems;
+4. verify Town -> Shearwater Bridge -> East Scarp both directions;
+5. verify SDS Avalia Forest access still works;
+6. test major festivals and NPC schedules;
+7. only build a compatibility patch if a concrete reproducible runtime issue remains.
 
 If a no-SVE setup is specifically requested later, build a dedicated reroute compatibility mod because that case is already proven incompatible.
 
 ## Persistence rule
 
-Every confirmed finding or compatibility patch must be committed to GitHub before being called complete, and CHECKPOINT/HANDOFF should be updated at session end.
+Every confirmed finding, runtime fix or compatibility patch must be committed to GitHub before being called complete. End each future session by updating `CHECKPOINT.json`, `HANDOFF.md`, and the compatibility research/session handoff as appropriate.
