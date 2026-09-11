@@ -58,7 +58,7 @@ jobs:
           key_to_index={k:i+1 for i,(k,v) in enumerate(items)}
           shard_re=re.compile(r'^CP_(\d+)_(\d+)\.json$')
 
-          # Collect existing key-based translations as fallback.
+          # Existing key-based data remains authoritative outside the three historical gaps.
           candidates={}
           translation_conflicts=[]
           for tp in sorted(Path('translations/cp').glob('CP_*_*.json')):
@@ -72,14 +72,17 @@ jobs:
                   else:
                       candidates.setdefault(idx,v)
 
-          # Recovery is authoritative. Permit duplicate recovery only when values agree.
-          recovery={}
-          recovery_conflicts=[]
-          malformed=[]
+          gaps=[(8501,11200),(11301,11600),(12701,13700)]
+          def inside_gap(a,b):
+              return any(a>=ga and b<=gb for ga,gb in gaps)
+
+          # Only recovery shards wholly inside the reconstructed gaps override key-based data.
+          recovery={}; recovery_conflicts=[]; malformed=[]
           for rp in sorted(Path('recovery/index').glob('CP_*_*.json')):
               m=shard_re.match(rp.name)
               if not m: continue
               a,b=map(int,m.groups())
+              if not inside_gap(a,b): continue
               try:
                   d=json.loads(rp.read_text(encoding='utf-8'))
               except Exception as e:
@@ -93,8 +96,13 @@ jobs:
                   else:
                       recovery.setdefault(i,v)
 
-          if malformed: raise SystemExit('malformed recovery: '+json.dumps(malformed,ensure_ascii=False))
-          if recovery_conflicts: raise SystemExit('conflicting recovery: '+json.dumps(recovery_conflicts[:20],ensure_ascii=False))
+          if malformed: raise SystemExit('malformed target recovery: '+json.dumps(malformed,ensure_ascii=False))
+          if recovery_conflicts: raise SystemExit('conflicting target recovery: '+json.dumps(recovery_conflicts[:20],ensure_ascii=False))
+
+          expected_gap_count=sum(b-a+1 for a,b in gaps)
+          if len(recovery)!=expected_gap_count:
+              miss=[i for a,b in gaps for i in range(a,b+1) if i not in recovery]
+              raise SystemExit(f'reconstructed recovery incomplete: {len(recovery)}/{expected_gap_count}; first missing {miss[:30]}')
 
           canonical=dict(candidates)
           canonical.update(recovery)
@@ -102,7 +110,6 @@ jobs:
           if missing:
               raise SystemExit(f'canonical coverage missing {len(missing)} indices, first={missing[:30]}')
 
-          # Rebuild translations/cp as non-overlapping canonical 100-key shards.
           outdir=Path('translations/cp'); outdir.mkdir(parents=True,exist_ok=True)
           for p in outdir.glob('CP_*_*.json'):
               if shard_re.match(p.name): p.unlink()
@@ -122,8 +129,8 @@ jobs:
                   if idx in coverage: duplicates.append(idx)
                   coverage.add(idx)
                   s=items[idx-1][1]
-                  if token_re.findall(s)!=token_re.findall(t):
-                      mismatch.append({'index':idx,'key':k,'source_tokens':token_re.findall(s),'target_tokens':token_re.findall(t)})
+                  st=token_re.findall(s); tt=token_re.findall(t)
+                  if st!=tt: mismatch.append({'index':idx,'key':k,'source_tokens':st,'target_tokens':tt})
                   hs=han_re.findall(t)
                   if hs: han.append({'index':idx,'key':k,'chars':' '.join(hs[:20])})
 
@@ -135,8 +142,8 @@ jobs:
               'cp_source_key_count':len(items),
               'generated_at_utc':datetime.now(timezone.utc).isoformat(),
               'canonical_rebuild':True,
-              'recovery_index_count':len(recovery),
-              'fallback_translation_conflict_indices':sorted(set(translation_conflicts)),
+              'reconstructed_gap_index_count':len(recovery),
+              'historical_translation_conflict_indices':sorted(set(translation_conflicts)),
               'key_based':{
                   'covered_key_count':len(coverage),
                   'missing_key_count':len(missing_final),
