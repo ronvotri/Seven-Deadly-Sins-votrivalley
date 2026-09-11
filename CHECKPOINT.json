@@ -45,7 +45,8 @@
     "research_file": "compatibility/SDS-EastScarp-SVE-RESEARCH.md",
     "research_latest_commit": "58df2ebb03fa4f20c7a97f24d2c27e4bd51e3ce7",
     "session_handoff_file": "compatibility/SESSION-2026-09-11-HANDOFF.md",
-    "session_handoff_commit": "957577b8590b8f149052eb54c9022100a8ebc6b3",
+    "session_handoff_commit": "85b23342d6155da49a01a15beb6779df6e037ffa",
+    "root_handoff_commit": "e7af6c16df6373833493e3600d639df07e286d77",
     "runtime_checklist_file": "compatibility/RUNTIME-VALIDATION-CHECKLIST.md",
     "runtime_checklist_commit": "3bc0be9f50b01f9586f715ac16068822ab344577",
     "versions": {
