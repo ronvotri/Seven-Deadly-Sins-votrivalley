@@ -1,0 +1,1002 @@
+[
+  {
+    "index": 10101,
+    "key": "SDS.Dialogue.Uriel.winter_Thu4_U2old.2",
+    "source": "如果你受到威胁，可以向我求助，这是我的职责。"
+  },
+  {
+    "index": 10102,
+    "key": "SDS.Dialogue.Uriel.winter_Thu6.2",
+    "source": "镇上最近流行起了织毛衣，人类的潮流变化得还真是快。$2#$q 16000722/16000723 winter_Thu6_U2old#……#$r 16000722 0 winter_Thu6_16000722#这里之前还流行过什么？#$r 16000723 0 winter_Thu6_16000723#因为有人要办毛衣派对。"
+  },
+  {
+    "index": 10103,
+    "key": "SDS.Dialogue.Uriel.winter_Thu6_16000722.2",
+    "source": "用苹果酿酒、学习天文学、收集松针制成香囊……#$b#……你看上去很感兴趣。$2"
+  },
+  {
+    "index": 10104,
+    "key": "SDS.Dialogue.Uriel.winter_Thu6_16000723.2",
+    "source": "毛衣派对？听上去确实很适合在冬天举办。$1#$b#你现在穿着的毛衣就是你亲手织的吗？"
+  },
+  {
+    "index": 10105,
+    "key": "SDS.Dialogue.Uriel.winter_Thu6_U2old.2",
+    "source": "用苹果酿酒、学习天文学、收集松针制成香囊……#$b#……你看上去很感兴趣。$2"
+  },
+  {
+    "index": 10106,
+    "key": "SDS.Dialogue.Uriel.winter_Thu8.2",
+    "source": "你的表情……发生了什么吗？$2#$q 16000724/16000725 winter_Thu8_U2old#……#$r 16000724 0 winter_Thu8_16000724#发生了愉快的事情#$r 16000725 0 winter_Thu8_16000725#发生了令人不快的事情。"
+  },
+  {
+    "index": 10107,
+    "key": "SDS.Dialogue.Uriel.winter_Thu8_16000724.2",
+    "source": "是吗？看来你挺高兴的，这很好。$1"
+  },
+  {
+    "index": 10108,
+    "key": "SDS.Dialogue.Uriel.winter_Thu8_16000725.2",
+    "source": "是有人招惹你了？还是些琐碎杂事？$2#$b#你可以在我身边待一会，我很乐意当你的倾听者。$1"
+  },
+  {
+    "index": 10109,
+    "key": "SDS.Dialogue.Uriel.winter_Thu8_U2old.2",
+    "source": "是有人招惹你了？还是些琐碎杂事？$2#$b#你可以在我身边待一会，我很乐意当你的倾听者。$1"
+  },
+  {
+    "index": 10110,
+    "key": "SDS.Dialogue.Uriel.winter_Thu10.2",
+    "source": "图书馆馆长给你寄了个老式的打字机，虽然看着有些年头了，但还能使用。$1#$q 16000726/16000727 winter_Thu10_U2old#……#$r 16000726 0 winter_Thu10_16000726#我们可以试着写小说。#$r 16000727 0 winter_Thu10_16000727#现在不流行这个了。"
+  },
+  {
+    "index": 10111,
+    "key": "SDS.Dialogue.Uriel.winter_Thu10_16000726.2",
+    "source": "我们？#$b#你是想把我们的故事写成书吗？听着很像我以前看过的书。$1#$b#不过我并不介意。我们该从哪里写起？$4"
+  },
+  {
+    "index": 10112,
+    "key": "SDS.Dialogue.Uriel.winter_Thu10_16000727.2",
+    "source": "但我们可以把它收起来当装饰品，或者再把它送给用得上的人。$1#$b#比如住在海边的那个作家。#$b#不过在此之前，你可以先用它来写些什么。$1"
+  },
+  {
+    "index": 10113,
+    "key": "SDS.Dialogue.Uriel.winter_Thu10_U2old.2",
+    "source": "我们可以把它收起来当装饰品，或者再把它送给用得上的人。$1#$b#比如住在海边的那个作家。#$b#不过在此之前，你可以先用它来写些什么。$1"
+  },
+  {
+    "index": 10114,
+    "key": "SDS.Dialogue.Uriel.winter_Fri.2",
+    "source": "在进教堂之前，先把自己身上落的雪拍干净。$2#$q 16000728/16000729 winter_Fri_U2old#……#$r 16000728 0 winter_Fri_16000728#乌列是在关心我吗？#$r 16000729 0 winter_Fri_16000729#乌列可以帮我把雪清理干净吗？"
+  },
+  {
+    "index": 10115,
+    "key": "SDS.Dialogue.Uriel.winter_Fri_16000728.2",
+    "source": "即使我没提醒你，神父和孩子们也会提醒的，这只是我职责中微不足道的一部分罢了。"
+  },
+  {
+    "index": 10116,
+    "key": "SDS.Dialogue.Uriel.winter_Fri_16000729.2",
+    "source": "你可以去找神父要一条毛巾。#$e#%乌列不再搭理你。"
+  },
+  {
+    "index": 10117,
+    "key": "SDS.Dialogue.Uriel.winter_Fri_U2old.2",
+    "source": "即使我没提醒你，神父和孩子们也会提醒的，这只是我职责中微不足道的一部分罢了。"
+  },
+  {
+    "index": 10118,
+    "key": "SDS.Dialogue.Uriel.winter_Fri2.2",
+    "source": "如果你在遇见怪物时总是很狼狈……#$q 16000730/16000731 winter_Fri2_U2old#……#$r 16000730 0 winter_Fri2_16000730#来向乌列求助？#$r 16000731 0 winter_Fri2_16000731#乌列有什么好东西？"
+  },
+  {
+    "index": 10119,
+    "key": "SDS.Dialogue.Uriel.winter_Fri2_16000730.2",
+    "source": "如果你不能确保我会在危急关头出现的话，你最好做好足够的准备再去挑战那些家伙。$2"
+  },
+  {
+    "index": 10120,
+    "key": "SDS.Dialogue.Uriel.winter_Fri2_16000731.2",
+    "source": "依赖外物倒不如你对于自己有自知之明，没有充足的准备，就算是再如何好的东西也只会浪费而已。$2"
+  },
+  {
+    "index": 10121,
+    "key": "SDS.Dialogue.Uriel.winter_Fri2_U2old.2",
+    "source": "如果你不能确保我会在危急关头出现的话，你最好做好足够的准备再去挑战那些家伙。$2"
+  },
+  {
+    "index": 10122,
+    "key": "SDS.Dialogue.Uriel.winter_Fri4.2",
+    "source": "人类很擅长向亲近的人释放恶意，哪怕是至亲之人。这样的场景我曾见过很多。#$q 16000732/16000733 winter_Fri4_U2old#……#$r 16000732 0 winter_Fri4_16000732#有时候也是迫不得已。#$r 16000733 0 winter_Fri4_16000733#只有至亲之人会原谅自己。"
+  },
+  {
+    "index": 10123,
+    "key": "SDS.Dialogue.Uriel.winter_Fri4_16000732.2",
+    "source": "迫不得已伤害亲近的人吗……$2#$b#基于一些情况，我似乎能理解一些。"
+  },
+  {
+    "index": 10124,
+    "key": "SDS.Dialogue.Uriel.winter_Fri4_16000733.2",
+    "source": "做出了伤害对方的事还渴求对方的原谅吗？倒真是人类能做出来的事。$2"
+  },
+  {
+    "index": 10125,
+    "key": "SDS.Dialogue.Uriel.winter_Fri4_U2old.2",
+    "source": "做出了伤害对方的事还渴求对方的原谅吗？倒真是人类能做出来的事。$2"
+  },
+  {
+    "index": 10126,
+    "key": "SDS.Dialogue.Uriel.winter_Fri6.2",
+    "source": "你去沙漠的时候，会遇见什么事情吗？#$q 16000734/16000735 winter_Fri6_U2old#……#$r 16000734 0 winter_Fri6_16000734#认识的人都很好。#$r 16000735 0 winter_Fri6_16000735#会遇到什么事？"
+  },
+  {
+    "index": 10127,
+    "key": "SDS.Dialogue.Uriel.winter_Fri6_16000734.2",
+    "source": "看来他们管好了那些家伙……$2#$b#没什么，你最好对自己上点心。"
+  },
+  {
+    "index": 10128,
+    "key": "SDS.Dialogue.Uriel.winter_Fri6_16000735.2",
+    "source": "比如遇见一些人产生的冲突……$0#$b#看来你也知道了一些沙漠里都是什么？$2#$b#那么我劝你去的时候最好小心点。"
+  },
+  {
+    "index": 10129,
+    "key": "SDS.Dialogue.Uriel.winter_Fri6_U2old.2",
+    "source": "比如遇见一些人产生的冲突……$0#$b#看来你也知道了一些沙漠里都是什么？$2#$b#那么我劝你去的时候最好小心点。"
+  },
+  {
+    "index": 10130,
+    "key": "SDS.Dialogue.Uriel.winter_Fri8.2",
+    "source": "你喜欢玩游戏吗？#$q 16000736/16000737 winter_Fri8_U2old#……#$r 16000736 0 winter_Fri8_16000736#喜欢。#$r 16000737 0 winter_Fri8_16000737#不喜欢。"
+  },
+  {
+    "index": 10131,
+    "key": "SDS.Dialogue.Uriel.winter_Fri8_16000736.2",
+    "source": "我听说人类大多都很喜欢这些娱乐，虽然我并不太了解……$2#$b#或许某一天，你可以带我去了解一下那些事物。$1"
+  },
+  {
+    "index": 10132,
+    "key": "SDS.Dialogue.Uriel.winter_Fri8_16000737.2",
+    "source": "这倒是让我有些意外……那么你喜欢做什么？#$b#了解人类的娱乐方式也是了解人类的重要一环，或许…你可以带我体验一下。$1"
+  },
+  {
+    "index": 10133,
+    "key": "SDS.Dialogue.Uriel.winter_Fri8_U2old.2",
+    "source": "我听说人类大多都很喜欢这些娱乐，虽然我并不太了解……$2#$b#或许某一天，你可以带我去了解一下那些事物。$1"
+  },
+  {
+    "index": 10134,
+    "key": "SDS.Dialogue.Uriel.winter_Fri10.2",
+    "source": "人类会在天冷时互相靠在一起取暖。#$b#%话音刚落，乌列像变魔术一样将一条毛茸茸的围巾围在你身上。#$b#%围巾的另一头则是他自己。两人就像是被绑在一起似的，紧紧贴在一起。#$b#因此我准备了这个理由——我们现在用着同一条围巾，还能再更靠近些。$1"
+  },
+  {
+    "index": 10135,
+    "key": "SDS.Dialogue.Uriel.winter_Sat.2",
+    "source": "下雪天的时候，如果没有人吵闹，倒是会让我感到一些熟悉。#$q 16000738/16000739 winter_Sat_U2old#……#$r 16000738 0 winter_Sat_16000738#为什么？#$r 16000739 0 winter_Sat_16000739#乌列喜欢雪天？"
+  },
+  {
+    "index": 10136,
+    "key": "SDS.Dialogue.Uriel.winter_Sat_16000738.2",
+    "source": "白茫茫的没有声音，所有的一切都是纯白色……便是我最熟悉的景色了。$0"
+  },
+  {
+    "index": 10137,
+    "key": "SDS.Dialogue.Uriel.winter_Sat_16000739.2",
+    "source": "并不是，只是这纯白的景色让我想起了天堂……#$b#不过那里可比现在安静多了，至少没有人会在我眼前讲个不停。$2"
+  },
+  {
+    "index": 10138,
+    "key": "SDS.Dialogue.Uriel.winter_Sat_U2old.2",
+    "source": "白茫茫的没有声音，所有的一切都是纯白色……便是我最熟悉的景色了。$0"
+  },
+  {
+    "index": 10139,
+    "key": "SDS.Dialogue.Uriel.winter_Sat2.2",
+    "source": "动物并没有你想象中那么傻，他们有自己的方式抵御冬天，不过总有些例外。#$q 16000740/16000741 winter_Sat2_U2old#……#$r 16000740 0 winter_Sat2_16000740#那它们会来教堂避寒吗？#$r 16000741 0 winter_Sat2_16000741#乌列会帮它们吗？"
+  },
+  {
+    "index": 10140,
+    "key": "SDS.Dialogue.Uriel.winter_Sat2_16000740.2",
+    "source": "有一些会，神父和孩子们也会关照它们。"
+  },
+  {
+    "index": 10141,
+    "key": "SDS.Dialogue.Uriel.winter_Sat2_16000741.2",
+    "source": "我不能干预太多，一切事情的发展都是受到神指引的。$0"
+  },
+  {
+    "index": 10142,
+    "key": "SDS.Dialogue.Uriel.winter_Sat2_U2old.2",
+    "source": "我不能干预太多，一切事情的发展都是受到神指引的。$0"
+  },
+  {
+    "index": 10143,
+    "key": "SDS.Dialogue.Uriel.winter_Sat4.2",
+    "source": "你更喜欢无改变的生活还是总是变化的日常？#$q 16000742/16000743 winter_Sat4_U2old#……#$r 16000742 0 winter_Sat4_16000742#没什么改变的生活。#$r 16000743 0 winter_Sat4_16000743#总是变化的日常。"
+  },
+  {
+    "index": 10144,
+    "key": "SDS.Dialogue.Uriel.winter_Sat4_16000742.2",
+    "source": "平稳的生活确实会让人感到安心。$1#$b#不过你做出如此的选择倒是让我有些意外，还是说你确实很喜欢这里这种静静的氛围？"
+  },
+  {
+    "index": 10145,
+    "key": "SDS.Dialogue.Uriel.winter_Sat4_16000743.2",
+    "source": "总是变化的生活虽然难以预见未来，但对于人类来说，也正是这一点有趣，对吗？$1"
+  },
+  {
+    "index": 10146,
+    "key": "SDS.Dialogue.Uriel.winter_Sat4_U2old.2",
+    "source": "不过你做出如此的选择倒是让我有些意外，还是说你确实很喜欢这里这种静静的氛围？"
+  },
+  {
+    "index": 10147,
+    "key": "SDS.Dialogue.Uriel.winter_Sat6.2",
+    "source": "你似乎在盯着我的光环看？$2#$q 16000744/16000745 winter_Sat6_U2old#……#$r 16000744 0 winter_Sat6_16000744#嗯#$r 16000745 0 winter_Sat6_16000745#不是"
+  },
+  {
+    "index": 10148,
+    "key": "SDS.Dialogue.Uriel.winter_Sat6_16000744.2",
+    "source": "%乌列把光环拿了下来。#$b#如果你对它感兴趣，我可以给你看一会。$1#$b#……你的表情很奇怪，为什么？$2"
+  },
+  {
+    "index": 10149,
+    "key": "SDS.Dialogue.Uriel.winter_Sat6_16000745.2",
+    "source": "是吗？不过就算你对它感兴趣也没什么。#$b#%乌列把光环摘下来。#$b#我可以把它给你玩一会……$1#$b#你的表情看上去很奇怪，怎么了？$2"
+  },
+  {
+    "index": 10150,
+    "key": "SDS.Dialogue.Uriel.winter_Sat6_U2old.2",
+    "source": "%乌列把光环拿了下来。#$b#如果你对它感兴趣，我可以给你看一会。$1#$b#……你的表情很奇怪，为什么？$2"
+  },
+  {
+    "index": 10151,
+    "key": "SDS.Dialogue.Uriel.winter_Sat8.2",
+    "source": "没想到已经过去了这么久……#$q 16000746/16000747 winter_Sat8_U2old#……#$r 16000746 0 winter_Sat8_16000746#是指来到这里吗？#$r 16000747 0 winter_Sat8_16000747#乌列在想什么？"
+  },
+  {
+    "index": 10152,
+    "key": "SDS.Dialogue.Uriel.winter_Sat8_16000746.2",
+    "source": "嗯，或许这就是所谓的，和在意的人度过的时间会尤其快吧。$1#$b#%乌列侧头看向你，朝你更靠近了些。"
+  },
+  {
+    "index": 10153,
+    "key": "SDS.Dialogue.Uriel.winter_Sat8_16000747.2",
+    "source": "只是想到已经过去了的日子。$0#$b#对于天使来说并不算多久远的时间，但是对于人类、对于你来说，是如何看待的呢？#$b#%乌列澄金的眼眸静静地注视着你，等待你的答案。"
+  },
+  {
+    "index": 10154,
+    "key": "SDS.Dialogue.Uriel.winter_Sat8_U2old.2",
+    "source": "只是想到已经过去了的日子。$0#$b#对于天使来说并不算多久远的时间，但是对于人类、对于你来说，是如何看待的呢？#$b#%乌列澄金的眼眸静静地注视着你，等待你的答案。"
+  },
+  {
+    "index": 10155,
+    "key": "SDS.Dialogue.Uriel.winter_Sat10.2",
+    "source": "等来年开春，我想我们可以出去走走。$1#$q 16000748/16000749 winter_Sat10_U2old#……#$r 16000748 0 winter_Sat10_16000748#乌列想去哪？#$r 16000749 0 winter_Sat10_16000749#我们现在就出发。"
+  },
+  {
+    "index": 10156,
+    "key": "SDS.Dialogue.Uriel.winter_Sat10_16000748.2",
+    "source": "我并没有头绪，就连这个想法也是突然冒出来的……但我知道你会答应的。$1#$b#你有什么好地方推荐吗？$4"
+  },
+  {
+    "index": 10157,
+    "key": "SDS.Dialogue.Uriel.winter_Sat10_16000749.2",
+    "source": "现在？$2#$b#那你想去山上看雪景吗？$1#$b#我很高兴你这么快就做出行动，我们现在做准备吧。$4"
+  },
+  {
+    "index": 10158,
+    "key": "SDS.Dialogue.Uriel.winter_Sat10_U2old.2",
+    "source": "我并没有头绪，就连这个想法也是突然冒出来的……但我知道你会答应的。$1#$b#你有什么好地方推荐吗？$4"
+  },
+  {
+    "index": 10159,
+    "key": "SDS.Dialogue.Uriel.winter_Sun.2",
+    "source": "造物主在创造四季时只是将此当作世界运转的基本原则，人类却对每个季节赋予了不同的含义。#$q 16000750/16000751 winter_Sun_U2old#……#$r 16000750 0 winter_Sun_16000750#这样才有动力生活下去。#$r 16000751 0 winter_Sun_16000751#这是人类的智慧。"
+  },
+  {
+    "index": 10160,
+    "key": "SDS.Dialogue.Uriel.winter_Sun_16000750.2",
+    "source": "四季更替，岁月轮回……或许你说的并没有错。$1"
+  },
+  {
+    "index": 10161,
+    "key": "SDS.Dialogue.Uriel.winter_Sun_16000751.2",
+    "source": "在这样智慧的前提下，是人类备受造物主的偏爱。"
+  },
+  {
+    "index": 10162,
+    "key": "SDS.Dialogue.Uriel.winter_Sun_U2old.2",
+    "source": "在这样智慧的前提下，是人类备受造物主的偏爱。"
+  },
+  {
+    "index": 10163,
+    "key": "SDS.Dialogue.Uriel.winter_Sun2.2",
+    "source": "你又去森林深处了？$2#$q 16000752/16000753 winter_Sun2_U2old#……#$r 16000752 0 winter_Sun2_16000752#你怎么知道？#$r 16000753 0 winter_Sun2_16000753#我有事情要去那里处理。"
+  },
+  {
+    "index": 10164,
+    "key": "SDS.Dialogue.Uriel.winter_Sun2_16000752.2",
+    "source": "你身上的破绽太多了，虽然现在你不会受到伤害，但之后的事谁也说不准……你最好少去那里。$2"
+  },
+  {
+    "index": 10165,
+    "key": "SDS.Dialogue.Uriel.winter_Sun2_16000753.2",
+    "source": "我可不觉得一个人类会有什么要事需要去到那里才得以解决，哪怕前面有陷阱你也会义无反顾地踏上去吗？$2"
+  },
+  {
+    "index": 10166,
+    "key": "SDS.Dialogue.Uriel.winter_Sun2_U2old.2",
+    "source": "你身上的破绽太多了，虽然现在你不会受到伤害，但之后的事谁也说不准……你最好少去那里。$2"
+  },
+  {
+    "index": 10167,
+    "key": "SDS.Dialogue.Uriel.winter_Sun4.2",
+    "source": "那些孩子来到教堂的原因各不相同，但本质上又是相似的。$0#$q 16000754/16000755 winter_Sun4_U2old#……#$r 16000754 0 winter_Sun4_16000754#他们过去都经历了很多。#$r 16000755 0 winter_Sun4_16000755#乌列会对他们感到同情吗？"
+  },
+  {
+    "index": 10168,
+    "key": "SDS.Dialogue.Uriel.winter_Sun4_16000754.2",
+    "source": "是的，不过我想，他们必然能跨过那些过去带来的苦痛，走向属于自己的道路。$1"
+  },
+  {
+    "index": 10169,
+    "key": "SDS.Dialogue.Uriel.winter_Sun4_16000755.2",
+    "source": "不，他们无需同情，那些施舍一般的感情只会让他们重新变得脆弱。#$b#他们能够将过去带来的一切克服，本身就已经足够强大。$1"
+  },
+  {
+    "index": 10170,
+    "key": "SDS.Dialogue.Uriel.winter_Sun4_U2old.2",
+    "source": "不过我想，他们必然能跨过那些过去带来的苦痛，走向属于自己的道路。$1"
+  },
+  {
+    "index": 10171,
+    "key": "SDS.Dialogue.Uriel.winter_Sun6.2",
+    "source": "今天阳光很好，一些动物都出来了。#$q 16000756/16000757 winter_Sun6_U2old#……#$r 16000756 0 winter_Sun6_16000756#今天干活都有力气了。#$r 16000757 0 winter_Sun6_16000757#但还是好冷。"
+  },
+  {
+    "index": 10172,
+    "key": "SDS.Dialogue.Uriel.winter_Sun6_16000756.2",
+    "source": "镇上也有很多人出门了，看来不止你一人这样觉得。$0"
+  },
+  {
+    "index": 10173,
+    "key": "SDS.Dialogue.Uriel.winter_Sun6_16000757.2",
+    "source": "毕竟现在还是冬天，如果实在很不适应，可让自己休息一会儿。$0"
+  },
+  {
+    "index": 10174,
+    "key": "SDS.Dialogue.Uriel.winter_Sun6_U2old.2",
+    "source": "镇上也有很多人出门了，看来不止你一人这样觉得。$0"
+  },
+  {
+    "index": 10175,
+    "key": "SDS.Dialogue.Uriel.winter_Sun8.2",
+    "source": "交换礼物？$2#$b#我知道这个活动在人类之间很盛行，但我从没参与过。#$q 16000758/16000759 winter_Sun8_U2old#……#$r 16000758 0 winter_Sun8_16000758#你可以给孩子们准备礼物。#$r 16000759 0 winter_Sun8_16000759#毕竟你连镇民名字都记不全。"
+  },
+  {
+    "index": 10176,
+    "key": "SDS.Dialogue.Uriel.winter_Sun8_16000758.2",
+    "source": "……这种事我从来没做过，我也不知道选择什么作为礼物比较好。$2#$b#或许我应该尝试一下，你有什么好的建议吗？$1"
+  },
+  {
+    "index": 10177,
+    "key": "SDS.Dialogue.Uriel.winter_Sun8_16000759.2",
+    "source": "……#$b#毕竟不是所有人都像你一样三天两头跑来教堂……我也不需要记住太多人的名字。"
+  },
+  {
+    "index": 10178,
+    "key": "SDS.Dialogue.Uriel.winter_Sun8_U2old.2",
+    "source": "我也不知道选择什么作为礼物比较好。$2#$b#或许我应该尝试一下，你有什么好的建议吗？$1"
+  },
+  {
+    "index": 10179,
+    "key": "SDS.Dialogue.Uriel.winter_Sun10.2",
+    "source": "……#$b#%乌列一言不发地眺望远方，日落时金黄色的日光轻轻笼罩住他。#$q 16000760/16000761 winter_Sun10_U2old#……#$r 16000760 0 winter_Sun10_16000760#你在看什么？#$r 16000761 0 winter_Sun10_16000761#你在想什么？"
+  },
+  {
+    "index": 10180,
+    "key": "SDS.Dialogue.Uriel.winter_Sun10_16000760.2",
+    "source": "我在看那些即将融化的雪。$1#$b#%乌列转过头来，恬淡的目光停留在你身上，他扬起一个温柔的浅笑。#$b#春天快到了，我们也即将步入新的一年。$1"
+  },
+  {
+    "index": 10181,
+    "key": "SDS.Dialogue.Uriel.winter_Sun10_16000761.2",
+    "source": "春天就快到了。$1#$b#%乌列转过头来，恬淡的目光停留在你身上，他扬起一个温柔的浅笑。#$b#我们要准备准备进入新的一年了。$1"
+  },
+  {
+    "index": 10182,
+    "key": "SDS.Dialogue.Uriel.winter_Sun10_U2old.2",
+    "source": "春天就快到了。$1#$b#%乌列转过头来，恬淡的目光停留在你身上，他扬起一个温柔的浅笑。#$b#我们要准备准备进入新的一年了。$1"
+  },
+  {
+    "index": 10183,
+    "key": "SDS.MarriageDialogue.Uriel.patio_Uriel",
+    "source": "我刚才在整理外面存放的经卷，你要开始工作了吗？#$b#愿神保佑你在工作时不受伤害——那么，勤奋的@，把手伸出来。$1#$b#%乌列将一束植物塞进你的手里。#$b#在你起来之前，有只白鸽让我将这个转交给你，一定是想祝福你有个美好的一天。[18]$1"
+  },
+  {
+    "index": 10184,
+    "key": "SDS.MarriageDialogue.Uriel.jobLeave_Uriel",
+    "source": "我今天会前往教堂处理一些事情，以及与其他天使交流。$0#$b#你在工作途中要是需要休息，随时都可以来找我。那么，我出门了。$1#$b#%道别过后乌列仍笔直地站着，正当你摸不着头脑的时候，他忽然俯身在你的头上留下一个早安吻。#$b#我会保佑你的，那么，我这次真的出门了。$4"
+  },
+  {
+    "index": 10185,
+    "key": "SDS.MarriageDialogue.Uriel.funLeave_Uriel",
+    "source": "一会我会去酒吧例行问候一下佩莱特，会在晚餐时间回来。$0#$b#你有什么想要我带回来的东西吗？我会作为一个伴侣帮你采购需要的生活用品。$1#$b#……不，我的意思是，我会带礼物回来给你。$6"
+  },
+  {
+    "index": 10186,
+    "key": "SDS.MarriageDialogue.Uriel.jobReturn_Uriel",
+    "source": "我回来了。$1#$q 16000800/16000801 jobReturn_Uriel_U1old#……#$r 16000800 0 jobReturn_Uriel_16000800#主动亲他#$r 16000801 0 jobReturn_Uriel_16000801#怎么了？"
+  },
+  {
+    "index": 10187,
+    "key": "SDS.MarriageDialogue.Uriel.jobReturn_Uriel_16000800",
+    "source": "%乌列还是一脸正经地睁着眼睛看你，丝毫没有要闭眼的想法。#$b#%你也只能顶着羞耻感亲上他的脸颊——这是平安回到家的回家吻。#$b#剩下一个晚安吻，我们的一天就又结束了。$1"
+  },
+  {
+    "index": 10188,
+    "key": "SDS.MarriageDialogue.Uriel.jobReturn_Uriel_16000801",
+    "source": "既然有出门的道别吻，也应该有回家吻。$1#$b#%说着乌列双手捧起你的脸，亲在和早上相同的位置。#$b#我回来了，@。$4"
+  },
+  {
+    "index": 10189,
+    "key": "SDS.MarriageDialogue.Uriel.jobReturn_Uriel_U1old",
+    "source": "%你已经习惯了以手掀开他的刘海，在他诚恳的眼神下给予他一个回家吻。#$b#……我回来了，@。$4"
+  },
+  {
+    "index": 10190,
+    "key": "SDS.MarriageDialogue.Uriel.funReturn_Uriel",
+    "source": "我回来了，这是给你的礼物。[124 119 118 114 208 220 218 221 223 229 232 238 253 256 254 279 276 292 648 651 681 688 689 690 74 88 90]$1#$b#你…满意吗？$4#$b#%你抬起头，乌列注视着你的目光温柔似月，天使的指尖轻抚过你的脸颊，穿过发丝——#$b#%你觉得自己就像是躺在他手上的宝石。"
+  },
+  {
+    "index": 10191,
+    "key": "SDS.MarriageDialogue.Uriel.spouseRoom_Uriel",
+    "source": "%乌列的身旁有一个纯白色的十字架，而天使正面带笑容地注视着你。#$b#%要不要做些什么呢——#$q 16000802/16000803/16000804 spouseRoom_Uriel_U1old#……#$r 16000802 0 spouseRoom_Uriel_16000802#亲吻乌列#$r 16000803 0 spouseRoom_Uriel_16000803#抚摸他的腰#$r 16000804 0 spouseRoom_Uriel_16000804#什么也不做"
+  },
+  {
+    "index": 10192,
+    "key": "SDS.MarriageDialogue.Uriel.spouseRoom_Uriel_16000802",
+    "source": "%你在十字架面前用力握住了乌列的脸。#$b#%在神面前故意吐出淫秽的气息，在神的面前将天使纯白色的丝线染上无色的情色。#$b#怎么了？呃…$6#$b#%乌列摁着你的脑袋以回应你的吻，由始至终都没看过十字架一眼。"
+  },
+  {
+    "index": 10193,
+    "key": "SDS.MarriageDialogue.Uriel.spouseRoom_Uriel_16000803",
+    "source": "%你笑眯眯地贴上乌列的身体，手来回抚摸着他的腰和小腹之间，故意停留在即将触碰到腰带下方的位置。#$b#唔…嗯？等一下……$6#$b#站在这里的话可能会有些不便，前往卧室吧。$4"
+  },
+  {
+    "index": 10194,
+    "key": "SDS.MarriageDialogue.Uriel.spouseRoom_Uriel_16000804",
+    "source": "我的脸上有什么吗？没有?$2#$b#那么，我可以理解为你只是单纯的想看我吗？$1#$b#不过，我也一样。$4#$b#%乌列撩起你的一簇头发，诚恳地将它停在自己的唇前。"
+  },
+  {
+    "index": 10195,
+    "key": "SDS.MarriageDialogue.Uriel.spouseRoom_Uriel_U1old",
+    "source": "我的脸上有什么吗？没有?$2#$b#那么，我可以理解为你只是单纯的想看我吗？$1#$b#不过，我也一样。$4"
+  },
+  {
+    "index": 10196,
+    "key": "SDS.MarriageDialogue.Uriel.spring_Uriel",
+    "source": "%乌列身上似乎有股淡淡的味道…#$q 16000806/16000807 spring_Uriel_U1old#……#$r 16000806 0 spring_Uriel_16000806#凑过去嗅#$r 16000807 0 spring_Uriel_16000807#询问乌列"
+  },
+  {
+    "index": 10197,
+    "key": "SDS.MarriageDialogue.Uriel.spring_Uriel_16000806",
+    "source": "%你抓着乌列的衣服往他的身上凑了凑，闻到一股淡淡的的花香味自他的发间和衣服散发出来——#$b#%有点像玫瑰花的香味。#$b#怎么了？$2#$b#香味…我在你起床之前，去和农场附近的动物打了声招呼。$0#$b#应该是那个时候沾上的。#$b#%语毕，乌列仍然保持着和你极近的距离。#$b#%咦？乌列的脸有点红，他似乎…在期待什么？"
+  },
+  {
+    "index": 10198,
+    "key": "SDS.MarriageDialogue.Uriel.spring_Uriel_16000807",
+    "source": "我身上有味道？$2#$b#我在你起床之前，去和农场附近的动物打了声招呼。应该是那个时候沾上的。$0"
+  },
+  {
+    "index": 10199,
+    "key": "SDS.MarriageDialogue.Uriel.spring_Uriel_U1old",
+    "source": "%你抓着乌列的衣服往他的身上凑了凑，闻到一股淡淡的的花香味自他的发间和衣服散发出来——#$b#%有点像玫瑰花的香味。#$b#怎么了？$2#$b#香味…我在你起床之前，去和农场附近的动物打了声招呼。$0#$b#应该是那个时候沾上的。#$b#%语毕，乌列仍然保持着和你极近的距离。#$b#%咦？乌列的脸有点红，他似乎…在期待什么？"
+  },
+  {
+    "index": 10200,
+    "key": "SDS.MarriageDialogue.Uriel.summer_Uriel",
+    "source": "站在这里的话能一览农场的风景，还能听见外面的蝉鸣。$1#$q 16000808/16000809 summer_Uriel_U1old#……#$r 16000808 0 summer_Uriel_16000808#坐在他的大腿上#$r 16000809 0 summer_Uriel_16000809#坐在他旁边"
+  },
+  {
+    "index": 10601,
+    "key": "SDS.Dialogue.Pelette.spring_Wed8_18000174.1",
+    "source": "最好养活的那种。$1"
+  },
+  {
+    "index": 10602,
+    "key": "SDS.Dialogue.Pelette.spring_Wed8_18000175.1",
+    "source": "……唔，反正能养活就好了。$0#$b#你也知道，我的耐心不是很好。$7"
+  },
+  {
+    "index": 10603,
+    "key": "SDS.Dialogue.Pelette.spring_Wed8_P1old.1",
+    "source": "最好养活的那种。$1"
+  },
+  {
+    "index": 10604,
+    "key": "SDS.Dialogue.Pelette.spring_Wed10.1",
+    "source": "下次我们一起去买花吧，@？或者一起打猎也不错。你更喜欢哪一个？$1#$q 18000176/18000177 spring_Wed10_P1old#……#$r 18000176 0 spring_Wed10_18000176#买花.#$r 18000177 0 spring_Wed10_18000177#狩猎."
+  },
+  {
+    "index": 10605,
+    "key": "SDS.Dialogue.Pelette.spring_Wed10_18000176.1",
+    "source": "记下了，下次我会去找你的！$1"
+  },
+  {
+    "index": 10606,
+    "key": "SDS.Dialogue.Pelette.spring_Wed10_18000177.1",
+    "source": "很不错，这个游戏一定非常适合我们。我一直想这么试试。邀请一个人一起什么的。$1#$b#别担心，@，你要是害怕我到时候会保护你的。记住到时候别跟丢我就行。$1"
+  },
+  {
+    "index": 10607,
+    "key": "SDS.Dialogue.Pelette.spring_Wed10_P1old.1",
+    "source": "记下了，下次我会去找你的！$1"
+  },
+  {
+    "index": 10608,
+    "key": "SDS.Dialogue.Pelette.spring_Thu.1",
+    "source": "无理取闹的人不是我，而是你。$0#$b#你还不明白吗？如果换作以前，你的头都不知道被我打爆多少回了。$3#$b#%佩莱特冷笑了一声，阴郁暴躁的神色不断在脸上变幻，看着你的目光也十分的尖锐。像一把锋利且冰冷的刀。#$q 18000192/18000193 spring_Thu_P1old#……#$r 18000192 0 spring_Thu_18000192#我只是想和你交朋友…#$r 18000193 0 spring_Thu_18000193#对不起…"
+  },
+  {
+    "index": 10609,
+    "key": "SDS.Dialogue.Pelette.spring_Thu_18000192.1",
+    "source": "滚。我没那个心思。别让我说第二次。$3"
+  },
+  {
+    "index": 10610,
+    "key": "SDS.Dialogue.Pelette.spring_Thu_18000193.1",
+    "source": "……趁早滚开。离我远点。$3"
+  },
+  {
+    "index": 10611,
+    "key": "SDS.Dialogue.Pelette.spring_Thu_P1old.1",
+    "source": "……趁早滚开。离我远点。$3"
+  },
+  {
+    "index": 10612,
+    "key": "SDS.Dialogue.Pelette.spring_Thu2.1",
+    "source": "你以为我会上这么简单的当吗？$0#$q 18000194/18000195 spring_Thu2_P1old#……#$r 18000194 0 spring_Thu2_18000194#朋友，你好#$r 18000195 0 spring_Thu2_18000195#诶？"
+  },
+  {
+    "index": 10613,
+    "key": "SDS.Dialogue.Pelette.spring_Thu2_18000194.1",
+    "source": "…………。"
+  },
+  {
+    "index": 10614,
+    "key": "SDS.Dialogue.Pelette.spring_Thu2_18000195.1",
+    "source": "%佩莱特没打算再跟你说话。"
+  },
+  {
+    "index": 10615,
+    "key": "SDS.Dialogue.Pelette.spring_Thu2_P1old.1",
+    "source": "%佩莱特没打算再跟你说话。"
+  },
+  {
+    "index": 10616,
+    "key": "SDS.Dialogue.Pelette.spring_Thu4.1",
+    "source": "很多人都叫骂过我，也诅咒过我。#$b#他们说我天生就是个杀戮狂。所以我的名声并不好听。#$b#而你之所以对我这么亲近，只是因为你不知道我的那些过往而已。$0#$q 18000196/18000197 spring_Thu4_P1old#……#$r 18000196 0 spring_Thu4_18000196#现在我知道了#$r 18000197 0 spring_Thu4_18000197#我只是在做自己想做的事情"
+  },
+  {
+    "index": 10617,
+    "key": "SDS.Dialogue.Pelette.spring_Thu4_18000196.1",
+    "source": "…………。#$b#你的回答总是让我说不出话来。$0"
+  },
+  {
+    "index": 10618,
+    "key": "SDS.Dialogue.Pelette.spring_Thu4_18000197.1",
+    "source": "……你…还真是个，奇怪的家伙。$6"
+  },
+  {
+    "index": 10619,
+    "key": "SDS.Dialogue.Pelette.spring_Thu4_P1old.1",
+    "source": "……你…还真是个，奇怪的家伙。$6"
+  },
+  {
+    "index": 10620,
+    "key": "SDS.Dialogue.Pelette.spring_Thu6.1",
+    "source": "如果不是这唯一的信息支撑着我，或许我已经死在哪个路边，又或是角落里了。#$b#因为我要做的事情已经做完了。$2#$b#接下来，我只需要静静迎接罪人的死亡。$7#$q 18000198/18000199 spring_Thu6_P1old#……#$r 18000198 0 spring_Thu6_18000198#生命存在于世界，都是为了好好的活着#$r 18000199 0 spring_Thu6_18000199#你并不是罪人"
+  },
+  {
+    "index": 10621,
+    "key": "SDS.Dialogue.Pelette.spring_Thu6_18000198.1",
+    "source": "不，我已经……。我和你——是不同的。$3"
+  },
+  {
+    "index": 10622,
+    "key": "SDS.Dialogue.Pelette.spring_Thu6_18000199.1",
+    "source": "……。$3#$b#%佩莱特只是冲你露出了些许苦涩的笑容。"
+  },
+  {
+    "index": 10623,
+    "key": "SDS.Dialogue.Pelette.spring_Thu6_P1old.1",
+    "source": "……。$3#$b#%佩莱特只是冲你露出了些许苦涩的笑容。"
+  },
+  {
+    "index": 10624,
+    "key": "SDS.Dialogue.Pelette.spring_Thu8.1",
+    "source": "我喜欢这里。这里很温暖。不像……$0#$q 18000200/18000201 spring_Thu8_P1old#……#$r 18000200 0 spring_Thu8_18000200#不像？#$r 18000201 0 spring_Thu8_18000201#以前发生过什么吗？"
+  },
+  {
+    "index": 10625,
+    "key": "SDS.Dialogue.Pelette.spring_Thu8_18000200.1",
+    "source": "不像我以前住的地方。哪里很冷。还总是下着雪。$0#$b#不。是比那些都要珍贵。$0#$b#%思念浮现在佩莱特的脸上，除此之外，还有他那紧紧皱着的眉、垂下的眼帘，与一点点的难过。他似乎不再想说些什么了，下次再来吧？"
+  },
+  {
+    "index": 10626,
+    "key": "SDS.Dialogue.Pelette.spring_Thu8_18000201.1",
+    "source": "没什么。只是想起了一些事情…即便，不是那么的美好，却又让我觉得是那么的如珍宝般贵重。$1#$b#不。是比那些都要珍贵。$1#$b#%思念浮现在佩莱特的脸上，除此之外，还有他那紧紧皱着的眉、垂下的眼帘，与一点点的难过。他似乎不再想说些什么了，下次再来吧？"
+  },
+  {
+    "index": 10627,
+    "key": "SDS.Dialogue.Pelette.spring_Thu8_P1old.1",
+    "source": "没什么。只是想起了一些事情…即便，不是那么的美好，却又让我觉得是那么的如珍宝般贵重。$1#$b#不。是比那些都要珍贵。$1#$b#%思念浮现在佩莱特的脸上，除此之外，还有他那紧紧皱着的眉、垂下的眼帘，与一点点的难过。他似乎不再想说些什么了，下次再来吧？"
+  },
+  {
+    "index": 10628,
+    "key": "SDS.Dialogue.Pelette.spring_Thu10.1",
+    "source": "在心烦意乱的时候，我喜欢待在满是鲜花的那个房间。$1#$b#因为那样会让我冷静许多。$0#$q 18000202/18000203 spring_Thu10_P1old#……#$r 18000202 0 spring_Thu10_18000202#为什么？#$r 18000203 0 spring_Thu10_18000203#你还真是喜欢花"
+  },
+  {
+    "index": 10629,
+    "key": "SDS.Dialogue.Pelette.spring_Thu10_18000202.1",
+    "source": "因为，……就像姐姐陪在我的身边一样。$1"
+  },
+  {
+    "index": 10630,
+    "key": "SDS.Dialogue.Pelette.spring_Thu10_18000203.1",
+    "source": "嗯。我爱它们，…就像姐姐爱它们那样。$1"
+  },
+  {
+    "index": 10631,
+    "key": "SDS.Dialogue.Pelette.spring_Thu10_P1old.1",
+    "source": "嗯。我爱它们，…就像姐姐爱它们那样。$1"
+  },
+  {
+    "index": 10632,
+    "key": "SDS.Dialogue.Pelette.spring_Fri.1",
+    "source": "你是听不懂人话吗？$3#$q 18000214/18000215 spring_Fri_P1old#……#$r 18000214 0 spring_Fri_18000214#汪#$r 18000215 0 spring_Fri_18000215#喵"
+  },
+  {
+    "index": 10633,
+    "key": "SDS.Dialogue.Pelette.spring_Fri_18000214.1",
+    "source": "…………………………………………………………。#$b#白痴吗你？滚开。$3#$b#%你还是被佩莱特骂了。"
+  },
+  {
+    "index": 10634,
+    "key": "SDS.Dialogue.Pelette.spring_Fri_18000215.1",
+    "source": "……………………，…………………………。#$b#白痴吗你？滚开。$3#$b#%你还是被佩莱特骂了。"
+  },
+  {
+    "index": 10635,
+    "key": "SDS.Dialogue.Pelette.spring_Fri_P1old.1",
+    "source": "……………………，…………………………。#$b#白痴吗你？滚开。$3#$b#%你还是被佩莱特骂了。"
+  },
+  {
+    "index": 10636,
+    "key": "SDS.Dialogue.Pelette.spring_Fri2.1",
+    "source": "我并没打算信任你，只是你非要找我说话的样子，让我非常的烦躁。$3#$b#你简直聒噪的像只苍蝇。#$b#好了。说完了。你可以滚了。$3#$q 18000216/18000217 spring_Fri2_P1old#……#$r 18000216 0 spring_Fri2_18000216#好嘞#$r 18000217 0 spring_Fri2_18000217#明天还可以来找你玩吗？"
+  },
+  {
+    "index": 10637,
+    "key": "SDS.Dialogue.Pelette.spring_Fri2_18000216.1",
+    "source": "………………真是个让人受不了的家伙，要是还在军队里，你一定会过得很惨。$3"
+  },
+  {
+    "index": 10638,
+    "key": "SDS.Dialogue.Pelette.spring_Fri2_18000217.1",
+    "source": "不可以。滚远点。我不是总有这么好的耐性。$3"
+  },
+  {
+    "index": 10639,
+    "key": "SDS.Dialogue.Pelette.spring_Fri2_P1old.1",
+    "source": "滚远点。我不是总有这么好的耐性。$3"
+  },
+  {
+    "index": 10640,
+    "key": "SDS.Dialogue.Pelette.spring_Fri4.1",
+    "source": "一直压抑在心底里的别的情绪也在翻腾。都是你的错，给我滚远点。$3#$q 18000218/18000219 spring_Fri4_P1old#……#$r 18000218 0 spring_Fri4_18000218#诶？#$r 18000219 0 spring_Fri4_18000219#我们慢慢来，好吗？我并不想伤害你"
+  },
+  {
+    "index": 10641,
+    "key": "SDS.Dialogue.Pelette.spring_Fri4_18000218.1",
+    "source": "…………。#$b#%佩莱特既暴躁又悲伤，他此时拒绝跟你交流。你并不知道他怎么了。"
+  },
+  {
+    "index": 10642,
+    "key": "SDS.Dialogue.Pelette.spring_Fri4_18000219.1",
+    "source": "……又是这种腔调，又是这种语气。#$b#你到底想要什么？我给不了你！离我远点，现在。马上。$3"
+  },
+  {
+    "index": 10643,
+    "key": "SDS.Dialogue.Pelette.spring_Fri4_P1old.1",
+    "source": "……又是这种腔调，又是这种语气。#$b#你到底想要什么？我给不了你！离我远点，现在。马上。$3"
+  },
+  {
+    "index": 10644,
+    "key": "SDS.Dialogue.Pelette.spring_Fri6.1",
+    "source": "最开始我的确是把你当作了某些图谋不轨的家伙。#$b#毕竟，你也知道…虽然很不想承认这一点，因为听起来非常自恋。$6#$b#呃、不过，但我好像确实长得非常漂亮。所以，以前也遇上了各种各样的事情。$7#$q 18000220/18000221 spring_Fri6_P1old#……#$r 18000220 0 spring_Fri6_18000220#很帅气！#$r 18000221 0 spring_Fri6_18000221#一直以来真的辛苦你了"
+  },
+  {
+    "index": 10645,
+    "key": "SDS.Dialogue.Pelette.spring_Fri6_18000220.1",
+    "source": "…………#$b#%佩莱特被你夸赞的有些拘谨了起来，于是他转移了话题。#$b#——不过比起我，我倒是觉得你更加漂亮。因为…你有一颗，非常美丽的心。$1"
+  },
+  {
+    "index": 10646,
+    "key": "SDS.Dialogue.Pelette.spring_Fri6_18000221.1",
+    "source": "……#$b#%佩莱特沉默了一会儿，像是不知道如何回答，但他还是对着你缓缓地笑了起来。#$b#谢谢你。@。…真的。$1"
+  },
+  {
+    "index": 10647,
+    "key": "SDS.Dialogue.Pelette.spring_Fri6_P1old.1",
+    "source": "……#$b#%佩莱特沉默了一会儿，像是不知道如何回答，但他还是对着你缓缓地笑了起来。#$b#谢谢你。@。…真的。$1"
+  },
+  {
+    "index": 10648,
+    "key": "SDS.Dialogue.Pelette.spring_Fri8.1",
+    "source": "好烦。……但，我想我可以学习去如何忍耐住它了。$1#$q 18000222/18000223 spring_Fri8_P1old#……#$r 18000222 0 spring_Fri8_18000222#怎么了吗？#$r 18000223 0 spring_Fri8_18000223#你已经很努力了！真的"
+  },
+  {
+    "index": 10649,
+    "key": "SDS.Dialogue.Pelette.spring_Fri8_18000222.1",
+    "source": "太闲了。#$b#……嗯？哦，不是说什么不好的意思。$6#$b#毕竟我曾经也有短暂的幻想过拥有现在这样的生活。$1#$b#只不过，我似乎是习惯了以前那种高强度的生活，现在这种闲散的……反而不太适应。我需要为自己找点事情做。$7"
+  },
+  {
+    "index": 10650,
+    "key": "SDS.Dialogue.Pelette.spring_Fri8_18000223.1",
+    "source": "是吗？那就……太好了。看起来我的努力并没有不见效。$13#$b#%佩莱特看起来有些赧然，像个小男孩儿一样别扭。"
+  },
+  {
+    "index": 10651,
+    "key": "SDS.Dialogue.Pelette.spring_Fri8_P1old.1",
+    "source": "是吗？那就……太好了。看起来我的努力并没有不见效。$13#$b#%佩莱特看起来有些赧然，像个小男孩儿一样别扭。"
+  },
+  {
+    "index": 10652,
+    "key": "SDS.Dialogue.Pelette.spring_Fri10.1",
+    "source": "你要是缺肉的话，可以尽管找我来要，@。我这里有很多。$1#$q 18000224/18000225 spring_Fri10_P1old#……#$r 18000224 0 spring_Fri10_18000224#诶？#$r 18000225 0 spring_Fri10_18000225#那给我一些吧."
+  },
+  {
+    "index": 10653,
+    "key": "SDS.Dialogue.Pelette.spring_Fri10_18000224.1",
+    "source": "狩猎的委托。有些大家伙只是需要排除，但没人会去接收它。#$b#而镇子上的商店也不怎么需要那些东西。所以，肉我这里有很多，皮毛也是。$0"
+  },
+  {
+    "index": 10654,
+    "key": "SDS.Dialogue.Pelette.spring_Fri10_18000225.1",
+    "source": "好的，等我一会儿。$0#$b#…………。……好了，给你。有点沉，拿稳了，@。[SDS_RawBeef]$1"
+  },
+  {
+    "index": 10655,
+    "key": "SDS.Dialogue.Pelette.spring_Fri10_P1old.1",
+    "source": "狩猎的委托。有些大家伙只是需要排除，但没人会去接收它。#$b#而镇子上的商店也不怎么需要那些东西。所以，肉我这里有很多，皮毛也是。$0"
+  },
+  {
+    "index": 10656,
+    "key": "SDS.Dialogue.Pelette.spring_Sat.1",
+    "source": "非要让你吃些苦头？是吗？$3#$q 18000236/18000237 spring_Sat_P1old#……#$r 18000236 0 spring_Sat_18000236#我想是甜的……#$r 18000237 0 spring_Sat_18000237#你喜欢做那样的事情吗？"
+  },
+  {
+    "index": 10657,
+    "key": "SDS.Dialogue.Pelette.spring_Sat_18000236.1",
+    "source": "……，关我屁事。滚开。$3"
+  },
+  {
+    "index": 10658,
+    "key": "SDS.Dialogue.Pelette.spring_Sat_18000237.1",
+    "source": "我当然喜欢，喜欢的不得了。#$b#但，那又与你有什么关系？别擅自过问别人的事情。$3#$b#你到底打算从我这里探问些什么？只怕是要让你失望了。$3"
+  },
+  {
+    "index": 10659,
+    "key": "SDS.Dialogue.Pelette.spring_Sat_P1old.1",
+    "source": "……，关我屁事。滚开。$3"
+  },
+  {
+    "index": 10660,
+    "key": "SDS.Dialogue.Pelette.spring_Sat2.1",
+    "source": "不要再说这些无聊的废话了，你究竟想从我这里知道什么？$3#$q 18000238/18000239 spring_Sat2_P1old#……#$r 18000238 0 spring_Sat2_18000238#呃，我在想晚上吃点什么#$r 18000239 0 spring_Sat2_18000239#嗯？你喜欢什么吧"
+  },
+  {
+    "index": 10661,
+    "key": "SDS.Dialogue.Pelette.spring_Sat2_18000238.1",
+    "source": "………………。尽是些无聊的废话。$0"
+  },
+  {
+    "index": 10662,
+    "key": "SDS.Dialogue.Pelette.spring_Sat2_18000239.1",
+    "source": "……跟你有什么关系？管好你自己。快滚。$3"
+  },
+  {
+    "index": 10663,
+    "key": "SDS.Dialogue.Pelette.spring_Sat2_P1old.1",
+    "source": "管好你自己。快滚。$3"
+  },
+  {
+    "index": 10664,
+    "key": "SDS.Dialogue.Pelette.spring_Sat4.1",
+    "source": "……………………。$0#$b#…………。$6#$b#%佩莱特张了张嘴，似乎想对你说些什么。#$q 18000240/18000241 spring_Sat4_P1old#……#$r 18000240 0 spring_Sat4_18000240#怎么了？#$r 18000241 0 spring_Sat4_18000241#（不理他）"
+  },
+  {
+    "index": 10665,
+    "key": "SDS.Dialogue.Pelette.spring_Sat4_18000240.1",
+    "source": "………………昨天……，很抱歉……我。$6#$b#还是离我远点吧，@。我并不想伤害你。$7"
+  },
+  {
+    "index": 10666,
+    "key": "SDS.Dialogue.Pelette.spring_Sat4_18000241.1",
+    "source": "……。#$b#%佩莱特最终也没对你说些什么。"
+  },
+  {
+    "index": 10667,
+    "key": "SDS.Dialogue.Pelette.spring_Sat4_P1old.1",
+    "source": "………………昨天……，很抱歉……我。$6#$b#还是离我远点吧，@。我并不想伤害你。$7"
+  },
+  {
+    "index": 10668,
+    "key": "SDS.Dialogue.Pelette.spring_Sat6.1",
+    "source": "之前对你态度不好其实也是因为……$6#$b#我来到这里之后，总有一股监视窥探的视线停在我的身上。就像是在观察着什么一样。让我感觉非常的烦躁。$7#$q 18000242/18000243 spring_Sat6_P1old#……#$r 18000242 0 spring_Sat6_18000242#咦？#$r 18000243 0 spring_Sat6_18000243#有发生些什么吗？"
+  },
+  {
+    "index": 10669,
+    "key": "SDS.Dialogue.Pelette.spring_Sat6_18000242.1",
+    "source": "……作为军人的敏感性吧，其实你有时候在远处看过来，我也能注意到你。包括视线的余光也是。#$b#你也多注意一点自己的周遭吧。@。你和我靠得这么近，没准也被盯上也说不准。$7#$b#%佩莱特的语气十分的沉静，不过其中也夹杂了一些小小的懊恼。"
+  },
+  {
+    "index": 10670,
+    "key": "SDS.Dialogue.Pelette.spring_Sat6_18000243.1",
+    "source": "庆幸的是，它只是看着，也什么都没做。这也是我没有去管的理由之一。$1#$b#你也多注意一点自己的周遭吧。@。你和我靠得这么近，没准也被盯上也说不准。$7#$b#%佩莱特的语气十分的沉静，不过其中也夹杂了一些小小的懊恼。"
+  },
+  {
+    "index": 10671,
+    "key": "SDS.Dialogue.Pelette.spring_Sat6_P1old.1",
+    "source": "庆幸的是，它只是看着，也什么都没做。这也是我没有去管的理由之一。$1#$b#你也多注意一点自己的周遭吧。@。你和我靠得这么近，没准也被盯上也说不准。$7#$b#%佩莱特的语气十分的沉静，不过其中也夹杂了一些小小的懊恼。"
+  },
+  {
+    "index": 10672,
+    "key": "SDS.Dialogue.Pelette.spring_Sat8.1",
+    "source": "我最近也有在按照料理书学习做菜……#$b#虽然看不懂上面的文字，但是图片还是非常清晰明确的。$1#$q 18000244/18000245 spring_Sat8_P1old#……#$r 18000244 0 spring_Sat8_18000244#咦，你不识字吗？#$r 18000245 0 spring_Sat8_18000245#好期待！"
+  },
+  {
+    "index": 10673,
+    "key": "SDS.Dialogue.Pelette.spring_Sat8_18000244.1",
+    "source": "嗯。我没上过学。#$b#在被军官捡回去之后，也一直都呆在军营里面，虽然中途有打算尝试过，但后来也因为诸多事情而耽搁了。$6"
+  },
+  {
+    "index": 10674,
+    "key": "SDS.Dialogue.Pelette.spring_Sat8_18000245.1",
+    "source": "那下次来我家做客怎么样？$0#$b#我一定会好好招待你的，@！啊，对了，你喜欢吃什么？$1"
+  },
+  {
+    "index": 10675,
+    "key": "SDS.Dialogue.Pelette.spring_Sat8_P1old.1",
+    "source": "下次来我家做客怎么样？$0#$b#我一定会好好招待你的，@！啊，对了，你喜欢吃什么？$1"
+  },
+  {
+    "index": 10676,
+    "key": "SDS.Dialogue.Pelette.spring_Sat10.1",
+    "source": "其实我并不是一个健谈的人，我总是把话都放在心里。#$b#但你似乎和我不一样，你总喜欢把它们说出来，真厉害啊，@。$1#$b#我应该向你学习这一点。$1#$q 18000246/18000247 spring_Sat10_P1old#……#$r 18000246 0 spring_Sat10_18000246#夸得我都不好意思了#$r 18000247 0 spring_Sat10_18000247#你是一个直爽的人"
+  },
+  {
+    "index": 10677,
+    "key": "SDS.Dialogue.Pelette.spring_Sat10_18000246.1",
+    "source": "诶？…………，好吧，我下次会注意一点的。$4#$b#我不是故意让你难堪的，@，呃，或许我还是需要学习一下怎么说话才行。$6#$b#……噢，…我真的只是把心里的话说了出来而已。果然会给你造成困扰吗？$2"
+  },
+  {
+    "index": 10678,
+    "key": "SDS.Dialogue.Pelette.spring_Sat10_18000247.1",
+    "source": "你也是，@，这一点我是在你身上学到的。$1#$b#……噢，…我真的只是把心里的话说了出来而已。果然会给你造成困扰吗？$3"
+  },
+  {
+    "index": 10679,
+    "key": "SDS.Dialogue.Pelette.spring_Sat10_P1old.1",
+    "source": "你也是，@，这一点我是在你身上学到的。$1#$b#……噢，…我真的只是把心里的话说了出来而已。果然会给你造成困扰吗？$2"
+  },
+  {
+    "index": 10680,
+    "key": "SDS.Dialogue.Pelette.spring_Sun.1",
+    "source": "%佩莱特看起来心情非常差，你不知道为什么，他也没打算告诉你。#$b#%现在还是不要打扰他比较好。回去吧。"
+  },
+  {
+    "index": 10681,
+    "key": "SDS.Dialogue.Pelette.spring_Sun2.1",
+    "source": "你没事干的吗？天天都这么闲。$3#$b#别总是跟在我屁股后面转圈。你是狗吗？$3#$q 18000261/18000262 spring_Sun2_P1old#……#$r 18000261 0 spring_Sun2_18000261#…汪？#$r 18000262 0 spring_Sun2_18000262#我只是在和朋友聊天"
+  },
+  {
+    "index": 10682,
+    "key": "SDS.Dialogue.Pelette.spring_Sun2_18000261.1",
+    "source": "…………。你脑子要是出问题了就去看医生。$7"
+  },
+  {
+    "index": 10683,
+    "key": "SDS.Dialogue.Pelette.spring_Sun2_18000262.1",
+    "source": "又是朋友论？$3#$b#%佩莱特冷笑了一声。"
+  },
+  {
+    "index": 10684,
+    "key": "SDS.Dialogue.Pelette.spring_Sun2_P1old.1",
+    "source": "又是朋友论？$3#$b#%佩莱特冷笑了一声。"
+  },
+  {
+    "index": 10685,
+    "key": "SDS.Dialogue.Pelette.spring_Sun4.1",
+    "source": "你还是来了。$7#$b#…我并不是是在怀疑你，我只是在怀疑自己……$6#$b#别接触我会更好一点，@。我真的控制不了自己。而这也是我罪有应得。$7#$q 18000263/18000264 spring_Sun4_P1old#……#$r 18000263 0 spring_Sun4_18000263#我不会抛弃自己的朋友#$r 18000264 0 spring_Sun4_18000264#我们慢慢来好吗？相信自己"
+  },
+  {
+    "index": 10686,
+    "key": "SDS.Dialogue.Pelette.spring_Sun4_18000263.1",
+    "source": "………………。#$b#我们已经是朋友了吗？$6#$b#我很喜欢和你说话，…下次，我们还要一起的。对吗？@？$1"
+  },
+  {
+    "index": 10687,
+    "key": "SDS.Dialogue.Pelette.spring_Sun4_18000264.1",
+    "source": "……，…………。真不像样啊，我。$6#$b#%佩莱特抹了一把自己的脸，似乎擦去了什么。但他看起来似乎好多了。#$b#我很喜欢和你说话，…下次，我们还要一起的。对吗？@？$1"
+  },
+  {
+    "index": 10688,
+    "key": "SDS.Dialogue.Pelette.spring_Sun4_P1old.1",
+    "source": "……，…………。真不像样啊，我。$6#$b#%佩莱特抹了一把自己的脸，似乎擦去了什么。但他看起来似乎好多了。#$b#我很喜欢和你说话，…下次，我们还要一起的。对吗？@？$1"
+  },
+  {
+    "index": 10689,
+    "key": "SDS.Dialogue.Pelette.spring_Sun6.1",
+    "source": "唔，今天周日了吗，@？#$b#那两个家伙等等就要过来了…我得准备准备才行。$6#$q 18000265/18000266 spring_Sun6_P1old#……#$r 18000265 0 spring_Sun6_18000265#那两个家伙？#$r 18000266 0 spring_Sun6_18000266#怎么了吗？"
+  },
+  {
+    "index": 10690,
+    "key": "SDS.Dialogue.Pelette.spring_Sun6_18000265.1",
+    "source": "一对双子。名字是叫Lane跟Rane吗？#$b#他们是我来到这里之后，除开卢卡斯第二个认识的人。$8#$b#当然，是他们主动来找的我。$1"
+  },
+  {
+    "index": 10691,
+    "key": "SDS.Dialogue.Pelette.spring_Sun6_18000266.1",
+    "source": "我欠了点他们的人情。#$b#虽然我不知道我是怎么欠下的……但我好像的确是欠了。$6#$b#他们周日会过来收点利息，或者是拜托我去猎杀点什么东西。#$b#当然，偶尔也会纯粹过来做客。$1"
+  },
+  {
+    "index": 10692,
+    "key": "SDS.Dialogue.Pelette.spring_Sun6_P1old.1",
+    "source": "我欠了点他们的人情。#$b#虽然我不知道我是怎么欠下的……但我好像的确是欠了。$6#$b#他们周日会过来收点利息，或者是拜托我去猎杀点什么东西。#$b#当然，偶尔也会纯粹过来做客。$1"
+  },
+  {
+    "index": 10693,
+    "key": "SDS.Dialogue.Pelette.spring_Sun8.1",
+    "source": "我不喜欢下雪天。每次下雪我都会很烦躁。$7#$q 18000267/18000268 spring_Sun8_P1old#……#$r 18000267 0 spring_Sun8_18000267#为什么？#$r 18000268 0 spring_Sun8_18000268#现在还是春天"
+  },
+  {
+    "index": 10694,
+    "key": "SDS.Dialogue.Pelette.spring_Sun8_18000267.1",
+    "source": "我讨厌下雪。……它会让我想起以前。$3"
+  },
+  {
+    "index": 10695,
+    "key": "SDS.Dialogue.Pelette.spring_Sun8_18000268.1",
+    "source": "嗯。现在还是春天。可总有一天会迎来冬天。就像死亡一样。谁都避无可避。$7"
+  },
+  {
+    "index": 10696,
+    "key": "SDS.Dialogue.Pelette.spring_Sun8_P1old.1",
+    "source": "嗯。现在还是春天。可总有一天会迎来冬天。就像死亡一样。谁都避无可避。$7"
+  },
+  {
+    "index": 10697,
+    "key": "SDS.Dialogue.Pelette.spring_Sun10.1",
+    "source": "昨晚我做了一个难得的好梦。$4#$b#我梦境了小的时候，梦见了一双温暖的手，以及…关于她的笑容。$1#$q 18000269/18000270 spring_Sun10_P1old#……#$r 18000269 0 spring_Sun10_18000269#真是太好了！#$r 18000270 0 spring_Sun10_18000270#（安静听他说）"
+  },
+  {
+    "index": 10698,
+    "key": "SDS.Dialogue.Pelette.spring_Sun10_18000269.1",
+    "source": "多亏了你。@。$8#$b#是你让我变得开始不再只做噩梦了。……反正，我是这样想的。$1"
+  },
+  {
+    "index": 10699,
+    "key": "SDS.Dialogue.Pelette.spring_Sun10_18000270.1",
+    "source": "……但这场梦太短了，以至于我还没伸出手去碰到她，她就消失不见了。$2#$b#…………。#$b#但我真的太久没见到过她了。今天……也算是小小的见到了一面。所以，我很满足。…真的。$1"
+  },
+  {
+    "index": 10700,
+    "key": "SDS.Dialogue.Pelette.spring_Sun10_P1old.1",
+    "source": "……但这场梦太短了，以至于我还没伸出手去碰到她，她就消失不见了。$2#$b#…………。#$b#但我真的太久没见到过她了。今天……也算是小小的见到了一面。所以，我很满足。…真的。$1"
+  }
+]
