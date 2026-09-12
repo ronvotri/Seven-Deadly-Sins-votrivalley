@@ -51,8 +51,12 @@
   },
   "compatibility_research": {
     "state": "confirmed_runtime_conflict_direct_route_test2_built_validation_pending",
+    "current_handoff_file": "compatibility/SESSION-2026-09-12-HANDOFF.md",
+    "current_handoff_commit": "f0b0ba91351d9771873f76b0884cfc3a730af587",
+    "root_handoff_commit": "63fe65c6a6d3b967426b811e3215bfca0615f6f5",
     "static_research_file": "compatibility/SDS-EastScarp-SVE-RESEARCH.md",
     "runtime_finding_file": "compatibility/RUNTIME-FINDING-2026-09-12-EAST-TOWN-BLOCK.md",
+    "runtime_finding_latest_commit": "e408ee282359b714da7cb9f1dd663a16aeab6289",
     "runtime_checklist_file": "compatibility/RUNTIME-VALIDATION-CHECKLIST.md",
     "versions": {
       "sds": "3.13.4",
@@ -93,6 +97,10 @@
       "source_dir": "compatibility/patches/SDS-SVE-EastScarp-DirectRoute-TEST2",
       "builder": "compatibility/patches/build_direct_route_test2.py",
       "source_latest_commit": "8793d7eb1974c54808e9ac3cbf581847e65894cc",
+      "archive": "dist/compatibility/SDS-SVE-EastScarp-DirectRoute-TEST2.zip",
+      "archive_commit": "9a5e793054a65aeb2ccb8b479b2acbc6e80e5951",
+      "archive_sha256": "2bc83224c7cd7d2290abf2de8a1dc190623819317d1101cedb5ba6f3600cd8e7",
+      "preflight": "pass",
       "runtime_validation": "pending",
       "remove_test1_before_testing": true
     },
@@ -124,10 +132,11 @@
     "mode": "direct_route_runtime_validation",
     "do_not_resume_translation": true,
     "do_not_retry_test1_corridor": true,
-    "read_first": "compatibility/RUNTIME-FINDING-2026-09-12-EAST-TOWN-BLOCK.md",
+    "read_first": "compatibility/SESSION-2026-09-12-HANDOFF.md",
     "test_patch_source": "compatibility/patches/SDS-SVE-EastScarp-DirectRoute-TEST2",
+    "test_patch_archive": "dist/compatibility/SDS-SVE-EastScarp-DirectRoute-TEST2.zip",
     "next_input": "Runtime result for TEST 2 in both directions: Town -> EastScarp_Village and EastScarp_Village -> Town. If either side fails, capture debug ppp at the failed trigger/landing tile and a fresh SMAPI log if errors appear.",
-    "next_action": "Validate the direct two-way warp. Only after it passes should the pack be promoted to a stable UniqueID/release candidate and receive any optional visual entrance treatment."
+    "next_action": "Validate the direct two-way warp. Only after it passes should the pack be promoted to a stable UniqueID/release candidate and receive optional visual entrance treatment."
   },
   "translation_rules_file": "HANDOFF.md",
   "updated_at": "2026-09-12T17:00:00+07:00"
