@@ -4,101 +4,80 @@
 
 Seven Deadly Sins 3.13.4 Vietnamese text localization remains complete. Do not restart translation.
 
-The active workstream is now **SDS × SVE × East Scarp runtime compatibility**.
+The active workstream is SDS × SVE × East Scarp runtime compatibility plus two separate presentation issues: NPC Map Locations coordinate mapping and SDS high-resolution portraits.
 
-## Runtime finding that overrides the old static-only conclusion
+## East route runtime history
 
-Static inspection previously found that the SVE Shearwater warp strip itself survives SDS tile edits. Runtime testing proved that this was not enough: the practical east-Town route is blocked/overlapped before the player can reach that warp strip.
-
-Exact user runtime coordinate at the blockage:
+Initial runtime blockage was reproduced at:
 
 `Town X110 Y73`
 
-Canonical finding:
+TEST 1 cleared a tiny Buildings corridor at X111 Y73 W3 H2 and failed. Do not retry or blindly enlarge it.
 
-`compatibility/RUNTIME-FINDING-2026-09-12-EAST-TOWN-BLOCK.md`
+TEST 2 added direct Town <-> EastScarp_Village warps. Runtime testing showed the user already has an acceptable forward route through the normal railroad / Shearwater Bridge chain, while TEST 2 makes the reverse direction jump directly from East Scarp to Town.
 
-Classification for the tested large modpack:
+### Current decision
 
-**CONFIRMED RUNTIME ACCESS / TOPOLOGY CONFLICT — patch required.**
+**TEST 2 is rejected and must not be promoted.**
 
-## TEST 1
+Preferred route:
 
-Strategy:
+`main world / railroad -> Custom_ShearwaterBridge -> EastScarp_Village`
 
-- clear Buildings at Town X111 Y73 W3 H2
+and the same path in reverse.
 
-Result:
+Immediate route action:
 
-**FAILED / REJECTED.**
+1. remove `[CP] SDS-SVE-EastScarp-DirectRoute-TEST2`;
+2. restart the game;
+3. enter East Scarp through the working railroad / Shearwater Bridge path;
+4. test the native EastScarp_Village -> Custom_ShearwaterBridge -> main-world return;
+5. only build another warp patch if that native return still fails without TEST 2.
 
-The player still could not use the practical route and the combined Town presentation showed broader topology overlap. Do not keep enlarging this corridor blindly.
+Canonical updated finding:
 
-## User decision
+`compatibility/RUNTIME-FINDING-2026-09-12-BRIDGE-MINIMAP-PORTRAITURE.md`
 
-The user explicitly chose a direct reroute:
+## Minimap issue
 
-`Town -> EastScarp_Village`
+Installed minimap/world-map tracker from the tested setup:
 
-instead of preserving:
+- NPC Map Locations 3.5.2
+- UniqueID `Bouhm.NPCMapLocations`
 
-`Town -> Custom_ShearwaterBridge -> EastScarp_Village`
+Farmer position is visually wrong on the minimap/world map.
 
-for this compatibility pack.
+This is a separate coordinate-mapping compatibility issue. NPC Map Locations uses `Data/WorldMap` when available and map/warp-derived relationships otherwise. SDS changes Town topology significantly, so vanilla/SVE map-coordinate assumptions may no longer match the final Town layout.
 
-## TEST 2 — current build
+Do not guess `MapVectors`.
 
-Source:
+Next minimap work:
 
-`compatibility/patches/SDS-SVE-EastScarp-DirectRoute-TEST2/`
+- derive the correct final Town mapping vectors for the SDS+SVE Town layout;
+- then build a small Content Patcher compatibility pack targeting `Mods/Bouhm.NPCMapLocations/Locations` or the appropriate `Data/WorldMap` entry;
+- validate player marker at multiple Town coordinates, not just one tile.
 
-Builder:
+## SDS portraits / Portraiture
 
-`compatibility/patches/build_direct_route_test2.py`
+SDS ships high-resolution portrait PNGs and its own readme lists Portraiture as the PC HD portrait prerequisite.
 
-Town gate:
+The user has already copied SDS portrait PNGs to:
 
-- X110,Y72 -> EastScarp_Village 1,71
-- X110,Y73 -> EastScarp_Village 1,72
-- X110,Y74 -> EastScarp_Village 1,73
+`Mods/Portraiture/Portraits/Seven Deadly Sins/`
 
-Return gate:
+To avoid pressing P repeatedly, set Portraiture's active set in:
 
-- EastScarp_Village X0,Y70-74 -> Town X109,Y72-74
+`Mods/Portraiture/config.json`
 
-Return uses Town X109 intentionally to avoid immediate bounce-back into the direct Town gate at X110.
+so the `active` value exactly matches:
 
-TEST 2 modifies warps only. It does not edit Town Back/Buildings/Front layers.
+`Seven Deadly Sins`
 
-Current TEST 2 status:
+Portraiture saves the chosen active set, so once configured the SDS portraits should be used automatically after reload.
 
-**BUILT — two-way runtime validation pending.**
+Portraiture also has an optional large-above-dialogue display mode. If the user wants normal dialogue-box sizing rather than an intentionally enlarged above-box portrait, keep that mode disabled.
 
-## Exact next action
-
-1. Ensure TEST 1 is removed.
-2. Install TEST 2 only.
-3. Test Town -> EastScarp_Village at Town X110,Y72-74.
-4. Confirm it skips Custom_ShearwaterBridge entirely.
-5. Test EastScarp_Village west edge -> Town.
-6. Confirm landing at Town X109 is walkable and does not bounce back.
-7. If either direction fails, capture `debug ppp` at the exact failed trigger/landing tile.
-8. Capture a fresh full SMAPI log if Content Patcher reports an error.
-
-## Promotion rule
-
-Do not promote TEST 2 to a stable/release compatibility pack until both directions pass runtime validation.
-
-After both directions pass:
-
-- move to a stable UniqueID;
-- package a release candidate;
-- optionally add visual entrance treatment without changing the working warp topology;
-- regression-test Avalia Forest access and the rest of the large expansion stack.
-
-## Other open SDS items
-
-### Visual localization
+## Other open SDS item
 
 Three Chinese statement screens are baked PNG assets, not JSON text:
 
@@ -106,12 +85,14 @@ Three Chinese statement screens are baked PNG assets, not JSON text:
 - `SDS.statement2.png`
 - `SDS.statement3.png`
 
-A Vietnamese visual hotfix test has been built separately. Do not confuse this with the East Scarp compatibility pack.
+A Vietnamese visual hotfix test exists separately.
 
-### Portraits
+## Exact next action
 
-SDS uses high-resolution portrait assets. The user has moved them to Portraiture as instructed. Treat portrait display as a separate setup issue, not part of the direct-route patch.
+1. Remove TEST 2 and confirm the native bridge return path.
+2. Configure Portraiture active set to `Seven Deadly Sins` and restart, then verify Raymond/Maria/Edward display without manual P switching.
+3. For minimap calibration, gather at least two or three known Town tile positions (`debug ppp`) together with where the farmer marker appears on the world map/minimap. Use those points to derive a proper NPC Map Locations mapping instead of guessing.
 
 ## Persistence rule
 
-Every confirmed runtime result and compatibility build must be committed before being called complete. Update `CHECKPOINT.json`, root `HANDOFF.md`, and this handoff or a newer session handoff when the runtime state changes.
+Every confirmed runtime result or compatibility build must be committed before being called complete. Update CHECKPOINT.json and the handoff when the state changes.
