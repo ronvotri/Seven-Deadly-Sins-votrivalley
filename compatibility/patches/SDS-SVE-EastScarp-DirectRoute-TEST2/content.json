@@ -1,0 +1,29 @@
+{
+  "Format": "2.9.0",
+  "Changes": [
+    {
+      "LogName": "Direct Town to East Scarp route",
+      "Action": "EditMap",
+      "Target": "Maps/Town",
+      "AddWarps": [
+        "110 72 EastScarp_Village 1 71",
+        "110 73 EastScarp_Village 1 72",
+        "110 74 EastScarp_Village 1 73"
+      ],
+      "Priority": "Late"
+    },
+    {
+      "LogName": "Direct East Scarp return to Town",
+      "Action": "EditMap",
+      "Target": "Maps/EastScarp_Village",
+      "AddWarps": [
+        "0 70 Town 109 72",
+        "0 71 Town 109 72",
+        "0 72 Town 109 73",
+        "0 73 Town 109 74",
+        "0 74 Town 109 74"
+      ],
+      "Priority": "Late"
+    }
+  ]
+}
