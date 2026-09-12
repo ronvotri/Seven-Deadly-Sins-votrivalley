@@ -1,0 +1,25 @@
+{
+  "Name": "SDS x SVE x East Scarp Direct Route TEST 2",
+  "Author": "VotriValley / Ron",
+  "Version": "0.2.0-test.2",
+  "Description": "Bypasses the broken Shearwater route by adding a direct two-way warp between Pelican Town and EastScarp_Village.",
+  "UniqueID": "VotriValley.SDS.SVE.EastScarp.DirectRouteTest2",
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher",
+    "MinimumVersion": "2.9.0"
+  },
+  "Dependencies": [
+    {
+      "UniqueID": "ricehit.SevenDeadlySinsCP",
+      "IsRequired": true
+    },
+    {
+      "UniqueID": "FlashShifter.StardewValleyExpandedCP",
+      "IsRequired": true
+    },
+    {
+      "UniqueID": "Lemurkat.EastScarp",
+      "IsRequired": true
+    }
+  ]
+}
