@@ -40,15 +40,20 @@
       "dll": 2419
     }
   },
+  "visual_localization": {
+    "state": "statement_png_gap_identified_hotfix_test_built",
+    "files": [
+      "[CP] Seven Deadly Sins/Maps/CG/SDS.statement1.png",
+      "[CP] Seven Deadly Sins/Maps/CG/SDS.statement2.png",
+      "[CP] Seven Deadly Sins/Maps/CG/SDS.statement3.png"
+    ],
+    "note": "These Chinese statement screens are baked PNG assets and were outside the JSON key audit."
+  },
   "compatibility_research": {
-    "state": "runtime_validation_framework_ready_log_pending",
-    "research_file": "compatibility/SDS-EastScarp-SVE-RESEARCH.md",
-    "research_latest_commit": "58df2ebb03fa4f20c7a97f24d2c27e4bd51e3ce7",
-    "session_handoff_file": "compatibility/SESSION-2026-09-11-HANDOFF.md",
-    "session_handoff_commit": "85b23342d6155da49a01a15beb6779df6e037ffa",
-    "root_handoff_commit": "e7af6c16df6373833493e3600d639df07e286d77",
+    "state": "confirmed_runtime_conflict_direct_route_test2_built_validation_pending",
+    "static_research_file": "compatibility/SDS-EastScarp-SVE-RESEARCH.md",
+    "runtime_finding_file": "compatibility/RUNTIME-FINDING-2026-09-12-EAST-TOWN-BLOCK.md",
     "runtime_checklist_file": "compatibility/RUNTIME-VALIDATION-CHECKLIST.md",
-    "runtime_checklist_commit": "3bc0be9f50b01f9586f715ac16068822ab344577",
     "versions": {
       "sds": "3.13.4",
       "east_scarp": "3.0.9"
@@ -67,35 +72,43 @@
     "without_sve": {
       "classification": "confirmed_hard_map_conflict",
       "patch_required": true,
-      "east_scarp_town_area": "X109 Y63 W21 H14",
-      "reason": "East Scarp entrance overlaps densely occupied SDS.Town.tmx tiles."
+      "east_scarp_town_area": "X109 Y63 W21 H14"
     },
     "with_sve": {
-      "classification": "map_level_compatible_runtime_validation_recommended",
-      "patch_required_now": false,
-      "route": "Town X119,Y72-76 <-> Custom_ShearwaterBridge <-> EastScarp_Village",
-      "return_tile": "Town 118,72",
-      "sds_main_patch": "X110 Y0 W63 H116 Priority Late",
-      "verified": [
-        "East Scarp disables Town_ES.tmx when SVE is installed",
-        "SDS does not target Custom_ShearwaterBridge or East Scarp maps",
-        "SDS tiles at Town X119,Y72-76 have no Buildings-layer blockers in all three SDS main variants",
-        "Town 118,72 is walkable in SDS main variants",
-        "a walkable route from the bridge strip back to the western edge of the SDS main patch exists in all three variants",
-        "East Scarp SVE Town quest patches near X59-68,Y13-20 do not overlap SDS SVE Town rectangles",
-        "East Scarp SVE Mountain patch X86,Y35,W9,H6 does not overlap SDS Mountain edits"
-      ]
+      "static_classification": "warp_strip_itself_survives_static_map_audit",
+      "runtime_classification": "confirmed_access_topology_conflict_in_tested_modpack",
+      "patch_required": true,
+      "user_runtime_position": "Town X110 Y73",
+      "old_route": "Town X119,Y72-76 <-> Custom_ShearwaterBridge <-> EastScarp_Village",
+      "reason": "The Shearwater warp strip can survive while the practical path to it is blocked/overlapped by the final combined Town topology."
+    },
+    "test1": {
+      "strategy": "clear Buildings X111 Y73 W3 H2",
+      "result": "rejected_runtime_still_blocked",
+      "do_not_expand_blindly": true
+    },
+    "test2": {
+      "strategy": "direct_two_way_warp_bypass",
+      "route": "Town X110,Y72-74 <-> EastScarp_Village west edge X0,Y70-74",
+      "source_dir": "compatibility/patches/SDS-SVE-EastScarp-DirectRoute-TEST2",
+      "builder": "compatibility/patches/build_direct_route_test2.py",
+      "source_latest_commit": "8793d7eb1974c54808e9ac3cbf581847e65894cc",
+      "runtime_validation": "pending",
+      "remove_test1_before_testing": true
     },
     "runtime_validation": {
       "framework_ready": true,
-      "fresh_smapi_log_received": false,
-      "east_scarp_route_tested": false,
+      "fresh_full_smapi_log_received": false,
+      "debug_ppp_received": true,
+      "old_east_scarp_route_tested": true,
+      "old_east_scarp_route_result": "failed_blocked",
+      "direct_route_test2_two_way_tested": false,
       "avalia_route_tested": false,
       "ridgeside_sanity_tested": false,
       "pelipper_integrations_tested": false,
       "npc_schedule_tested": false,
       "festival_tested": false,
-      "patch_required": "unknown_until_runtime_failure_is_reproduced"
+      "patch_required": true
     },
     "sds_exact_source": {
       "artifact_id": 10267372515,
@@ -104,20 +117,18 @@
     "east_scarp_exact_source": {
       "origin": "user-supplied East Scarp.rar",
       "extracted_version": "3.0.9",
-      "smapi_dataset_attempt_run": 34614235814,
-      "smapi_dataset_attempt_result": "failed_no_unpacked_current_core",
       "local_archive_extraction_result": "success"
     }
   },
   "resume_target": {
-    "mode": "runtime_compatibility_validation",
+    "mode": "direct_route_runtime_validation",
     "do_not_resume_translation": true,
-    "map_research_done": true,
-    "read_first": "compatibility/SESSION-2026-09-11-HANDOFF.md",
-    "runtime_checklist": "compatibility/RUNTIME-VALIDATION-CHECKLIST.md",
-    "next_input": "Fresh full SMAPI log from the intended full modpack after loading a save and exercising Town <-> Custom_ShearwaterBridge <-> EastScarp_Village.",
-    "next_action": "Inspect the fresh SMAPI log, classify any dependency/Content Patcher/map/warp/schedule/festival failures, verify the audited East Scarp route and SDS Avalia Forest access, then build only the smallest targeted compatibility patch if a concrete reproducible issue exists."
+    "do_not_retry_test1_corridor": true,
+    "read_first": "compatibility/RUNTIME-FINDING-2026-09-12-EAST-TOWN-BLOCK.md",
+    "test_patch_source": "compatibility/patches/SDS-SVE-EastScarp-DirectRoute-TEST2",
+    "next_input": "Runtime result for TEST 2 in both directions: Town -> EastScarp_Village and EastScarp_Village -> Town. If either side fails, capture debug ppp at the failed trigger/landing tile and a fresh SMAPI log if errors appear.",
+    "next_action": "Validate the direct two-way warp. Only after it passes should the pack be promoted to a stable UniqueID/release candidate and receive any optional visual entrance treatment."
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-11T22:44:00+07:00"
+  "updated_at": "2026-09-12T17:00:00+07:00"
 }
