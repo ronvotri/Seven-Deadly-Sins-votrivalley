@@ -34,11 +34,7 @@
   "release": {
     "commit": "cac241011ff8e0eb15d8902ed94b06e78006bfa7",
     "archive": "dist/Seven-Deadly-Sins-3.13.4-Vietnamese-Localization.zip",
-    "localization_only": true,
-    "verified_key_counts": {
-      "cp": 24827,
-      "dll": 2419
-    }
+    "localization_only": true
   },
   "visual_localization": {
     "state": "statement_png_gap_identified_hotfix_test_built",
@@ -46,98 +42,50 @@
       "[CP] Seven Deadly Sins/Maps/CG/SDS.statement1.png",
       "[CP] Seven Deadly Sins/Maps/CG/SDS.statement2.png",
       "[CP] Seven Deadly Sins/Maps/CG/SDS.statement3.png"
-    ],
-    "note": "These Chinese statement screens are baked PNG assets and were outside the JSON key audit."
+    ]
   },
   "compatibility_research": {
-    "state": "confirmed_runtime_conflict_direct_route_test2_built_validation_pending",
+    "state": "native_bridge_roundtrip_validation_and_minimap_mapping_pending",
     "current_handoff_file": "compatibility/SESSION-2026-09-12-HANDOFF.md",
-    "current_handoff_commit": "f0b0ba91351d9771873f76b0884cfc3a730af587",
-    "root_handoff_commit": "63fe65c6a6d3b967426b811e3215bfca0615f6f5",
-    "static_research_file": "compatibility/SDS-EastScarp-SVE-RESEARCH.md",
-    "runtime_finding_file": "compatibility/RUNTIME-FINDING-2026-09-12-EAST-TOWN-BLOCK.md",
-    "runtime_finding_latest_commit": "e408ee282359b714da7cb9f1dd663a16aeab6289",
-    "runtime_checklist_file": "compatibility/RUNTIME-VALIDATION-CHECKLIST.md",
+    "current_handoff_commit": "14ddb57501534dfd3d3aa26b876faa421073b1dd",
+    "latest_runtime_finding_file": "compatibility/RUNTIME-FINDING-2026-09-12-BRIDGE-MINIMAP-PORTRAITURE.md",
+    "latest_runtime_finding_commit": "e0be4e8e8a9b05f6927c9c5be3e721e0101b3865",
     "versions": {
       "sds": "3.13.4",
-      "east_scarp": "3.0.9"
-    },
-    "intended_modpack": [
-      "Seven Deadly Sins 3.13.4",
-      "Stardew Valley Expanded",
-      "East Scarp 3.0.9",
-      "Ridgeside Village",
-      "Pelipper Town",
-      "PelipperTown.SVE",
-      "PelipperTown.EastScarp",
-      "PelipperTown.RidgesideVillage",
-      "PelipperTown.StarCrossed when StarCrossed is installed"
-    ],
-    "without_sve": {
-      "classification": "confirmed_hard_map_conflict",
-      "patch_required": true,
-      "east_scarp_town_area": "X109 Y63 W21 H14"
+      "east_scarp": "3.0.9",
+      "npc_map_locations": "3.5.2"
     },
     "with_sve": {
-      "static_classification": "warp_strip_itself_survives_static_map_audit",
-      "runtime_classification": "confirmed_access_topology_conflict_in_tested_modpack",
-      "patch_required": true,
-      "user_runtime_position": "Town X110 Y73",
-      "old_route": "Town X119,Y72-76 <-> Custom_ShearwaterBridge <-> EastScarp_Village",
-      "reason": "The Shearwater warp strip can survive while the practical path to it is blocked/overlapped by the final combined Town topology."
+      "runtime_classification": "native_railroad_shearwater_forward_route_usable",
+      "preferred_route": "main world / railroad <-> Custom_ShearwaterBridge <-> EastScarp_Village",
+      "test1": "rejected",
+      "test2": "rejected_asymmetric_return",
+      "test2_reason": "Direct EastScarp_Village -> Town return bypasses Shearwater Bridge while forward travel naturally uses the bridge chain."
     },
-    "test1": {
-      "strategy": "clear Buildings X111 Y73 W3 H2",
-      "result": "rejected_runtime_still_blocked",
-      "do_not_expand_blindly": true
+    "minimap": {
+      "mod": "NPC Map Locations 3.5.2",
+      "unique_id": "Bouhm.NPCMapLocations",
+      "status": "farmer_marker_inaccurate",
+      "classification": "separate_world_map_coordinate_mapping_issue",
+      "next_action": "Derive correct Town mapping vectors for the final SDS+SVE Town layout using multiple debug ppp calibration points before building a compatibility patch."
     },
-    "test2": {
-      "strategy": "direct_two_way_warp_bypass",
-      "route": "Town X110,Y72-74 <-> EastScarp_Village west edge X0,Y70-74",
-      "source_dir": "compatibility/patches/SDS-SVE-EastScarp-DirectRoute-TEST2",
-      "builder": "compatibility/patches/build_direct_route_test2.py",
-      "source_latest_commit": "8793d7eb1974c54808e9ac3cbf581847e65894cc",
-      "archive": "dist/compatibility/SDS-SVE-EastScarp-DirectRoute-TEST2.zip",
-      "archive_commit": "9a5e793054a65aeb2ccb8b479b2acbc6e80e5951",
-      "archive_sha256": "2bc83224c7cd7d2290abf2de8a1dc190623819317d1101cedb5ba6f3600cd8e7",
-      "preflight": "pass",
-      "runtime_validation": "pending",
-      "remove_test1_before_testing": true
-    },
-    "runtime_validation": {
-      "framework_ready": true,
-      "fresh_full_smapi_log_received": false,
-      "debug_ppp_received": true,
-      "old_east_scarp_route_tested": true,
-      "old_east_scarp_route_result": "failed_blocked",
-      "direct_route_test2_two_way_tested": false,
-      "avalia_route_tested": false,
-      "ridgeside_sanity_tested": false,
-      "pelipper_integrations_tested": false,
-      "npc_schedule_tested": false,
-      "festival_tested": false,
-      "patch_required": true
-    },
-    "sds_exact_source": {
-      "artifact_id": 10267372515,
-      "run_id": 34609160529
-    },
-    "east_scarp_exact_source": {
-      "origin": "user-supplied East Scarp.rar",
-      "extracted_version": "3.0.9",
-      "local_archive_extraction_result": "success"
+    "portraits": {
+      "mod": "Portraiture",
+      "status": "user_copied_sds_hd_portraits",
+      "portrait_folder": "Mods/Portraiture/Portraits/Seven Deadly Sins/",
+      "recommended_active_set": "Seven Deadly Sins",
+      "next_action": "Set Portraiture config active value to Seven Deadly Sins and keep large-above-box mode disabled if normal dialogue sizing is preferred."
     }
   },
   "resume_target": {
-    "mode": "direct_route_runtime_validation",
+    "mode": "native_bridge_roundtrip_and_minimap_calibration",
     "do_not_resume_translation": true,
-    "do_not_retry_test1_corridor": true,
+    "do_not_retry_test1": true,
+    "do_not_promote_test2": true,
     "read_first": "compatibility/SESSION-2026-09-12-HANDOFF.md",
-    "test_patch_source": "compatibility/patches/SDS-SVE-EastScarp-DirectRoute-TEST2",
-    "test_patch_archive": "dist/compatibility/SDS-SVE-EastScarp-DirectRoute-TEST2.zip",
-    "next_input": "Runtime result for TEST 2 in both directions: Town -> EastScarp_Village and EastScarp_Village -> Town. If either side fails, capture debug ppp at the failed trigger/landing tile and a fresh SMAPI log if errors appear.",
-    "next_action": "Validate the direct two-way warp. Only after it passes should the pack be promoted to a stable UniqueID/release candidate and receive optional visual entrance treatment."
+    "next_input": "Native EastScarp_Village -> Custom_ShearwaterBridge -> main-world return result after TEST 2 is removed, plus multiple Town debug ppp calibration positions for NPC Map Locations if minimap remains inaccurate.",
+    "next_action": "Preserve the native two-way bridge chain if it works; then build a dedicated NPC Map Locations coordinate compatibility patch from measured Town map vectors."
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-12T17:00:00+07:00"
+  "updated_at": "2026-09-12T20:24:00+07:00"
 }
