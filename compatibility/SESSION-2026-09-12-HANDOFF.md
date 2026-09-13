@@ -1,83 +1,87 @@
-# Session Handoff — 2026-09-12
+# Session Handoff - 2026-09-12
 
 ## Current state
 
 Seven Deadly Sins 3.13.4 Vietnamese text localization remains complete. Do not restart translation.
 
-The active workstream is SDS × SVE × East Scarp runtime compatibility plus two separate presentation issues: NPC Map Locations coordinate mapping and SDS high-resolution portraits.
+The active workstream is SDS + SVE + East Scarp runtime compatibility, NPC Map Locations world-map calibration, and SDS high-resolution portraits.
 
-## East route runtime history
+## East Scarp route
 
-Initial runtime blockage was reproduced at:
+The preferred route is now confirmed conceptually as the native two-way chain:
 
-`Town X110 Y73`
+`main world / railroad <-> Custom_ShearwaterBridge <-> EastScarp_Village`
 
-TEST 1 cleared a tiny Buildings corridor at X111 Y73 W3 H2 and failed. Do not retry or blindly enlarge it.
+Do not promote the old direct-route TEST 2, because its East Scarp return bypassed Shearwater Bridge and teleported directly to Town.
 
-TEST 2 added direct Town <-> EastScarp_Village warps. Runtime testing showed the user already has an acceptable forward route through the normal railroad / Shearwater Bridge chain, while TEST 2 makes the reverse direction jump directly from East Scarp to Town.
+## NPC Map Locations / minimap
 
-### Current decision
-
-**TEST 2 is rejected and must not be promoted.**
-
-Preferred route:
-
-`main world / railroad -> Custom_ShearwaterBridge -> EastScarp_Village`
-
-and the same path in reverse.
-
-Immediate route action:
-
-1. remove `[CP] SDS-SVE-EastScarp-DirectRoute-TEST2`;
-2. restart the game;
-3. enter East Scarp through the working railroad / Shearwater Bridge path;
-4. test the native EastScarp_Village -> Custom_ShearwaterBridge -> main-world return;
-5. only build another warp patch if that native return still fails without TEST 2.
-
-Canonical updated finding:
-
-`compatibility/RUNTIME-FINDING-2026-09-12-BRIDGE-MINIMAP-PORTRAITURE.md`
-
-## Minimap issue
-
-Installed minimap/world-map tracker from the tested setup:
+Installed tracker:
 
 - NPC Map Locations 3.5.2
 - UniqueID `Bouhm.NPCMapLocations`
 
-Farmer position is visually wrong on the minimap/world map.
+The mod uses Stardew 1.6 `Data/WorldMap` / `WorldMapManager.GetPositionData()` for farmer placement.
 
-This is a separate coordinate-mapping compatibility issue. NPC Map Locations uses `Data/WorldMap` when available and map/warp-derived relationships otherwise. SDS changes Town topology significantly, so vanilla/SVE map-coordinate assumptions may no longer match the final Town layout.
+### Runtime Town calibration
 
-Do not guess `MapVectors`.
+Measured anchors:
 
-Next minimap work:
+- Joja area: `Town 95,52`
+- SDS church area: `Town 151,79`
 
-- derive the correct final Town mapping vectors for the SDS+SVE Town layout;
-- then build a small Content Patcher compatibility pack targeting `Mods/Bouhm.NPCMapLocations/Locations` or the appropriate `Data/WorldMap` entry;
-- validate player marker at multiple Town coordinates, not just one tile.
+NPC Map Locations TEST 1 split Town world-map mapping into west/central and east SDS regions. Runtime screenshot feedback indicates the Town marker now appears substantially correct.
+
+### Shearwater Bridge finding
+
+After TEST 1, entering `Custom_ShearwaterBridge` places the farmer marker visually on the SDS church.
+
+Root cause is now identified precisely:
+
+SVE already defines `Custom_ShearwaterBridge` in `Data/WorldMap` at:
+
+`MapPixelArea X250 Y90 Width43 Height10`
+
+Those coordinates fit SVE's own map artwork. SDS replaces the world-map artwork, and on the SDS artwork this same pixel region overlaps the church.
+
+### Current minimap TEST 2
+
+Source:
+
+`compatibility/patches/SDS-SVE-NPCMapLocations-Compat-TEST2/`
+
+TEST 2 keeps the working Town calibration and overrides only the Shearwater Bridge world-map area to:
+
+`X286 Y101 Width13 Height7`
+
+This moves the bridge marker to the far-east coast of the SDS world map instead of the church.
+
+Latest source commits:
+
+- manifest: `92f52cf2617ed25febcfe93edb556fa825d6283c`
+- content: `870666117c3bdc6850c1cf212ffb7b90e0f3f75e`
+- README: `9e051bbfad7b51bbdf53f0c13002e8e050187c8e`
+
+### Exact next minimap action
+
+1. Remove `[CP] SDS-SVE-NPCMapLocations-Compat-TEST1`.
+2. Install `[CP] SDS-SVE-NPCMapLocations-Compat-TEST2`.
+3. Restart the game completely.
+4. Verify Town / Joja / church still align.
+5. Enter `Custom_ShearwaterBridge` and confirm the marker moves to the far-east coast instead of the church.
+6. If only slightly offset, fine-tune X/Y only. Do not redo Town calibration.
 
 ## SDS portraits / Portraiture
 
-SDS ships high-resolution portrait PNGs and its own readme lists Portraiture as the PC HD portrait prerequisite.
-
-The user has already copied SDS portrait PNGs to:
+The user has already copied the SDS HD portrait PNGs to:
 
 `Mods/Portraiture/Portraits/Seven Deadly Sins/`
 
-To avoid pressing P repeatedly, set Portraiture's active set in:
+Portraiture config and folder structure have been checked and are not the root cause of the oversized/cropped SDS portraits. Runtime log previously confirmed the active portrait set is `Seven Deadly Sins`.
 
-`Mods/Portraiture/config.json`
+The remaining portrait issue is in the runtime render/hook interaction between SDS's direct high-resolution portrait loads and Portraiture.
 
-so the `active` value exactly matches:
-
-`Seven Deadly Sins`
-
-Portraiture saves the chosen active set, so once configured the SDS portraits should be used automatically after reload.
-
-Portraiture also has an optional large-above-dialogue display mode. If the user wants normal dialogue-box sizing rather than an intentionally enlarged above-box portrait, keep that mode disabled.
-
-## Other open SDS item
+## Visual localization
 
 Three Chinese statement screens are baked PNG assets, not JSON text:
 
@@ -85,14 +89,8 @@ Three Chinese statement screens are baked PNG assets, not JSON text:
 - `SDS.statement2.png`
 - `SDS.statement3.png`
 
-A Vietnamese visual hotfix test exists separately.
-
-## Exact next action
-
-1. Remove TEST 2 and confirm the native bridge return path.
-2. Configure Portraiture active set to `Seven Deadly Sins` and restart, then verify Raymond/Maria/Edward display without manual P switching.
-3. For minimap calibration, gather at least two or three known Town tile positions (`debug ppp`) together with where the farmer marker appears on the world map/minimap. Use those points to derive a proper NPC Map Locations mapping instead of guessing.
+A Vietnamese visual hotfix test exists separately and still needs in-game confirmation before merging into the full release package.
 
 ## Persistence rule
 
-Every confirmed runtime result or compatibility build must be committed before being called complete. Update CHECKPOINT.json and the handoff when the state changes.
+Every confirmed runtime result or compatibility build must be committed before being called complete. Update CHECKPOINT.json and this handoff whenever the state changes.
