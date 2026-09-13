@@ -1,0 +1,16 @@
+{
+  "Name": "SDS x SVE x NPC Map Locations Compatibility TEST 4",
+  "Author": "VotriValley / Ron",
+  "Version": "0.4.0-test.4",
+  "Description": "Topology-aware Town and Shearwater Bridge world-map tracking for SDS + SVE + NPC Map Locations 3.5.2.",
+  "UniqueID": "VotriValley.SDS.SVE.NPCMapLocations.CompatTest4",
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher",
+    "MinimumVersion": "2.0.0"
+  },
+  "Dependencies": [
+    {"UniqueID": "ricehit.SevenDeadlySinsCP", "IsRequired": true},
+    {"UniqueID": "FlashShifter.StardewValleyExpandedCP", "IsRequired": true},
+    {"UniqueID": "Bouhm.NPCMapLocations", "IsRequired": true}
+  ]
+}
