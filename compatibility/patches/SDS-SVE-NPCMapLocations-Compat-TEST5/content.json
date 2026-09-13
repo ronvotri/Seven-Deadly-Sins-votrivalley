@@ -1,0 +1,105 @@
+{
+  "Format": "2.9.0",
+  "Changes": [
+    {
+      "LogName": "SDS Town ordered world-map positions",
+      "Action": "EditData",
+      "Target": "Data/WorldMap",
+      "TargetField": [
+        "Valley",
+        "MapAreas",
+        "Town",
+        "WorldPositions"
+      ],
+      "Entries": {
+        "VotriValley.SDS_BridgeCorridor": {
+          "Id": "VotriValley.SDS_BridgeCorridor",
+          "LocationName": "Town",
+          "TileArea": {
+            "X": 59,
+            "Y": 49,
+            "Width": 22,
+            "Height": 12
+          },
+          "MapPixelArea": {
+            "X": 180,
+            "Y": 80,
+            "Width": 38,
+            "Height": 8
+          }
+        },
+        "VotriValley.SDS_EastTown": {
+          "Id": "VotriValley.SDS_EastTown",
+          "LocationName": "Town",
+          "TileArea": {
+            "X": 80,
+            "Y": 0,
+            "Width": 93,
+            "Height": 116
+          },
+          "MapPixelArea": {
+            "X": 216,
+            "Y": 54,
+            "Width": 48,
+            "Height": 65
+          }
+        }
+      },
+      "Fields": {
+        "Default": {
+          "TileArea": {
+            "X": 0,
+            "Y": 0,
+            "Width": 80,
+            "Height": 116
+          }
+        }
+      },
+      "MoveEntries": [
+        {
+          "ID": "VotriValley.SDS_BridgeCorridor",
+          "BeforeId": "Default"
+        },
+        {
+          "ID": "VotriValley.SDS_EastTown",
+          "BeforeId": "Default"
+        }
+      ],
+      "Priority": "Late"
+    },
+    {
+      "LogName": "Hard override SVE Shearwater Bridge world-map area for SDS artwork",
+      "Action": "EditData",
+      "Target": "Data/WorldMap",
+      "TargetField": [
+        "Valley",
+        "MapAreas"
+      ],
+      "Entries": {
+        "FlashShifter.StardewValleyExpanded_TownMap_ShearwaterBridge": {
+          "Id": "Custom_ShearwaterBridge",
+          "PixelArea": {
+            "X": 0,
+            "Y": 0,
+            "Width": 300,
+            "Height": 180
+          },
+          "ScrollText": "Cầu Shearwater",
+          "WorldPositions": [
+            {
+              "Id": "Custom_ShearwaterBridge",
+              "LocationName": "Custom_ShearwaterBridge",
+              "MapPixelArea": {
+                "X": 286,
+                "Y": 101,
+                "Width": 13,
+                "Height": 7
+              }
+            }
+          ]
+        }
+      },
+      "Priority": "Late"
+    }
+  ]
+}
