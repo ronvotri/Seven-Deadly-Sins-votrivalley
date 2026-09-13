@@ -1,18 +1,23 @@
-# Session Handoff - 2026-09-12
+# Session Handoff - 2026-09-14
 
 ## Current state
 
 Seven Deadly Sins 3.13.4 Vietnamese text localization remains complete. Do not restart translation.
 
-The active workstream is SDS + SVE + East Scarp runtime compatibility, NPC Map Locations world-map calibration, and SDS high-resolution portraits.
+Active workstreams:
+
+- SDS + SVE + East Scarp runtime compatibility;
+- NPC Map Locations world-map calibration;
+- SDS high-resolution portrait rendering;
+- Vietnamese replacement for three baked Chinese statement PNGs.
 
 ## East Scarp route
 
-Preferred route remains the native two-way chain:
+Preferred route remains:
 
 `main world / railroad <-> Custom_ShearwaterBridge <-> EastScarp_Village`
 
-Do not restore the old direct-route TEST 2 because it created an asymmetric East Scarp -> Town teleport.
+Do not restore the rejected direct-route TEST 2 because it made the return path jump directly from East Scarp to Town.
 
 ## NPC Map Locations / minimap
 
@@ -21,90 +26,121 @@ Installed tracker:
 - NPC Map Locations 3.5.2
 - UniqueID `Bouhm.NPCMapLocations`
 
-The mod uses Stardew 1.6 `Data/WorldMap` / `WorldMapManager.GetPositionData()` for farmer placement.
+The mod uses Stardew 1.6 `Data/WorldMap` / `WorldMapManager.GetPositionData()`.
 
-### Town calibration
+### Confirmed Town anchors
 
-Measured runtime anchors:
+Runtime anchors gathered from the user's modpack:
 
-- Joja area: `Town 95,52`
-- SDS church area: `Town 151,79`
+- Town `40,26`: visually correct under legacy/default mapping;
+- Town `59,54`: marker starts drifting;
+- Town `74,53`: small Town bridge marker visibly wrong;
+- Town `79,53` and `80,53`: earlier tests exposed a severe one-tile discontinuity;
+- Joja area around Town `95,52`: east calibration good;
+- SDS church around Town `151,79`: east calibration good.
 
-The split Town mapping introduced in TEST 1/2 appears substantially correct in runtime. Preserve it.
+### Root cause found on 2026-09-14
 
-### Shearwater Bridge runtime finding
+`WorldPositions` is an ordered list. Stardew checks positions in order and uses the first matching entry.
 
-After TEST 2, the user tested `Custom_ShearwaterBridge` at tile `6,21`.
+Content Patcher appends new list entries at the bottom by default. Earlier custom entries such as `VotriValley.SDS_EastTown` or lower/bridge zones could therefore sit below broad Town `Default`; when `Default` matched first, the custom entry was never evaluated.
 
-`debug WorldMapPosition true` reported:
+This explains why debug output at Town `59,54` and `74,53` continued to report `Default` even though custom zones existed in the patch.
 
-`pixel area X1000 Y360 Width172 Height40`
+The correct Content Patcher mechanism is `MoveEntries`.
 
-with player ratio approximately `X0.1 Y0.525`.
-
-Dividing the pixel area by Stardew's x4 world-map zoom gives exactly:
-
-`X250 Y90 Width43 Height10`
-
-which is SVE's original Shearwater Bridge `MapPixelArea`.
-
-Therefore TEST 2's nested edit did not replace the SVE world-map entry. The bridge marker is still using SVE coordinates on SDS artwork, which visually lands around the SDS church.
-
-## Current minimap TEST 3
+## Current minimap TEST 5
 
 Source:
 
-`compatibility/patches/SDS-SVE-NPCMapLocations-Compat-TEST3/`
+`compatibility/patches/SDS-SVE-NPCMapLocations-Compat-TEST5/`
 
-TEST 3 preserves the working Town calibration and replaces the entire SVE Shearwater Bridge map-area dictionary entry at:
+Source commits:
 
-`Data/WorldMap -> Valley -> MapAreas -> FlashShifter.StardewValleyExpanded_TownMap_ShearwaterBridge`
+- manifest: `b2963e825a25b6e50697c4ddaf79d738c71947ef`
+- content: `388538f3c6a0cf2cccb22421336a0de9dd9de647`
+- README: `6fd893b3db66893cf4c590c11857981041cdee07`
 
-New raw bridge placement:
+### Town order enforced by TEST 5
 
-`X286 Y101 Width13 Height7`
+1. `VotriValley.SDS_BridgeCorridor`
+2. `VotriValley.SDS_EastTown`
+3. `Default`
 
-Expected `debug WorldMapPosition true` pixel area after x4 zoom:
+`MoveEntries` puts both custom entries before `Default`.
 
-`X1144 Y404 Width52 Height28`
+### Bridge corridor
 
-TEST 3 source commits:
+TileArea:
 
-- manifest: `e481098b3100850194c4a7eb50cd9c8bf85a17b8`
-- content: `02f962496962a9527f70d4b742b2e64df3566e55`
-- README: `dba108fbd282162ef1baf5bc0cd22da59922494e`
+`X59 Y49 Width22 Height12`
 
-### Exact next minimap action
+MapPixelArea:
 
-1. Remove `[CP] SDS-SVE-NPCMapLocations-Compat-TEST1` and `[CP] SDS-SVE-NPCMapLocations-Compat-TEST2`.
-2. Install `[CP] SDS-SVE-NPCMapLocations-Compat-TEST3`.
-3. Restart the game completely.
-4. Verify Town / Joja / church remain correct.
-5. Enter `Custom_ShearwaterBridge`, preferably near tile `6,21`.
-6. Run `debug WorldMapPosition true`.
-7. PASS for patch application: pixel area changes from `X1000 Y360 Width172 Height40` to approximately `X1144 Y404 Width52 Height28`.
-8. If visually only a few pixels off after that, tune only bridge X/Y. Do not redo Town calibration.
+`X180 Y80 Width38 Height8`
 
-## SDS portraits / Portraiture
+Expected continuity:
 
-The user has already copied the SDS HD portrait PNGs to:
+- Default `Town 58,54` -> raw map about `(179.625, 83.241)`;
+- Corridor `Town 59,54` -> `(180.000, 83.333)`;
+- Corridor `Town 80,53` -> about `(216.273, 82.667)`;
+- EastTown `Town 81,53` -> about `(216.516, 83.698)`.
 
-`Mods/Portraiture/Portraits/Seven Deadly Sins/`
+The old ~100 runtime-pixel teleport should disappear.
 
-Portraiture config, folder structure, and active set have been verified. Runtime previously confirmed active portrait set `Seven Deadly Sins`.
+### East Town
 
-The remaining portrait issue is in runtime rendering / hook interaction with SDS's direct high-resolution portrait loads.
+Keep validated calibration:
+
+`TileArea X80 Y0 Width93 Height116`
+
+`MapPixelArea X216 Y54 Width48 Height65`
+
+### Default Town
+
+Default TileArea remains constrained to:
+
+`X0 Y0 Width80 Height116`
+
+This preserves the west/central Town scale that tested correctly at `Town 40,26`.
+
+### Custom_ShearwaterBridge
+
+TEST 5 retains the parent map-area hard override:
+
+`MapPixelArea X286 Y101 Width13 Height7`
+
+## Exact next minimap action
+
+1. Remove minimap TEST 1–4.
+2. Install only TEST 5.
+3. Restart game fully.
+4. At Town around Y53–54, walk slowly:
+   `X58 -> X59 -> ... -> X74 -> ... -> X80 -> X81`.
+5. Watch minimap marker for continuous motion.
+6. Run `debug WorldMapPosition true` at representative points.
+7. PASS expectation:
+   - around X58: `Default`;
+   - X59–80 while Y49–60: `VotriValley.SDS_BridgeCorridor`;
+   - X81+: `VotriValley.SDS_EastTown`.
+8. Recheck Joja, church, and `Custom_ShearwaterBridge`.
+
+## Portraits
+
+The user's Portraiture config, folder structure, active set, and portrait dimensions have been checked. Runtime previously confirmed active set `Seven Deadly Sins`.
+
+Remaining portrait issue is runtime rendering / hook interaction with SDS direct HD portrait loads.
 
 ## Visual localization
 
-Three Chinese statement screens are baked PNG assets, not JSON text:
+Three Chinese statement screens are baked PNG assets:
 
 - `SDS.statement1.png`
 - `SDS.statement2.png`
 - `SDS.statement3.png`
 
-A Vietnamese visual hotfix test exists separately and still needs in-game confirmation before merging into the full release package.
+A Vietnamese visual hotfix test exists and still needs final in-game confirmation before merging into the full release package.
 
 ## Persistence rule
 
-Every confirmed runtime result or compatibility build must be committed before being called complete. Update CHECKPOINT.json and this handoff whenever the state changes.
+Every confirmed runtime result or compatibility build must be committed before being called complete. Update CHECKPOINT.json and this handoff whenever state changes.
