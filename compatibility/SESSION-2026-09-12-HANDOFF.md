@@ -8,11 +8,11 @@ The active workstream is SDS + SVE + East Scarp runtime compatibility, NPC Map L
 
 ## East Scarp route
 
-The preferred route is now confirmed conceptually as the native two-way chain:
+Preferred route remains the native two-way chain:
 
 `main world / railroad <-> Custom_ShearwaterBridge <-> EastScarp_Village`
 
-Do not promote the old direct-route TEST 2, because its East Scarp return bypassed Shearwater Bridge and teleported directly to Town.
+Do not restore the old direct-route TEST 2 because it created an asymmetric East Scarp -> Town teleport.
 
 ## NPC Map Locations / minimap
 
@@ -23,53 +23,67 @@ Installed tracker:
 
 The mod uses Stardew 1.6 `Data/WorldMap` / `WorldMapManager.GetPositionData()` for farmer placement.
 
-### Runtime Town calibration
+### Town calibration
 
-Measured anchors:
+Measured runtime anchors:
 
 - Joja area: `Town 95,52`
 - SDS church area: `Town 151,79`
 
-NPC Map Locations TEST 1 split Town world-map mapping into west/central and east SDS regions. Runtime screenshot feedback indicates the Town marker now appears substantially correct.
+The split Town mapping introduced in TEST 1/2 appears substantially correct in runtime. Preserve it.
 
-### Shearwater Bridge finding
+### Shearwater Bridge runtime finding
 
-After TEST 1, entering `Custom_ShearwaterBridge` places the farmer marker visually on the SDS church.
+After TEST 2, the user tested `Custom_ShearwaterBridge` at tile `6,21`.
 
-Root cause is now identified precisely:
+`debug WorldMapPosition true` reported:
 
-SVE already defines `Custom_ShearwaterBridge` in `Data/WorldMap` at:
+`pixel area X1000 Y360 Width172 Height40`
 
-`MapPixelArea X250 Y90 Width43 Height10`
+with player ratio approximately `X0.1 Y0.525`.
 
-Those coordinates fit SVE's own map artwork. SDS replaces the world-map artwork, and on the SDS artwork this same pixel region overlaps the church.
+Dividing the pixel area by Stardew's x4 world-map zoom gives exactly:
 
-### Current minimap TEST 2
+`X250 Y90 Width43 Height10`
+
+which is SVE's original Shearwater Bridge `MapPixelArea`.
+
+Therefore TEST 2's nested edit did not replace the SVE world-map entry. The bridge marker is still using SVE coordinates on SDS artwork, which visually lands around the SDS church.
+
+## Current minimap TEST 3
 
 Source:
 
-`compatibility/patches/SDS-SVE-NPCMapLocations-Compat-TEST2/`
+`compatibility/patches/SDS-SVE-NPCMapLocations-Compat-TEST3/`
 
-TEST 2 keeps the working Town calibration and overrides only the Shearwater Bridge world-map area to:
+TEST 3 preserves the working Town calibration and replaces the entire SVE Shearwater Bridge map-area dictionary entry at:
+
+`Data/WorldMap -> Valley -> MapAreas -> FlashShifter.StardewValleyExpanded_TownMap_ShearwaterBridge`
+
+New raw bridge placement:
 
 `X286 Y101 Width13 Height7`
 
-This moves the bridge marker to the far-east coast of the SDS world map instead of the church.
+Expected `debug WorldMapPosition true` pixel area after x4 zoom:
 
-Latest source commits:
+`X1144 Y404 Width52 Height28`
 
-- manifest: `92f52cf2617ed25febcfe93edb556fa825d6283c`
-- content: `870666117c3bdc6850c1cf212ffb7b90e0f3f75e`
-- README: `9e051bbfad7b51bbdf53f0c13002e8e050187c8e`
+TEST 3 source commits:
+
+- manifest: `e481098b3100850194c4a7eb50cd9c8bf85a17b8`
+- content: `02f962496962a9527f70d4b742b2e64df3566e55`
+- README: `dba108fbd282162ef1baf5bc0cd22da59922494e`
 
 ### Exact next minimap action
 
-1. Remove `[CP] SDS-SVE-NPCMapLocations-Compat-TEST1`.
-2. Install `[CP] SDS-SVE-NPCMapLocations-Compat-TEST2`.
+1. Remove `[CP] SDS-SVE-NPCMapLocations-Compat-TEST1` and `[CP] SDS-SVE-NPCMapLocations-Compat-TEST2`.
+2. Install `[CP] SDS-SVE-NPCMapLocations-Compat-TEST3`.
 3. Restart the game completely.
-4. Verify Town / Joja / church still align.
-5. Enter `Custom_ShearwaterBridge` and confirm the marker moves to the far-east coast instead of the church.
-6. If only slightly offset, fine-tune X/Y only. Do not redo Town calibration.
+4. Verify Town / Joja / church remain correct.
+5. Enter `Custom_ShearwaterBridge`, preferably near tile `6,21`.
+6. Run `debug WorldMapPosition true`.
+7. PASS for patch application: pixel area changes from `X1000 Y360 Width172 Height40` to approximately `X1144 Y404 Width52 Height28`.
+8. If visually only a few pixels off after that, tune only bridge X/Y. Do not redo Town calibration.
 
 ## SDS portraits / Portraiture
 
@@ -77,9 +91,9 @@ The user has already copied the SDS HD portrait PNGs to:
 
 `Mods/Portraiture/Portraits/Seven Deadly Sins/`
 
-Portraiture config and folder structure have been checked and are not the root cause of the oversized/cropped SDS portraits. Runtime log previously confirmed the active portrait set is `Seven Deadly Sins`.
+Portraiture config, folder structure, and active set have been verified. Runtime previously confirmed active portrait set `Seven Deadly Sins`.
 
-The remaining portrait issue is in the runtime render/hook interaction between SDS's direct high-resolution portrait loads and Portraiture.
+The remaining portrait issue is in runtime rendering / hook interaction with SDS's direct high-resolution portrait loads.
 
 ## Visual localization
 
