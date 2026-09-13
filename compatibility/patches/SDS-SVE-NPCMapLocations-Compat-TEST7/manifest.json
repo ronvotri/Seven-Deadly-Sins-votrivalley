@@ -1,0 +1,16 @@
+{
+  "Name": "SDS x SVE x NPC Map Locations Compatibility TEST 7",
+  "Author": "VotriValley / Ron",
+  "Version": "0.7.0-test.7",
+  "Description": "Keeps validated Town tracking and correctly targets Custom_ShearwaterBridge runtime world-map position.",
+  "UniqueID": "VotriValley.SDS.SVE.NPCMapLocations.CompatTest7",
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher",
+    "MinimumVersion": "2.0.0"
+  },
+  "Dependencies": [
+    {"UniqueID": "ricehit.SevenDeadlySinsCP", "IsRequired": true},
+    {"UniqueID": "FlashShifter.StardewValleyExpandedCP", "IsRequired": true},
+    {"UniqueID": "Bouhm.NPCMapLocations", "IsRequired": true}
+  ]
+}
