@@ -45,9 +45,9 @@
     ]
   },
   "compatibility_research": {
-    "state": "npc_map_locations_test5_ordered_world_positions_validation_pending",
+    "state": "npc_map_locations_test6_default_projection_validation_pending",
     "current_handoff_file": "compatibility/SESSION-2026-09-12-HANDOFF.md",
-    "current_handoff_commit": "18f0bec52d942354352eaf78d3221bd890011b36",
+    "current_handoff_commit": "9bc1dcc592ba5bcd0d069c9b9d47ca982dafc3a4",
     "versions": {
       "sds": "3.13.4",
       "east_scarp": "3.0.9",
@@ -62,28 +62,32 @@
       "mod": "NPC Map Locations 3.5.2",
       "unique_id": "Bouhm.NPCMapLocations",
       "classification": "Data/WorldMap_artwork_coordinate_and_worldposition_order_mismatch",
-      "root_cause": "Town WorldPositions are order-sensitive; Default can match before custom entries. Content Patcher new list entries append at bottom unless MoveEntries reorders them.",
-      "validated_anchor": "Town 40,26 default mapping visually correct",
-      "problem_anchors": [
-        "Town 59,54 marker starts drifting",
-        "Town 74,53 small Town bridge marker wrong",
-        "Town 79,53 to 80,53 previously produced severe one-tile discontinuity"
+      "root_causes": [
+        "Town WorldPositions are order-sensitive; Default can match before custom entries unless MoveEntries reorders them.",
+        "TEST5 restored entry ordering but allowed SVE Default MapPixelArea Width97 raw / Width388 runtime, making the pre-corridor marker too far right."
       ],
-      "east_anchors": {
-        "joja": "Town 95,52",
-        "church": "Town 151,79"
+      "runtime_confirmed_ordering": {
+        "Town 62,54": "VotriValley.SDS_BridgeCorridor",
+        "Town 69,53": "VotriValley.SDS_BridgeCorridor",
+        "Town 74,54": "VotriValley.SDS_BridgeCorridor"
       },
-      "active_test": "compatibility/patches/SDS-SVE-NPCMapLocations-Compat-TEST5",
+      "default_problem_runtime_area_test5": "X588 Y184 Width388 Height320",
+      "active_test": "compatibility/patches/SDS-SVE-NPCMapLocations-Compat-TEST6",
       "active_test_source_commits": {
-        "manifest": "b2963e825a25b6e50697c4ddaf79d738c71947ef",
-        "content": "388538f3c6a0cf2cccb22421336a0de9dd9de647",
-        "readme": "6fd893b3db66893cf4c590c11857981041cdee07"
+        "manifest": "1c68538e67d319203dfaf796643eaf3568bc155d",
+        "content": "48d8752d29dd14e239a70b7594cb90cdb2cb7445",
+        "readme": "9193c0727a7efc7c13fac487343d4a7f9775418f"
       },
       "town_worldposition_order": [
         "VotriValley.SDS_BridgeCorridor",
         "VotriValley.SDS_EastTown",
         "Default"
       ],
+      "default_town": {
+        "TileArea": "X0 Y0 Width80 Height116",
+        "MapPixelArea": "X147 Y46 Width45 Height80",
+        "expected_runtime_pixel_area": "X588 Y184 Width180 Height320"
+      },
       "bridge_corridor": {
         "TileArea": "X59 Y49 Width22 Height12",
         "MapPixelArea": "X180 Y80 Width38 Height8"
@@ -92,9 +96,9 @@
         "TileArea": "X80 Y0 Width93 Height116",
         "MapPixelArea": "X216 Y54 Width48 Height65"
       },
-      "default_town_tilearea": "X0 Y0 Width80 Height116",
       "shearwater_bridge_raw_mappixelarea": "X286 Y101 Width13 Height7",
-      "next_action": "Install only TEST5, then walk Town X58->X81 around Y53-54. Verify debug WorldMapPosition resolves BridgeCorridor for X59-80 before Default and the minimap marker moves continuously. Recheck Joja, church, and Custom_ShearwaterBridge."
+      "expected_seam": "Town 58,53 Default runtime ~(718.50,330.21) -> Town 59,53 BridgeCorridor ~(720.00,330.67)",
+      "next_action": "Install only TEST6. First verify Town 58,53 Default reports pixel area X588 Y184 Width180 Height320. Then walk X58->X81 around Y53-54 and confirm continuous marker motion. Recheck Joja, church, and Custom_ShearwaterBridge."
     },
     "portraits": {
       "mod": "Portraiture",
@@ -104,12 +108,12 @@
     }
   },
   "resume_target": {
-    "mode": "npc_map_locations_test5_validation",
+    "mode": "npc_map_locations_test6_validation",
     "do_not_resume_translation": true,
     "read_first": "compatibility/SESSION-2026-09-12-HANDOFF.md",
-    "next_input": "Runtime minimap result while walking Town X58 through X81 around Y53-54 with TEST5 installed, plus debug WorldMapPosition true at one bridge-corridor tile if any discontinuity remains.",
-    "next_action": "If BridgeCorridor is selected before Default and movement is continuous, promote/tune TEST5. If not, inspect Content Patcher patch application/log ordering rather than changing coordinates blindly."
+    "next_input": "Runtime result with TEST6 at Town 58,53 plus marker behavior while crossing X58->X81 around Y53-54.",
+    "next_action": "If Default reports Width180 runtime and the seam is continuous, promote/tune TEST6 toward stable compatibility. If Width388 remains, inspect Content Patcher application rather than changing coordinates."
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-14T00:20:00+07:00"
+  "updated_at": "2026-09-14T01:55:00+07:00"
 }
