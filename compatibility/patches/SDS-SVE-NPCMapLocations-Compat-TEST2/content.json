@@ -1,0 +1,83 @@
+{
+  "Format": "2.9.0",
+  "Changes": [
+    {
+      "LogName": "Restrict legacy Town world-map mapping to west/central SDS Town",
+      "Action": "EditData",
+      "Target": "Data/WorldMap",
+      "TargetField": [
+        "Valley",
+        "MapAreas",
+        "Town",
+        "WorldPositions",
+        "Default"
+      ],
+      "Entries": {
+        "TileArea": {
+          "X": 0,
+          "Y": 0,
+          "Width": 80,
+          "Height": 116
+        },
+        "MapPixelArea": {
+          "X": 147,
+          "Y": 46,
+          "Width": 45,
+          "Height": 80
+        }
+      },
+      "Priority": "Late"
+    },
+    {
+      "LogName": "Add calibrated SDS east-Town world-map mapping",
+      "Action": "EditData",
+      "Target": "Data/WorldMap",
+      "TargetField": [
+        "Valley",
+        "MapAreas",
+        "Town",
+        "WorldPositions"
+      ],
+      "Entries": {
+        "VotriValley.SDS_EastTown": {
+          "Id": "VotriValley.SDS_EastTown",
+          "LocationName": "Town",
+          "TileArea": {
+            "X": 80,
+            "Y": 0,
+            "Width": 93,
+            "Height": 116
+          },
+          "MapPixelArea": {
+            "X": 216,
+            "Y": 54,
+            "Width": 48,
+            "Height": 65
+          }
+        }
+      },
+      "Priority": "Late"
+    },
+    {
+      "LogName": "Move Shearwater Bridge marker off SDS church",
+      "Action": "EditData",
+      "Target": "Data/WorldMap",
+      "TargetField": [
+        "Valley",
+        "MapAreas",
+        "FlashShifter.StardewValleyExpanded_TownMap_ShearwaterBridge",
+        "WorldPositions",
+        "Custom_ShearwaterBridge"
+      ],
+      "Entries": {
+        "MapPixelArea": {
+          "X": 286,
+          "Y": 101,
+          "Width": 13,
+          "Height": 7
+        }
+      },
+      "Priority": "Late"
+    }
+  ]
+}
