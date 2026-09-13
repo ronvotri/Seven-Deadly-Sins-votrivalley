@@ -1,0 +1,25 @@
+{
+  "Name": "SDS x SVE x NPC Map Locations Compatibility TEST 2",
+  "Author": "VotriValley / Ron",
+  "Version": "0.2.0-test.2",
+  "Description": "Calibrates Pelican Town and Shearwater Bridge world-map tracking for SDS + SVE + NPC Map Locations 3.5.2.",
+  "UniqueID": "VotriValley.SDS.SVE.NPCMapLocations.CompatTest2",
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher",
+    "MinimumVersion": "2.0.0"
+  },
+  "Dependencies": [
+    {
+      "UniqueID": "ricehit.SevenDeadlySinsCP",
+      "IsRequired": true
+    },
+    {
+      "UniqueID": "FlashShifter.StardewValleyExpandedCP",
+      "IsRequired": true
+    },
+    {
+      "UniqueID": "Bouhm.NPCMapLocations",
+      "IsRequired": true
+    }
+  ]
+}
