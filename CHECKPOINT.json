@@ -45,9 +45,9 @@
     ]
   },
   "compatibility_research": {
-    "state": "npc_map_locations_test2_ready_bridge_marker_validation_pending",
+    "state": "npc_map_locations_test3_ready_bridge_entry_override_validation_pending",
     "current_handoff_file": "compatibility/SESSION-2026-09-12-HANDOFF.md",
-    "current_handoff_commit": "c7564c200c4fb0c9bc09f3ecaa306cbe83e47ebf",
+    "current_handoff_commit": "067eac2b21fd1b09c3d2424fa6e07662fca940c0",
     "latest_runtime_finding_file": "compatibility/RUNTIME-FINDING-2026-09-12-BRIDGE-MINIMAP-PORTRAITURE.md",
     "versions": {
       "sds": "3.13.4",
@@ -63,25 +63,29 @@
       "mod": "NPC Map Locations 3.5.2",
       "unique_id": "Bouhm.NPCMapLocations",
       "classification": "Data/WorldMap_artwork_coordinate_mismatch",
-      "town_test1_result": "runtime_appears_correct",
+      "town_calibration": "runtime_appears_correct_preserve",
       "runtime_anchors": {
         "joja": "Town 95,52",
         "church": "Town 151,79"
       },
-      "shearwater_root_cause": "SVE Custom_ShearwaterBridge MapPixelArea X250 Y90 W43 H10 lands on the SDS church because SDS replaces the world map artwork.",
-      "active_test": "compatibility/patches/SDS-SVE-NPCMapLocations-Compat-TEST2",
+      "bridge_runtime_anchor": "Custom_ShearwaterBridge 6,21",
+      "bridge_test2_runtime_pixel_area": "X1000 Y360 Width172 Height40",
+      "bridge_test2_raw_pixel_area": "X250 Y90 Width43 Height10",
+      "bridge_test2_result": "nested_edit_did_not_replace_sve_entry",
+      "active_test": "compatibility/patches/SDS-SVE-NPCMapLocations-Compat-TEST3",
       "active_test_source_commits": {
-        "manifest": "92f52cf2617ed25febcfe93edb556fa825d6283c",
-        "content": "870666117c3bdc6850c1cf212ffb7b90e0f3f75e",
-        "readme": "9e051bbfad7b51bbdf53f0c13002e8e050187c8e"
+        "manifest": "e481098b3100850194c4a7eb50cd9c8bf85a17b8",
+        "content": "02f962496962a9527f70d4b742b2e64df3566e55",
+        "readme": "dba108fbd282162ef1baf5bc0cd22da59922494e"
       },
-      "shearwater_test2_mappixelarea": {
+      "bridge_test3_raw_mappixelarea": {
         "X": 286,
         "Y": 101,
         "Width": 13,
         "Height": 7
       },
-      "next_action": "Remove minimap TEST1, install TEST2, verify Town remains aligned and Custom_ShearwaterBridge marker moves to the SDS east coast instead of the church."
+      "bridge_test3_expected_runtime_pixel_area": "X1144 Y404 Width52 Height28",
+      "next_action": "Remove minimap TEST1 and TEST2, install TEST3, verify Town stays aligned and debug WorldMapPosition true on Custom_ShearwaterBridge changes to approximately X1144 Y404 Width52 Height28."
     },
     "portraits": {
       "mod": "Portraiture",
@@ -91,12 +95,12 @@
     }
   },
   "resume_target": {
-    "mode": "npc_map_locations_test2_validation",
+    "mode": "npc_map_locations_test3_validation",
     "do_not_resume_translation": true,
     "read_first": "compatibility/SESSION-2026-09-12-HANDOFF.md",
-    "next_input": "Runtime screenshot on Custom_ShearwaterBridge with minimap TEST2 installed, plus confirmation that Joja/church Town alignment remains correct.",
-    "next_action": "Fine-tune only Shearwater Bridge X/Y if needed; preserve the working Town calibration."
+    "next_input": "Runtime screenshot on Custom_ShearwaterBridge with minimap TEST3 installed plus debug WorldMapPosition true output, and confirmation that Joja/church Town alignment remains correct.",
+    "next_action": "If TEST3 applies, fine-tune only Shearwater Bridge X/Y if needed; preserve the working Town calibration."
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-13T10:40:00+07:00"
+  "updated_at": "2026-09-13T14:48:00+07:00"
 }
