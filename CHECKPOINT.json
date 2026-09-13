@@ -45,10 +45,9 @@
     ]
   },
   "compatibility_research": {
-    "state": "npc_map_locations_test3_ready_bridge_entry_override_validation_pending",
+    "state": "npc_map_locations_test5_ordered_world_positions_validation_pending",
     "current_handoff_file": "compatibility/SESSION-2026-09-12-HANDOFF.md",
-    "current_handoff_commit": "067eac2b21fd1b09c3d2424fa6e07662fca940c0",
-    "latest_runtime_finding_file": "compatibility/RUNTIME-FINDING-2026-09-12-BRIDGE-MINIMAP-PORTRAITURE.md",
+    "current_handoff_commit": "18f0bec52d942354352eaf78d3221bd890011b36",
     "versions": {
       "sds": "3.13.4",
       "east_scarp": "3.0.9",
@@ -62,30 +61,40 @@
     "minimap": {
       "mod": "NPC Map Locations 3.5.2",
       "unique_id": "Bouhm.NPCMapLocations",
-      "classification": "Data/WorldMap_artwork_coordinate_mismatch",
-      "town_calibration": "runtime_appears_correct_preserve",
-      "runtime_anchors": {
+      "classification": "Data/WorldMap_artwork_coordinate_and_worldposition_order_mismatch",
+      "root_cause": "Town WorldPositions are order-sensitive; Default can match before custom entries. Content Patcher new list entries append at bottom unless MoveEntries reorders them.",
+      "validated_anchor": "Town 40,26 default mapping visually correct",
+      "problem_anchors": [
+        "Town 59,54 marker starts drifting",
+        "Town 74,53 small Town bridge marker wrong",
+        "Town 79,53 to 80,53 previously produced severe one-tile discontinuity"
+      ],
+      "east_anchors": {
         "joja": "Town 95,52",
         "church": "Town 151,79"
       },
-      "bridge_runtime_anchor": "Custom_ShearwaterBridge 6,21",
-      "bridge_test2_runtime_pixel_area": "X1000 Y360 Width172 Height40",
-      "bridge_test2_raw_pixel_area": "X250 Y90 Width43 Height10",
-      "bridge_test2_result": "nested_edit_did_not_replace_sve_entry",
-      "active_test": "compatibility/patches/SDS-SVE-NPCMapLocations-Compat-TEST3",
+      "active_test": "compatibility/patches/SDS-SVE-NPCMapLocations-Compat-TEST5",
       "active_test_source_commits": {
-        "manifest": "e481098b3100850194c4a7eb50cd9c8bf85a17b8",
-        "content": "02f962496962a9527f70d4b742b2e64df3566e55",
-        "readme": "dba108fbd282162ef1baf5bc0cd22da59922494e"
+        "manifest": "b2963e825a25b6e50697c4ddaf79d738c71947ef",
+        "content": "388538f3c6a0cf2cccb22421336a0de9dd9de647",
+        "readme": "6fd893b3db66893cf4c590c11857981041cdee07"
       },
-      "bridge_test3_raw_mappixelarea": {
-        "X": 286,
-        "Y": 101,
-        "Width": 13,
-        "Height": 7
+      "town_worldposition_order": [
+        "VotriValley.SDS_BridgeCorridor",
+        "VotriValley.SDS_EastTown",
+        "Default"
+      ],
+      "bridge_corridor": {
+        "TileArea": "X59 Y49 Width22 Height12",
+        "MapPixelArea": "X180 Y80 Width38 Height8"
       },
-      "bridge_test3_expected_runtime_pixel_area": "X1144 Y404 Width52 Height28",
-      "next_action": "Remove minimap TEST1 and TEST2, install TEST3, verify Town stays aligned and debug WorldMapPosition true on Custom_ShearwaterBridge changes to approximately X1144 Y404 Width52 Height28."
+      "east_town": {
+        "TileArea": "X80 Y0 Width93 Height116",
+        "MapPixelArea": "X216 Y54 Width48 Height65"
+      },
+      "default_town_tilearea": "X0 Y0 Width80 Height116",
+      "shearwater_bridge_raw_mappixelarea": "X286 Y101 Width13 Height7",
+      "next_action": "Install only TEST5, then walk Town X58->X81 around Y53-54. Verify debug WorldMapPosition resolves BridgeCorridor for X59-80 before Default and the minimap marker moves continuously. Recheck Joja, church, and Custom_ShearwaterBridge."
     },
     "portraits": {
       "mod": "Portraiture",
@@ -95,12 +104,12 @@
     }
   },
   "resume_target": {
-    "mode": "npc_map_locations_test3_validation",
+    "mode": "npc_map_locations_test5_validation",
     "do_not_resume_translation": true,
     "read_first": "compatibility/SESSION-2026-09-12-HANDOFF.md",
-    "next_input": "Runtime screenshot on Custom_ShearwaterBridge with minimap TEST3 installed plus debug WorldMapPosition true output, and confirmation that Joja/church Town alignment remains correct.",
-    "next_action": "If TEST3 applies, fine-tune only Shearwater Bridge X/Y if needed; preserve the working Town calibration."
+    "next_input": "Runtime minimap result while walking Town X58 through X81 around Y53-54 with TEST5 installed, plus debug WorldMapPosition true at one bridge-corridor tile if any discontinuity remains.",
+    "next_action": "If BridgeCorridor is selected before Default and movement is continuous, promote/tune TEST5. If not, inspect Content Patcher patch application/log ordering rather than changing coordinates blindly."
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-13T14:48:00+07:00"
+  "updated_at": "2026-09-14T00:20:00+07:00"
 }
