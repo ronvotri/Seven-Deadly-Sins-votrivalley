@@ -45,47 +45,58 @@
     ]
   },
   "compatibility_research": {
-    "state": "native_bridge_roundtrip_validation_and_minimap_mapping_pending",
+    "state": "npc_map_locations_test2_ready_bridge_marker_validation_pending",
     "current_handoff_file": "compatibility/SESSION-2026-09-12-HANDOFF.md",
-    "current_handoff_commit": "14ddb57501534dfd3d3aa26b876faa421073b1dd",
+    "current_handoff_commit": "c7564c200c4fb0c9bc09f3ecaa306cbe83e47ebf",
     "latest_runtime_finding_file": "compatibility/RUNTIME-FINDING-2026-09-12-BRIDGE-MINIMAP-PORTRAITURE.md",
-    "latest_runtime_finding_commit": "e0be4e8e8a9b05f6927c9c5be3e721e0101b3865",
     "versions": {
       "sds": "3.13.4",
       "east_scarp": "3.0.9",
       "npc_map_locations": "3.5.2"
     },
     "with_sve": {
-      "runtime_classification": "native_railroad_shearwater_forward_route_usable",
+      "runtime_classification": "native_two_way_bridge_route_preferred",
       "preferred_route": "main world / railroad <-> Custom_ShearwaterBridge <-> EastScarp_Village",
-      "test1": "rejected",
-      "test2": "rejected_asymmetric_return",
-      "test2_reason": "Direct EastScarp_Village -> Town return bypasses Shearwater Bridge while forward travel naturally uses the bridge chain."
+      "direct_route_test": "rejected_asymmetric_return"
     },
     "minimap": {
       "mod": "NPC Map Locations 3.5.2",
       "unique_id": "Bouhm.NPCMapLocations",
-      "status": "farmer_marker_inaccurate",
-      "classification": "separate_world_map_coordinate_mapping_issue",
-      "next_action": "Derive correct Town mapping vectors for the final SDS+SVE Town layout using multiple debug ppp calibration points before building a compatibility patch."
+      "classification": "Data/WorldMap_artwork_coordinate_mismatch",
+      "town_test1_result": "runtime_appears_correct",
+      "runtime_anchors": {
+        "joja": "Town 95,52",
+        "church": "Town 151,79"
+      },
+      "shearwater_root_cause": "SVE Custom_ShearwaterBridge MapPixelArea X250 Y90 W43 H10 lands on the SDS church because SDS replaces the world map artwork.",
+      "active_test": "compatibility/patches/SDS-SVE-NPCMapLocations-Compat-TEST2",
+      "active_test_source_commits": {
+        "manifest": "92f52cf2617ed25febcfe93edb556fa825d6283c",
+        "content": "870666117c3bdc6850c1cf212ffb7b90e0f3f75e",
+        "readme": "9e051bbfad7b51bbdf53f0c13002e8e050187c8e"
+      },
+      "shearwater_test2_mappixelarea": {
+        "X": 286,
+        "Y": 101,
+        "Width": 13,
+        "Height": 7
+      },
+      "next_action": "Remove minimap TEST1, install TEST2, verify Town remains aligned and Custom_ShearwaterBridge marker moves to the SDS east coast instead of the church."
     },
     "portraits": {
       "mod": "Portraiture",
-      "status": "user_copied_sds_hd_portraits",
+      "status": "config_folder_and_active_set_verified_runtime_render_issue_remaining",
       "portrait_folder": "Mods/Portraiture/Portraits/Seven Deadly Sins/",
-      "recommended_active_set": "Seven Deadly Sins",
-      "next_action": "Set Portraiture config active value to Seven Deadly Sins and keep large-above-box mode disabled if normal dialogue sizing is preferred."
+      "recommended_active_set": "Seven Deadly Sins"
     }
   },
   "resume_target": {
-    "mode": "native_bridge_roundtrip_and_minimap_calibration",
+    "mode": "npc_map_locations_test2_validation",
     "do_not_resume_translation": true,
-    "do_not_retry_test1": true,
-    "do_not_promote_test2": true,
     "read_first": "compatibility/SESSION-2026-09-12-HANDOFF.md",
-    "next_input": "Native EastScarp_Village -> Custom_ShearwaterBridge -> main-world return result after TEST 2 is removed, plus multiple Town debug ppp calibration positions for NPC Map Locations if minimap remains inaccurate.",
-    "next_action": "Preserve the native two-way bridge chain if it works; then build a dedicated NPC Map Locations coordinate compatibility patch from measured Town map vectors."
+    "next_input": "Runtime screenshot on Custom_ShearwaterBridge with minimap TEST2 installed, plus confirmation that Joja/church Town alignment remains correct.",
+    "next_action": "Fine-tune only Shearwater Bridge X/Y if needed; preserve the working Town calibration."
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-12T20:24:00+07:00"
+  "updated_at": "2026-09-13T10:40:00+07:00"
 }
