@@ -1,0 +1,25 @@
+{
+  "Name": "SDS x SVE x NPC Map Locations Compatibility TEST 3",
+  "Author": "VotriValley / Ron",
+  "Version": "0.3.0-test.3",
+  "Description": "Keeps the validated SDS Town calibration and hard-overrides SVE Shearwater Bridge world-map placement for NPC Map Locations 3.5.2.",
+  "UniqueID": "VotriValley.SDS.SVE.NPCMapLocations.CompatTest3",
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher",
+    "MinimumVersion": "2.0.0"
+  },
+  "Dependencies": [
+    {
+      "UniqueID": "ricehit.SevenDeadlySinsCP",
+      "IsRequired": true
+    },
+    {
+      "UniqueID": "FlashShifter.StardewValleyExpandedCP",
+      "IsRequired": true
+    },
+    {
+      "UniqueID": "Bouhm.NPCMapLocations",
+      "IsRequired": true
+    }
+  ]
+}
