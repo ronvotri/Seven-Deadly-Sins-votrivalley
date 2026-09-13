@@ -1,0 +1,25 @@
+{
+  "Name": "SDS x SVE x NPC Map Locations Compatibility TEST 5",
+  "Author": "VotriValley / Ron",
+  "Version": "0.5.0-test.5",
+  "Description": "Fixes Town bridge-corridor marker continuity and Shearwater Bridge placement for SDS + SVE + NPC Map Locations 3.5.2.",
+  "UniqueID": "VotriValley.SDS.SVE.NPCMapLocations.CompatTest5",
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher",
+    "MinimumVersion": "2.0.0"
+  },
+  "Dependencies": [
+    {
+      "UniqueID": "ricehit.SevenDeadlySinsCP",
+      "IsRequired": true
+    },
+    {
+      "UniqueID": "FlashShifter.StardewValleyExpandedCP",
+      "IsRequired": true
+    },
+    {
+      "UniqueID": "Bouhm.NPCMapLocations",
+      "IsRequired": true
+    }
+  ]
+}
