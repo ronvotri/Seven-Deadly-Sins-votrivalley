@@ -1,0 +1,25 @@
+{
+  "Name": "SDS x SVE x NPC Map Locations Compatibility LITE",
+  "Author": "VotriValley / Ron",
+  "Version": "1.0.0-lite",
+  "Description": "Lightweight compatibility patch for SDS + SVE + NPC Map Locations. Fixes Town tracking only and leaves Shearwater Bridge untouched.",
+  "UniqueID": "VotriValley.SDS.SVE.NPCMapLocations.CompatLite",
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher",
+    "MinimumVersion": "2.0.0"
+  },
+  "Dependencies": [
+    {
+      "UniqueID": "ricehit.SevenDeadlySinsCP",
+      "IsRequired": true
+    },
+    {
+      "UniqueID": "FlashShifter.StardewValleyExpandedCP",
+      "IsRequired": true
+    },
+    {
+      "UniqueID": "Bouhm.NPCMapLocations",
+      "IsRequired": true
+    }
+  ]
+}
