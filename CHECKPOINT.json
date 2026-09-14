@@ -34,20 +34,41 @@
   "release": {
     "commit": "cac241011ff8e0eb15d8902ed94b06e78006bfa7",
     "archive": "dist/Seven-Deadly-Sins-3.13.4-Vietnamese-Localization.zip",
-    "localization_only": true
+    "localization_only": true,
+    "session_local_artifacts": [
+      {
+        "name": "SDS-3.13.4-Vietnamese-Localization.zip",
+        "sha256": "eebdb40d5343d5c6809b7a5c7e199d03a31cd0ee3f2a2d386e62a8e8e044adce",
+        "scope": "CP + DLL Vietnamese localization only"
+      },
+      {
+        "name": "SDS-3.13.4-Vietnamese-Localization-Visual-Hotfix.zip",
+        "sha256": "1b36c1bb14d6cac1c3726acbe04862d5016f4dc2f2afcf870db0dad46acc1236",
+        "scope": "CP + DLL localization + SDS.statement1/2/3 Vietnamese PNG replacements",
+        "preferred_by_user_for_now": true
+      }
+    ]
   },
   "visual_localization": {
-    "state": "statement_png_gap_identified_hotfix_test_built",
+    "state": "temporarily_accepted_ok",
     "files": [
       "[CP] Seven Deadly Sins/Maps/CG/SDS.statement1.png",
       "[CP] Seven Deadly Sins/Maps/CG/SDS.statement2.png",
       "[CP] Seven Deadly Sins/Maps/CG/SDS.statement3.png"
-    ]
+    ],
+    "do_not_reopen_unless_user_requests": true
+  },
+  "portraits": {
+    "mod": "Portraiture",
+    "state": "temporarily_accepted_ok",
+    "portrait_folder": "Mods/Portraiture/Portraits/Seven Deadly Sins/",
+    "active_set": "Seven Deadly Sins",
+    "do_not_repeat_basic_folder_config_debugging": true
   },
   "compatibility_research": {
-    "state": "minimap_deferred_original_behavior_accepted",
-    "current_handoff_file": "compatibility/SESSION-2026-09-12-HANDOFF.md",
-    "current_handoff_commit": "4da0cf36a4a735539adf1bab0334a0645de5be3f",
+    "state": "stable_handoff_lite_pack_available",
+    "current_handoff_file": "compatibility/SESSION-2026-09-15-HANDOFF.md",
+    "current_handoff_commit": "78e3c26f7a2af87f077921fd0014ae432ca43720",
     "versions": {
       "sds": "3.13.4",
       "east_scarp": "3.0.9",
@@ -56,38 +77,60 @@
     "with_sve": {
       "runtime_classification": "native_two_way_bridge_route_preferred",
       "preferred_route": "main world / railroad <-> Custom_ShearwaterBridge <-> EastScarp_Village",
-      "direct_route_test": "rejected_asymmetric_return"
+      "direct_route_test": "rejected_asymmetric_or_bypassing_route",
+      "do_not_promote_direct_route_test2": true
     },
     "minimap": {
       "mod": "NPC Map Locations 3.5.2",
       "unique_id": "Bouhm.NPCMapLocations",
-      "status": "deferred_by_user",
-      "classification": "known_inaccurate_farmer_marker_in_some_SDS_SVE_areas",
-      "user_decision": "Use original NPC Map Locations behavior for now; minimap inaccuracy is temporarily accepted as a feature limitation.",
-      "cleanup": "Remove all SDS-SVE-NPCMapLocations compatibility TEST packs 1 through 8 and restart the game.",
-      "do_not_resume_automatically": true,
+      "engine_basis": "Stardew 1.6 Data/WorldMap / WorldMapManager.GetPositionData",
+      "status": "lite_solution_available_deep_bridge_fix_deferred",
+      "user_decision": "Use the reduced Town-only compatibility patch if desired and accept the remaining Shearwater Bridge marker error as a temporary visual limitation.",
+      "old_test_cleanup": "Remove SDS-SVE-NPCMapLocations compatibility TEST packs 1 through 8 before installing LITE.",
+      "do_not_resume_shearwater_research_automatically": true,
       "preserved_findings": [
         "Town WorldPositions are order-sensitive and custom entries can require MoveEntries before Default.",
         "TEST5 confirmed SDS_BridgeCorridor matching at Town 62,54; 69,53; and 74,54.",
-        "SVE Default can expose runtime pixel area X588 Y184 Width388 Height320.",
-        "Custom_ShearwaterBridge continued to report original SVE runtime pixel area X1000 Y360 Width172 Height40 through later tests.",
-        "TEST8 was the final attempted bridge strategy but was not validated because the user stopped minimap work."
-      ]
-    },
-    "portraits": {
-      "mod": "Portraiture",
-      "status": "config_folder_and_active_set_verified_runtime_render_issue_remaining",
-      "portrait_folder": "Mods/Portraiture/Portraits/Seven Deadly Sins/",
-      "recommended_active_set": "Seven Deadly Sins"
+        "TEST6 restored calibrated Town Default runtime pixel area X588 Y184 Width180 Height320 instead of SVE wide Width388 mapping.",
+        "User later reported the Town side fixed/acceptable.",
+        "Custom_ShearwaterBridge continued to report original SVE runtime pixel area X1000 Y360 Width172 Height40 through later attempts.",
+        "TEST7 and TEST8 did not produce a reliable bridge correction and are not release candidates."
+      ],
+      "lite_pack": {
+        "source_dir": "compatibility/patches/SDS-SVE-NPCMapLocations-Compat-LITE/",
+        "builder": "compatibility/patches/build_npcmap_compat_lite.py",
+        "unique_id": "VotriValley.SDS.SVE.NPCMapLocations.CompatLite",
+        "manifest_commit": "5dc53ad5c4288b9f1328adb22ce0d9dbf404b944",
+        "content_commit": "b71ddf4490e4412edff2137c39b6ff100b6cb478",
+        "readme_commit": "347f50899c7dc7879aeef504dc15de1346078427",
+        "builder_commit": "2c5ff53da526b598c64ed33878066d7a809d154f",
+        "session_local_zip": "SDS-SVE-NPCMapLocations-Compat-LITE.zip",
+        "session_local_zip_sha256": "484ea5a3f4e8e43146403779b39068f78b223606dc9c792d3c79d8cbfd1114c2",
+        "scope": [
+          "calibrated Town Default",
+          "VotriValley.SDS_BridgeCorridor",
+          "VotriValley.SDS_EastTown",
+          "MoveEntries before Default"
+        ],
+        "intentionally_excluded": [
+          "Custom_ShearwaterBridge override",
+          "real map layer edits",
+          "terrain or Buildings edits",
+          "warp edits",
+          "East Scarp route edits",
+          "minimap edits outside Town"
+        ]
+      }
     }
   },
   "resume_target": {
-    "mode": "portraits_or_visual_localization",
+    "mode": "stable_wait_for_user_request",
     "do_not_resume_translation": true,
-    "do_not_resume_minimap_unless_user_requests": true,
-    "read_first": "compatibility/SESSION-2026-09-12-HANDOFF.md",
-    "next_action": "Continue the portrait rendering issue or validate/merge the Vietnamese baked statement PNG hotfix. Leave NPC Map Locations on original behavior unless the user explicitly reopens minimap compatibility."
+    "do_not_resume_minimap_shearwater_unless_user_requests": true,
+    "do_not_resume_portrait_or_statement_png_debugging_unless_user_requests": true,
+    "read_first": "compatibility/SESSION-2026-09-15-HANDOFF.md",
+    "next_action": "No mandatory open bug. Follow the user's next request. If minimap work returns, start from LITE rather than TEST1-TEST8."
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-14T22:10:00+07:00"
+  "updated_at": "2026-09-15T03:00:00+07:00"
 }
