@@ -45,9 +45,9 @@
     ]
   },
   "compatibility_research": {
-    "state": "npc_map_locations_test6_default_projection_validation_pending",
+    "state": "minimap_deferred_original_behavior_accepted",
     "current_handoff_file": "compatibility/SESSION-2026-09-12-HANDOFF.md",
-    "current_handoff_commit": "9bc1dcc592ba5bcd0d069c9b9d47ca982dafc3a4",
+    "current_handoff_commit": "4da0cf36a4a735539adf1bab0334a0645de5be3f",
     "versions": {
       "sds": "3.13.4",
       "east_scarp": "3.0.9",
@@ -61,44 +61,18 @@
     "minimap": {
       "mod": "NPC Map Locations 3.5.2",
       "unique_id": "Bouhm.NPCMapLocations",
-      "classification": "Data/WorldMap_artwork_coordinate_and_worldposition_order_mismatch",
-      "root_causes": [
-        "Town WorldPositions are order-sensitive; Default can match before custom entries unless MoveEntries reorders them.",
-        "TEST5 restored entry ordering but allowed SVE Default MapPixelArea Width97 raw / Width388 runtime, making the pre-corridor marker too far right."
-      ],
-      "runtime_confirmed_ordering": {
-        "Town 62,54": "VotriValley.SDS_BridgeCorridor",
-        "Town 69,53": "VotriValley.SDS_BridgeCorridor",
-        "Town 74,54": "VotriValley.SDS_BridgeCorridor"
-      },
-      "default_problem_runtime_area_test5": "X588 Y184 Width388 Height320",
-      "active_test": "compatibility/patches/SDS-SVE-NPCMapLocations-Compat-TEST6",
-      "active_test_source_commits": {
-        "manifest": "1c68538e67d319203dfaf796643eaf3568bc155d",
-        "content": "48d8752d29dd14e239a70b7594cb90cdb2cb7445",
-        "readme": "9193c0727a7efc7c13fac487343d4a7f9775418f"
-      },
-      "town_worldposition_order": [
-        "VotriValley.SDS_BridgeCorridor",
-        "VotriValley.SDS_EastTown",
-        "Default"
-      ],
-      "default_town": {
-        "TileArea": "X0 Y0 Width80 Height116",
-        "MapPixelArea": "X147 Y46 Width45 Height80",
-        "expected_runtime_pixel_area": "X588 Y184 Width180 Height320"
-      },
-      "bridge_corridor": {
-        "TileArea": "X59 Y49 Width22 Height12",
-        "MapPixelArea": "X180 Y80 Width38 Height8"
-      },
-      "east_town": {
-        "TileArea": "X80 Y0 Width93 Height116",
-        "MapPixelArea": "X216 Y54 Width48 Height65"
-      },
-      "shearwater_bridge_raw_mappixelarea": "X286 Y101 Width13 Height7",
-      "expected_seam": "Town 58,53 Default runtime ~(718.50,330.21) -> Town 59,53 BridgeCorridor ~(720.00,330.67)",
-      "next_action": "Install only TEST6. First verify Town 58,53 Default reports pixel area X588 Y184 Width180 Height320. Then walk X58->X81 around Y53-54 and confirm continuous marker motion. Recheck Joja, church, and Custom_ShearwaterBridge."
+      "status": "deferred_by_user",
+      "classification": "known_inaccurate_farmer_marker_in_some_SDS_SVE_areas",
+      "user_decision": "Use original NPC Map Locations behavior for now; minimap inaccuracy is temporarily accepted as a feature limitation.",
+      "cleanup": "Remove all SDS-SVE-NPCMapLocations compatibility TEST packs 1 through 8 and restart the game.",
+      "do_not_resume_automatically": true,
+      "preserved_findings": [
+        "Town WorldPositions are order-sensitive and custom entries can require MoveEntries before Default.",
+        "TEST5 confirmed SDS_BridgeCorridor matching at Town 62,54; 69,53; and 74,54.",
+        "SVE Default can expose runtime pixel area X588 Y184 Width388 Height320.",
+        "Custom_ShearwaterBridge continued to report original SVE runtime pixel area X1000 Y360 Width172 Height40 through later tests.",
+        "TEST8 was the final attempted bridge strategy but was not validated because the user stopped minimap work."
+      ]
     },
     "portraits": {
       "mod": "Portraiture",
@@ -108,12 +82,12 @@
     }
   },
   "resume_target": {
-    "mode": "npc_map_locations_test6_validation",
+    "mode": "portraits_or_visual_localization",
     "do_not_resume_translation": true,
+    "do_not_resume_minimap_unless_user_requests": true,
     "read_first": "compatibility/SESSION-2026-09-12-HANDOFF.md",
-    "next_input": "Runtime result with TEST6 at Town 58,53 plus marker behavior while crossing X58->X81 around Y53-54.",
-    "next_action": "If Default reports Width180 runtime and the seam is continuous, promote/tune TEST6 toward stable compatibility. If Width388 remains, inspect Content Patcher application rather than changing coordinates."
+    "next_action": "Continue the portrait rendering issue or validate/merge the Vietnamese baked statement PNG hotfix. Leave NPC Map Locations on original behavior unless the user explicitly reopens minimap compatibility."
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-14T01:55:00+07:00"
+  "updated_at": "2026-09-14T22:10:00+07:00"
 }
