@@ -1,126 +1,152 @@
 # HANDOFF - Seven Deadly Sins 3.13.4
 
-> **Vietnamese text localization is complete. Active work is runtime compatibility. Do not restart translation unless a new source version or an in-game localization bug appears.**
+> **Vietnamese text localization is complete. Current stable state is localization + optional visual hotfix + an optional Town-only NPC Map Locations LITE patch. Do not restart translation or deep minimap research automatically.**
+
+## Read first in the next chat
+
+`compatibility/SESSION-2026-09-15-HANDOFF.md`
+
+Then:
+
+`CHECKPOINT.json`
+
+Historical compatibility research remains under `compatibility/`.
+
+---
 
 ## Localization status
 
 - CP: **24,827 / 24,827**, clean audit, canonical commit `2ca310f`
 - DLL: **2,419 / 2,419**, clean audit, canonical commit `c2e0461693e423785a6dc4ea44eb5fc430b84949`
-- Release archive: `dist/Seven-Deadly-Sins-3.13.4-Vietnamese-Localization.zip`
+- canonical localization-only archive: `dist/Seven-Deadly-Sins-3.13.4-Vietnamese-Localization.zip`
+- release commit: `cac241011ff8e0eb15d8902ed94b06e78006bfa7`
 
-## Current compatibility source of truth
+Do not restart translation unless:
 
-Read first:
-
-`compatibility/SESSION-2026-09-12-HANDOFF.md`
-
-Then:
-
-`compatibility/RUNTIME-FINDING-2026-09-12-EAST-TOWN-BLOCK.md`
-
-Historical/static map research:
-
-`compatibility/SDS-EastScarp-SVE-RESEARCH.md`
-
-Important: the old static conclusion that the Shearwater warp strip itself remained walkable is **not** the current runtime conclusion. Runtime testing superseded it for the tested modpack.
+1. SDS source version changes, or
+2. the user reports a concrete in-game localization bug.
 
 ---
-
-# CURRENT RUNTIME CLASSIFICATION
-
-Target stack includes SDS 3.13.4 + SVE + East Scarp 3.0.9 in the user's large modpack.
-
-User runtime coordinate at the east-Town blockage:
-
-`Town X110 Y73`
-
-The original practical route:
-
-`Town -> Custom_ShearwaterBridge -> EastScarp_Village`
-
-is confirmed unusable in the tested combined runtime state because the final Town topology is blocked/overlapped before the player can reach the old SVE warp strip.
-
-Classification:
-
-**CONFIRMED RUNTIME ACCESS / TOPOLOGY CONFLICT — compatibility patch required.**
-
-## TEST 1
-
-Cleared Buildings at Town X111 Y73 W3 H2.
-
-Result:
-
-**REJECTED.** The route remained unusable and broader map overlap was visible. Do not continue enlarging that corridor blindly.
-
-## TEST 2 — Direct Route
-
-The user chose to bypass Shearwater completely for this compatibility pack.
-
-New route:
-
-`Town <-> EastScarp_Village`
-
-Source:
-
-`compatibility/patches/SDS-SVE-EastScarp-DirectRoute-TEST2/`
-
-Builder:
-
-`compatibility/patches/build_direct_route_test2.py`
-
-Town gate:
-
-- X110,Y72 -> EastScarp_Village 1,71
-- X110,Y73 -> EastScarp_Village 1,72
-- X110,Y74 -> EastScarp_Village 1,73
-
-Return gate:
-
-- EastScarp_Village X0,Y70-74 -> Town X109,Y72-74
-
-Return lands on X109 intentionally to prevent instant bounce-back into the Town gate at X110.
-
-TEST 2 edits warps only. No Town terrain layers are modified.
-
-Status:
-
-**BUILT — two-way runtime validation pending.**
-
----
-
-# EXACT NEXT ACTION
-
-1. Remove TEST 1.
-2. Install TEST 2 only.
-3. Test Town -> EastScarp_Village through Town X110,Y72-74.
-4. Confirm `Custom_ShearwaterBridge` is skipped.
-5. Test EastScarp_Village west edge -> Town.
-6. Confirm the Town X109 landing is walkable and does not bounce back.
-7. If either direction fails, use `debug ppp` at the failed trigger/landing tile.
-8. Send a fresh full SMAPI log if Content Patcher reports errors.
-
-Only after both directions pass should TEST 2 be promoted to a stable UniqueID/release candidate and receive optional visual entrance treatment.
-
----
-
-# Other open items
 
 ## Visual localization
 
-The Chinese statement screens are baked PNG assets outside the JSON localization audit:
+The baked statement screens are outside the JSON audit:
 
 - `SDS.statement1.png`
 - `SDS.statement2.png`
 - `SDS.statement3.png`
 
-A separate Vietnamese visual hotfix test exists. Keep it separate from the East Scarp compatibility pack.
+A merged localization + visual-hotfix ZIP was created in the 2026-09-15 chat.
 
-## Portraits
+User status: **temporarily OK / accepted**.
 
-SDS high-resolution portraits require Portraiture for correct display in the user's setup. The user has already moved the portrait assets there.
+Do not reopen this unless requested.
+
+---
+
+## Portraiture
+
+Verified setup:
+
+`Mods/Portraiture/Portraits/Seven Deadly Sins/`
+
+Active set:
+
+`Seven Deadly Sins`
+
+User status: **temporarily OK / accepted**.
+
+Do not repeat folder/config troubleshooting unless a new portrait issue appears.
+
+---
+
+# SVE + East Scarp route decision
+
+Preferred route:
+
+`main world / railroad <-> Custom_ShearwaterBridge <-> EastScarp_Village`
+
+The old direct route patch:
+
+`compatibility/patches/SDS-SVE-EastScarp-DirectRoute-TEST2/`
+
+is **rejected for normal use** because it produced an asymmetric/bypassing route. Keep it only as historical research.
+
+Do not promote it unless the user explicitly reopens route compatibility.
+
+---
+
+# NPC Map Locations status
+
+NPC Map Locations 3.5.2 uses Stardew 1.6 `Data/WorldMap` / `WorldMapManager.GetPositionData`.
+
+Important runtime findings:
+
+- Town WorldPositions are order-sensitive.
+- Custom positions need `MoveEntries` before `Default` when their tile zones overlap Default.
+- TEST5 confirmed `VotriValley.SDS_BridgeCorridor` matching at Town `(62,54)`, `(69,53)`, `(74,54)`.
+- TEST6 restored the calibrated Town Default runtime pixel area to `X588 Y184 Width180 Height320` instead of SVE's wide `Width388` mapping.
+- The user reported the Town side fixed/acceptable afterward.
+- `Custom_ShearwaterBridge` continued to report original SVE runtime pixel area `X1000 Y360 Width172 Height40` through later attempts.
+- The user explicitly stopped further deep minimap debugging.
+
+## Final practical pack: LITE
+
+Source:
+
+`compatibility/patches/SDS-SVE-NPCMapLocations-Compat-LITE/`
+
+Builder:
+
+`compatibility/patches/build_npcmap_compat_lite.py`
+
+UniqueID:
+
+`VotriValley.SDS.SVE.NPCMapLocations.CompatLite`
+
+LITE keeps only:
+
+- calibrated Town `Default`
+- `VotriValley.SDS_BridgeCorridor`
+- `VotriValley.SDS_EastTown`
+- correct ordering before `Default`
+
+LITE intentionally does **not** touch:
+
+- `Custom_ShearwaterBridge`
+- real map layers
+- terrain / Buildings
+- warps
+- East Scarp route
+- minimap areas outside Town
+
+Known limitation: Shearwater Bridge marker may remain inaccurate. This is accepted as a visual-only limitation.
+
+Install rule:
+
+1. Remove old NPC Map Locations TEST1 through TEST8.
+2. Install only `[CP] SDS-SVE-NPCMapLocations-Compat-LITE` if the user wants the Town minimap improvement.
+3. Restart the game fully.
+
+Do **not** hand the user TEST1-TEST8 as the current solution.
+
+---
+
+# Exact next action
+
+There is no mandatory open bug at session end.
+
+When resuming:
+
+1. Read `compatibility/SESSION-2026-09-15-HANDOFF.md` and `CHECKPOINT.json`.
+2. Treat translation as complete.
+3. Treat portraits and the three visual statement images as accepted for now.
+4. Keep the native SVE/East Scarp bridge route.
+5. Start any future minimap work from LITE only.
+6. Do not reopen Shearwater marker research unless the user explicitly asks.
 
 ---
 
 ## Persistence rule
 
-Every confirmed runtime result and compatibility patch must be committed before being considered complete. Update `CHECKPOINT.json`, this root handoff, and the current session handoff whenever runtime state changes.
+Every confirmed runtime result and compatibility patch must be committed before being considered complete. Update `CHECKPOINT.json`, this root handoff, and the current session handoff whenever runtime state materially changes.
