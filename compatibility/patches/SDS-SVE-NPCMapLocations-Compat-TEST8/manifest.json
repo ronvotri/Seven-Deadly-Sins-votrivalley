@@ -1,0 +1,25 @@
+{
+  "Name": "SDS x SVE x NPC Map Locations Compatibility TEST 8",
+  "Author": "VotriValley / Ron",
+  "Version": "0.8.0-test.8",
+  "Description": "Validated SDS Town tracking plus a list-safe Shearwater Bridge world-map override for NPC Map Locations 3.5.2.",
+  "UniqueID": "VotriValley.SDS.SVE.NPCMapLocations.CompatTest8",
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher",
+    "MinimumVersion": "2.0.0"
+  },
+  "Dependencies": [
+    {
+      "UniqueID": "ricehit.SevenDeadlySinsCP",
+      "IsRequired": true
+    },
+    {
+      "UniqueID": "FlashShifter.StardewValleyExpandedCP",
+      "IsRequired": true
+    },
+    {
+      "UniqueID": "Bouhm.NPCMapLocations",
+      "IsRequired": true
+    }
+  ]
+}
