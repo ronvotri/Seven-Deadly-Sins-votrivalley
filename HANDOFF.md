@@ -1,6 +1,6 @@
 # HANDOFF - Seven Deadly Sins 3.13.4
 
-> **Vietnamese text localization is complete. Current stable state is localization + optional visual hotfix + an optional Town-only NPC Map Locations LITE patch. Do not restart translation or deep minimap research automatically.**
+> **Vietnamese text localization is complete. A proper-name/item consistency audit was completed on 2026-09-15. Current stable state is audited localization + optional visual hotfix + an optional Town-only NPC Map Locations LITE patch. Do not restart translation or deep minimap research automatically.**
 
 ## Read first in the next chat
 
@@ -10,21 +10,68 @@ Then:
 
 `CHECKPOINT.json`
 
+Then:
+
+`audit/NAME_ITEM_AUDIT_2026-09-15.md`
+
 Historical compatibility research remains under `compatibility/`.
 
 ---
 
 ## Localization status
 
-- CP: **24,827 / 24,827**, clean audit, canonical commit `2ca310f`
-- DLL: **2,419 / 2,419**, clean audit, canonical commit `c2e0461693e423785a6dc4ea44eb5fc430b84949`
-- canonical localization-only archive: `dist/Seven-Deadly-Sins-3.13.4-Vietnamese-Localization.zip`
-- release commit: `cac241011ff8e0eb15d8902ed94b06e78006bfa7`
+- CP: **24,827 / 24,827**, clean audit, original canonical commit `2ca310f`
+- DLL: **2,419 / 2,419**, clean audit, original canonical commit `c2e0461693e423785a6dc4ea44eb5fc430b84949`
+- original localization-only archive: `dist/Seven-Deadly-Sins-3.13.4-Vietnamese-Localization.zip`
+- original release commit: `cac241011ff8e0eb15d8902ed94b06e78006bfa7`
+
+### 2026-09-15 proper-name / item consistency audit
+
+Triggered by a concrete report that character names and item naming were inconsistent in the current Vietnamese release.
+
+The two user-supplied Vietnamese files were verified byte-for-byte against the repository release before repair, so this audit was performed on the current release state rather than an older copy.
+
+Completed audit results:
+
+- CP changed keys: **1,262**
+- DLL changed keys: **195**
+- CP key count preserved: **24,827**
+- DLL key count preserved: **2,419**
+- dialogue/event control-token mismatches: **0**
+- known bad name aliases remaining: **0**
+- matched English display-name keys audited: **390**
+- outfit sets standardized: **9**
+
+Canonical English proper-name spellings locked by this audit include:
+
+`Sariel`, `Lane`, `Rane`, `Pelette`, `Garnet`, `Regla`, `Teresa`, `Theodor`, `Coffey`, `Xenia`, `Siren`, `Lucas`, `Five Songs`.
+
+Do not reintroduce old/incorrect forms when they represent those characters, including:
+
+`Shirai`, `Baibai`, `Garrett`, `Rigela`, `Theresa`, `Theodore`, `Kofi`, `Zinnia`, `Tiểu Se`, `Tiểu Sai`, `Xiao Sai`, `Bạch Tỉnh`, `Ryan`, `Rhein`, `Pellet`, `Fivesongs`.
+
+The audit also fixed Lane/Rane doll and ice-cream naming/descriptions, Sariel doll naming, several wrong-character references, and inconsistent paired outfit set names.
+
+Audit record:
+
+`audit/NAME_ITEM_AUDIT_2026-09-15.md`
+
+Audit record commit:
+
+`30db501c10048243cbc8187ac07fae0659b8dcd2`
+
+Audited file checksums:
+
+- CP `vi.json`: `42bc9b5b9f61a09c00416cdb3cae80e41f8346015ed46361f8ca87784e3d8f18`
+- DLL `vi.json`: `fd09cbb6e32377267c417184c1576e0bee56aa0e9c33d3481758da6eed538a65`
+- session ZIP `SDS-3.13.4-Vietnamese-Name-Item-Audit-Fix.zip`: `7554385561307026b4674fbf01b4fe1640bad1fd4f1af3cc45e1616b6f264b54`
+
+**Important repo note:** the large release `vi.json` blobs in `release/` have not yet been rebuilt from the audited session artifact. Until an explicit release rebuild is performed, use the audited session ZIP/checksums above as the preferred text-localization state and never restore old aliases from the pre-audit release blobs.
 
 Do not restart translation unless:
 
 1. SDS source version changes, or
-2. the user reports a concrete in-game localization bug.
+2. the user reports a new concrete in-game localization bug.
 
 ---
 
@@ -138,15 +185,16 @@ There is no mandatory open bug at session end.
 
 When resuming:
 
-1. Read `compatibility/SESSION-2026-09-15-HANDOFF.md` and `CHECKPOINT.json`.
-2. Treat translation as complete.
-3. Treat portraits and the three visual statement images as accepted for now.
-4. Keep the native SVE/East Scarp bridge route.
-5. Start any future minimap work from LITE only.
-6. Do not reopen Shearwater marker research unless the user explicitly asks.
+1. Read `compatibility/SESSION-2026-09-15-HANDOFF.md`, `CHECKPOINT.json`, and `audit/NAME_ITEM_AUDIT_2026-09-15.md`.
+2. Treat the audited Vietnamese localization as complete and preserve canonical English character spellings.
+3. Do not reintroduce pre-audit aliases.
+4. Treat portraits and the three visual statement images as accepted for now.
+5. Keep the native SVE/East Scarp bridge route.
+6. Start any future minimap work from LITE only.
+7. Do not reopen Shearwater marker research unless the user explicitly asks.
 
 ---
 
 ## Persistence rule
 
-Every confirmed runtime result and compatibility patch must be committed before being considered complete. Update `CHECKPOINT.json`, this root handoff, and the current session handoff whenever runtime state materially changes.
+Every confirmed translation/runtime result and compatibility patch must be committed before being considered complete. Update `CHECKPOINT.json`, this root handoff, and the current session handoff whenever runtime or localization state materially changes.
