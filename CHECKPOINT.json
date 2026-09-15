@@ -30,6 +30,43 @@
     "canonical_file": "translations/dll/vi.json",
     "audit_file": "audit/DLL_AUDIT.json"
   },
+  "name_item_consistency_audit": {
+    "state": "complete_clean_audited",
+    "trigger": "Concrete user report of inconsistent proper names and item naming in the current 3.13.4 Vietnamese release.",
+    "base_release_verified_byte_for_byte": true,
+    "audit_file": "audit/NAME_ITEM_AUDIT_2026-09-15.md",
+    "audit_commit": "30db501c10048243cbc8187ac07fae0659b8dcd2",
+    "cp_changed_keys": 1262,
+    "dll_changed_keys": 195,
+    "cp_key_count": 24827,
+    "dll_key_count": 2419,
+    "technical_control_mismatch_count": 0,
+    "known_bad_alias_count": 0,
+    "matched_display_name_keys_audited": 390,
+    "outfit_sets_standardized": 9,
+    "canonical_names": [
+      "Sariel",
+      "Lane",
+      "Rane",
+      "Pelette",
+      "Garnet",
+      "Regla",
+      "Teresa",
+      "Theodor",
+      "Coffey",
+      "Xenia",
+      "Siren",
+      "Lucas",
+      "Five Songs"
+    ],
+    "audited_cp_sha256": "42bc9b5b9f61a09c00416cdb3cae80e41f8346015ed46361f8ca87784e3d8f18",
+    "audited_dll_sha256": "fd09cbb6e32377267c417184c1576e0bee56aa0e9c33d3481758da6eed538a65",
+    "session_local_zip": "SDS-3.13.4-Vietnamese-Name-Item-Audit-Fix.zip",
+    "session_local_zip_sha256": "7554385561307026b4674fbf01b4fe1640bad1fd4f1af3cc45e1616b6f264b54",
+    "repo_release_files_rebuilt": false,
+    "note": "The audited session artifact is install-ready. Existing large release vi.json blobs in the repository remain the pre-audit release until a later explicit release rebuild; do not treat that as permission to reintroduce old aliases.",
+    "do_not_reintroduce_pre_audit_aliases": true
+  },
   "release_ready": true,
   "release": {
     "commit": "cac241011ff8e0eb15d8902ed94b06e78006bfa7",
@@ -46,6 +83,12 @@
         "sha256": "1b36c1bb14d6cac1c3726acbe04862d5016f4dc2f2afcf870db0dad46acc1236",
         "scope": "CP + DLL localization + SDS.statement1/2/3 Vietnamese PNG replacements",
         "preferred_by_user_for_now": true
+      },
+      {
+        "name": "SDS-3.13.4-Vietnamese-Name-Item-Audit-Fix.zip",
+        "sha256": "7554385561307026b4674fbf01b4fe1640bad1fd4f1af3cc45e1616b6f264b54",
+        "scope": "Audited CP + DLL Vietnamese JSON only; proper names and item/display-name consistency repaired",
+        "preferred_for_text_localization_after_name_audit": true
       }
     ]
   },
@@ -129,8 +172,8 @@
     "do_not_resume_minimap_shearwater_unless_user_requests": true,
     "do_not_resume_portrait_or_statement_png_debugging_unless_user_requests": true,
     "read_first": "compatibility/SESSION-2026-09-15-HANDOFF.md",
-    "next_action": "No mandatory open bug. Follow the user's next request. If minimap work returns, start from LITE rather than TEST1-TEST8."
+    "next_action": "No mandatory open bug. Preserve the completed name/item audit and canonical English character spellings; do not reintroduce pre-audit aliases. If minimap work returns, start from LITE rather than TEST1-TEST8."
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-15T03:00:00+07:00"
+  "updated_at": "2026-09-15T09:00:00+07:00"
 }
