@@ -67,6 +67,57 @@
     "note": "The audited session artifact is install-ready. Existing large release vi.json blobs in the repository remain the pre-audit release until a later explicit release rebuild; do not treat that as permission to reintroduce old aliases.",
     "do_not_reintroduce_pre_audit_aliases": true
   },
+  "optional_pronoun_packs": {
+    "state": "built_qa_passed_session_artifacts",
+    "audit_file": "audit/OPTIONAL_PRONOUN_PACKS_2026-09-16.md",
+    "audit_commit": "bbdfdc2a2c98f616bc8ac656f2dea6807ad5df9e",
+    "handoff_commit": "108f0c4a532ac17a9c41d769f48ab59364b883e5",
+    "base": "Name + Item + Gender Lock Build 1",
+    "mutually_exclusive": true,
+    "siren_policy": "excluded_from_binary_optional_packs_because_gender_is_route_form_dependent",
+    "male_romance": {
+      "targets": [
+        "Lucas",
+        "Pelette",
+        "Uriel",
+        "Sariel",
+        "Lane",
+        "Rane",
+        "Hovsep"
+      ],
+      "early_policy": "NPC self tôi; male Farmer cậu; female Farmer cô",
+      "deep_policy": "NPC self anh; Farmer em",
+      "deep_threshold": "8-10 hearts plus relationship/spouse/marriage contexts",
+      "cp_changed_keys": 5166,
+      "dll_changed_keys": 280,
+      "technical_control_mismatch_count": 0,
+      "invalid_inline_gender_token_count": 0,
+      "session_local_zip": "SDS-3.13.4-Optional-Pronouns-Male-Romance.zip",
+      "sha256": "f6274c992095c7a1b357104c839c03240fca4b2cd44d793d090d485a5cc45b3e"
+    },
+    "female_romance": {
+      "targets": [
+        "Regla",
+        "Luoli",
+        "Maria"
+      ],
+      "early_policy": "NPC self tôi; male Farmer anh; female Farmer chị",
+      "deep_policy": "NPC self em; male Farmer anh; female Farmer chị",
+      "deep_threshold": "8-10 hearts plus relationship/spouse/marriage contexts",
+      "cp_changed_keys": 351,
+      "dll_changed_keys": 32,
+      "technical_control_mismatch_count": 0,
+      "invalid_inline_gender_token_count": 0,
+      "session_local_zip": "SDS-3.13.4-Optional-Pronouns-Female-Romance.zip",
+      "sha256": "e603013988900934e2d2536c0b49bae21bb89149b9c659372f8141c03b5c5de6"
+    },
+    "combined_bundle": {
+      "session_local_zip": "SDS-3.13.4-Optional-Pronoun-Packs-A-B.zip",
+      "sha256": "7718696f4fc681e6845fb3f81a9f1f80670c4e7e3ccb4e006a081631623ebddd"
+    },
+    "repo_release_files_rebuilt": false,
+    "next_editorial_rule": "Continue speaker-by-speaker review from these policies; never global search/replace player pronouns across NPC-to-NPC dialogue or narration."
+  },
   "release_ready": true,
   "release": {
     "commit": "cac241011ff8e0eb15d8902ed94b06e78006bfa7",
@@ -89,6 +140,16 @@
         "sha256": "7554385561307026b4674fbf01b4fe1640bad1fd4f1af3cc45e1616b6f264b54",
         "scope": "Audited CP + DLL Vietnamese JSON only; proper names and item/display-name consistency repaired",
         "preferred_for_text_localization_after_name_audit": true
+      },
+      {
+        "name": "SDS-3.13.4-Optional-Pronouns-Male-Romance.zip",
+        "sha256": "f6274c992095c7a1b357104c839c03240fca4b2cd44d793d090d485a5cc45b3e",
+        "scope": "Optional male-romance pronoun overlay; install over audited base; mutually exclusive with female pack"
+      },
+      {
+        "name": "SDS-3.13.4-Optional-Pronouns-Female-Romance.zip",
+        "sha256": "e603013988900934e2d2536c0b49bae21bb89149b9c659372f8141c03b5c5de6",
+        "scope": "Optional female-romance pronoun overlay; install over audited base; mutually exclusive with male pack"
       }
     ]
   },
@@ -167,13 +228,13 @@
     }
   },
   "resume_target": {
-    "mode": "stable_wait_for_user_request",
-    "do_not_resume_translation": true,
+    "mode": "optional_pronoun_packs_ready_for_user_test",
+    "do_not_restart_broad_translation": true,
     "do_not_resume_minimap_shearwater_unless_user_requests": true,
     "do_not_resume_portrait_or_statement_png_debugging_unless_user_requests": true,
-    "read_first": "compatibility/SESSION-2026-09-15-HANDOFF.md",
-    "next_action": "No mandatory open bug. Preserve the completed name/item audit and canonical English character spellings; do not reintroduce pre-audit aliases. If minimap work returns, start from LITE rather than TEST1-TEST8."
+    "read_first": "audit/OPTIONAL_PRONOUN_PACKS_2026-09-16.md",
+    "next_action": "Use the audited base plus exactly one optional pronoun overlay. If the user reports awkward lines, patch concrete speaker/context cases and continue character-by-character editorial QA without global pronoun replacement."
   },
   "translation_rules_file": "HANDOFF.md",
-  "updated_at": "2026-09-15T09:00:00+07:00"
+  "updated_at": "2026-09-16T09:11:00+07:00"
 }
