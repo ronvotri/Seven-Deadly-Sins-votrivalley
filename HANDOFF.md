@@ -1,6 +1,6 @@
 # HANDOFF - Seven Deadly Sins 3.13.4
 
-> **Vietnamese text localization is complete. A proper-name/item consistency audit was completed on 2026-09-15. Current stable state is audited localization + optional visual hotfix + an optional Town-only NPC Map Locations LITE patch. Do not restart translation or deep minimap research automatically.**
+> **Vietnamese text localization is complete. A proper-name/item consistency audit was completed on 2026-09-15. Two mutually exclusive optional romance-pronoun overlays were built on 2026-09-16. Current stable state is audited localization + optional pronoun pack + optional visual hotfix + an optional Town-only NPC Map Locations LITE patch. Do not restart translation or deep minimap research automatically.**
 
 ## Read first in the next chat
 
@@ -13,6 +13,10 @@ Then:
 Then:
 
 `audit/NAME_ITEM_AUDIT_2026-09-15.md`
+
+Then:
+
+`audit/OPTIONAL_PRONOUN_PACKS_2026-09-16.md`
 
 Historical compatibility research remains under `compatibility/`.
 
@@ -68,10 +72,59 @@ Audited file checksums:
 
 **Important repo note:** the large release `vi.json` blobs in `release/` have not yet been rebuilt from the audited session artifact. Until an explicit release rebuild is performed, use the audited session ZIP/checksums above as the preferred text-localization state and never restore old aliases from the pre-audit release blobs.
 
-Do not restart translation unless:
+### 2026-09-16 optional romance-pronoun packs
+
+Built on top of the audited Name + Item + Gender Lock foundation. These are **mutually exclusive optional overlays** and users install only one at a time.
+
+**Option A — Male Romance**
+
+Targets: `Lucas`, `Pelette`, `Uriel`, `Sariel`, `Lane`, `Rane`, `Hovsep`.
+
+- early / 0–6 hearts: NPC `tôi`; male Farmer `cậu`; female Farmer `cô`
+- deep / 8–10 hearts + dating/spouse/marriage: NPC `anh`; Farmer `em`
+- CP changed: **5,166**
+- DLL changed: **280**
+- control-token mismatches: **0**
+- ZIP: `SDS-3.13.4-Optional-Pronouns-Male-Romance.zip`
+- SHA256: `f6274c992095c7a1b357104c839c03240fca4b2cd44d793d090d485a5cc45b3e`
+
+**Option B — Female Romance**
+
+Targets: `Regla`, `Luoli`, `Maria`.
+
+- early / 0–6 hearts: NPC `tôi`; male Farmer `anh`; female Farmer `chị`
+- deep / 8–10 hearts + dating/spouse/marriage: NPC `em`; male Farmer `anh`; female Farmer `chị`
+- CP changed: **351**
+- DLL changed: **32**
+- control-token mismatches: **0**
+- ZIP: `SDS-3.13.4-Optional-Pronouns-Female-Romance.zip`
+- SHA256: `e603013988900934e2d2536c0b49bae21bb89149b9c659372f8141c03b5c5de6`
+
+Combined selector bundle:
+
+- `SDS-3.13.4-Optional-Pronoun-Packs-A-B.zip`
+- SHA256: `7718696f4fc681e6845fb3f81a9f1f80670c4e7e3ccb4e006a081631623ebddd`
+
+Important rules:
+
+- `Siren` is excluded from both binary packs because Siren intentionally changes gender by route/form.
+- Preserve narration, player response labels, NPC-to-NPC pronouns, and third-person phrases rather than mechanically rewriting them.
+- Continue future editorial QA speaker-by-speaker. Never run a global pronoun search/replace over the entire localization.
+- The session ZIPs are the validated optional artifacts; large repository release `vi.json` blobs have not been rebuilt with these overlays.
+
+Audit record:
+
+`audit/OPTIONAL_PRONOUN_PACKS_2026-09-16.md`
+
+Audit commit:
+
+`bbdfdc2a2c98f616bc8ac656f2dea6807ad5df9e`
+
+Do not restart broad translation unless:
 
 1. SDS source version changes, or
-2. the user reports a new concrete in-game localization bug.
+2. the user reports a new concrete in-game localization bug, or
+3. the user explicitly asks to continue speaker-by-speaker editorial polish.
 
 ---
 
@@ -185,13 +238,15 @@ There is no mandatory open bug at session end.
 
 When resuming:
 
-1. Read `compatibility/SESSION-2026-09-15-HANDOFF.md`, `CHECKPOINT.json`, and `audit/NAME_ITEM_AUDIT_2026-09-15.md`.
-2. Treat the audited Vietnamese localization as complete and preserve canonical English character spellings.
-3. Do not reintroduce pre-audit aliases.
-4. Treat portraits and the three visual statement images as accepted for now.
-5. Keep the native SVE/East Scarp bridge route.
-6. Start any future minimap work from LITE only.
-7. Do not reopen Shearwater marker research unless the user explicitly asks.
+1. Read `compatibility/SESSION-2026-09-15-HANDOFF.md`, `CHECKPOINT.json`, `audit/NAME_ITEM_AUDIT_2026-09-15.md`, and `audit/OPTIONAL_PRONOUN_PACKS_2026-09-16.md`.
+2. Treat the audited Vietnamese localization as the canonical base and preserve canonical English character spellings.
+3. If testing romance phrasing, install exactly one optional pronoun overlay over the audited base.
+4. Do not reintroduce pre-audit aliases.
+5. Treat portraits and the three visual statement images as accepted for now.
+6. Keep the native SVE/East Scarp bridge route.
+7. Start any future minimap work from LITE only.
+8. If dialogue polish resumes, patch concrete speaker/context cases instead of global pronoun replacement.
+9. Do not reopen Shearwater marker research unless the user explicitly asks.
 
 ---
 
